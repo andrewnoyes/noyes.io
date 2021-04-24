@@ -18,7 +18,9 @@ const Main = (props: IMainProps) => (
       <div className="border-b border-gray-300">
         <div className="pb-4 site-title">
           <Link href="/">
-            <a className="font-semibold text-2xl text-gray-900 dark:text-gray-200 no-underline">{Config.title}</a>
+            <a className="font-semibold text-2xl text-gray-900 dark:text-gray-200 no-underline">
+              {Config.title}
+            </a>
           </Link>
           {/* <div className="text-l">{Config.description}</div> */}
         </div>
@@ -49,11 +51,11 @@ const Main = (props: IMainProps) => (
     <style jsx>
       {`
         .site-title :global(a:hover) {
-          @apply no-underline
+          @apply no-underline;
         }
 
         .site-title :global(a:hover) {
-          @apply no-underline
+          @apply no-underline;
         }
       `}
     </style>
