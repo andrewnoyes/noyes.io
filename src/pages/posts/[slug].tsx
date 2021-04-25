@@ -3,8 +3,8 @@ import React from 'react';
 import { format } from 'date-fns';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Content } from '../../content/content';
-import { Meta } from '../../layout/meta';
+import { Content } from '../../components/content';
+import { Meta } from '../../components/meta';
 import { Main } from '../../templates/main';
 import { getAllPosts, getPostBySlug } from '../../utils/content';
 import { markdownToHtml } from '../../utils/markdown';

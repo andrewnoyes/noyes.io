@@ -1,8 +1,8 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 
-import { BlogGallery, IBlogGalleryProps } from '../blog/blog-gallery';
-import { Meta } from '../layout/meta';
+import { BlogGallery, IBlogGalleryProps } from '../components/blog-gallery';
+import { Meta } from '../components/meta';
 import { Main } from '../templates/main';
 import { config } from '../utils/config';
 import { getAllPosts } from '../utils/content';

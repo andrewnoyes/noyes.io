@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import Link from 'next/link';
 
-import { Navbar } from '../navigation/navbar';
+import { Navbar } from '../components/navbar';
 import { config } from '../utils/config';
 
 type IMainProps = {

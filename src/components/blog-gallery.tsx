@@ -11,7 +11,7 @@ export type IBlogGalleryProps = {
 
 const BlogGallery = (props: IBlogGalleryProps) => (
   <>
-    <ul>
+    <ul className="my-2">
       {props.posts.map((post) => (
         <li key={post.slug} className="mb-3">
           <span className="text-xs text-gray-400">{format(new Date(post.date), 'LLL d, yyyy')}</span>
