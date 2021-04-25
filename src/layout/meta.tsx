@@ -25,7 +25,7 @@ const Meta = (props: IMetaProps) => {
       return config.site_name;
     }
 
-    return `${props.title} 🤙 ${config.site_name}`;
+    return `${props.title} | ${config.site_name}`;
   };
 
   return (
