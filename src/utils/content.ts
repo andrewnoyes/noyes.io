@@ -25,6 +25,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (field === 'slug') {
       items[field] = realSlug;
     }
+
     if (field === 'content') {
       items[field] = content;
     }
