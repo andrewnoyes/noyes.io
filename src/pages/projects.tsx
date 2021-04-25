@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Content } from '../content/Content';
-import { Meta } from '../layout/Meta';
-import { Main } from '../templates/Main';
+import { Content } from '../content/content';
+import { Meta } from '../layout/meta';
+import { Main } from '../templates/main';
 
 const Projects = () => (
   <Main meta={<Meta title="projects" description="Lorem ipsum" />}>
     <Content>
-      <p >
+      <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga recusandae quidem.
         Quaerat molestiae blanditiis doloremque possimus labore voluptatibus distinctio recusandae
         autem esse explicabo molestias officia placeat, accusamus aut saepe.

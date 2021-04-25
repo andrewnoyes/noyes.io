@@ -1,11 +1,16 @@
 @tailwind base;
 
 a {
-  @apply text-blue-700;
+  @apply text-blue-400;
 }
 
 a:hover {
   @apply underline;
+}
+
+body {
+  @apply bg-gray-900;
+  @apply  text-white;
 }
 
 @tailwind components;

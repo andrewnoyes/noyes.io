@@ -19,11 +19,11 @@ const Content = (props: IContentProps) => (
         }
 
         .content :global(h2) {
-          @apply text-2xl font-semibold text-gray-700;
+          @apply text-2xl font-semibold text-gray-100;
         }
 
         .content :global(h3) {
-          @apply text-xl font-semibold text-gray-700
+          @apply text-xl font-semibold text-gray-100
         }
       `}
     </style>

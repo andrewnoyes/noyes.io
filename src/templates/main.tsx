@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 
 import Link from 'next/link';
 
-import { Navbar } from '../navigation/Navbar';
-import { Config } from '../utils/Config';
+import { Navbar } from '../navigation/navbar';
+import { config } from '../utils/config';
 
 type IMainProps = {
   meta: ReactNode;
@@ -15,14 +15,12 @@ const Main = (props: IMainProps) => (
     {props.meta}
 
     <div className="max-w-screen-md mx-auto p-4">
-      <div className="border-b border-gray-300">
+      <div className="border-b border-gray-500">
         <div className="pb-4 site-title">
           <Link href="/">
-            <a className="font-semibold text-2xl text-gray-900 dark:text-gray-200 no-underline">
-              {Config.title}
-            </a>
+            <a className="font-semibold text-2xl text-white">{config.title}</a>
           </Link>
-          {/* <div className="text-l">{Config.description}</div> */}
+          {/* <div className="text-md text-gray-200">{config.description}</div> */}
         </div>
         <div>
           <Navbar>
@@ -45,7 +43,7 @@ const Main = (props: IMainProps) => (
         </div>
       </div>
 
-      <div className="py-5 flex-1">{props.children}</div>
+      <div className="py-5">{props.children}</div>
     </div>
 
     <style jsx>

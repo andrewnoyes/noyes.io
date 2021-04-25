@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { convertUrlToLinkHref } from '../utils/Pagination';
+import { convertUrlToLinkHref } from '../utils/pagination';
 
 export type IPaginationProps = {
   previous?: string;
