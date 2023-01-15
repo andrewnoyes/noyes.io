@@ -1,14 +1,12 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
-const baseUrl = '';
-
-module.exports = withBundleAnalyzer({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  // trailingSlash: true,
   poweredByHeader: false,
-  trailingSlash: true,
-  basePath: baseUrl,
-  env: {
-    baseUrl: baseUrl,
+  images: {
+    unoptimized: true,
   },
-});
+};
+
+module.exports = nextConfig;
