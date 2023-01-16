@@ -72,10 +72,14 @@ export const Hero = () => {
           <Text
             color={
               theme.colorScheme === 'dark'
-                ? theme.colors.blue[5]
+                ? theme.colors.blue[4]
                 : theme.colors.blue[9]
             }
-            sx={{ fontFamily: 'monospace', marginLeft: 8, marginBottom: 6 }}
+            sx={{
+              fontFamily: 'monospace',
+              marginLeft: 8,
+              marginBottom: 6,
+            }}
           >
             Hey! My name is
           </Text>
