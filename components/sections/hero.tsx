@@ -97,7 +97,7 @@ export const Hero = () => {
           </Text>
         </Container>
         <div className={classes.controls}>
-          <Link href={'/services'}>
+          <Link href="mailto:andrew@noyes.io">
             <Button variant="gradient" className={classes.control} size="lg">
               Get in touch
             </Button>

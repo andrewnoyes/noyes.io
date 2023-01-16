@@ -74,6 +74,7 @@ export const AppHeader = ({
       href={link.href}
       className={classes.link}
       onClick={closeDrawer}
+      scroll={false}
     >
       {link.name}
     </Link>
