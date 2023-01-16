@@ -50,13 +50,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
 
   const slides = images.map((image) => (
     <Carousel.Slide key={image.url}>
-      <Image
-        src={image.url}
-        alt={image.caption}
-        // TODO: add this back, but need to fix issue with loading in carousel
-        // TODO: also, the image nav buttons need to have aria-labels
-        // imageProps={{ loading: 'lazy' }}
-      />
+      <Image src={image.url} alt={image.caption} />
     </Carousel.Slide>
   ));
 
@@ -68,6 +62,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
         <Carousel
           loop
           withIndicators
+          mx="auto"
           slideGap="xl"
           nextControlLabel="Next image"
           previousControlLabel="Previous image"
