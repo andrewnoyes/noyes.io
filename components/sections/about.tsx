@@ -1,7 +1,20 @@
-import { Card, Container, Grid, Image, Space, Text } from '@mantine/core';
+import {
+  Card,
+  Container,
+  Grid,
+  Group,
+  Image,
+  List,
+  Space,
+  Text,
+  useMantineTheme,
+} from '@mantine/core';
+import { IconChevronRight } from '@tabler/icons';
 import { SectionHeader } from './section-header';
 
 export const About = () => {
+  const theme = useMantineTheme();
+
   return (
     <section id="about">
       <Container size="md" sx={{ paddingTop: 100, paddingBottom: 100 }}>
@@ -19,29 +32,42 @@ export const About = () => {
           </Grid.Col>
           <Grid.Col sm={8}>
             <Text>
-              Listicle pop-up tote bag, iceland tumblr tilde migas woke hexagon
-              semiotics gatekeep heirloom occupy crucifix enamel pin.
-              Dreamcatcher waistcoat try-hard gastropub bruh adaptogen tofu, fit
-              craft beer cray heirloom migas. Gastropub kombucha pabst art party
-              lomo craft beer sartorial, four loko meh woke. Fashion axe seitan
-              yuccie ugh wayfarers farm-to-table everyday carry keffiyeh twee
-              prism DIY jean shorts. Coloring book trust fund food truck ethical
-              taiyaki VHS. Tbh organic copper mug literally, vinyl mustache
-              heirloom iceland direct trade forage 8-bit yuccie chartreuse vegan
-              beard. Brunch knausgaard fam, air plant shoreditch iceland
-              pitchfork taiyaki food truck neutra hashtag prism taxidermy
-              flannel live-edge.
+              Hi! My name is Andrew, and I am a full-stack developer based out
+              of Salt Lake City, Utah. I love building out features from the
+              database schema all the way to what's presented to the user. My
+              main areas of focus are real-time systems (WebSockets!),
+              responsive and accessible front-ends, and performant back-end APIs
+              and services.
             </Text>
             <Space h="md" />
-            <Text>
-              Four loko la croix vibecession lumbersexual. Blue bottle next
-              level typewriter church-key retro hammock helvetica crucifix
-              iPhone pork belly 90's man bun chillwave stumptown. Subway tile
-              iPhone before they sold out lo-fi same blog. Chambray cornhole
-              fixie, microdosing chillwave hella williamsburg direct trade
-              try-hard vexillologist. Hell of gastropub pug unicorn post-ironic
-              listicle flannel synth biodiesel freegan man braid blog.
-            </Text>
+            <Text>Some technologies I've been working with recently:</Text>
+            <Space h="md" />
+            <Group spacing="xl">
+              <List
+                size="sm"
+                spacing="sm"
+                sx={{ fontFamily: 'monospace' }}
+                icon={
+                  <IconChevronRight size={14} color={theme.colors.blue[7]} />
+                }
+              >
+                <List.Item>Node.js</List.Item>
+                <List.Item>.NET Core</List.Item>
+                <List.Item>PostgreSQL</List.Item>
+              </List>
+              <List
+                size="sm"
+                spacing="sm"
+                sx={{ fontFamily: 'monospace' }}
+                icon={
+                  <IconChevronRight size={14} color={theme.colors.blue[7]} />
+                }
+              >
+                <List.Item>TypeScript</List.Item>
+                <List.Item>React</List.Item>
+                <List.Item>Vue</List.Item>
+              </List>
+            </Group>
           </Grid.Col>
         </Grid>
       </Container>

@@ -75,7 +75,8 @@ export const Hero = () => {
           </Text>
           <Title className={classes.title}>Andrew Noyes.</Title>
           <Text color="dimmed" className={classes.description}>
-            I'm a full-stack software engineer.
+            I'm a software engineer specializing in full-stack application
+            development.
           </Text>
           <Space h="xl" mt="m" />
           <Link href="mailto:andrew@noyes.io">
