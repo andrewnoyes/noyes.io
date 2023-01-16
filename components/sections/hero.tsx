@@ -5,6 +5,7 @@ import {
   Space,
   Text,
   Title,
+  useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
 import { Dots } from '../dots';
@@ -50,6 +51,7 @@ const useStyles = createStyles((theme) => ({
 
 export const Hero = () => {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
 
   return (
     <Container className={classes.wrapper} size={1400}>
@@ -68,7 +70,11 @@ export const Hero = () => {
           }}
         >
           <Text
-            color="blue"
+            color={
+              theme.colorScheme === 'dark'
+                ? theme.colors.blue[5]
+                : theme.colors.blue[9]
+            }
             sx={{ fontFamily: 'monospace', marginLeft: 8, marginBottom: 6 }}
           >
             Hey! My name is
