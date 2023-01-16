@@ -76,7 +76,7 @@ const projects: ProjectDescription[] = [
 export const Projects = () => {
   return (
     <section id="projects">
-      <Container size="lg" sx={{ paddingTop: 100, paddingBottom: 100 }}>
+      <Container size="lg" sx={{ paddingTop: 100 }}>
         <SectionHeader title="Projects" />
         <Box>
           {projects.map((project, index) => (
