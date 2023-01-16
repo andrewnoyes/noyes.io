@@ -102,7 +102,14 @@ const Job = ({ description }: { description: JobDescription }) => {
     <Box>
       <Title order={3} size="h4">
         {description.title}
-        <Text span color="blue">
+        <Text
+          span
+          color={
+            theme.colorScheme === 'dark'
+              ? theme.colors.blue[4]
+              : theme.colors.blue[9]
+          }
+        >
           {' '}
           @ {description.company}
         </Text>
