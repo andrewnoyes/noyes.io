@@ -5,7 +5,7 @@ import { SectionHeader } from './section-header';
 
 const projects: ProjectDescription[] = [
   {
-    title: 'Cop Database',
+    title: 'Cop DB',
     description:
       'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
     images: [
@@ -17,6 +17,21 @@ const projects: ProjectDescription[] = [
     techStack: {
       frontend: ['React', 'MobX', 'Emotion'],
       backend: ['.NET Core', 'SignalR', 'PostgreSQL', 'Redis'],
+    },
+  },
+  {
+    title: 'Lively',
+    description:
+      'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
+    images: [
+      { url: '/lively/board-view.png', caption: 'Kanban board view' },
+      { url: '/lively/table-view.png', caption: 'Table view' },
+      { url: '/lively/chat-pane.png', caption: 'Project chat pane' },
+      { url: '/lively/detailed-item-view.png', caption: 'Detailed item modal' },
+    ],
+    techStack: {
+      frontend: ['React', 'Mobx', 'Styled Components'],
+      backend: ['Node.js', 'Nest.js', 'Socket.io', 'PostgreSQL'],
     },
   },
   {
@@ -34,21 +49,6 @@ const projects: ProjectDescription[] = [
     techStack: {
       frontend: ['React', 'MobX', 'MUI'],
       backend: ['Node.js', 'Nest.js', 'PostgresSQL', 'Redis'],
-    },
-  },
-  {
-    title: 'Lively',
-    description:
-      'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
-    images: [
-      { url: '/lively/board-view.png', caption: 'Kanban board view' },
-      { url: '/lively/table-view.png', caption: 'Table view' },
-      { url: '/lively/chat-pane.png', caption: 'Project chat pane' },
-      { url: '/lively/detailed-item-view.png', caption: 'Detailed item modal' },
-    ],
-    techStack: {
-      frontend: ['React', 'Mobx', 'Styled Components'],
-      backend: ['Node.js', 'Nest.js', 'Socket.io', 'PostgreSQL'],
     },
   },
   {
