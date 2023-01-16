@@ -6,8 +6,7 @@ import { SectionHeader } from './section-header';
 const projects: ProjectDescription[] = [
   {
     title: 'Cop DB',
-    description:
-      'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
+    description: `This is a tool for community-based police accountability. It tracks police officers, their departments, and incidents or misconduct they're involved in.`,
     images: [
       { url: '/copdb/cops-list.png', caption: 'Cops table view' },
       { url: '/copdb/incident-view.png', caption: 'Reported incident view' },
@@ -21,8 +20,7 @@ const projects: ProjectDescription[] = [
   },
   {
     title: 'Lively',
-    description:
-      'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
+    description: `Web app for task management and project collaboration. Its API is based on the concept of 'blocks', allowing them to be rendered in a variety of views like kanban boards, tables, checklists, and more. Each project is associated with a channel for team chat and other rich content embeds.`,
     images: [
       { url: '/lively/board-view.png', caption: 'Kanban board view' },
       { url: '/lively/table-view.png', caption: 'Table view' },
@@ -36,8 +34,7 @@ const projects: ProjectDescription[] = [
   },
   {
     title: 'StepWise',
-    description:
-      'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
+    description: `Block-based process editor for creating dynamic, step-by-step work instructions and training programs. Processes can be marked as 'controlled' to ensure each step is completed and signed off on.`,
     images: [
       { url: '/stepwise/process-view.png', caption: 'Process view' },
       { url: '/stepwise/process-editor.png', caption: 'Process step editor' },
@@ -54,7 +51,7 @@ const projects: ProjectDescription[] = [
   {
     title: 'Carpool',
     description:
-      'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
+      'App for event organizers to create and list carpools that users can then sign up to be drivers or passengers for.',
     images: [
       { url: '/carpool/carpool-event.png', caption: 'Carpool event page' },
       {
