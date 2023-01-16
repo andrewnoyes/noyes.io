@@ -9,10 +9,10 @@ const projects: ProjectDescription[] = [
     description:
       'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
     images: [
-      { url: '/copdb/cops-list.png' },
-      { url: '/copdb/incident-view.png' },
-      { url: '/copdb/report-incident.png' },
-      { url: '/copdb/report-media.png' },
+      { url: '/copdb/cops-list.png', caption: 'Cops table view' },
+      { url: '/copdb/incident-view.png', caption: 'Reported incident view' },
+      { url: '/copdb/report-incident.png', caption: 'Draft incnident report' },
+      { url: '/copdb/report-media.png', caption: 'Report media' },
     ],
     techStack: {
       frontend: ['React', 'MobX', 'Emotion'],
@@ -24,9 +24,12 @@ const projects: ProjectDescription[] = [
     description:
       'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
     images: [
-      { url: '/stepwise/process-view.png' },
-      { url: '/stepwise/process-editor.png' },
-      { url: '/stepwise/controlled-process.png' },
+      { url: '/stepwise/process-view.png', caption: 'Process view' },
+      { url: '/stepwise/process-editor.png', caption: 'Process step editor' },
+      {
+        url: '/stepwise/controlled-process.png',
+        caption: 'Signature required for controlled process',
+      },
     ],
     techStack: {
       frontend: ['React', 'MobX', 'MUI'],
@@ -37,7 +40,12 @@ const projects: ProjectDescription[] = [
     title: 'Lively',
     description:
       'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
-    images: [{ url: '/stepwise/controlled-process.png' }],
+    images: [
+      { url: '/lively/board-view.png', caption: 'Kanban board view' },
+      { url: '/lively/table-view.png', caption: 'Table view' },
+      { url: '/lively/chat-pane.png', caption: 'Project chat pane' },
+      { url: '/lively/detailed-item-view.png', caption: 'Detailed item modal' },
+    ],
     techStack: {
       frontend: ['React', 'Mobx', 'Styled Components'],
       backend: ['Node.js', 'Nest.js', 'Socket.io', 'PostgreSQL'],
@@ -47,7 +55,17 @@ const projects: ProjectDescription[] = [
     title: 'Carpool',
     description:
       'Hot chicken big mood austin mustache single-origin coffee af. Portland chartreuse meggings ethical art party locavore.',
-    images: [{ url: '/stepwise/controlled-process.png' }],
+    images: [
+      { url: '/carpool/carpool-event.png', caption: 'Carpool event page' },
+      {
+        url: '/carpool/join-as-passenger.png',
+        caption: 'Join as passenger',
+      },
+      {
+        url: '/carpool/your-carpools.png',
+        caption: 'Your carpools',
+      },
+    ],
     techStack: {
       frontend: ['React', 'Mobx', 'MUI'],
       backend: ['Node.js', 'Nest.js', 'Socket.io', 'PostgreSQL'],
