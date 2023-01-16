@@ -25,7 +25,9 @@ export const Logo = () => {
         height={42}
         style={{ borderRadius: '50%' }}
       />
-      <Text size="xl">andrew</Text>
+      <Text size="xl" sx={{ fontFamily: 'monospace' }}>
+        androo
+      </Text>
     </Link>
   );
 };

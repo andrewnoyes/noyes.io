@@ -1,4 +1,11 @@
-import { Button, Container, createStyles, Text, Title } from '@mantine/core';
+import {
+  Button,
+  Container,
+  createStyles,
+  Space,
+  Text,
+  Title,
+} from '@mantine/core';
 import Link from 'next/link';
 import { Dots } from '../dots';
 
@@ -20,61 +27,23 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark'
         ? theme.colors.dark[5]
         : theme.colors.gray[3],
+    '@media (max-width: 520px)': {
+      display: 'none',
+    },
   },
 
   title: {
-    textAlign: 'center',
     fontWeight: 800,
-    fontSize: 40,
+    fontSize: 'clamp(40px, 8vw, 80px)',
     letterSpacing: -1,
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-    marginBottom: theme.spacing.xs,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-
-    '@media (max-width: 520px)': {
-      fontSize: 28,
-      textAlign: 'left',
-    },
-  },
-
-  highlight: {
-    color:
-      theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
   },
 
   description: {
-    textAlign: 'center',
-
+    fontSize: 24,
     '@media (max-width: 520px)': {
-      textAlign: 'left',
-      fontSize: theme.fontSizes.md,
-    },
-  },
-
-  controls: {
-    marginTop: theme.spacing.lg,
-    display: 'flex',
-    justifyContent: 'center',
-
-    '@media (max-width: 520px)': {
-      flexDirection: 'column',
-    },
-  },
-
-  control: {
-    '&:not(:first-of-type)': {
-      marginLeft: theme.spacing.md,
-    },
-
-    '@media (max-width: 520px)': {
-      height: 42,
-      fontSize: theme.fontSizes.md,
-      width: '100%',
-
-      '&:not(:first-of-type)': {
-        marginTop: theme.spacing.md,
-        marginLeft: 0,
-      },
+      fontSize: 18,
     },
   },
 }));
@@ -88,21 +57,33 @@ export const Hero = () => {
       <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
       <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
       <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
-
       <div className={classes.inner}>
-        <Title className={classes.title}>Andrew Noyes</Title>
-        <Container p={0} size={600}>
-          <Text size="lg" color="dimmed" className={classes.description}>
-            Full-stack software engineer, blah blah
+        <Container
+          p={0}
+          size={600}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+          }}
+        >
+          <Text
+            color="blue"
+            sx={{ fontFamily: 'monospace', marginLeft: 8, marginBottom: 6 }}
+          >
+            Hey! My name is
           </Text>
-        </Container>
-        <div className={classes.controls}>
+          <Title className={classes.title}>Andrew Noyes.</Title>
+          <Text color="dimmed" className={classes.description}>
+            I'm a full-stack software engineer.
+          </Text>
+          <Space h="xl" mt="m" />
           <Link href="mailto:andrew@noyes.io">
-            <Button variant="gradient" className={classes.control} size="lg">
+            <Button variant="gradient" size="lg">
               Get in touch
             </Button>
           </Link>
-        </div>
+        </Container>
       </div>
     </Container>
   );
