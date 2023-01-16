@@ -23,7 +23,7 @@ export const About = () => {
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card p={0} radius="sm" sx={{ height: 200, width: 200 }}>
               <Image
-                src="/androo-min.jpg"
+                src="/androo-min.webp"
                 alt="Andrew Noyes"
                 height={200}
                 width={200}
