@@ -54,6 +54,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
         src={image.url}
         alt={image.caption}
         // TODO: add this back, but need to fix issue with loading in carousel
+        // TODO: also, the image nav buttons need to have aria-labels
         // imageProps={{ loading: 'lazy' }}
       />
     </Carousel.Slide>
@@ -64,7 +65,13 @@ export const ProjectItem = (props: ProjectItemProps) => {
   const col1 = (
     <Grid.Col sm={7}>
       <Card withBorder radius="sm" p={0} className={classes.card}>
-        <Carousel loop withIndicators slideGap="xl">
+        <Carousel
+          loop
+          withIndicators
+          slideGap="xl"
+          nextControlLabel="Next image"
+          previousControlLabel="Previous image"
+        >
           {slides}
         </Carousel>
       </Card>
