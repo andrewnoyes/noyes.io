@@ -53,7 +53,8 @@ export const ProjectItem = (props: ProjectItemProps) => {
       <Image
         src={image.url}
         alt={image.caption}
-        imageProps={{ loading: 'lazy' }}
+        // TODO: add this back, but need to fix issue with loading in carousel
+        // imageProps={{ loading: 'lazy' }}
       />
     </Carousel.Slide>
   ));
