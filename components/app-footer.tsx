@@ -50,7 +50,7 @@ export const AppFooter = () => {
         >
           Built by Andrew
         </Anchor>
-        <Group spacing={0} className={classes.links} position="right" noWrap>
+        <Group spacing={0} className={classes.links} noWrap>
           <Link
             href="https://github.com/andrewnoyes"
             target="_blank"
