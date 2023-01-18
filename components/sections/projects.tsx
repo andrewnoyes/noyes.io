@@ -32,7 +32,7 @@ const projects: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'Mobx', 'Styled Components'],
-      backend: ['Node.js', 'Nest.js', 'Socket.io', 'PostgreSQL'],
+      backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
     },
   },
   {
@@ -48,7 +48,7 @@ const projects: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'MobX', 'MUI'],
-      backend: ['Node.js', 'Nest.js', 'PostgresSQL', 'Redis'],
+      backend: ['Node.js', 'NestJS', 'PostgresSQL', 'Redis'],
     },
   },
   {
@@ -68,7 +68,7 @@ const projects: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'Mobx', 'MUI'],
-      backend: ['Node.js', 'Nest.js', 'Socket.io', 'PostgreSQL'],
+      backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
     },
   },
 ];
