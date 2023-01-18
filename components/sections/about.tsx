@@ -32,15 +32,15 @@ export const About = () => {
           </Grid.Col>
           <Grid.Col sm={8}>
             <Text>
-              Hi! My name is Andrew, and I am a full-stack developer based out
+              {`Hi! My name is Andrew, and I am a full-stack developer based out
               of Salt Lake City, Utah. I love building out features from the
               database schema all the way to what's presented to the user. My
               main areas of focus are real-time systems (WebSockets!),
               responsive and accessible front-ends, and performant back-end APIs
-              and services.
+              and services.`}
             </Text>
             <Space h="md" />
-            <Text>Some technologies I've been working with recently:</Text>
+            <Text>{`Some technologies I've been working with recently:`}</Text>
             <Space h="md" />
             <Group spacing="xl">
               <List
