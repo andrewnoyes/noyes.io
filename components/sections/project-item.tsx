@@ -9,25 +9,6 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     alignItems: 'flex-start',
   },
-
-  section: {
-    borderBottom: `1px solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-    paddingLeft: theme.spacing.md,
-    paddingRight: theme.spacing.md,
-    paddingBottom: theme.spacing.md,
-  },
-
-  like: {
-    color: theme.colors.red[6],
-  },
-
-  label: {
-    textTransform: 'uppercase',
-    fontSize: theme.fontSizes.xs,
-    fontWeight: 700,
-  },
 }));
 
 export interface ProjectDescription {
@@ -45,16 +26,15 @@ export interface ProjectItemProps {
 export const ProjectItem = (props: ProjectItemProps) => {
   const { projectDescription, index } = props;
   const { title, description, images, techStack } = projectDescription;
-  const isMobile = useMediaQuery('(max-width: 768px)');
   const { classes } = useStyles();
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isEven = index % 2 === 0;
 
   const slides = images.map((image) => (
     <Carousel.Slide key={image.url}>
       <Image src={image.url} alt={image.caption} />
     </Carousel.Slide>
   ));
-
-  const isEven = index % 2 === 0;
 
   const col1 = (
     <Grid.Col sm={7}>
@@ -76,7 +56,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
   const col2 = (
     <Grid.Col
       sm={5}
-      style={{
+      sx={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: isEven && !isMobile ? 'flex-end' : 'flex-start',

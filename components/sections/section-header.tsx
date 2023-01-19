@@ -6,7 +6,6 @@ export const SectionHeader = ({ title }: { title: string }) => {
     <Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Title order={2} mr="md">
-          {' '}
           {title}
         </Title>
         <Divider

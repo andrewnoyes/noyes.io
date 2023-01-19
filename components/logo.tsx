@@ -11,6 +11,12 @@ const useStyles = createStyles((theme) => ({
     textDecoration: 'none',
     fontWeight: 700,
   },
+  image: {
+    borderRadius: '50%',
+  },
+  title: {
+    fontFamily: 'monospace',
+  },
 }));
 
 export const Logo = () => {
@@ -23,9 +29,9 @@ export const Logo = () => {
         alt="Retrobot"
         width={42}
         height={42}
-        style={{ borderRadius: '50%' }}
+        className={classes.image}
       />
-      <Text size="xl" sx={{ fontFamily: 'monospace' }}>
+      <Text size="xl" className={classes.title}>
         androo
       </Text>
     </Link>
