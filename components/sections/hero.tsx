@@ -5,7 +5,6 @@ import {
   Space,
   Text,
   Title,
-  useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
 import { Dots } from '../dots';
@@ -16,12 +15,10 @@ const useStyles = createStyles((theme) => ({
     paddingTop: 200,
     height: '100vh',
   },
-
   inner: {
     position: 'relative',
     zIndex: 1,
   },
-
   dots: {
     position: 'absolute',
     color:
@@ -32,7 +29,20 @@ const useStyles = createStyles((theme) => ({
       display: 'none',
     },
   },
-
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  greeting: {
+    color:
+      theme.colorScheme === 'dark'
+        ? theme.colors.blue[4]
+        : theme.colors.blue[9],
+    fontFamily: 'monospace',
+    marginLeft: 8,
+    marginBottom: 6,
+  },
   title: {
     fontWeight: 800,
     fontSize: 'clamp(40px, 8vw, 80px)',
@@ -40,7 +50,6 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
   },
-
   description: {
     fontSize: 24,
     '@media (max-width: 520px)': {
@@ -51,7 +60,6 @@ const useStyles = createStyles((theme) => ({
 
 export const Hero = () => {
   const { classes } = useStyles();
-  const theme = useMantineTheme();
 
   return (
     <Container className={classes.wrapper} size={1400}>
@@ -60,29 +68,8 @@ export const Hero = () => {
       <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
       <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
       <div className={classes.inner}>
-        <Container
-          p={0}
-          size={600}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-          }}
-        >
-          <Text
-            color={
-              theme.colorScheme === 'dark'
-                ? theme.colors.blue[4]
-                : theme.colors.blue[9]
-            }
-            sx={{
-              fontFamily: 'monospace',
-              marginLeft: 8,
-              marginBottom: 6,
-            }}
-          >
-            Hey! My name is
-          </Text>
+        <Container p={0} size={600} className={classes.titleContainer}>
+          <Text className={classes.greeting}>Hey! My name is</Text>
           <Title className={classes.title}>Andrew Noyes.</Title>
           <Text color="dimmed" className={classes.description}>
             {`I'm a software engineer specializing in full-stack application
