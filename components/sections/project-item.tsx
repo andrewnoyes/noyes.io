@@ -1,6 +1,7 @@
 import { Carousel } from '@mantine/carousel';
 import { Card, createStyles, Grid, Image, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { ProjectDescription } from '../../interfaces';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -10,13 +11,6 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'flex-start',
   },
 }));
-
-export interface ProjectDescription {
-  title: string;
-  description: string;
-  images: { url: string; caption?: string }[];
-  techStack: { frontend: string[]; backend: string[] };
-}
 
 export interface ProjectItemProps {
   projectDescription: ProjectDescription;

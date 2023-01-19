@@ -1,9 +1,6 @@
-import { Box, Container } from '@mantine/core';
-import { Fragment } from 'react';
-import { ProjectDescription, ProjectItem } from './project-item';
-import { SectionHeader } from './section-header';
+import { ProjectDescription } from '../interfaces';
 
-const projects: ProjectDescription[] = [
+export const projects: ProjectDescription[] = [
   {
     title: 'Cop DB',
     description: `This is a tool for community-based police accountability. It tracks police officers, their departments, and incidents or misconduct they're involved in.`,
@@ -72,21 +69,3 @@ const projects: ProjectDescription[] = [
     },
   },
 ];
-
-export const Projects = () => {
-  return (
-    <section id="projects">
-      <Container size="lg" sx={{ paddingTop: 100 }}>
-        <SectionHeader title="Projects" />
-        <Box>
-          {projects.map((project, index) => (
-            <Fragment key={project.title}>
-              <ProjectItem projectDescription={project} index={index} />
-              <Box my={75} />
-            </Fragment>
-          ))}
-        </Box>
-      </Container>
-    </section>
-  );
-};
