@@ -1,6 +1,6 @@
 import { Box, List, Space, Text, Title, useMantineTheme } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons';
-import { JobDescription } from '../../interfaces';
+import { JobDescription } from '../../utils';
 
 export const WorkExperienceItem = ({
   description,

@@ -1,6 +1,6 @@
 import { Container, Tabs } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { jobs } from '../../content';
+import { jobDescriptions } from '../../utils';
 import { SectionHeader } from './section-header';
 import { WorkExperienceItem } from './work-experience-item';
 
@@ -12,11 +12,11 @@ export const WorkExperience = () => {
       <Container size="sm" sx={{ paddingTop: 100, paddingBottom: 100 }}>
         <SectionHeader title="Work Experience" />
         <Tabs
-          defaultValue={jobs[0].company}
+          defaultValue={jobDescriptions[0].company}
           orientation={isMobile ? 'horizontal' : 'vertical'}
         >
           <Tabs.List>
-            {jobs.map((job) => (
+            {jobDescriptions.map((job) => (
               <Tabs.Tab
                 key={job.company}
                 value={job.company}
@@ -26,7 +26,7 @@ export const WorkExperience = () => {
               </Tabs.Tab>
             ))}
           </Tabs.List>
-          {jobs.map((job) => (
+          {jobDescriptions.map((job) => (
             <Tabs.Panel
               key={job.company}
               value={job.company}
