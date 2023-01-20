@@ -45,6 +45,7 @@ export const AppFooter = () => {
           rel="noopener noreferrer"
           size="md"
           color="dimmed"
+          sx={{ fontFamily: 'monospace' }}
         >
           Built by Andrew
         </Anchor>
