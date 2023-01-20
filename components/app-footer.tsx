@@ -18,7 +18,6 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
   },
-
   inner: {
     display: 'flex',
     flexDirection: 'column',
@@ -27,7 +26,6 @@ const useStyles = createStyles((theme) => ({
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
   },
-
   links: {
     [theme.fn.smallerThan('xs')]: {
       marginTop: theme.spacing.md,

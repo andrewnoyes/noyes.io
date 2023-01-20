@@ -43,13 +43,11 @@ const useStyles = createStyles((theme) => ({
           : theme.colors.gray[0],
     }),
   },
-
   hiddenMobile: {
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
   },
-
   hiddenDesktop: {
     [theme.fn.largerThan('sm')]: {
       display: 'none',
