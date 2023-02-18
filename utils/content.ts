@@ -102,7 +102,7 @@ export const projectDescriptions: ProjectDescription[] = [
       },
     ],
     techStack: {
-      frontend: ['React', 'Mobx', 'Styled Components'],
+      frontend: ['React', 'MobX', 'Styled Components'],
       backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
     },
   },
@@ -138,7 +138,7 @@ export const projectDescriptions: ProjectDescription[] = [
       },
     ],
     techStack: {
-      frontend: ['React', 'Mobx', 'MUI'],
+      frontend: ['React', 'MobX', 'MUI'],
       backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
     },
   },
