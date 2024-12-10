@@ -2,17 +2,30 @@ import { JobDescription, ProjectDescription } from './interfaces';
 
 export const jobDescriptions: JobDescription[] = [
   {
+    title: 'Software Engineer',
+    company: 'United Network for Organ Sharing',
+    companyUrl: 'https://unos.org',
+    dateRange: 'September 2023 - October 2024',
+    details: [
+      'Maintenance and development of the DonorNet and DonorNet Mobile applications.',
+      'Contributed to a modernization effort to move a legacy web app from ASP.NET forms to Angular.',
+      'Setup Storybook for ongoing work to standardize the design system, and helped establish CI/CD for publishing new component libraries and SDKs.',
+    ],
+    techStack: ['ASP.NET Core', 'TypeScript', 'Angular'],
+  },
+  {
     title: 'Worker Owner & Engineer',
     company: 'Unfrl',
+    companyUrl: 'https://unfrl.com',
     dateRange: 'January 2019 - Present',
     details: [
-      'Interfacing with local activists to develop a police accountability tool that will be run and moderated by the community.',
-      'Worked with a client to build their MVP for a process builder and editor to standardize complex work instructions.',
-      'Developed and open sourced our carpool web app for event organizers to list carpools that users can sign up to be drivers or passengers for.',
+      'Interfacing with local activists to develop a community-moderated, police and incident database tool.',
+      'Built a client their MVP for a process builder and editor to standardize complex work instructions.',
+      'Developed and open sourced our carpool web app for users to coordinate carpools to events.',
     ],
     techStack: [
       'Node.js',
-      'Typescript',
+      'TypeScript',
       'Next.js',
       '.NET Core',
       'React',
@@ -23,17 +36,19 @@ export const jobDescriptions: JobDescription[] = [
   {
     title: 'Senior Software Engineer',
     company: 'Wisely',
+    companyUrl: 'https://getwisely.com',
     dateRange: 'March 2021 - November 2021',
     details: [
       'Part of the sentiment team responsible for guest review aggregation, sentiment and trend analysis, and automated summary reports.',
       'Implemented the review context service for associating guest visit data with their online reviews.',
       'Worked closely with design to rebuild and ship the front-end for viewing, filtering, and responding to reviews.',
     ],
-    techStack: ['Node.js', 'Typescript', 'Vue', 'PostgreSQL', 'Redis'],
+    techStack: ['Node.js', 'TypeScript', 'Vue', 'PostgreSQL', 'Redis'],
   },
   {
     title: 'Senior Software Engineer',
     company: 'PDQ.com',
+    companyUrl: 'https://pdq.com',
     dateRange: 'October 2016 - January 2019',
     details: [
       'Created the live webcast app and real-time API that supported chat, Q/A feed, and YouTube live integration.',
@@ -44,7 +59,7 @@ export const jobDescriptions: JobDescription[] = [
     techStack: [
       '.NET Core',
       'Node.js',
-      'Typescript',
+      'TypeScript',
       'React',
       'Angular',
       'MySQL',
@@ -63,7 +78,8 @@ export const jobDescriptions: JobDescription[] = [
   },
   {
     title: 'Software Engineer',
-    company: 'ASEC',
+    company: 'ASEC Engineers',
+    companyUrl: 'https://asec-engineers.com/',
     dateRange: 'October 2014 - January 2016',
     details: [
       'Built an asset management system for linking PLS-CADD projects with manufacture drawings, GIS, 3D model rendering, and more.',

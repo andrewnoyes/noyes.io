@@ -1,13 +1,24 @@
-import { Box, List, Space, Text, Title, useMantineTheme } from '@mantine/core';
+import { Box, createStyles, List, Space, Text, Title } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons';
+import Link from 'next/link';
 import { JobDescription } from '../../utils';
+
+const useStyles = createStyles((theme) => ({
+  companyUrl: {
+    textDecoration: 'none',
+    color: 'inherit',
+    ...theme.fn.hover({
+      textDecoration: 'underline',
+    }),
+  },
+}));
 
 export const WorkExperienceItem = ({
   description,
 }: {
   description: JobDescription;
 }) => {
-  const theme = useMantineTheme();
+  const { classes, theme } = useStyles();
 
   return (
     <Box>
@@ -22,7 +33,20 @@ export const WorkExperienceItem = ({
           }
         >
           {' '}
-          @ {description.company}
+          {description.companyUrl ? (
+            <Link
+              href={description.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.companyUrl}
+            >
+              @ {description.company}
+            </Link>
+          ) : (
+            <Text span color="dimmed">
+              @ {description.company}
+            </Text>
+          )}
         </Text>
       </Title>
       <Text color="dimmed" size="xs" sx={{ fontFamily: 'monospace' }}>

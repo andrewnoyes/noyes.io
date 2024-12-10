@@ -23,7 +23,7 @@ export const About = () => {
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card p={0} radius="sm" sx={{ height: 200, width: 200 }}>
               <Image
-                src="/androo-min.webp"
+                src="/dog-bandana.webp"
                 alt="Andrew Noyes"
                 height={200}
                 width={200}
@@ -32,11 +32,10 @@ export const About = () => {
           </Grid.Col>
           <Grid.Col sm={8}>
             <Text>
-              {`Hi! My name is Andrew, and I am a full-stack developer based out
-              of Salt Lake City, Utah. I love building out features from the
-              database schema all the way to what's presented to the user. My
-              main areas of focus are real-time systems (WebSockets!),
-              responsive and accessible front-ends, and performant back-end APIs
+              {`Hello! I'm Andrew and this is my site. Right now, it is primarily used as a portfolio site, 
+              but I plan to build out functionality for writing and publishing my notes, code snippets, and whatever else comes to mind.
+              For my professional experience, I'm adept at (and enjoy!) building out features from database schema to user interaction.
+              My main areas of focus are real-time systems (WebSockets <3), responsive and accessible front-ends, and performant back-end APIs
               and services.`}
             </Text>
             <Space h="md" />

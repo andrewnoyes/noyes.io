@@ -25,8 +25,8 @@ export const Logo = () => {
   return (
     <Link href="/" className={classes.link}>
       <Image
-        src="/retrobot.jpeg"
-        alt="Retrobot"
+        src="/dog-bandana.webp"
+        alt="Black dog"
         width={42}
         height={42}
         className={classes.image}
