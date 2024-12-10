@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Andrew Noyes',
   description:
     'Andrew Noyes is a software engineer specializing in full-stack application development.',
-  image: '/retrobot.jpeg',
+  image: '/dog-bandana.jpeg',
   mainLinks: [
     { name: 'About', href: '/#about' },
     { name: 'Experience', href: '/#experience' },
