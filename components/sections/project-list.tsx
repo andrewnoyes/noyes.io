@@ -10,9 +10,9 @@ export const ProjectList = () => {
       <Container size="lg" sx={{ paddingTop: 100 }}>
         <SectionHeader title="Projects" />
         <Box>
-          {projectDescriptions.map((project, index) => (
+          {projectDescriptions.map((project) => (
             <Fragment key={project.title}>
-              <ProjectItem projectDescription={project} index={index} />
+              <ProjectItem projectDescription={project} />
               <Box my={75} />
             </Fragment>
           ))}

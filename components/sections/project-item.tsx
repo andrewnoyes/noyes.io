@@ -24,13 +24,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export interface ProjectItemProps {
+export const ProjectItem = ({
+  projectDescription,
+}: {
   projectDescription: ProjectDescription;
-  index: number;
-}
-
-export const ProjectItem = (props: ProjectItemProps) => {
-  const { projectDescription, index } = props;
+}) => {
   const { title, projectUrl, description, images, techStack } =
     projectDescription;
   const { classes } = useStyles();
