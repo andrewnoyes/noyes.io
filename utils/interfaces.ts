@@ -9,6 +9,7 @@ export interface JobDescription {
 
 export interface ProjectDescription {
   title: string;
+  projectUrl?: string;
   description: string;
   images: { url: string; caption?: string }[];
   techStack: { frontend: string[]; backend: string[] };

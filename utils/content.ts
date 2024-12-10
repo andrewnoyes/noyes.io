@@ -93,7 +93,8 @@ export const jobDescriptions: JobDescription[] = [
 export const projectDescriptions: ProjectDescription[] = [
   {
     title: 'Cop DB',
-    description: `This is a tool for community-based police accountability. It tracks police officers, their departments, and incidents or misconduct they're involved in.`,
+    projectUrl: 'https://app.copdb.org',
+    description: `Community-moderated police and incident database. It tracks police officers, their departments, and incidents or misconduct they're involved in.`,
     images: [
       { url: '/copdb/cops-list.webp', caption: 'Cops table view' },
       { url: '/copdb/incident-view.webp', caption: 'Reported incident view' },
@@ -118,12 +119,13 @@ export const projectDescriptions: ProjectDescription[] = [
       },
     ],
     techStack: {
-      frontend: ['React', 'MobX', 'Styled Components'],
+      frontend: ['React', 'Fluent UI', 'Styled Components'],
       backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
     },
   },
   {
     title: 'StepWise',
+    projectUrl: 'https://stepwise.unfrl.com',
     description: `Block-based process editor for creating dynamic, step-by-step work instructions and training programs. Processes can be marked as 'controlled' to ensure each step is completed and signed off on.`,
     images: [
       { url: '/stepwise/process-view.webp', caption: 'Process view' },
