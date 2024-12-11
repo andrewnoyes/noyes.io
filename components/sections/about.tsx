@@ -27,6 +27,7 @@ export const About = () => {
                 alt="Andrew Noyes"
                 height={200}
                 width={200}
+                imageProps={{ loading: 'lazy' }}
               />
             </Card>
           </Grid.Col>
@@ -34,12 +35,12 @@ export const About = () => {
             <Text>
               {`Hello! I'm Andrew and this is my site. Right now, it is primarily used as a portfolio site, 
               but I plan to build out functionality for writing and publishing my notes, code snippets, and whatever else comes to mind.
-              For my professional experience, I'm adept at (and enjoy!) building out features from database schema to user interaction.
+              For my professional experience, I'm adept at (and enjoy!) building out features from database schema all the way to user interaction.
               My main areas of focus are real-time applications (WebSockets <3), responsive and accessible front-ends, and performant back-end APIs
               and services.`}
             </Text>
             <Space h="md" />
-            <Text>{`Some technologies I've been working with recently:`}</Text>
+            <Text>{`Some technologies I've been working with recently (in no particluar order):`}</Text>
             <Space h="md" />
             <Group spacing="xl">
               <List
@@ -51,8 +52,8 @@ export const About = () => {
                 }
               >
                 <List.Item>Node.js</List.Item>
-                <List.Item>.NET Core</List.Item>
-                <List.Item>PostgreSQL</List.Item>
+                <List.Item>ASP.NET Core</List.Item>
+                <List.Item>C#</List.Item>
               </List>
               <List
                 size="sm"
@@ -66,9 +67,28 @@ export const About = () => {
                 <List.Item>React</List.Item>
                 <List.Item>Vue</List.Item>
               </List>
+              <List
+                size="sm"
+                spacing="sm"
+                sx={{ fontFamily: 'monospace' }}
+                icon={
+                  <IconChevronRight size={14} color={theme.colors.blue[7]} />
+                }
+              >
+                <List.Item>Docker</List.Item>
+                <List.Item>PostgreSQL</List.Item>
+                <List.Item>Redis</List.Item>
+              </List>
             </Group>
           </Grid.Col>
         </Grid>
+        <Image
+          src="/desk-setup.webp"
+          alt="Desk setup"
+          imageProps={{ loading: 'lazy' }}
+          mt={100}
+          caption="My desk setup in our home office. I use a ThinkPad X1 running PopOS!"
+        />
       </Container>
     </section>
   );
