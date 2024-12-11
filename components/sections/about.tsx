@@ -87,7 +87,7 @@ export const About = () => {
           alt="Desk setup"
           imageProps={{ loading: 'lazy' }}
           mt={100}
-          caption="My desk setup in our home office. I use a ThinkPad X1 running PopOS!"
+          caption="My desk setup in our home office. I use a ThinkPad X1 Extreme running PopOS!"
         />
       </Container>
     </section>
