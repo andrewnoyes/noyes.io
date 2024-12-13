@@ -9,7 +9,7 @@ export const WorkExperience = () => {
 
   return (
     <section id="experience">
-      <Container size="sm" sx={{ paddingTop: 100, paddingBottom: 100 }}>
+      <Container size="md" sx={{ paddingTop: 100, paddingBottom: 100 }}>
         <SectionHeader title="Work Experience" />
         <Tabs
           defaultValue={jobDescriptions[0].company}
