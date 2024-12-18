@@ -1,4 +1,12 @@
-import { Container, Divider, Grid, Text, Title } from '@mantine/core';
+import {
+  Badge,
+  Container,
+  Divider,
+  Grid,
+  Group,
+  Text,
+  Title,
+} from '@mantine/core';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -39,6 +47,15 @@ export default function Notes(props: NotesProps) {
           {note ? (
             <div>
               <Title>{note.title}</Title>
+              {note.tags?.length ? (
+                <Group spacing={4} mb={4}>
+                  {note.tags.map((tag) => (
+                    <Badge key={tag} size="xs" radius="sm">
+                      {tag}
+                    </Badge>
+                  ))}
+                </Group>
+              ) : null}
               {note.created ? (
                 <Text c="dimmed" fz="sm">
                   {note.created}
@@ -83,10 +100,12 @@ export const getStaticProps: GetStaticProps<NotesProps> = async ({
     const fileContent = readFileSync(filePath, 'utf8');
 
     const { data } = matter(fileContent);
+    const { tags, ...rest } = data;
 
     return {
       slug: filename.replace(/\.mdx$/, ''),
-      ...data,
+      tags: tags ? tags.split(',') : [],
+      ...rest,
     } as Note;
   });
 
@@ -100,12 +119,14 @@ export const getStaticProps: GetStaticProps<NotesProps> = async ({
 
   const { data, content } = matter(fileContent);
   const mdxContent = await serialize(content);
+  const { tags, ...rest } = data;
 
   const note = {
     slug: Array.isArray(slug) ? slug[slug.length - 1] : slug,
     content,
     mdxContent,
-    ...data,
+    tags: tags ? tags.split(',') : [],
+    ...rest,
   } as NoteWithMdxContent;
 
   return {

@@ -20,4 +20,5 @@ export interface Note {
   slug: string;
   content: string;
   created?: string;
+  tags?: string[];
 }

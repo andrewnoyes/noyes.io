@@ -1,4 +1,4 @@
-import { Box, NavLink } from '@mantine/core';
+import { Badge, Box, Group, NavLink } from '@mantine/core';
 import Link from 'next/link';
 import { Note } from '../utils';
 
@@ -20,6 +20,19 @@ export const NotesList = ({
           <NavLink
             key={note.slug}
             label={note.title}
+            description={
+              <Box>
+                <Group spacing={4}>
+                  {note.tags?.length
+                    ? note.tags.map((tag) => (
+                        <Badge key={tag} size="xs" radius="sm">
+                          {tag}
+                        </Badge>
+                      ))
+                    : null}
+                </Group>
+              </Box>
+            }
             active={activeSlug === note.slug}
           />
         </Link>
