@@ -4,9 +4,10 @@ export const siteConfig = {
     'Andrew Noyes is a software engineer specializing in full-stack application development.',
   image: '/dog-bandana.jpeg',
   mainLinks: [
-    { name: 'About', href: '/#about' },
-    { name: 'Experience', href: '/#experience' },
-    { name: 'Projects', href: '/#projects' },
+    { name: '#about', href: '/#about' },
+    { name: '#experience', href: '/#experience' },
+    { name: '#projects', href: '/#projects' },
+    { name: '/notes', href: '/notes', scrollToTop: true },
   ],
 };
 

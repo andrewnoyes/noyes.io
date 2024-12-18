@@ -14,3 +14,10 @@ export interface ProjectDescription {
   images: { url: string; caption?: string }[];
   techStack: { frontend: string[]; backend: string[] };
 }
+
+export interface Note {
+  title: string;
+  slug: string;
+  content: string;
+  created?: string;
+}

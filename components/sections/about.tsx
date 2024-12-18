@@ -18,7 +18,7 @@ export const About = () => {
   return (
     <section id="about">
       <Container size="md" sx={{ paddingTop: 100, paddingBottom: 100 }}>
-        <SectionHeader title="About Me" />
+        <SectionHeader title="About me" />
         <Grid gutter="lg">
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card p={0} radius="sm" sx={{ height: 200, width: 200 }}>
