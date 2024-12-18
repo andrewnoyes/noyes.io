@@ -43,28 +43,35 @@ export const ProjectItem = ({
           alignItems: 'flex-start',
         }}
       >
-        <Title order={3}>
-          {projectUrl ? (
-            <Link
-              href={projectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.projectUrl}
-            >
-              {title}
-              <IconArrowUpRight />
-            </Link>
-          ) : (
-            title
-          )}
-        </Title>
-        <Card mt="md" radius="sm" sx={{ width: '100%' }} shadow="xl">
-          <Text align="left">{description}</Text>
+        <Card radius="sm" sx={{ width: '100%' }} shadow="xl">
+          <Title order={3}>
+            {projectUrl ? (
+              <Link
+                href={projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.projectUrl}
+              >
+                {title}
+                <IconArrowUpRight />
+              </Link>
+            ) : (
+              title
+            )}
+          </Title>
+          <Text align="left" mt="xs">
+            {description}
+          </Text>
+          <Text
+            mt="xs"
+            color="dimmed"
+            size="xs"
+            sx={{ fontFamily: 'monospace' }}
+          >
+            {techStack.frontend.join(', ')} <br />
+            {techStack.backend.join(', ')}
+          </Text>
         </Card>
-        <Text mt="lg" color="dimmed" size="xs" sx={{ fontFamily: 'monospace' }}>
-          {techStack.frontend.join(', ')} <br />
-          {techStack.backend.join(', ')}
-        </Text>
       </Grid.Col>
       <Grid.Col sm={7}>
         <Card withBorder radius="sm" p={0} className={classes.card}>
