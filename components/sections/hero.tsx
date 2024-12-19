@@ -12,7 +12,7 @@ import { Dots } from '../dots';
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
-    paddingTop: 200,
+    paddingTop: 220,
     height: '100vh',
   },
   inner: {

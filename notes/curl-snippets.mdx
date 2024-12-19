@@ -1,0 +1,9 @@
+---
+title: Curl snippets
+created: 12/18/2024
+tags: tools,cli
+---
+
+- Display total time to make an API request:
+
+  `curl -o /dev/null -s -w 'total: %{time_total}\ns' https://some/api/path`

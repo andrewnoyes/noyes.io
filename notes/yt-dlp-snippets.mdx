@@ -1,0 +1,25 @@
+---
+title: YT-DLP snippets
+created: 12/18/2024
+tags: tools,cli
+---
+
+**Install yt-dlp from here:** [https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation)
+
+**Commands I use frequently:**
+
+- Normal download option:
+
+  `yt-dlp --embed-thumbnail --merge-output-format mp4 <URL>`
+
+- If the video has a content warning:
+
+  `yt-dlp --cookies-from-browser firefox --embed-thumbnail --merge-output-format mp4 <URL>`
+
+- Show all available resolutions:
+
+  `yt-dlp -F <URL>`
+
+- Download at resolution:
+
+  `yt-dlp --cookies-from-browser firefox --embed-thumbnail -S "height:1920" --merge-output-format mp4`

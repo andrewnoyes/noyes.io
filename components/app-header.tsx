@@ -3,7 +3,6 @@ import {
   Burger,
   Button,
   createStyles,
-  Divider,
   Drawer,
   Group,
   Header,
@@ -11,6 +10,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { siteConfig } from '../utils';
 import {
   ColorSchemeToggle,
@@ -30,6 +30,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     fontWeight: 500,
     fontSize: theme.fontSizes.sm,
+    fontFamily: 'monospace',
     [theme.fn.smallerThan('sm')]: {
       height: 42,
       display: 'flex',
@@ -42,6 +43,9 @@ const useStyles = createStyles((theme) => ({
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
     }),
+  },
+  linkActive: {
+    borderBottom: '1px solid',
   },
   hiddenMobile: {
     [theme.fn.smallerThan('sm')]: {
@@ -64,15 +68,18 @@ export const AppHeader = ({
 }) => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
-  const { classes, theme } = useStyles();
+  const { classes, theme, cx } = useStyles();
+  const router = useRouter();
 
   const links = siteConfig.mainLinks.map((link) => (
     <Link
       key={link.name}
       href={link.href}
-      className={classes.link}
+      className={cx(classes.link, {
+        [classes.linkActive]: router.asPath.indexOf(link.href) === 0, // nested routes for eg '/notes/some-note' will still be active
+      })}
       onClick={closeDrawer}
-      scroll={false}
+      scroll={!!link.scrollToTop}
     >
       {link.name}
     </Link>
@@ -135,11 +142,7 @@ export const AppHeader = ({
           mx="-md"
         >
           {links}
-          <Divider
-            my="sm"
-            color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'}
-          />
-          <Group position="center" grow pb="xl" px="md">
+          <Group position="center" grow mt="sm" pb="xl" px="md">
             <ResumeLink>
               <Button fullWidth variant="default">
                 Resume
