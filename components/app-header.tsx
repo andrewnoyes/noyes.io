@@ -3,7 +3,6 @@ import {
   Burger,
   Button,
   createStyles,
-  Divider,
   Drawer,
   Group,
   Header,
@@ -143,11 +142,7 @@ export const AppHeader = ({
           mx="-md"
         >
           {links}
-          <Divider
-            my="sm"
-            color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'}
-          />
-          <Group position="center" grow pb="xl" px="md">
+          <Group position="center" grow mt="sm" pb="xl" px="md">
             <ResumeLink>
               <Button fullWidth variant="default">
                 Resume
