@@ -34,7 +34,7 @@ export const About = () => {
           <Grid.Col sm={8}>
             <Text>
               {`Hello! I'm Andrew and this is my site. Right now, it is primarily used as a portfolio site, 
-              but I plan to build out functionality for writing and publishing my notes, code snippets, and whatever else comes to mind.
+              but I plan to build out functionality for my notes, code snippets, and whatever else comes to mind.
               For my professional experience, I'm adept at (and enjoy!) building out features from database schema all the way to user interaction.
               My main areas of focus are real-time applications (WebSockets <3), responsive and accessible front-ends, and performant back-end APIs
               and services.`}
