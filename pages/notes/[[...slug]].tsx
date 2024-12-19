@@ -16,6 +16,7 @@ import Head from 'next/head';
 import path from 'path';
 import { NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
+import { useMDXComponents } from '../../mdx-components';
 import { getPageTitle, Note } from '../../utils';
 
 type NoteWithMdxContent = Note & {
@@ -33,6 +34,9 @@ interface NotesProps {
 export default function Notes(props: NotesProps) {
   const { notes, note } = props;
   const pageTitle = getPageTitle([note?.title ?? '', 'Notes']);
+  const mdxComponents = useMDXComponents({});
+
+  // TODO: MAKE NOTESLIST COLLAPSE TO A LEFT-SIDE DRAWER/PANEL ON <= SMALL
 
   return (
     <Container size="xl" pt="xs">
@@ -65,8 +69,8 @@ export default function Notes(props: NotesProps) {
                   {note.created}
                 </Text>
               ) : null}
-              <Divider />
-              <MDXRemote {...note.mdxContent} />
+              <Divider mb="sm" />
+              <MDXRemote {...note.mdxContent} components={mdxComponents} />
             </div>
           ) : (
             <NotesHome />
