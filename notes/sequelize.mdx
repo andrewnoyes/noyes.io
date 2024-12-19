@@ -1,0 +1,13 @@
+---
+title: Sequelize
+created: 04/07/2021
+tags: cli,sql,node
+---
+
+**See [https://sequelize.org](https://sequelize.org/) for info and installation instructions.**
+
+- Generate sequelize models from a database:
+
+  `npm install -g sequelize-typescript-generator`
+
+  `stg -D postgres -h localhost -p 5560 -d {database} -u {username} -x {password} --indices --case pascal:underscore --out-dir {output_dir} --clean`
