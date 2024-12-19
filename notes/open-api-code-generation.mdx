@@ -1,0 +1,19 @@
+---
+title: OpenAPI client code generation
+created: 12/18/2024
+tags: tools,node,docker
+---
+
+**Installing and running client generator cli:**
+
+- Install [openapi-generator-cli](https://github.com/OpenAPITools/openapi-generator-cli):
+
+  `npm install --global @openapitools/openapi-generator-cli`
+
+- Generate an API client:
+
+  `openapi-generator-cli generate -i {swagger.json path} -g typescript-fetch -o {output directory} -c {swagger-config.json}`
+
+**Example running with docker:**
+
+`docker run --user 1000:1000 -v $PWD:/app -w /app openapitools/openapi-generator-cli:latest-release /usr/local/bin/docker-entrypoint.sh generate -i swagger.json -g typescript-fetch -o sdk -c swagger-config.json`
