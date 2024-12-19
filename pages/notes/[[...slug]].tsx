@@ -15,6 +15,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
 import path from 'path';
 import { NotesList } from '../../components';
+import NotesHome from '../../components/notes-home.mdx';
 import { getPageTitle, Note } from '../../utils';
 
 type NoteWithMdxContent = Note & {
@@ -34,13 +35,16 @@ export default function Notes(props: NotesProps) {
   const pageTitle = getPageTitle([note?.title ?? '', 'Notes']);
 
   return (
-    <Container size="xl">
+    <Container size="xl" pt="xs">
       <Head>
         <title>{pageTitle}</title>
         <meta property="og:title" content={pageTitle} />
       </Head>
       <Grid>
         <Grid.Col sm={3}>
+          <Title order={2} size="h3">
+            Notes
+          </Title>
           <NotesList notes={notes ?? []} activeSlug={note?.slug} />
         </Grid.Col>
         <Grid.Col sm={9}>
@@ -65,7 +69,7 @@ export default function Notes(props: NotesProps) {
               <MDXRemote {...note.mdxContent} />
             </div>
           ) : (
-            'Select a note !'
+            <NotesHome />
           )}
         </Grid.Col>
       </Grid>
