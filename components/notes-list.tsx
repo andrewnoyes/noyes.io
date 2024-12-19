@@ -21,17 +21,15 @@ export const NotesList = ({
             key={note.slug}
             label={note.title}
             description={
-              <Box>
+              note.tags?.length ? (
                 <Group spacing={4}>
-                  {note.tags?.length
-                    ? note.tags.map((tag) => (
-                        <Badge key={tag} size="xs" radius="sm">
-                          {tag}
-                        </Badge>
-                      ))
-                    : null}
+                  {note.tags.map((tag) => (
+                    <Badge key={tag} size="xs" radius="sm">
+                      {tag}
+                    </Badge>
+                  ))}
                 </Group>
-              </Box>
+              ) : null
             }
             active={activeSlug === note.slug}
           />
