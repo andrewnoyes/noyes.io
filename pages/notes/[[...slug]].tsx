@@ -88,9 +88,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
     },
   }));
 
+  paths.push({ params: { slug: [] } });
+
   return {
     paths,
-    fallback: true, // Enable fallback for new pages that aren't generated yet
+    fallback: false,
   };
 };
 
