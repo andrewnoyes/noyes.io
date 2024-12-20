@@ -1,12 +1,19 @@
 import {
+  ActionIcon,
   Badge,
+  Box,
   Container,
+  createStyles,
   Divider,
+  Drawer,
   Grid,
   Group,
+  ScrollArea,
   Text,
   Title,
 } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { IconList } from '@tabler/icons';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -17,7 +24,20 @@ import path from 'path';
 import { NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
 import { useMDXComponents } from '../../mdx-components';
-import { getPageTitle, Note } from '../../utils';
+import { APP_HEADER_HEIGHT, getPageTitle, Note } from '../../utils';
+
+const useStyles = createStyles((theme) => ({
+  hiddenDesktop: {
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+  hiddenMobile: {
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
+  },
+}));
 
 type NoteWithMdxContent = Note & {
   mdxContent: MDXRemoteSerializeResult<
@@ -31,21 +51,67 @@ interface NotesProps {
   note?: NoteWithMdxContent;
 }
 
+const SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + margin-bottom
+
 export default function Notes(props: NotesProps) {
   const { notes, note } = props;
+  const { classes } = useStyles();
   const pageTitle = getPageTitle([note?.title ?? '', 'Notes']);
   const mdxComponents = useMDXComponents({});
+  const [notePanelOpen, { toggle: toggleNotePanel, close: closeNotePanel }] =
+    useDisclosure(false);
 
-  // TODO: MAKE NOTESLIST COLLAPSE TO A LEFT-SIDE DRAWER/PANEL ON <= SMALL
+  const showNotesList = (
+    <ActionIcon
+      onClick={toggleNotePanel}
+      className={classes.hiddenDesktop}
+      title="Show notes list"
+      variant="transparent"
+      sx={{
+        left: 4,
+        top: APP_HEADER_HEIGHT + 16,
+        position: 'fixed',
+      }}
+    >
+      <IconList />
+    </ActionIcon>
+  );
 
   return (
-    <Container size="xl" pt="xs">
+    <Container size="xl">
       <Head>
         <title>{pageTitle}</title>
         <meta property="og:title" content={pageTitle} />
       </Head>
+      <Drawer
+        className={classes.hiddenDesktop}
+        opened={notePanelOpen}
+        onClose={closeNotePanel}
+        position="left"
+        title={
+          <Title order={2} size="h3">
+            Notes
+          </Title>
+        }
+        padding="sm"
+        styles={{
+          root: {
+            top: APP_HEADER_HEIGHT,
+          },
+          drawer: {
+            top: APP_HEADER_HEIGHT,
+          },
+        }}
+      >
+        <ScrollArea
+          mx="-sm"
+          sx={{ height: `calc(100vh - ${SCROLL_AREA_OFFSET}px)` }}
+        >
+          <NotesList notes={notes ?? []} activeSlug={note?.slug} />
+        </ScrollArea>
+      </Drawer>
       <Grid>
-        <Grid.Col sm={3}>
+        <Grid.Col sm={3} className={classes.hiddenMobile}>
           <Title order={2} size="h3">
             Notes
           </Title>
@@ -54,26 +120,32 @@ export default function Notes(props: NotesProps) {
         <Grid.Col sm={9}>
           {note ? (
             <div>
-              <Title>{note.title}</Title>
-              {note.tags?.length ? (
-                <Group spacing={4} mb={4}>
-                  {note.tags.map((tag) => (
-                    <Badge key={tag} size="xs" radius="sm">
-                      {tag}
-                    </Badge>
-                  ))}
-                </Group>
-              ) : null}
-              {note.created ? (
-                <Text c="dimmed" fz="sm">
-                  {note.created}
-                </Text>
-              ) : null}
+              <Box>
+                {showNotesList}
+                <Title>{note.title}</Title>
+                {note.tags?.length ? (
+                  <Group spacing={4} mb={4}>
+                    {note.tags.map((tag) => (
+                      <Badge key={tag} size="xs" radius="sm">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </Group>
+                ) : null}
+                {note.created ? (
+                  <Text c="dimmed" fz="sm">
+                    {note.created}
+                  </Text>
+                ) : null}
+              </Box>
               <Divider mb="sm" />
               <MDXRemote {...note.mdxContent} components={mdxComponents} />
             </div>
           ) : (
-            <NotesHome />
+            <Box>
+              {showNotesList}
+              <NotesHome />
+            </Box>
           )}
         </Grid.Col>
       </Grid>

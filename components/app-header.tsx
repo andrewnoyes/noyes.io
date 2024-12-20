@@ -11,7 +11,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { siteConfig } from '../utils';
+import { APP_HEADER_HEIGHT, siteConfig } from '../utils';
 import {
   ColorSchemeToggle,
   ColorSchemeToggleProps,
@@ -59,8 +59,6 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const HEADER_HEIGHT = 60;
-
 export const AppHeader = ({
   colorSchemeProps,
 }: {
@@ -87,7 +85,7 @@ export const AppHeader = ({
 
   return (
     <Box>
-      <Header height={HEADER_HEIGHT} px="md">
+      <Header height={APP_HEADER_HEIGHT} px="md">
         <Group position="apart" sx={{ height: '100%' }}>
           <Logo />
           <Group
@@ -126,10 +124,10 @@ export const AppHeader = ({
         padding="md"
         styles={{
           root: {
-            top: HEADER_HEIGHT,
+            top: APP_HEADER_HEIGHT,
           },
           drawer: {
-            top: HEADER_HEIGHT,
+            top: APP_HEADER_HEIGHT,
           },
         }}
         className={classes.hiddenDesktop}
@@ -138,7 +136,7 @@ export const AppHeader = ({
         position="right"
       >
         <ScrollArea
-          sx={{ height: `calc(100vh - ${HEADER_HEIGHT}px)` }}
+          sx={{ height: `calc(100vh - ${APP_HEADER_HEIGHT}px)` }}
           mx="-md"
         >
           {links}
