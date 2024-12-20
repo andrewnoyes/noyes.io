@@ -69,7 +69,7 @@ export default function Notes(props: NotesProps) {
       variant="transparent"
       sx={{
         left: 4,
-        top: APP_HEADER_HEIGHT + 16,
+        top: APP_HEADER_HEIGHT + 4,
         position: 'fixed',
       }}
     >
