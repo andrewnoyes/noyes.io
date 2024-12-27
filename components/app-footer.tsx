@@ -37,7 +37,7 @@ export const AppFooter = () => {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.footer}>
+    <footer className={classes.footer}>
       <Container className={classes.inner}>
         <Anchor<'a'>
           href="https://github.com/andrewnoyes/noyes.io"
@@ -66,6 +66,6 @@ export const AppFooter = () => {
           </Link>
         </Group>
       </Container>
-    </div>
+    </footer>
   );
 };
