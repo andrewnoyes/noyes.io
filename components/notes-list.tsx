@@ -5,9 +5,11 @@ import { Note } from '../utils';
 export const NotesList = ({
   notes,
   activeSlug,
+  onSelect,
 }: {
   notes: Note[];
   activeSlug?: string;
+  onSelect?: (note: Note) => void;
 }) => {
   return (
     <Box>
@@ -16,6 +18,11 @@ export const NotesList = ({
           key={note.slug}
           href={note.slug}
           style={{ textDecoration: 'none' }}
+          onClick={() => {
+            if (onSelect) {
+              onSelect(note);
+            }
+          }}
         >
           <NavLink
             key={note.slug}

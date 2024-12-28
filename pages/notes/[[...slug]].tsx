@@ -13,7 +13,7 @@ import {
   Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconList } from '@tabler/icons';
+import { IconMist } from '@tabler/icons';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -61,24 +61,24 @@ export default function Notes(props: NotesProps) {
   const [notePanelOpen, { toggle: toggleNotePanel, close: closeNotePanel }] =
     useDisclosure(false);
 
-  const showNotesList = (
+  const showNotesListButton = (
     <ActionIcon
       onClick={toggleNotePanel}
       className={classes.hiddenDesktop}
       title="Show notes list"
       variant="transparent"
       sx={{
-        left: 4,
-        top: APP_HEADER_HEIGHT + 4,
+        left: 6,
+        top: APP_HEADER_HEIGHT + 16,
         position: 'fixed',
       }}
     >
-      <IconList />
+      <IconMist />
     </ActionIcon>
   );
 
   return (
-    <Container size="xl">
+    <Container size="xl" px="xl">
       <Head>
         <title>{pageTitle}</title>
         <meta property="og:title" content={pageTitle} />
@@ -94,20 +94,16 @@ export default function Notes(props: NotesProps) {
           </Title>
         }
         padding="sm"
-        styles={{
-          root: {
-            top: APP_HEADER_HEIGHT,
-          },
-          drawer: {
-            top: APP_HEADER_HEIGHT,
-          },
-        }}
       >
         <ScrollArea
           mx="-sm"
           sx={{ height: `calc(100vh - ${SCROLL_AREA_OFFSET}px)` }}
         >
-          <NotesList notes={notes ?? []} activeSlug={note?.slug} />
+          <NotesList
+            notes={notes ?? []}
+            activeSlug={note?.slug}
+            onSelect={closeNotePanel}
+          />
         </ScrollArea>
       </Drawer>
       <Grid>
@@ -121,7 +117,7 @@ export default function Notes(props: NotesProps) {
           {note ? (
             <div>
               <Box>
-                {showNotesList}
+                {showNotesListButton}
                 <Title>{note.title}</Title>
                 {note.tags?.length ? (
                   <Group spacing={4} mb={4}>
@@ -143,7 +139,7 @@ export default function Notes(props: NotesProps) {
             </div>
           ) : (
             <Box>
-              {showNotesList}
+              {showNotesListButton}
               <NotesHome />
             </Box>
           )}
