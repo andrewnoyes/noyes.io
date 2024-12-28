@@ -1,4 +1,16 @@
-import { Blockquote, Checkbox, Code, List, Text, Title } from '@mantine/core';
+import {
+  ActionIcon,
+  Blockquote,
+  Checkbox,
+  Code,
+  CopyButton,
+  Flex,
+  List,
+  Text,
+  Title,
+  Tooltip,
+} from '@mantine/core';
+import { IconCheck, IconCopy } from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 
 const checkboxRegex = /^(\[(x|\s)\])/gm;
@@ -29,7 +41,26 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       return <List.Item>{children}</List.Item>;
     },
     p: ({ children }) => <Text my={4}>{children}</Text>,
-    code: ({ children }) => <Code>{children}</Code>,
+    code: ({ children }) => {
+      return (
+        <Flex gap={4}>
+          <Code>{children}</Code>
+          <CopyButton value={children?.toString() ?? ''} timeout={2000}>
+            {({ copied, copy }) => (
+              <Tooltip
+                label={copied ? 'Copied' : 'Copy'}
+                withArrow
+                position="right"
+              >
+                <ActionIcon color={copied ? 'teal' : 'gray'} onClick={copy}>
+                  {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+                </ActionIcon>
+              </Tooltip>
+            )}
+          </CopyButton>
+        </Flex>
+      );
+    },
     blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
     ...components,
   };
