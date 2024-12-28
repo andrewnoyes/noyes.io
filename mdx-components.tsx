@@ -16,11 +16,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       const stringValue = children?.toString() ?? '';
       if (checkboxRegex.test(stringValue)) {
         return (
-          <Checkbox
-            label={stringValue.replace(checkboxRegex, '')}
-            checked={stringValue.indexOf('[x]') === 0}
-            onChange={() => {}}
-          />
+          <List.Item sx={{ listStyle: 'none' }}>
+            <Checkbox
+              label={stringValue.replace(checkboxRegex, '')}
+              checked={stringValue.indexOf('[x]') === 0}
+              onChange={() => {}}
+            />
+          </List.Item>
         );
       }
 
