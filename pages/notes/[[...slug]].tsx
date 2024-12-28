@@ -20,6 +20,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
+import Link from 'next/link';
 import path from 'path';
 import { NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
@@ -77,6 +78,18 @@ export default function Notes(props: NotesProps) {
     </ActionIcon>
   );
 
+  const notesListTitle = (
+    <Link
+      href="/notes"
+      style={{ textDecoration: 'none', color: 'inherit' }}
+      onClick={closeNotePanel}
+    >
+      <Title order={2} size="h3">
+        Notes
+      </Title>
+    </Link>
+  );
+
   return (
     <Container size="xl" px="xl">
       <Head>
@@ -88,11 +101,7 @@ export default function Notes(props: NotesProps) {
         opened={notePanelOpen}
         onClose={closeNotePanel}
         position="left"
-        title={
-          <Title order={2} size="h3">
-            Notes
-          </Title>
-        }
+        title={notesListTitle}
         padding="sm"
       >
         <ScrollArea
@@ -108,9 +117,7 @@ export default function Notes(props: NotesProps) {
       </Drawer>
       <Grid>
         <Grid.Col sm={3} className={classes.hiddenMobile}>
-          <Title order={2} size="h3">
-            Notes
-          </Title>
+          {notesListTitle}
           <NotesList notes={notes ?? []} activeSlug={note?.slug} />
         </Grid.Col>
         <Grid.Col sm={9}>
