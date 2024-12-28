@@ -1,5 +1,7 @@
-import { Blockquote, Code, List, Text, Title } from '@mantine/core';
+import { Blockquote, Checkbox, Code, List, Text, Title } from '@mantine/core';
 import type { MDXComponents } from 'mdx/types';
+
+const checkboxRegex = /^(\[(x|\s)\])/gm;
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -10,7 +12,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: ({ children }) => <Title order={5}>{children}</Title>,
     ul: ({ children }) => <List type="unordered">{children}</List>,
     ol: ({ children }) => <List type="ordered">{children}</List>,
-    li: ({ children }) => <List.Item>{children}</List.Item>,
+    li: ({ children }) => {
+      const stringValue = children?.toString() ?? '';
+      if (checkboxRegex.test(stringValue)) {
+        return (
+          <Checkbox
+            label={stringValue.replace(checkboxRegex, '')}
+            checked={stringValue.indexOf('[x]') === 0}
+            onChange={() => {}}
+          />
+        );
+      }
+
+      return <List.Item>{children}</List.Item>;
+    },
     p: ({ children }) => <Text my={4}>{children}</Text>,
     code: ({ children }) => <Code>{children}</Code>,
     blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
