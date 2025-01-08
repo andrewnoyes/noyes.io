@@ -13,7 +13,7 @@ import {
   Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconMist } from '@tabler/icons';
+import { IconList } from '@tabler/icons';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -67,14 +67,17 @@ export default function Notes(props: NotesProps) {
       onClick={toggleNotePanel}
       className={classes.hiddenDesktop}
       title="Show notes list"
-      variant="transparent"
+      variant="filled"
+      size="lg"
       sx={{
-        left: 6,
+        left: 0,
         top: APP_HEADER_HEIGHT + 16,
         position: 'fixed',
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
       }}
     >
-      <IconMist />
+      <IconList />
     </ActionIcon>
   );
 
