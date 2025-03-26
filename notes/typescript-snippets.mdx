@@ -1,0 +1,11 @@
+---
+title: TypeScript snippets
+created: 03/26/2025
+tags: TS,web
+---
+
+Wraps the provided type, making any null or undefined properties required. Pulled from: https://stackoverflow.com/a/53050575/3757297
+
+```ts
+type NoUndefinedField<T> = { [P in keyof T]-?: NoUndefinedField<NonNullable<T[P]>> };
+```
