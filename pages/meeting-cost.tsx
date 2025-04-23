@@ -1,16 +1,17 @@
 import {
-  ActionIcon,
   Button,
+  Code,
   Container,
+  Divider,
   Group,
+  List,
   NumberInput,
   Stack,
   Text,
   Title,
 } from '@mantine/core';
-import { IconX } from '@tabler/icons';
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getPageTitle } from '../utils';
 
 const formatSeconds = (secs: number) => {
@@ -30,85 +31,28 @@ const moneyFormatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
 });
 
-const WORK_HOURS_IN_YEAR = 2000; // 8 hrs / day, 50 weeks per year (-2 weeks PTO)
+const WORK_HOURS_IN_YEAR = 2000; // 8 hrs / day * 50 weeks per year (-2 weeks PTO)
 const WORK_SECS_IN_YEAR = WORK_HOURS_IN_YEAR * 60 * 60;
 
-const ParticipantForm = ({ onAdd }: { onAdd: (salary: number) => void }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleAddSalary = () => {
-    const salary = inputRef?.current?.value;
-    if (!salary) {
-      return;
-    }
-
-    const asInt = parseInt(salary.replace(/\D/g, ''));
-    if (isNaN(asInt)) {
-      return;
-    }
-
-    // mantine v5 NumberInput is bugged when used as a controlled component,
-    // value won't reset! and modifying using its ref would not update the value
-    // unless i wrapped in a short setTimeout?! NOTE: tested latest version of
-    // mantine (v7) and the NumberInput works as expected, so remove this if i
-    // ever move site to an updated mantine version!
-    setTimeout(() => {
-      if (inputRef?.current?.value) {
-        inputRef.current.value = '';
-      }
-    }, 10);
-
-    onAdd(asInt);
-  };
-
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleAddSalary();
-      }}
-    >
-      <Group align="flex-end">
-        <NumberInput
-          ref={inputRef}
-          required
-          hideControls
-          noClampOnBlur
-          style={{ flexGrow: 1 }}
-          label="Salary"
-          description={`Enter each participant's salary`}
-          placeholder="Dollars per year"
-          parser={(value) => value?.replace(/\$\s?|(,*)/g, '')}
-          formatter={(value) =>
-            value !== undefined && !Number.isNaN(parseFloat(value))
-              ? `$ ${value}`.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
-              : '$ '
-          }
-        />
-        <Button variant="filled" type="submit">
-          Add
-        </Button>
-      </Group>
-    </form>
-  );
-};
-
 const MeetingCost = () => {
-  const [salaries, setSalaries] = useState<number[]>([]);
-  const [ticks, setTicks] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const [started, setStarted] = useState(false);
+  const [numParticipants, setNumParticipants] = useState(1);
+  const [averageSalary, setAverageSalary] = useState(0);
 
-  const salaryTotal = salaries.reduce((acc, sal) => acc + sal, 0);
+  const salaryTotal = numParticipants * averageSalary;
   const costPerSec = salaryTotal / WORK_SECS_IN_YEAR;
-  const currentCost = costPerSec * ticks;
-  const formattedCost = moneyFormatter.format(currentCost);
+  const currentCost = costPerSec * seconds;
 
-  const canStart = salaries.length > 0;
+  const formattedCost = moneyFormatter.format(currentCost);
+  const formattedTime = formatSeconds(seconds);
+
+  const canStart = numParticipants > 0 && averageSalary > 0;
 
   useEffect(() => {
     const intervalId = started
       ? setInterval(() => {
-          setTicks(ticks + 1);
+          setSeconds(seconds + 1);
         }, 1000)
       : null;
 
@@ -117,27 +61,61 @@ const MeetingCost = () => {
         clearInterval(intervalId);
       }
     };
-  }, [started, ticks]);
-
-  const handleAddSalary = (salary: number) => {
-    if (salary > 0) {
-      setSalaries([...salaries, salary]);
-    }
-  };
-
-  const handleRemoveSalary = (index: number) => {
-    const updated = [...salaries];
-    updated.splice(index, 1);
-    setSalaries(updated);
-  };
+  }, [started, seconds]);
 
   const handleResetAll = () => {
     setStarted(false);
-    setSalaries([]);
-    setTicks(0);
+    setSeconds(0);
   };
 
-  const pageTitle = getPageTitle([formattedCost, 'Meeting cost']);
+  const renderDetails = () => {
+    if (!canStart) {
+      return null;
+    }
+
+    const formattedSalaryTotal = moneyFormatter.format(salaryTotal);
+    const formattedCostPerSec = moneyFormatter.format(costPerSec);
+
+    const details = [
+      {
+        title: 'Salary total',
+        text: `${formattedSalaryTotal} = ${numParticipants} ${
+          numParticipants === 1 ? 'person' : 'people'
+        } * ${moneyFormatter.format(averageSalary)} average`,
+      },
+      {
+        title: 'Cost per second',
+        text: `${formattedCostPerSec} = ${formattedSalaryTotal} total / {work seconds per year}`,
+      },
+      {
+        title: 'A 15 min meeting would cost',
+        text: `${moneyFormatter.format(
+          costPerSec * (15 * 60),
+        )} = ${formattedCostPerSec} (cost/sec) * ${15 * 60} secs`,
+      },
+      {
+        title: 'A 30 min meeting would cost',
+        text: `${moneyFormatter.format(
+          costPerSec * (30 * 60),
+        )} = ${formattedCostPerSec} (cost/sec) * ${30 * 60} secs`,
+      },
+    ];
+
+    return (
+      <List mt="lg">
+        {details.map((detail) => (
+          <List.Item key={detail.title}>
+            {detail.title}: <Code>{detail.text}</Code>
+          </List.Item>
+        ))}
+      </List>
+    );
+  };
+
+  const pageTitle = getPageTitle([
+    `${formattedCost} - ${formattedTime}`,
+    '🤑 Meeting cost',
+  ]);
 
   return (
     <Container p="md" size="sm">
@@ -146,13 +124,18 @@ const MeetingCost = () => {
         <meta property="og:title" content={pageTitle} />
       </Head>
       <Stack align="center">
-        <Title>Meeting cost timer</Title>
+        <Title>
+          <span role="img" aria-label="money face">
+            🤑
+          </span>{' '}
+          Meeting cost timer
+        </Title>
       </Stack>
+      <Divider />
       <Stack mt="lg" align="center">
-        <Group>
-          <Title>{formatSeconds(ticks)}</Title>
-          <Title>{formattedCost}</Title>
-        </Group>
+        <Title>
+          {formattedCost} - {formattedTime}
+        </Title>
         <Group>
           <Button
             disabled={!canStart}
@@ -167,29 +150,45 @@ const MeetingCost = () => {
           </Button>
         </Group>
       </Stack>
-
-      <Stack mt="lg">
-        <ParticipantForm onAdd={handleAddSalary} />
-      </Stack>
-      <Stack spacing="xs" mt="sm">
-        {salaries.map((sal, index) => (
-          <Group key={[sal, index].join('-')}>
-            <ActionIcon
-              title="Remove salary"
-              size="xs"
-              variant="subtle"
-              color="red"
-              disabled={started}
-              onClick={() => {
-                handleRemoveSalary(index);
-              }}
-            >
-              <IconX />
-            </ActionIcon>
-            <Text>{moneyFormatter.format(sal)}</Text>
-          </Group>
-        ))}
-      </Stack>
+      <Group mt="lg" position="center">
+        <NumberInput
+          label="Number of people"
+          disabled={started}
+          size="md"
+          min={1}
+          value={numParticipants}
+          onChange={(val) => {
+            if (val) {
+              setNumParticipants(val);
+            }
+          }}
+        />
+        <NumberInput
+          label="Average salary"
+          disabled={started}
+          size="md"
+          min={1}
+          value={averageSalary}
+          onChange={(val) => {
+            if (val) {
+              setAverageSalary(val);
+            }
+          }}
+          parser={(value) => value?.replace(/\$\s?|(,*)/g, '')}
+          formatter={(value) =>
+            value !== undefined && !Number.isNaN(parseFloat(value))
+              ? `$ ${value}`.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+              : '$ '
+          }
+        />
+      </Group>
+      <Text mt="sm" align="center">
+        <Code>
+          Cost per second assumes 2000 hours worked a year: 40 hrs * (52 weeks -
+          2 weeks for PTO).
+        </Code>
+      </Text>
+      {renderDetails()}
     </Container>
   );
 };
