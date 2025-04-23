@@ -175,11 +175,11 @@ const MeetingCost = () => {
         {salaries.map((sal, index) => (
           <Group key={[sal, index].join('-')}>
             <ActionIcon
-              title="remove salary"
+              title="Remove salary"
               size="xs"
               variant="subtle"
               color="red"
-              // disabled={started}
+              disabled={started}
               onClick={() => {
                 handleRemoveSalary(index);
               }}
