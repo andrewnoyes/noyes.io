@@ -76,38 +76,31 @@ const MeetingCost = () => {
     const formattedSalaryTotal = moneyFormatter.format(salaryTotal);
     const formattedCostPerSec = moneyFormatter.format(costPerSec);
 
-    const details = [
-      {
-        title: 'Salary total',
-        text: `${formattedSalaryTotal} = ${numParticipants} ${
-          numParticipants === 1 ? 'person' : 'people'
-        } * ${moneyFormatter.format(averageSalary)} average`,
-      },
-      {
-        title: 'Cost per second',
-        text: `${formattedCostPerSec} = ${formattedSalaryTotal} total / {work seconds per year}`,
-      },
-      {
-        title: 'A 15 min meeting would cost',
-        text: `${moneyFormatter.format(
-          costPerSec * (15 * 60),
-        )} = ${formattedCostPerSec} (cost/sec) * ${15 * 60} secs`,
-      },
-      {
-        title: 'A 30 min meeting would cost',
-        text: `${moneyFormatter.format(
-          costPerSec * (30 * 60),
-        )} = ${formattedCostPerSec} (cost/sec) * ${30 * 60} secs`,
-      },
-    ];
-
     return (
       <List mt="lg">
-        {details.map((detail) => (
-          <List.Item key={detail.title}>
-            {detail.title}: <Code>{detail.text}</Code>
-          </List.Item>
-        ))}
+        <List.Item>
+          Salary total:{' '}
+          <Code>
+            {formattedSalaryTotal} = {numParticipants}{' '}
+            {numParticipants === 1 ? 'person' : 'people'} *{' '}
+            {moneyFormatter.format(averageSalary)} average
+          </Code>
+        </List.Item>
+        <List.Item>
+          Cost per second:{' '}
+          <Code>
+            {formattedCostPerSec} = ${formattedSalaryTotal} total /{' '}
+            {WORK_SECS_IN_YEAR} work secs per year
+          </Code>
+        </List.Item>
+        <List.Item>
+          A 15 minute meeting would cost:{' '}
+          <Code>{moneyFormatter.format(costPerSec * 15 * 60)}</Code>
+        </List.Item>
+        <List.Item>
+          A 30 minute meeting would cost:{' '}
+          <Code>{moneyFormatter.format(costPerSec * 30 * 60)}</Code>
+        </List.Item>
       </List>
     );
   };
@@ -164,7 +157,7 @@ const MeetingCost = () => {
           }}
         />
         <NumberInput
-          label="Average salary"
+          label="Average yearly salary"
           disabled={started}
           size="md"
           min={1}
@@ -182,13 +175,13 @@ const MeetingCost = () => {
           }
         />
       </Group>
-      <Text mt="sm" align="center">
-        <Code>
-          Cost per second assumes 2000 hours worked a year: 40 hrs * (52 weeks -
-          2 weeks for PTO).
-        </Code>
-      </Text>
-      {renderDetails()}
+      <Container size="xs">
+        <Text mt="sm" align="center" size="sm">
+          Assumes 2000 hours worked a year:{' '}
+          <Code>40 hrs * (52 weeks - 2 weeks for PTO)</Code>
+        </Text>
+        {renderDetails()}
+      </Container>
     </Container>
   );
 };
