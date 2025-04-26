@@ -2,6 +2,21 @@ import { JobDescription, ProjectDescription } from './interfaces';
 
 export const jobDescriptions: JobDescription[] = [
   {
+    title: 'Senior Software Engineer',
+    company: 'BaseCamp Franchising',
+    companyUrl: 'https://bcfranchise.com',
+    dateRange: 'March 2025 - Present',
+    details: ['WIP! 😛'],
+    techStack: [
+      'TypeScript',
+      'React',
+      'Java',
+      'Spring Boot',
+      'ASP.NET Core',
+      'PostgreSQL',
+    ],
+  },
+  {
     title: 'Software Engineer',
     company: 'United Network for Organ Sharing',
     companyUrl: 'https://unos.org',
