@@ -11,7 +11,8 @@ import {
   Title,
 } from '@mantine/core';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useCountupTimer } from '../hooks';
 import { getPageTitle } from '../utils';
 
 const formatSeconds = (secs: number) => {
@@ -35,10 +36,10 @@ const WORK_HOURS_IN_YEAR = 2000; // 8 hrs / day * 50 weeks per year (-2 weeks PT
 const WORK_SECS_IN_YEAR = WORK_HOURS_IN_YEAR * 60 * 60;
 
 const MeetingCost = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [started, setStarted] = useState(false);
   const [numParticipants, setNumParticipants] = useState(1);
   const [averageSalary, setAverageSalary] = useState(0);
+
+  const { started, toggleStarted, seconds, resetAll } = useCountupTimer();
 
   const salaryTotal = numParticipants * averageSalary;
   const costPerSec = salaryTotal / WORK_SECS_IN_YEAR;
@@ -47,26 +48,12 @@ const MeetingCost = () => {
   const formattedCost = moneyFormatter.format(currentCost);
   const formattedTime = formatSeconds(seconds);
 
+  const pageTitle = getPageTitle([
+    `${formattedCost} - ${formattedTime}`,
+    '🤑 Meeting cost',
+  ]);
+
   const canStart = numParticipants > 0 && averageSalary > 0;
-
-  useEffect(() => {
-    const intervalId = started
-      ? setInterval(() => {
-          setSeconds(seconds + 1);
-        }, 1000)
-      : null;
-
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [started, seconds]);
-
-  const handleResetAll = () => {
-    setStarted(false);
-    setSeconds(0);
-  };
 
   const renderDetails = () => {
     if (!canStart) {
@@ -105,11 +92,6 @@ const MeetingCost = () => {
     );
   };
 
-  const pageTitle = getPageTitle([
-    `${formattedCost} - ${formattedTime}`,
-    '🤑 Meeting cost',
-  ]);
-
   return (
     <Container p="md" size="sm">
       <Head>
@@ -133,12 +115,12 @@ const MeetingCost = () => {
           <Button
             disabled={!canStart}
             size="lg"
-            onClick={() => setStarted(!started)}
+            onClick={toggleStarted}
             color={started ? 'yellow' : 'green'}
           >
             {started ? 'Pause' : 'Start'}
           </Button>
-          <Button size="lg" color="red" onClick={handleResetAll}>
+          <Button size="lg" color="red" onClick={resetAll}>
             Reset
           </Button>
         </Group>
