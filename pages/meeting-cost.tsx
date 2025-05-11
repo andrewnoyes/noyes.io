@@ -32,7 +32,7 @@ const moneyFormatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 2,
 });
 
-const WORK_HOURS_IN_YEAR = 2000; // 8 hrs / day * 50 weeks per year (-2 weeks PTO)
+const WORK_HOURS_IN_YEAR = 2000; // 40 hrs per week * 50 weeks per year (-2 weeks PTO)
 const WORK_SECS_IN_YEAR = WORK_HOURS_IN_YEAR * 60 * 60;
 
 const MeetingCost = () => {
