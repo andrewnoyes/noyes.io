@@ -1,11 +1,18 @@
 import Head from 'next/head';
-import { Fragment } from 'react';
+import { useRouter } from 'next/router';
+import { Fragment, useEffect, useState } from 'react';
 import { About, Hero, ProjectList, WorkExperience } from '../components';
 import { getPageTitle } from '../utils';
 
 export default function Home() {
+  const { asPath } = useRouter();
+  const [pageTitle, setPageTitle] = useState(getPageTitle([]));
+
   // add the #about, #experience, etc sections to page title
-  const pageTitle = getPageTitle([window.location.hash]);
+  useEffect(() => {
+    const hash = asPath.split('#')[1];
+    setPageTitle(getPageTitle([hash ? `#${hash}` : '']));
+  }, [asPath, pageTitle, setPageTitle]);
 
   return (
     <Fragment>
