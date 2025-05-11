@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: 'Andrew Noyes',
+  name: 'androo',
   description:
-    'Andrew Noyes is a software engineer specializing in full-stack application development.',
+    'Andrew is a software engineer specializing in full-stack application development.',
   image: '/dog-bandana.jpeg',
   mainLinks: [
     { name: '#about', href: '/#about' },
@@ -12,5 +12,8 @@ export const siteConfig = {
 };
 
 export const getPageTitle = (pages: string[]) => {
-  return [...pages, siteConfig.name].join(' | ');
+  return [...pages, siteConfig.name]
+    .filter(Boolean)
+    .map((title) => title.toLowerCase())
+    .join(' | ');
 };
