@@ -11,7 +11,7 @@ export default function Home() {
   // add the #about, #experience, etc sections to page title
   useEffect(() => {
     const hash = asPath.split('#')[1];
-    setPageTitle(getPageTitle([hash ? `#${hash}` : '']));
+    setPageTitle(getPageTitle([hash || '']));
   }, [asPath, pageTitle, setPageTitle]);
 
   return (
