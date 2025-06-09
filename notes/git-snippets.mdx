@@ -1,0 +1,9 @@
+---
+title: Git snippets
+created: 06/09/2025
+tags: git,cli
+---
+
+- Delete all local branches except for develop, master, or main (pulled from this [SO answer](https://stackoverflow.com/a/26152200/3757297)):
+  
+  `git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git branch -D`
