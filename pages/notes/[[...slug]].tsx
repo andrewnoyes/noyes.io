@@ -138,11 +138,18 @@ export default function Notes(props: NotesProps) {
                     ))}
                   </Group>
                 ) : null}
-                {note.created ? (
-                  <Text c="dimmed" fz="sm">
-                    {note.created}
-                  </Text>
-                ) : null}
+                <Group spacing="xs">
+                  {note.updated && (
+                    <Text c="dimmed" fz="sm">
+                      updated: {note.updated}
+                    </Text>
+                  )}
+                  {note.created && (
+                    <Text c="dimmed" fz="sm">
+                      created: {note.created}
+                    </Text>
+                  )}
+                </Group>
               </Box>
               <Divider mb="sm" />
               <MDXRemote {...note.mdxContent} components={mdxComponents} />
