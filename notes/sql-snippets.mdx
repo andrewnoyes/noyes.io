@@ -1,0 +1,31 @@
+---
+title: SQL snippets
+created: 07/09/2025
+tags: sql
+---
+
+- Loop through all records of one table, and migrate each record to the new table if it doesn't already exist. This was a work-related migration I needed to put together, and it's got some nice tidbits for looping and variable declaration/assignment:
+
+```sql
+DO $$
+DECLARE
+    section_rule RECORD;
+    new_inventory_rule_id uuid;
+BEGIN
+    FOR section_rule IN SELECT * FROM section_rules
+    LOOP
+        SELECT id into new_inventory_rule_id FROM inventory_rules 
+        WHERE rule_type = section_rule.rule_type AND record_id = section_rule.record_id;
+        
+        IF new_inventory_rule_id IS NULL THEN
+            INSERT INTO inventory_rules (id, rule_type, record_id, created_at, updated_at)
+            VALUES (gen_random_uuid(), section_rule.rule_type, section_rule.record_id, now(), now())
+            RETURNING id INTO new_inventory_rule_id;
+        END IF;
+
+        UPDATE section_rules
+        SET inventory_rule_id = new_inventory_rule_id
+        WHERE id = section_rule.id;
+    END LOOP;
+END $$;
+```
