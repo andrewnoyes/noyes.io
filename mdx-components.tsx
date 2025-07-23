@@ -43,8 +43,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children }) => <Text my={4}>{children}</Text>,
     code: ({ children }) => {
       return (
-        <Flex gap={4} sx={{ overflowX: 'auto' }}>
-          <Code>{children}</Code>
+        <Flex gap={4}>
+          <Code sx={{ overflowX: 'auto' }}>{children}</Code>
           <CopyButton value={children?.toString() ?? ''} timeout={2000}>
             {({ copied, copy }) => (
               <Tooltip
