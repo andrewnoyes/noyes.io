@@ -5,7 +5,7 @@ import {
   createStyles,
   Group,
 } from '@mantine/core';
-import { IconBrandGithub, IconMail } from '@tabler/icons';
+import { IconBrandGit, IconMail } from '@tabler/icons';
 import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
@@ -40,23 +40,23 @@ export const AppFooter = () => {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <Anchor<'a'>
-          href="https://github.com/andrewnoyes/noyes.io"
+          href="https://git.unfrl.com/androo/noyes.io"
           target="_blank"
           rel="noopener noreferrer"
           size="md"
           color="dimmed"
           sx={{ fontFamily: 'monospace' }}
         >
-          Built by Andrew
+          built by androo
         </Anchor>
         <Group spacing={0} className={classes.links} noWrap>
           <Link
-            href="https://github.com/andrewnoyes"
+            href="https://git.unfrl.com/androo"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ActionIcon size="lg" aria-label="GitHub">
-              <IconBrandGithub size={18} stroke={1.5} />
+            <ActionIcon size="lg" aria-label="Git repos">
+              <IconBrandGit size={18} stroke={1.5} />
             </ActionIcon>
           </Link>
           <Link href="mailto:andrew@noyes.io">

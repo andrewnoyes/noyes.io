@@ -1,5 +1,3 @@
-// https://github.com/mantinedev/ui.mantine.dev/blob/master/components/HeroText/Dots.tsx
-
 export interface DotsProps extends React.ComponentPropsWithoutRef<'svg'> {
   size?: number;
   radius?: number;
