@@ -15,6 +15,7 @@ export const jobDescriptions: JobDescription[] = [
       'ASP.NET Core',
       'PostgreSQL',
     ],
+    active: true,
   },
   {
     title: 'Software Engineer',

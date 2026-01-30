@@ -5,6 +5,7 @@ export interface JobDescription {
   dateRange: string;
   details: string[];
   techStack: string[];
+  active?: boolean;
 }
 
 export interface ProjectDescription {

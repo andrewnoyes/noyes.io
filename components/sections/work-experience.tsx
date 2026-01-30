@@ -1,4 +1,4 @@
-import { Container, Tabs } from '@mantine/core';
+import { Badge, Box, Container, Flex, Group, Tabs, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { jobDescriptions } from '../../utils';
 import { SectionHeader } from './section-header';
@@ -17,12 +17,20 @@ export const WorkExperience = () => {
         >
           <Tabs.List>
             {jobDescriptions.map((job) => (
-              <Tabs.Tab
-                key={job.company}
-                value={job.company}
-                sx={{ fontFamily: 'monospace' }}
-              >
-                {job.company}
+              <Tabs.Tab key={job.company} value={job.company}>
+                <Group spacing="xl">
+                  <Text sx={{ fontFamily: 'monospace' }}>{job.company}</Text>
+                  {job.active && (
+                    <Badge
+                      color="green"
+                      variant="dot"
+                      radius="xs"
+                      sx={{ fontFamily: 'monospace' }}
+                    >
+                      active
+                    </Badge>
+                  )}
+                </Group>
               </Tabs.Tab>
             ))}
           </Tabs.List>
