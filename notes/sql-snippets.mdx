@@ -1,7 +1,8 @@
 ---
 title: SQL snippets
 created: 07/09/2025
-tags: sql
+updated: 02/20/2026
+tags: sql,postgres
 ---
 
 - Loop through all records of one table, and migrate each record to the new table if it doesn't already exist. This was a work-related migration I needed to put together, and it's got some nice tidbits for looping and variable declaration/assignment:
@@ -28,4 +29,9 @@ BEGIN
         WHERE id = section_rule.id;
     END LOOP;
 END $$;
+```
+
+- Postgres [ON CONFLICT clause to INSERT](https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT):
+```sql
+INSERT INTO some_table values(1, 2, 3) ON CONFLICT DO NOTHING;
 ```
