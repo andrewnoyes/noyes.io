@@ -40,7 +40,7 @@ export const About = () => {
               and services.`}
             </Text>
             <Space h="md" />
-            <Text>{`Some technologies I've been working with recently (in no particluar order):`}</Text>
+            <Text>{`Some technologies I've been working with recently (in no particular order):`}</Text>
             <Space h="md" />
             <Group spacing="xl">
               <List
