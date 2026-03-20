@@ -4,7 +4,12 @@ created: 02/11/26
 tags: software-engineering,design
 ---
 
-(WIP 😛)
+WIP, one day I'll add some structure here...😛
 
+- [Modular Monolith: dependencies and communication between Modules](https://binaryigor.com/modular-monolith-dependencies-and-communication.html)
+  - Clients/APIs - simple, in-memory method calls of dedicated interfaces
+  - Application Events - in-memory events published between modules, which can introduce coupling at the database level
+  - Outbox Pattern - in-memory events with more sophisticated sending process that does not introduce coupling at the database level, thus making it easier to separate modules physically
+  - Background Data Synchronization - does not allow modules to communicate with each other during external requests processing, which forces them to be more self-contained, independent and resilient
 - [Everything I know about good system design](https://www.seangoedecke.com/good-system-design/)
 - [Modularizing React Applications with Established UI Patterns](https://martinfowler.com/articles/modularizing-react-apps.html)
