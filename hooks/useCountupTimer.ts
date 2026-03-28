@@ -1,29 +1,92 @@
 import { useEffect, useState } from 'react';
 
+interface EventWithTimestamp {
+  event: 'started' | 'stopped';
+  timestamp: Date;
+}
+
+const elapsedSecondsForEvents = (events: EventWithTimestamp[]) => {
+  let seconds = 0;
+
+  for (let i = 0; i < events.length; i += 2) {
+    const started = events[i];
+    const stopped = events[i + 1];
+
+    seconds += elapsedSeconds(started.timestamp, stopped?.timestamp);
+  }
+
+  return seconds;
+};
+
+const elapsedSeconds = (start?: Date, end?: Date) => {
+  if (!start) {
+    return 0;
+  }
+
+  const startedMs = new Date(start).getTime();
+  const endedMs = (end ? new Date(end) : new Date()).getTime();
+
+  const diffMs = endedMs - startedMs;
+  const diffSecs = Math.floor(diffMs / 1000);
+
+  return diffSecs;
+};
+
 export const useCountupTimer = () => {
   const [seconds, setSeconds] = useState(0);
-  const [started, setStarted] = useState(false);
+  const [events, setEvents] = useState<EventWithTimestamp[]>([]);
 
-  const toggleStarted = () => setStarted(!started);
+  const lastEventEquals = (event: 'started' | 'stopped') => {
+    return events[events.length - 1]?.event === event;
+  };
+
+  const started = lastEventEquals('started');
+
+  const start = () => {
+    if (!started) {
+      setEvents((e) => [...e, { event: 'started', timestamp: new Date() }]);
+    }
+  };
+
+  const stop = () => {
+    if (started) {
+      setEvents((e) => [...e, { event: 'stopped', timestamp: new Date() }]);
+    }
+  };
+
+  const toggleStarted = () => {
+    if (started) {
+      stop();
+    } else {
+      start();
+    }
+  };
 
   const resetAll = () => {
-    setStarted(false);
     setSeconds(0);
+    setEvents([]);
   };
 
   useEffect(() => {
-    const intervalId = started
-      ? setInterval(() => {
-          setSeconds(seconds + 1);
-        }, 1000)
-      : null;
+    if (!started) {
+      return;
+    }
+
+    const intervalId = setInterval(() => {
+      setSeconds(elapsedSecondsForEvents(events));
+    }, 1000);
 
     return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
+      clearInterval(intervalId);
     };
-  }, [started, seconds]);
+  }, [events, started]);
 
-  return { started, setStarted, toggleStarted, seconds, resetAll };
+  return {
+    started,
+    start,
+    pause: stop,
+    toggleStarted,
+    seconds,
+    resetAll,
+  };
 };
