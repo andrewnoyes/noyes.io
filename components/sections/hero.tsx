@@ -23,8 +23,8 @@ const useStyles = createStyles((theme) => ({
     position: 'absolute',
     color:
       theme.colorScheme === 'dark'
-        ? theme.colors.dark[5]
-        : theme.colors.gray[3],
+        ? theme.colors.violet[4]
+        : theme.colors.violet[9],
     '@media (max-width: 520px)': {
       display: 'none',
     },
