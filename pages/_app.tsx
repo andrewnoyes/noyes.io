@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Fragment>
       <Head>
         <title>{siteConfig.name}</title>
-        <link rel="shortcut icon" href="/dog-bandana.webp" />
+        <link rel="shortcut icon" href="/matapacos.webp" />
         <meta name="description" content={siteConfig.description} />
         <meta name="image" content={siteConfig.image} />
         <meta property="og:title" content={siteConfig.name} />
@@ -33,6 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
         withNormalizeCSS
         theme={{
           colorScheme,
+          primaryColor: 'violet',
         }}
       >
         <Global

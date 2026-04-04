@@ -28,8 +28,8 @@ export const WorkExperienceItem = ({
           span
           color={
             theme.colorScheme === 'dark'
-              ? theme.colors.blue[4]
-              : theme.colors.blue[9]
+              ? theme.colors.violet[4]
+              : theme.colors.violet[9]
           }
         >
           {' '}
@@ -59,7 +59,7 @@ export const WorkExperienceItem = ({
           <IconChevronRight
             size={18}
             style={{ marginTop: 2 }}
-            color={theme.colors.blue[7]}
+            color={theme.colors.violet[7]}
           />
         }
       >

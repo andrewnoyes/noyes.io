@@ -35,10 +35,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'flex-start',
   },
   greeting: {
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.blue[4]
-        : theme.colors.blue[9],
+    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     fontFamily: 'monospace',
     marginLeft: 8,
     marginBottom: 6,
@@ -47,11 +44,14 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 800,
     fontSize: 'clamp(40px, 8vw, 80px)',
     letterSpacing: -1,
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    color:
+      theme.colorScheme === 'dark'
+        ? theme.colors.violet[4]
+        : theme.colors.violet[9],
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
   },
   description: {
-    fontSize: 24,
+    fontSize: 20,
     '@media (max-width: 520px)': {
       fontSize: 18,
     },
@@ -77,7 +77,11 @@ export const Hero = () => {
           </Text>
           <Space h="xl" mt="m" />
           <Link href="mailto:andrew@noyes.io">
-            <Button variant="gradient" size="lg">
+            <Button
+              variant="gradient"
+              gradient={{ from: 'violet', to: 'grape' }}
+              size="lg"
+            >
               Get in touch
             </Button>
           </Link>

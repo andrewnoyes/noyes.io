@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'androo',
   description:
     'Andrew is a software engineer specializing in full-stack application development.',
-  image: '/dog-bandana.jpeg',
+  image: '/matapacos.jpeg',
   mainLinks: [
     { name: '#about', href: '/#about' },
     { name: '#experience', href: '/#experience' },

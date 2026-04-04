@@ -14,6 +14,10 @@ import { SectionHeader } from './section-header';
 
 export const About = () => {
   const theme = useMantineTheme();
+  const iconColor =
+    theme.colorScheme === 'dark'
+      ? theme.colors.violet[4]
+      : theme.colors.violet[9];
 
   return (
     <section id="about">
@@ -23,7 +27,7 @@ export const About = () => {
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card p={0} radius="sm" sx={{ height: 200, width: 200 }}>
               <Image
-                src="/dog-bandana.webp"
+                src="/matapacos.webp"
                 alt="Andrew Noyes"
                 height={200}
                 width={200}
@@ -33,7 +37,7 @@ export const About = () => {
           </Grid.Col>
           <Grid.Col sm={8}>
             <Text>
-              {`Hello! I'm Andrew and this is my site. Right now, it is primarily used as a portfolio site, 
+              {`Hello! I'm Andrew and this is my site. Right now, it is primarily used as a portfolio site,
               but I plan to build out functionality for my notes, code snippets, and whatever else comes to mind.
               For my professional experience, I'm adept at (and enjoy!) building out features from database schema all the way to user interaction.
               My main areas of focus are real-time applications (WebSockets <3), responsive and accessible front-ends, and performant back-end APIs
@@ -47,9 +51,7 @@ export const About = () => {
                 size="sm"
                 spacing="sm"
                 sx={{ fontFamily: 'monospace' }}
-                icon={
-                  <IconChevronRight size={14} color={theme.colors.blue[7]} />
-                }
+                icon={<IconChevronRight size={14} color={iconColor} />}
               >
                 <List.Item>Node.js</List.Item>
                 <List.Item>ASP.NET Core</List.Item>
@@ -59,9 +61,7 @@ export const About = () => {
                 size="sm"
                 spacing="sm"
                 sx={{ fontFamily: 'monospace' }}
-                icon={
-                  <IconChevronRight size={14} color={theme.colors.blue[7]} />
-                }
+                icon={<IconChevronRight size={14} color={iconColor} />}
               >
                 <List.Item>TypeScript</List.Item>
                 <List.Item>React</List.Item>
@@ -71,9 +71,7 @@ export const About = () => {
                 size="sm"
                 spacing="sm"
                 sx={{ fontFamily: 'monospace' }}
-                icon={
-                  <IconChevronRight size={14} color={theme.colors.blue[7]} />
-                }
+                icon={<IconChevronRight size={14} color={iconColor} />}
               >
                 <List.Item>Docker</List.Item>
                 <List.Item>PostgreSQL</List.Item>
