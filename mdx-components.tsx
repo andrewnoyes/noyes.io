@@ -12,7 +12,12 @@ import {
   Tooltip,
   useMantineTheme,
 } from '@mantine/core';
-import { IconCheck, IconChevronRight, IconCopy } from '@tabler/icons';
+import {
+  IconCheck,
+  IconChevronRight,
+  IconCopy,
+  IconQuote,
+} from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 
 const checkboxRegex = /^(\[(x|\s)\])/gm;
@@ -86,7 +91,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </Flex>
       );
     },
-    blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
+    blockquote: ({ children }) => (
+      <Blockquote
+        color="yellow"
+        icon={<IconQuote size={20} style={{ transform: 'rotate(180deg)' }} />}
+      >
+        {children}
+      </Blockquote>
+    ),
     ...components,
   };
 }
