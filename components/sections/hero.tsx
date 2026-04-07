@@ -25,7 +25,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark'
         ? theme.colors.violet[4]
         : theme.colors.violet[9],
-    '@media (max-width: 520px)': {
+    '@media (max-width: 750px)': {
       display: 'none',
     },
   },
