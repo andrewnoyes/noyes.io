@@ -19,6 +19,7 @@ import {
   IconQuote,
 } from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
+import Link from 'next/link';
 
 const checkboxRegex = /^(\[(x|\s)\])/gm;
 
@@ -26,11 +27,26 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   const theme = useMantineTheme();
 
   return {
-    a: ({ children, href }) => (
-      <Anchor href={href} target="_blank" rel="noopener noreferrer">
-        {children}
-      </Anchor>
-    ),
+    a: ({ children, href }) => {
+      const isLocalPath = href && !href.startsWith('http');
+
+      if (isLocalPath) {
+        return (
+          <Link
+            href={href}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <Anchor component="span">{children}</Anchor>
+          </Link>
+        );
+      }
+
+      return (
+        <Anchor href={href} target="_blank" rel="noopener noreferrer">
+          {children}
+        </Anchor>
+      );
+    },
     h1: ({ children }) => <Title>{children}</Title>,
     h2: ({ children }) => <Title order={2}>{children}</Title>,
     h3: ({ children }) => <Title order={3}>{children}</Title>,
@@ -39,17 +55,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ul: ({ children }) => (
       <List
         type="unordered"
-        size="lg"
         icon={<IconChevronRight size={14} color={theme.colors.yellow[7]} />}
       >
         {children}
       </List>
     ),
-    ol: ({ children }) => (
-      <List type="ordered" size="lg">
-        {children}
-      </List>
-    ),
+    ol: ({ children }) => <List type="ordered">{children}</List>,
     li: ({ children }) => {
       const stringValue = children?.toString() ?? '';
       if (checkboxRegex.test(stringValue)) {
