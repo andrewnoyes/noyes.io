@@ -115,15 +115,16 @@ export const projectDescriptions: ProjectDescription[] = [
     projectUrl: 'https://app.copdb.org',
     description: `Community-moderated police and incident database. It tracks police officers, their departments, and incidents or misconduct they're involved in.`,
     images: [
+      { url: '/copdb/home.webp', caption: 'Home view' },
       { url: '/copdb/department-view.webp', caption: 'Police department view' },
       { url: '/copdb/cops-list.webp', caption: 'Cops table view' },
-      { url: '/copdb/incident-view.webp', caption: 'Reported incident view' },
+      { url: '/copdb/cop-view.webp', caption: 'Cop view' },
+      { url: '/copdb/incident-view.webp', caption: 'Incident view' },
       {
         url: '/copdb/incident-view-suggest-edit.webp',
         caption: 'Suggest edit to an incident',
       },
-      { url: '/copdb/report-incident.webp', caption: 'Report an incident' },
-      { url: '/copdb/report-cops.webp', caption: 'Report cops' },
+      { url: '/copdb/report.webp', caption: 'Report view' },
     ],
     techStack: {
       frontend: ['React', 'MobX', 'Emotion'],
