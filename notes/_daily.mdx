@@ -9,6 +9,10 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
 
 ---
 
+04/10/26:
+- Made it through the week! Had some fun at work today - our bulk-customer import job is humming along nicely, and we've got a more realistic dataset (~7 million rows) to play with locally. So now we were able to get a rough idea for the performance of our phone number lookup query. 
+- As expected, our first pass with "ilike"ing the phone number results in a full table scan, which is too slow! But the legend that is my partner added a GIN index to that column, and without changing any application code, local queries went from >8s to 5-10ms! We've still got a bunch of cleaning up to do and need to actually get the thing deployed and running, but that was a neat lil reminder about the efficacy of indexes!
+
 04/07/26:
 - Took the day off from work cus I was not feeling it! Instead, I made some updates to my personal site and just chiiiilled.
 - Added new CopDB screenshots to the [project sections](/#projects). The previous ones were probably a couple years old at this point, so it was neat to see the improvements we've made! 
