@@ -1,6 +1,7 @@
 ---
 title: Docker reference
 created: 04/27/2020
+updated: 04/12/2026
 tags: docker,cli
 ---
 
@@ -11,24 +12,13 @@ tags: docker,cli
 
 **Cheatsheet:** [https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
 
-**Commands I use frequently:**
-
 - If you've updated your code, you can do the build and reload in a single step with:
-
-  `docker compose up --detach --build {service-name}`
-
+  - `docker compose up --detach --build {service-name}`
 - [Restart a single container with docker-compose](https://stackoverflow.com/questions/31466428/how-to-restart-a-single-container-with-docker-compose):
-
-  `docker compose restart worker`
-
+  - `docker compose restart worker`
 - Run interactive shell to explore containers:
-
-  `docker run -it image_name sh`
-
-- Or following for images with an _entrypoint_
-
-  `docker run -it --entrypoint sh image_name`
-
+  - `docker run -it image_name sh`
+- Or for images with an _entrypoint_
+  - `docker run -it --entrypoint sh image_name`
 - If you want to see how the image was build, meaning the steps in its _dockerfile_, you can:
-
-  `docker image history --no-trunc image_name > image_history`
+  - `docker image history --no-trunc image_name > image_history`
