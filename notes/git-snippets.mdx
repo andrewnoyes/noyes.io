@@ -5,15 +5,10 @@ tags: git,cli
 ---
 
 - Delete all local branches except for develop, master, or main (pulled from this [SO answer](https://stackoverflow.com/a/26152200/3757297)):
-  
-  `git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git branch -D`
-
-- pulled from: https://piechowski.io/post/git-commands-before-reading-code/
+  - `git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git branch -D`
+- pulled from: [git commands before reading code](https://piechowski.io/post/git-commands-before-reading-code/):
 - 20 most changed files in last year: 
-
-`git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20`
-
+  - `git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20`
 - every contributor ranked by commit count: 
-
-`git shortlog -sn --no-merges`
+  - `git shortlog -sn --no-merges`
 
