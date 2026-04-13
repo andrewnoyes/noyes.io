@@ -7,7 +7,7 @@ export const jobDescriptions: JobDescription[] = [
     companyUrl: 'https://bcfranchise.com',
     dateRange: 'March 2025 - Present',
     details: [
-      'Architected the Nexus API and frontend for store connectivity monitoring, software release management, and accounting utilities. Structured as a “modular monolith”, each bounded by their domain with intermodule communication using a local message bus.',
+      'Architected the Nexus API and frontend for store connectivity monitoring, software release management, and invoicing utilities. Structured as a “modular monolith”, each bounded by their domain with intermodule communication using a local message bus.',
       'Established the new Hive API service that runs in stores and talks to Nexus. Hive powers the new task management and communication log, rackhealth and backstock, and the overhauled payments processing features.',
     ],
     techStack: [
