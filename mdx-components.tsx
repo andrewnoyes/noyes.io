@@ -82,7 +82,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       return (
         <Flex gap={4}>
           <Code
-            sx={{ overflowX: 'auto', display: 'flex', alignItems: 'center' }}
+            sx={{
+              overflowX: 'auto',
+              display: 'flex',
+              alignItems: 'center',
+            }}
           >
             {children}
           </Code>
@@ -106,6 +110,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Blockquote
         color="yellow"
         icon={<IconQuote size={20} style={{ transform: 'rotate(180deg)' }} />}
+        sx={{ fontSize: 'inherit' }}
       >
         {children}
       </Blockquote>
