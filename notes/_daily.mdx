@@ -1,13 +1,16 @@
 ---
 title: Daily
 created: 04/07/26
-updated: 04/10/26
+updated: 04/22/26
 tags: journal
 ---
 
 My probably not so "daily" log! This is a habit I've gotten into at work, primarily for keeping track of what I'm working on, but it's also a nice way to reflect on what's completed, stuff I'm thinking about, or whatever. 
 
 ---
+
+04/22/26:
+- Found a nifty library today called [nuqs](https://github.com/47ng/nuqs) for type-safe parsing of search params via a react-style "useQueryState" hook. [CopDB](https://app.copdb.org) stores table filter options in the URL string, and we've been using our own handrolled utilities for parsing search params into their expected types -- which work _well enough_ right now, but they've just kinda been hacked together as needed. So I'm stoked to see if this library would be a good replacement! One thing that I like about our utilities that I'm hoping to replicate with nuqs (which I think useQueryStates may be able to), is that all available search params are defined by an interface which corresponds to the request params the API expects. So instead of working with individual values parsed from the URL string, we get a full "filter" object that's populated with the defined search params which we just pass as the request to the API.
 
 04/10/26:
 - Made it through the week! Had some fun at work today - our bulk-customer import job is humming along nicely, and we've got a more realistic dataset (~7 million rows) to play with locally. So now we were able to get a rough idea for the performance of our phone number lookup query. 
