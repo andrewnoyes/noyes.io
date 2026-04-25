@@ -76,7 +76,7 @@ const MeetingCost = () => {
         <List.Item>
           Cost per second:{' '}
           <Code>
-            {formattedCostPerSec} = ${formattedSalaryTotal} total /{' '}
+            {formattedCostPerSec} = {formattedSalaryTotal} total /{' '}
             {WORK_SECS_IN_YEAR} work secs per year
           </Code>
         </List.Item>
