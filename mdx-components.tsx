@@ -1,23 +1,15 @@
 import {
-  ActionIcon,
   Anchor,
   Blockquote,
   Checkbox,
   Code,
-  CopyButton,
-  Flex,
   List,
   Text,
   Title,
-  Tooltip,
   useMantineTheme,
 } from '@mantine/core';
-import {
-  IconCheck,
-  IconChevronRight,
-  IconCopy,
-  IconQuote,
-} from '@tabler/icons';
+import { Prism } from '@mantine/prism';
+import { IconChevronRight, IconQuote } from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 
@@ -78,39 +70,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       return <List.Item>{children}</List.Item>;
     },
     p: ({ children }) => <Text my={4}>{children}</Text>,
-    code: ({ children }) => {
-      return (
-        <Flex gap={4}>
-          <Code
-            sx={{
-              overflowX: 'auto',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            {children}
-          </Code>
-          <CopyButton value={children?.toString() ?? ''} timeout={2000}>
-            {({ copied, copy }) => (
-              <Tooltip
-                label={copied ? 'Copied' : 'Copy'}
-                withArrow
-                position="right"
-              >
-                <ActionIcon color={copied ? 'teal' : 'gray'} onClick={copy}>
-                  {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
-                </ActionIcon>
-              </Tooltip>
-            )}
-          </CopyButton>
-        </Flex>
-      );
+    code: ({ children, className }) => {
+      const language = className?.split('language-')[1] ?? null;
+
+      if (language) {
+        return <Prism language={language as any}>{children as string}</Prism>;
+      }
+
+      return <Code>{children}</Code>;
     },
     blockquote: ({ children }) => (
       <Blockquote
         color="yellow"
-        icon={<IconQuote size={20} style={{ transform: 'rotate(180deg)' }} />}
-        sx={{ fontSize: 'inherit' }}
+        icon={<IconQuote size={18} style={{ transform: 'rotate(180deg)' }} />}
+        sx={{
+          fontSize: 'inherit',
+          padding: `8px 12px`,
+        }}
+        styles={{
+          icon: {
+            marginRight: 8,
+            marginTop: 6,
+          },
+        }}
       >
         {children}
       </Blockquote>
