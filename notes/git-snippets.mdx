@@ -1,14 +1,15 @@
 ---
-title: Git snippets
+~title: Git snippets
 created: 06/09/2025
-updated: 04/12/2026
+updated: 04/26/2026
 tags: git,cli
 ---
 
-- Delete all local branches except for develop, master, or main (pulled from this [SO answer](https://stackoverflow.com/a/26152200/3757297)):
+- [Delete all local branches except for develop/master/main](https://stackoverflow.com/a/26152200/3757297):
   - `git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git branch -D`
-- Pulled from: [git commands before reading code](https://piechowski.io/post/git-commands-before-reading-code/):
-- 20 most changed files in last year: 
+- Display the "short sha" and "short description" on single line:
+  - `git log --oneline`
+- [20 most changed files in last year](https://piechowski.io/post/git-commands-before-reading-code#what-changes-the-most): 
   - `git log --format=format: --name-only --since="1 year ago" | sort | uniq -c | sort -nr | head -20`
-- every contributor ranked by commit count: 
+- [Every contributor ranked by commit count](https://piechowski.io/post/git-commands-before-reading-code#who-built-this): 
   - `git shortlog -sn --no-merges`
