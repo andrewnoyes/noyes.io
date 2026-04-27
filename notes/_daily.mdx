@@ -1,13 +1,16 @@
 ---
 title: Daily
 created: 04/07/26
-updated: 04/26/26
+updated: 04/27/26
 tags: journal
 ---
 
 My probably not so "daily" log! This is a habit I've gotten into at work, primarily for keeping track of what I'm working on, but it's also a nice way to reflect on what's completed, stuff I'm thinking about, or whatever. 
 
 ---
+
+04/27/26:
+- Explored the various modules of [La Suite numérique](https://github.com/suitenumerique/), the French government's "digital workspace for online collaboration and teamwork." While looking through the [meet module](https://github.com/suitenumerique/meet), they reference a project called [LiveKit](https://livekit.com/) that powers the video conferencing features. And LiveKit looks really cool! I'm like halfway through [their blog post about the v1 release](https://livekit.com/blog/livekit-one-dot-zero) (which was like 4 years ago), but they're talking about how they do adaptive streaming with WebRTC -- since adaptive streaming is a _subscriber-side_ feature, the LiveKit client SDK handles tracking which video elements are visible and their sizes (e.g. 20 person call will have a bunch of small video elements to display everyone), and if any of those values change, then it notifies the server. The server will then respond with an appropriate "simulcast" layer for the video's new dimensions, or if that video element is offscreen/not visible then it'll pause that track until it's visible again!
 
 04/26/26:
 - Got the [Media list page](https://app.copdb.org/media) out for CopDB! This surfaces all the media CopDB currently contains on its own dedicated page. The filters are still pretty basic - you can search by the media name or filter by the content type. But I'm excited for this to be released, because this is the final chunk of data that's now fully accessible in CopDB - prior, you could only navigate to media via its relationships (e.g. by cop or incident). 
