@@ -6,6 +6,31 @@ tags: c#,ef-core
 ---
 
 - View the change tracker [debug view](https://learn.microsoft.com/en-us/ef/core/change-tracking/debug-views#change-tracker-debug-view) from the console:
+
 ```c
 Console.WriteLine(context.ChangeTracker.DebugView.ShortView);
+```
+
+- [Parallelizing ef core queries](https://www.milanjovanovic.tech/blog/dbcontext-is-not-thread-safe-parallelizing-ef-core-queries-the-right-way) with DBContext that's **thread-safe**! The gist is to use `DbContextFactory` and create a context for each specific operation, then those operations can be executed in parallel:
+
+```c
+// registers IDbContextFactory<AppDbContext> as a singleton
+builder.Services.AddDbContextFactory<AppDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("db"));
+});
+
+...
+
+var thingsTask = GetThingsAsync();
+var thingsAgainTask = GetThingsAsync();
+
+// this is thread-safe now, because the DbContext is not shared
+await Task.When(thingsTask, thingsAgainTask);
+
+async Task<List<Thing>> GetThingsAsync()
+{
+    await using var context = contextFactory.CreateDbContextAsync();
+    return await context.Things.ToListAsync();
+}
 ```
