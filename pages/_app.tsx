@@ -4,9 +4,11 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { AppFooter, AppHeader } from '../components';
+import { useIsMobile } from '../hooks';
 import { siteConfig } from '../utils';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const isMobile = useIsMobile();
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'color-scheme',
     defaultValue: 'dark',
@@ -44,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
           })}
         />
         <AppShell
-          padding="md"
+          padding={isMobile ? 'xs' : 'md'}
           styles={(theme) => ({
             main: {
               backgroundColor:

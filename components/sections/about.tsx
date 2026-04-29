@@ -21,7 +21,7 @@ export const About = () => {
 
   return (
     <section id="about">
-      <Container size="md" sx={{ paddingTop: 100, paddingBottom: 100 }}>
+      <Container size="md" sx={{ paddingTop: '5%', paddingBottom: '5%' }}>
         <SectionHeader title="About me" />
         <Grid gutter="lg">
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>

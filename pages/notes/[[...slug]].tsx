@@ -68,7 +68,7 @@ export default function Notes(props: NotesProps) {
       className={classes.hiddenDesktop}
       title="Show notes list"
       variant="filled"
-      size="lg"
+      size="md"
       sx={{
         left: 0,
         top: APP_HEADER_HEIGHT + 16,

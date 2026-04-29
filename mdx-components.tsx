@@ -85,7 +85,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         icon={<IconQuote size={18} style={{ transform: 'rotate(180deg)' }} />}
         sx={{
           fontSize: 'inherit',
-          padding: `8px 12px`,
+          padding: 8,
         }}
         styles={{
           icon: {

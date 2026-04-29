@@ -12,7 +12,7 @@ import { Dots } from '../dots';
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
-    paddingTop: 220,
+    paddingTop: '15%',
     height: '100vh',
   },
   inner: {
@@ -33,6 +33,7 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   greeting: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,

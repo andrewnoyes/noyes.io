@@ -7,7 +7,7 @@ import { SectionHeader } from './section-header';
 export const ProjectList = () => {
   return (
     <section id="projects">
-      <Container size="lg" sx={{ paddingTop: 100 }}>
+      <Container size="lg" sx={{ paddingTop: '5%' }}>
         <SectionHeader title="Projects" />
         <Box>
           {projectDescriptions.map((project) => (
