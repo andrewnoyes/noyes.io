@@ -123,7 +123,7 @@ export default function Notes(props: NotesProps) {
           {notesListTitle}
           <NotesList notes={notes ?? []} activeSlug={note?.slug} />
         </Grid.Col>
-        <Grid.Col sm={9}>
+        <Grid.Col sm={9} pl="sm">
           {note ? (
             <div>
               <Box>
