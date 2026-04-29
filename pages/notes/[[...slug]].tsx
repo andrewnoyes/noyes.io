@@ -71,7 +71,7 @@ export default function Notes(props: NotesProps) {
       size="lg"
       sx={{
         left: 0,
-        top: APP_HEADER_HEIGHT + 16,
+        top: APP_HEADER_HEIGHT + 14,
         position: 'fixed',
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
@@ -123,7 +123,7 @@ export default function Notes(props: NotesProps) {
           {notesListTitle}
           <NotesList notes={notes ?? []} activeSlug={note?.slug} />
         </Grid.Col>
-        <Grid.Col sm={9} pl="sm">
+        <Grid.Col sm={9} pl="md">
           {note ? (
             <div>
               <Box>

@@ -18,7 +18,7 @@ export const WorkExperience = () => {
           <Tabs.List>
             {jobDescriptions.map((job) => (
               <Tabs.Tab key={job.company} value={job.company}>
-                <Group spacing={isMobile ? 8 : 'xl'}>
+                <Group spacing={isMobile ? 'sm' : 'xl'}>
                   <Text
                     sx={{
                       fontFamily: 'monospace',

@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
           })}
         />
         <AppShell
-          padding={isMobile ? 'xs' : 'md'}
+          padding={isMobile ? 6 : 'md'}
           styles={(theme) => ({
             main: {
               backgroundColor:
