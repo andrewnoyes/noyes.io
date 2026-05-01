@@ -1,12 +1,35 @@
 ---
 title: React snippets
 created: 04/27/26
-updated: 04/29/26
+updated: 05/01/26
 tags: react,web,libraries
 ---
 
 **Misc libraries that look cool:**
+
 - [nuqs](https://github.com/47ng/nuqs): type-safe search params state manager - like useState, but stored in the URL query string
 - [wouter](https://github.com/molefrog/wouter#faq-and-code-recipes): routing for react/preact
   - noticed this as a dependency on [la suite numerique's meet frontend](https://github.com/suitenumerique/meet/blob/main/src/frontend/package.json), and in addition to a great name, its API is more minimal and seems to encompass the featureset I'm generally looking for (and not everything that react-router offers 😛)
 - [blocknote](https://www.blocknotejs.org/): pushing a bunch of AI crap now, but the editor looks dope so maybe that stuff can be removed!
+- `usePrevious` hook for tracking the previous value of state change:
+
+```tsx
+function usePrevious<T>(value: T) {
+  const ref = useRef<T>(null);
+
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+}
+...
+const [count, setCount] = useState(0);
+const previous = usePrevious(count);
+
+return (
+  <button onClick={() => setCount(x => x + 1))}>
+    yuuurp {previous} - {count}
+  </button>
+)
+```
