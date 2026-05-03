@@ -1,18 +1,27 @@
 ---
 title: Architecture and design
 created: 02/11/26
-updated: 04/05/26
+updated: 05/03/26
 tags: software-engineering,design
 ---
 
-WIP, one day I'll add some structure here...😛
+General engineering:
+- [Everything I know about good system design](https://www.seangoedecke.com/good-system-design/)
 
-- [Signals, the push-pull based algorithm](https://willybrauner.com/journal/signal-the-push-pull-based-algorithm)
-  - Some more [reactivity reading!](https://milomg.dev/2023-09-01/links)
+Backend/web services:
 - [Modular Monolith: dependencies and communication between Modules](https://binaryigor.com/modular-monolith-dependencies-and-communication.html)
   - Clients/APIs - simple, in-memory method calls of dedicated interfaces
   - Application Events - in-memory events published between modules, which can introduce coupling at the database level
   - Outbox Pattern - in-memory events with more sophisticated sending process that does not introduce coupling at the database level, thus making it easier to separate modules physically
   - Background Data Synchronization - does not allow modules to communicate with each other during external requests processing, which forces them to be more self-contained, independent and resilient
-- [Everything I know about good system design](https://www.seangoedecke.com/good-system-design/)
+
+Frontend/application:
+- [Signals, the push-pull based algorithm](https://willybrauner.com/journal/signal-the-push-pull-based-algorithm)
+  - Some more [reactivity reading!](https://milomg.dev/2023-09-01/links)
 - [Modularizing React Applications with Established UI Patterns](https://martinfowler.com/articles/modularizing-react-apps.html)
+- [Model-view-viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+  - This pattern has a lot of different names - model-view-presenter, presentation model, model-view-binder - but they're effectively all the same (or very similar). You _bind_ the domain model to the view via an abstraction -- in our case, we call that binding abstraction the **view model**.
+  - **Model**: refers to a domain model, or to the data access layer which represents content
+  - **View**: what the user sees, displays a representation of the model
+  - **View model**: abstraction of the view, exposing properties and commands - this is where the bulk of the _presentation_ or _display_ logic is handled (**not** in the view!)
+  - _Binder_: this is an implicit part of MVVM rather than a distinct component. It's the mechanism by which we _bind_ the view to the model. In react apps, I like to use [mobx](https://mobx.js.org/) for this: the view model's properties are made _observable_, and the view (react components) are made _observers_ causing them to re-render when observable state they access is modified.

@@ -1,0 +1,64 @@
+---
+title: React Native + Expo
+created: 05/03/26
+tags: react-native,mobile
+---
+
+These notes were pulled from a project I did at work. The last time I worked with React Native was like 8 years ago, so it was fun to get caught up on the current state of the ecosystem!
+
+---
+
+### Overview
+
+[React Native](https://reactnative.dev): UI framework for writing native Android, iOS, UWP, Web, etc apps using JavaScript and React.
+- Since 2024, RN has had the ["New Arhictecture"](https://reactnative.dev/architecture/landing-page) available (which I think is enabled by default now on newer RN version) that supports concurrent rendering, automatic render batching, replaces the asynchronous bridge b/w JS and native with JSI allowing direct invocation of native methods without serialization cost.
+
+[Expo](https://expo.dev): suite of open source SDKs and libraries for native functionality (GPS, bluetooth, camera, etc), file-based routing (they wrote React Navigation), and dev CLI/tooling to tie it all together.
+- See the big ol' list of native libraries provided by the [Expo SDK](https://docs.expo.dev/versions/latest/sdk/expo/).
+
+---
+
+### Companies using React Native
+- [Bluesky’s mobile and web app](https://github.com/bluesky-social/social-app) 
+  - Apparently Dan Abramov has been helping with the bluesky app since ~2023 after he left facebook (known for redux and react contributor)
+- [Mattermost's v2 mobile app](https://github.com/mattermost/mattermost-mobile)
+- [Discord adopted React Native early on](https://medium.com/discord-engineering/using-react-native-one-year-later-91fd5e949933), and they use it for both iOS and Android apps
+  - Some performance critical bits are written natively for each platform (message list is an example of this). Discord has a pretty good engineering blog and [they discuss their usage of RN](https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native).
+- Shopify: all new mobile apps use it and they’re migrating/migrated the merchant admin app (their “flagship app”).
+- Wix (website builder) [has a number of open source libraries](https://github.com/wix) 
+- [Callstack](https://www.callstack.com/open-source), core contributors to RN (software consultancy)
+- Other big ones: Facebook (obv) for FB actual, messenger, ads manager; Microsoft uses for Office, Outlook, and Teams; Amazon for whatever shit apps they make; etc
+
+---
+
+### Dev tooling
+- [React Native Dev Tools](https://reactnative.dev/docs/react-native-devtools) – these are bundled and require chrome to be installed. Launched by pressing “j” in the terminal that’s running the react native app.
+- [Expo Application Services (EAS)](https://expo.dev/eas): tooling for running cloud builds, submitting to app stores, OTA javascript updates, GH actions integration, etc.
+  - OTA updates only applicable for updates to the JS layer (ie no native code changes).
+- [Appetize.io](https://appetize.io): service for running android/iOS emulators from the browser - haven’t experimented with it yet, but has an EAS integration.
+
+---
+
+### Component libraries
+- [react native reusables](https://www.reactnativereusables.com/): shadcn/ui components built with nativewind
+- [react native paper](https://reactnativepaper.com/): material design (this library is maintained by callstack, RN core contributors)
+- [restyle](https://github.com/Shopify/restyle): “library for building UI libraries, with themability as the core focus” 
+- [nativewind](https://www.nativewind.dev/): tailwind css for RN
+- [tamagui](https://tamagui.dev/)
+- [gluestack](https://gluestack.io/)
+- [Expo has an SDK called "UI"](https://docs.expo.dev/versions/latest/sdk/ui/) that's currently in alpha, but it's native swift-ui/jetpack-compose UI components
+
+---
+
+### Misc dev notes / other stuff to look at
+- [react-native-vision-camera](https://github.com/mrousavy/react-native-vision-camera): full featured camera library with all the bells and whistles!
+- [react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat?tab=readme-ov-file): complete chat UI! this has been around for like 8+ years, so it's cool to see it still being supported and worked on!
+- Platform specific components/modules: 
+  - You can write platform-specific components by adding separate files with the platform extension, e.g. “*.android.tsx, *.ios.tsx, *.web.tsx”
+    - https://docs.expo.dev/router/advanced/platform-specific-modules/ 
+  - Or you can import the [Platform module from React Native](https://reactnative.dev/docs/platform-specific-code) to detect the current platform and conditionally render based on that
+    - e.g. `if (Platform.OS === ‘android”) { // do android stuff }`
+- [Writing native modules using the Expo Modules API](https://docs.expo.dev/workflow/customizing/#writing-native-code)
+- Expo Router has protected routes, which [provide a “guard” property](https://expo.dev/blog/simplifying-auth-flows-with-protected-routes)
+- [yoga](https://github.com/facebook/yoga) is a flexbox layout engine, and i'm pretty sure is core to how styles are defined in RN and why stylesheet uses a subset of flex
+- EAS has a [push notifications service](https://docs.expo.dev/push-notifications/overview/), so unified API for communicating to both platforms (Firebase Cloud Messaging vs Apple Push Notification Service)
