@@ -94,7 +94,7 @@ export default function Notes(props: NotesProps) {
   );
 
   return (
-    <Container size="xl" pl="xl" pr={0}>
+    <Container size="xl" pl="xl" pr="sm">
       <Head>
         <title>{pageTitle}</title>
         <meta property="og:title" content={pageTitle} />

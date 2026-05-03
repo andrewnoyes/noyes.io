@@ -2,10 +2,10 @@
 title: Architecture and design
 created: 02/11/26
 updated: 05/03/26
-tags: software-engineering,design
+tags: architecture,design,engineering
 ---
 
-General engineering:
+General software engineering/design:
 - [Everything I know about good system design](https://www.seangoedecke.com/good-system-design/)
 
 Backend/web services:
@@ -19,9 +19,4 @@ Frontend/application:
 - [Signals, the push-pull based algorithm](https://willybrauner.com/journal/signal-the-push-pull-based-algorithm)
   - Some more [reactivity reading!](https://milomg.dev/2023-09-01/links)
 - [Modularizing React Applications with Established UI Patterns](https://martinfowler.com/articles/modularizing-react-apps.html)
-- [Model-view-viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
-  - This pattern has a lot of different names - model-view-presenter, presentation model, model-view-binder - but they're effectively all the same (or very similar). You _bind_ the domain model to the view via an abstraction -- in our case, we call that binding abstraction the **view model**.
-  - **Model**: refers to a domain model, or to the data access layer which represents content
-  - **View**: what the user sees, displays a representation of the model
-  - **View model**: abstraction of the view, exposing properties and commands - this is where the bulk of the _presentation_ or _display_ logic is handled (**not** in the view!)
-  - _Binder_: this is an implicit part of MVVM rather than a distinct component. It's the mechanism by which we _bind_ the view to the model. In react apps, I like to use [mobx](https://mobx.js.org/) for this: the view model's properties are made _observable_, and the view (react components) are made _observers_ causing them to re-render when observable state they access is modified.
+- [Model-view-viewmodel](./model-view-viewmodel) design pattern

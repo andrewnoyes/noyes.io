@@ -1,0 +1,18 @@
+---
+title: Model-view-viewmodel (MVVM)
+created: 05/03/26
+tags: architecture,design
+---
+
+<figure style={{ margin: 0, width: 500, maxWidth: 'calc(100% - 24px)', display: 'flex', flexDirection: 'column', margin: 'auto' }}>
+  <img src="/notes/mvvm-pattern.webp" alt="Model-view-viewmodel software architecture pattern" style={{ borderRadius: 4 }}/>
+  <figcaption>
+    _bits are pulled from the [Wikipedia MVVM article](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)_
+  </figcaption>
+</figure>
+
+- This pattern has a lot of different names - model-view-presenter, presentation model, model-view-binder - but they're effectively all the same (or very similar). You _bind_ the domain model to the view via an abstraction -- in our case, we call that binding abstraction the **view model**.
+- **Model**: refers to a domain model, or to the data access layer which represents content
+- **View**: what the user sees, displays a representation of the model
+- **View model**: abstraction of the view, exposing properties and commands - this is where the bulk of the _presentation_ or _display_ logic is handled (**not** in the view!)
+- _Binder_: this is an implicit part of MVVM rather than a distinct component. It's the mechanism by which we _bind_ the view to the model. In react apps, I like to use [mobx](https://mobx.js.org/) for this: the view model's properties are made _observable_, and the view (react components) are made _observers_ causing them to re-render when observable state they access is modified.
