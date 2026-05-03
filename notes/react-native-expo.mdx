@@ -19,6 +19,7 @@ These notes were pulled from a project I did at work. The last time I worked wit
 ---
 
 ### Companies using React Native
+
 - [Bluesky’s mobile and web app](https://github.com/bluesky-social/social-app) 
   - Apparently Dan Abramov has been helping with the bluesky app since ~2023 after he left facebook (known for redux and react contributor)
 - [Mattermost's v2 mobile app](https://github.com/mattermost/mattermost-mobile)
@@ -32,6 +33,7 @@ These notes were pulled from a project I did at work. The last time I worked wit
 ---
 
 ### Dev tooling
+
 - [React Native Dev Tools](https://reactnative.dev/docs/react-native-devtools) – these are bundled and require chrome to be installed. Launched by pressing “j” in the terminal that’s running the react native app.
 - [Expo Application Services (EAS)](https://expo.dev/eas): tooling for running cloud builds, submitting to app stores, OTA javascript updates, GH actions integration, etc.
   - OTA updates only applicable for updates to the JS layer (ie no native code changes).
@@ -40,6 +42,7 @@ These notes were pulled from a project I did at work. The last time I worked wit
 ---
 
 ### Component libraries
+
 - [react native reusables](https://www.reactnativereusables.com/): shadcn/ui components built with nativewind
 - [react native paper](https://reactnativepaper.com/): material design (this library is maintained by callstack, RN core contributors)
 - [restyle](https://github.com/Shopify/restyle): “library for building UI libraries, with themability as the core focus” 
@@ -51,11 +54,11 @@ These notes were pulled from a project I did at work. The last time I worked wit
 ---
 
 ### Misc dev notes / other stuff to look at
+
 - [react-native-vision-camera](https://github.com/mrousavy/react-native-vision-camera): full featured camera library with all the bells and whistles!
 - [react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat?tab=readme-ov-file): complete chat UI! this has been around for like 8+ years, so it's cool to see it still being supported and worked on!
-- Platform specific components/modules: 
+- [Platform specific components/modules](https://docs.expo.dev/router/advanced/platform-specific-modules/ ): 
   - You can write platform-specific components by adding separate files with the platform extension, e.g. “*.android.tsx, *.ios.tsx, *.web.tsx”
-    - https://docs.expo.dev/router/advanced/platform-specific-modules/ 
   - Or you can import the [Platform module from React Native](https://reactnative.dev/docs/platform-specific-code) to detect the current platform and conditionally render based on that
     - e.g. `if (Platform.OS === ‘android”) { // do android stuff }`
 - [Writing native modules using the Expo Modules API](https://docs.expo.dev/workflow/customizing/#writing-native-code)
