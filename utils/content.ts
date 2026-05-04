@@ -166,6 +166,7 @@ export const projectDescriptions: ProjectDescription[] = [
   },
   {
     title: 'Carpool',
+    projectUrl: 'https://github.com/unfrl/carpool',
     description:
       'App for event organizers to create and list carpools that users can then sign up to be drivers or passengers for.',
     images: [
