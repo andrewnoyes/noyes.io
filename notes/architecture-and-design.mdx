@@ -14,10 +14,10 @@ General software engineering/design:
 
 Backend/web services:
 - [Modular Monolith: dependencies and communication between Modules](https://binaryigor.com/modular-monolith-dependencies-and-communication.html)
-  - Clients/APIs - simple, in-memory method calls of dedicated interfaces
-  - Application Events - in-memory events published between modules, which can introduce coupling at the database level
-  - Outbox Pattern - in-memory events with more sophisticated sending process that does not introduce coupling at the database level, thus making it easier to separate modules physically
-  - Background Data Synchronization - does not allow modules to communicate with each other during external requests processing, which forces them to be more self-contained, independent and resilient
+  - Clients/APIs: simple, in-memory method calls of dedicated interfaces
+  - Application Events: in-memory events published between modules, which can introduce coupling at the database level
+  - Outbox Pattern: in-memory events with more sophisticated sending process that does not introduce coupling at the database level, thus making it easier to separate modules physically
+  - Background Data Synchronization: does not allow modules to communicate with each other during external requests processing, which forces them to be more self-contained, independent and resilient
 - [Temporal](https://temporal.io/): bills itself as a "durable execution" platform, abstracting away the complexities of distributed systems (e.g. event sourcing, state checkpoints, retries, timeouts, etc.).
 
 Frontend/application:
