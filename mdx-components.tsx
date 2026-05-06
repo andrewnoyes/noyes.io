@@ -20,9 +20,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
   return {
     a: ({ children, href }) => {
+      // hacky for now, but dont want local pdf assets opening as
+      // a local route, they should still be treated as external
+      const isLocalPdf = href?.endsWith('pdf');
       const isLocalPath = href && !href.startsWith('http');
 
-      if (isLocalPath) {
+      if (isLocalPath && !isLocalPdf) {
         return (
           <Link
             href={href}
