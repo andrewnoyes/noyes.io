@@ -1,13 +1,19 @@
 ---
 title: Daily
 created: 04/07/26
-updated: 04/27/26
+updated: 05/08/26
 tags: journal
 ---
 
 My probably not so "daily" log! This is a habit I've gotten into at work, primarily for keeping track of what I'm working on, but it's also a nice way to reflect on what's completed, stuff I'm thinking about, or whatever. 
 
 ---
+
+05/08/26:
+- Last week I got a [Jelly Star](https://www.unihertz.com/products/jelly-star), and it's so cute! It's now my daily driver and I'm loooving it 😛.
+<div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
+  <img src="/notes/jelly-star.webp" alt="Jelly Star 3 inch Android phone" height="300" width="auto" style={{ borderRadius: 4, objectFit: 'contain' }}/>
+</div>
 
 04/27/26:
 - Explored the various modules of [La Suite numérique](https://github.com/suitenumerique/), the French government's "digital workspace for online collaboration and teamwork." While looking through the [meet module](https://github.com/suitenumerique/meet), they reference a project called [LiveKit](https://livekit.com/) that powers the video conferencing features. And LiveKit looks cool! (Aside from all the agentic AI shit they've been adding 🙃). I'm like halfway through [their blog post about the v1 release](https://livekit.com/blog/livekit-one-dot-zero) (which was like 4 years ago), but they're talking about how they do adaptive streaming with WebRTC -- since adaptive streaming is a _subscriber-side_ feature, the LiveKit client SDK handles tracking which video elements are visible and their sizes (e.g. 20 person call will have a bunch of small video elements to display everyone), and if any of those values change, then it notifies the server. The server will then respond with an appropriate "simulcast" layer for the video's new dimensions, or if that video element is offscreen/not visible then it'll pause that track until it's visible again!
