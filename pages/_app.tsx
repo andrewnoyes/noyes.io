@@ -1,28 +1,14 @@
-import {
-  AppShell,
-  ColorScheme,
-  createStyles,
-  Global,
-  MantineProvider,
-} from '@mantine/core';
+import { AppShell, ColorScheme, Global, MantineProvider } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import { AppFooter, AppHeader } from '../components';
+import { useIsMobile } from '../hooks';
 import { siteConfig } from '../utils';
 
-const useStyles = createStyles((theme) => ({
-  appShell: {
-    padding: theme.spacing.md,
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      padding: 6,
-    },
-  },
-}));
-
 export default function App({ Component, pageProps }: AppProps) {
-  const { classes } = useStyles();
+  const isMobile = useIsMobile();
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'color-scheme',
     defaultValue: 'dark',
@@ -60,8 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
           })}
         />
         <AppShell
-          className={classes.appShell}
-          padding={0} // padding defined in appShell
+          padding={isMobile ? 'xs' : 'md'}
           styles={(theme) => ({
             main: {
               backgroundColor:
