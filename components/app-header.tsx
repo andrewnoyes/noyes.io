@@ -45,7 +45,7 @@ const useStyles = createStyles((theme) => ({
     }),
   },
   linkActive: {
-    borderBottom: '1px solid',
+    borderBottom: `1px solid ${theme.colors.violet[7]}`,
   },
   hiddenMobile: {
     [theme.fn.smallerThan('sm')]: {
