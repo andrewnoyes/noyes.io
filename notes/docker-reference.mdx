@@ -1,7 +1,7 @@
 ---
 title: Docker reference
 created: 04/27/20
-updated: 04/29/26
+updated: 05/17/26
 tags: docker,cli
 ---
 
@@ -30,4 +30,26 @@ docker run -it --entrypoint sh image_name
 - If you want to see how the image was build, meaning the steps in its _dockerfile_, you can:
 ```bash
 docker image history --no-trunc image_name > image_history
+```
+- Basic `docker-compose.yml` file for postgres and adminer for viewing data:
+```yml
+services:
+  postgres:
+    image: postgres:18
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: some-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  adminer:
+    image: wodby/adminer:4.8
+    ports:
+      - 9000:9000
+    environment:
+      - "ADMINER_DEFAULT_DB_DRIVER=pgsql"
+      - "ADMINER_DEFAULT_DB_HOST=postgres"
+      - "ADMINER_DEFAULT_DB_NAME=some-db"
+    depends_on:
+      - postgres
 ```
