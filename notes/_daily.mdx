@@ -1,13 +1,21 @@
 ---
 title: Daily
 created: 04/07/26
-updated: 05/19/26
+updated: 05/20/26
 tags: journal
 ---
 
 My probably not so "daily" log! This is a habit I've gotten into at work, primarily for keeping track of what I'm working on, but it's also a nice way to reflect on what's completed, stuff I'm thinking about, or whatever. 
 
 ---
+
+05/20/26:
+
+- Great read from the A11Y collective, [aria-label vs title](https://www.a11y-collective.com/blog/aria-label-vs-title/). I need to rethink my usage of the title attribute, especially for icon buttons! 
+- `title` is a native HTML attribute that gives a tooltip when you hover over an element. I had been under the impression that title would be sufficient for providing screen readers with additional context when interacting with elements that were purely visual (e.g. icon buttons). I.e. my thinking was, if you interact with the element, then the screen reader would announce the content of the `title` attribute, giving you an idea of what will happen if clicked. Buuuut this is incorrect, because:
+  - the content of the title attribute is often ignored or read inconsistently
+  - **it’s dependent on mouse hover or keyboard focus.** It won’t be accessible on mobile devices or touchscreens, where there’s no concept of hovering.
+- **TLDR:** the `title` attribute is for displaying tooltips to **sighted users**. `aria-label` should be used if you want certainty that the content will be announced by a screen reader. BUT! see [When to use aria-label](https://www.a11y-collective.com/blog/aria-label-vs-title/#h-when-to-use-aria-label), because aria-label sits at the bottom of the priority list, we should be prioritizing native text, elements (labels), and `aria-labelledby`!
 
 05/19/26:
 - [The Quiet Renovation at Bitwarden](https://blog.ppb1701.com/the-quiet-renovation-at-bitwarden) - well written piece, but also kind of a bummer. Sounds like Bitwarden is headed the private equity route, which will almost certainly degrade the quality of the product, but we'll seeeee!
