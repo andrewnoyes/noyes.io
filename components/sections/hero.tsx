@@ -80,7 +80,7 @@ export const Hero = () => {
           <Link href="mailto:andrew@noyes.io">
             <Button
               variant="gradient"
-              gradient={{ from: 'yellow', to: 'violet' }}
+              gradient={{ from: 'grape', to: 'violet' }}
               size="lg"
             >
               Get in touch
