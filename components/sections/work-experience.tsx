@@ -1,10 +1,18 @@
-import { Badge, Container, Group, Tabs, Text } from '@mantine/core';
+import {
+  Badge,
+  Container,
+  Group,
+  Tabs,
+  Text,
+  useMantineTheme,
+} from '@mantine/core';
 import { useIsMobile } from '../../hooks';
 import { jobDescriptions } from '../../utils';
 import { SectionHeader } from './section-header';
 import { WorkExperienceItem } from './work-experience-item';
 
 export const WorkExperience = () => {
+  const theme = useMantineTheme();
   const isMobile = useIsMobile();
 
   return (
@@ -14,8 +22,13 @@ export const WorkExperience = () => {
         <Tabs
           defaultValue={jobDescriptions[0].company}
           orientation={isMobile ? 'horizontal' : 'vertical'}
+          styles={{
+            tab: {
+              padding: isMobile ? theme.spacing.sm : undefined,
+            },
+          }}
         >
-          <Tabs.List>
+          <Tabs.List grow={isMobile}>
             {jobDescriptions.map((job) => (
               <Tabs.Tab key={job.company} value={job.company}>
                 <Group spacing={isMobile ? 'sm' : 'xl'}>
