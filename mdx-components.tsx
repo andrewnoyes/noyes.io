@@ -13,7 +13,7 @@ import { IconChevronRight, IconQuote } from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 
-const checkboxRegex = /^(\[(x|\s)\])/gm;
+const checkboxRegex = /^(\[(x|X|\s)\])/gm;
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const theme = useMantineTheme();
@@ -60,13 +60,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       const stringValue = children?.toString() ?? '';
       if (checkboxRegex.test(stringValue)) {
         return (
-          <List.Item sx={{ listStyle: 'none' }}>
+          <li style={{ listStyle: 'none' }}>
             <Checkbox
-              label={stringValue.replace(checkboxRegex, '')}
-              checked={stringValue.indexOf('[x]') === 0}
+              label={<>{stringValue.replace(checkboxRegex, '')}</>}
+              checked={stringValue.toLocaleLowerCase().indexOf('[x]') === 0}
+              styles={{
+                label: {
+                  fontSize: theme.fontSizes.md,
+                },
+              }}
               onChange={() => {}}
             />
-          </List.Item>
+          </li>
         );
       }
 
