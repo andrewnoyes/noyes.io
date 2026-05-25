@@ -28,7 +28,7 @@ export const WorkExperience = () => {
             },
           }}
         >
-          <Tabs.List grow={isMobile}>
+          <Tabs.List>
             {jobDescriptions.map((job) => (
               <Tabs.Tab key={job.company} value={job.company}>
                 <Group spacing={isMobile ? 'sm' : 'xl'}>
