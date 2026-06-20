@@ -12,8 +12,38 @@ import { Prism } from '@mantine/prism';
 import { IconChevronRight, IconQuote } from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
+import { Children, isValidElement, ReactElement, ReactNode } from 'react';
 
 const checkboxRegex = /^(\[(x|X|\s)\])/gm;
+
+const getTextFromChildren = (children: ReactNode | ReactNode[]): string => {
+  return Children.toArray(children)
+    .map((child) => getTextFromChild(child))
+    .join('');
+};
+
+const getTextFromChild = (child: ReactNode): string => {
+  if (hasChildren(child)) {
+    return getTextFromChildren(child.props.children);
+  }
+
+  if (isValidElement(child)) {
+    return '';
+  }
+
+  return childToString(child);
+};
+
+const childToString = (child?: ReactNode): string => child?.toString() ?? '';
+
+const hasChildren = (
+  element: ReactNode,
+): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
+  isValidElement<{ children?: ReactNode[] }>(element) &&
+  Boolean(element.props.children);
+
+const slugify = (value: ReactNode) =>
+  getTextFromChildren(value).toLowerCase().replace(' ', '-').trim();
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const theme = useMantineTheme();
@@ -42,11 +72,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </Anchor>
       );
     },
-    h1: ({ children }) => <Title>{children}</Title>,
-    h2: ({ children }) => <Title order={2}>{children}</Title>,
-    h3: ({ children }) => <Title order={3}>{children}</Title>,
-    h4: ({ children }) => <Title order={4}>{children}</Title>,
-    h5: ({ children }) => <Title order={5}>{children}</Title>,
+    h1: ({ children }) => <Title id={slugify(children)}>{children}</Title>,
+    h2: ({ children }) => (
+      <Title id={slugify(children)} order={2}>
+        {children}
+      </Title>
+    ),
+    h3: ({ children }) => (
+      <Title id={slugify(children)} order={3}>
+        {children}
+      </Title>
+    ),
+    h4: ({ children }) => (
+      <Title id={slugify(children)} order={4}>
+        {children}
+      </Title>
+    ),
+    h5: ({ children }) => (
+      <Title id={slugify(children)} order={5}>
+        {children}
+      </Title>
+    ),
     ul: ({ children }) => (
       <List
         type="unordered"
@@ -57,7 +103,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     ol: ({ children }) => <List type="ordered">{children}</List>,
     li: ({ children }) => {
-      const stringValue = children?.toString() ?? '';
+      const stringValue = getTextFromChildren(children);
       if (checkboxRegex.test(stringValue)) {
         return (
           <li style={{ listStyle: 'none' }}>
