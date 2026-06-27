@@ -2,10 +2,12 @@ import {
   Button,
   Container,
   createStyles,
+  Group,
   Space,
   Text,
   Title,
 } from '@mantine/core';
+import { IconHeart } from '@tabler/icons';
 import Link from 'next/link';
 import { Dots } from '../dots';
 
@@ -77,15 +79,24 @@ export const Hero = () => {
             development.`}
           </Text>
           <Space h="xl" mt="m" />
-          <Link href="mailto:andrew@noyes.io">
-            <Button
-              variant="gradient"
-              gradient={{ from: 'grape', to: 'violet' }}
-              size="lg"
-            >
-              Get in touch
-            </Button>
-          </Link>
+          <Group>
+            <Link href="mailto:andrew@noyes.io">
+              <Button
+                variant="gradient"
+                gradient={{ from: 'grape', to: 'violet' }}
+                size="lg"
+              >
+                Email me!
+              </Button>
+            </Link>
+            <Group spacing="xs" sx={{ border: '1px solid grape', p: 1 }}>
+              <IconHeart size={32} aria-hidden />
+              <Text size="xs">
+                made by a human <br />
+                <strong>not by ai</strong>
+              </Text>
+            </Group>
+          </Group>
         </Container>
       </div>
     </Container>

@@ -47,7 +47,7 @@ export const AppFooter = () => {
           color="dimmed"
           sx={{ fontFamily: 'monospace' }}
         >
-          built by androo
+          built by androo, not ai
         </Anchor>
         <Group spacing={0} className={classes.links} noWrap>
           <Link
