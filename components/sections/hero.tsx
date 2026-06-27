@@ -89,7 +89,7 @@ export const Hero = () => {
                 Email me!
               </Button>
             </Link>
-            <Group spacing="xs" sx={{ border: '1px solid grape', p: 1 }}>
+            <Group spacing="xs">
               <IconHeart size={32} aria-hidden />
               <Text size="xs">
                 made by a human <br />
