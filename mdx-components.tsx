@@ -63,8 +63,8 @@ const nonWordOrWhitespaceRegex = /(\W|\s)+/g;
 const slugify = (value: ReactNode) =>
   getTextFromChildren(value)
     .toLowerCase()
-    .replace(nonWordOrWhitespaceRegex, '-')
-    .trim();
+    .trim()
+    .replace(nonWordOrWhitespaceRegex, '-');
 
 const TitleWithLink = ({
   children,
