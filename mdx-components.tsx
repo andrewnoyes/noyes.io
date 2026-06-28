@@ -29,8 +29,6 @@ import {
   useState,
 } from 'react';
 
-const checkboxRegex = /^(\[(x|X|\s)\])/gm;
-
 const getTextFromChildren = (children: ReactNode | ReactNode[]): string => {
   return Children.toArray(children)
     .map((child) => getTextFromChild(child))
@@ -59,12 +57,13 @@ const hasChildren = (
   isValidElement<{ children?: ReactNode[] }>(element) &&
   Boolean(element.props.children);
 
-const nonWordOrWhitespace = /(\W|\s)+/g;
+// matches on one or more, so the `.replace` only inserts a single '-'
+const nonWordOrWhitespaceRegex = /(\W|\s)+/g;
 
 const slugify = (value: ReactNode) =>
   getTextFromChildren(value)
     .toLowerCase()
-    .replace(nonWordOrWhitespace, '-')
+    .replace(nonWordOrWhitespaceRegex, '-')
     .trim();
 
 const TitleWithLink = ({
@@ -94,6 +93,8 @@ const TitleWithLink = ({
     </Group>
   );
 };
+
+const checkboxRegex = /^(\[(x|X|\s)\])/gm;
 
 const ListItem = ({ children }: { children: ReactNode }) => {
   const theme = useMantineTheme();
