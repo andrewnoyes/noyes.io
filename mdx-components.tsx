@@ -1,18 +1,33 @@
 import {
+  ActionIcon,
   Anchor,
   Blockquote,
   Checkbox,
   Code,
+  CopyButton,
+  Group,
   List,
   Text,
   Title,
+  TitleProps,
   useMantineTheme,
 } from '@mantine/core';
 import { Prism } from '@mantine/prism';
-import { IconChevronRight, IconQuote } from '@tabler/icons';
+import {
+  IconCheck,
+  IconChevronRight,
+  IconLink,
+  IconQuote,
+} from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
-import { Children, isValidElement, ReactElement, ReactNode } from 'react';
+import {
+  Children,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+  useState,
+} from 'react';
 
 const checkboxRegex = /^(\[(x|X|\s)\])/gm;
 
@@ -36,14 +51,80 @@ const getTextFromChild = (child: ReactNode): string => {
 
 const childToString = (child?: ReactNode): string => child?.toString() ?? '';
 
+const windowOrNull = () => (typeof window !== 'undefined' ? window : null);
+
 const hasChildren = (
   element: ReactNode,
 ): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
   isValidElement<{ children?: ReactNode[] }>(element) &&
   Boolean(element.props.children);
 
+const nonWordOrWhitespace = /(\W|\s)+/g;
+
 const slugify = (value: ReactNode) =>
-  getTextFromChildren(value).toLowerCase().replace(' ', '-').trim();
+  getTextFromChildren(value)
+    .toLowerCase()
+    .replace(nonWordOrWhitespace, '-')
+    .trim();
+
+const TitleWithLink = ({
+  children,
+  titleProps,
+}: {
+  children: ReactNode;
+  titleProps?: TitleProps;
+}) => {
+  const id = slugify(children);
+  const origin = windowOrNull()?.location.origin ?? '';
+  const pathname = windowOrNull()?.location.pathname ?? '';
+  const href = `${origin}${pathname}#${id}`;
+  const title = 'Copy header link to clipboard';
+
+  return (
+    <Group id={id} spacing={4} my="xs">
+      <CopyButton value={href}>
+        {({ copied, copy }) => (
+          <ActionIcon onClick={copy} aria-label={title} title={title}>
+            {copied ? <IconCheck size={16} /> : <IconLink size={16} />}
+          </ActionIcon>
+        )}
+      </CopyButton>
+
+      <Title {...titleProps}>{children}</Title>
+    </Group>
+  );
+};
+
+const ListItem = ({ children }: { children: ReactNode }) => {
+  const theme = useMantineTheme();
+  const stringValue = getTextFromChildren(children);
+  // TODO: pair with unique ID and this value could be saved to localStorage
+  // which would be cool for recipes!
+  const [checked, setChecked] = useState(
+    stringValue.toLocaleLowerCase().indexOf('[x]') === 0,
+  );
+
+  if (!checkboxRegex.test(stringValue)) {
+    return <List.Item>{children}</List.Item>;
+  }
+
+  return (
+    <li style={{ listStyle: 'none' }}>
+      <Checkbox
+        label={<>{stringValue.replace(checkboxRegex, '')}</>}
+        checked={checked}
+        styles={{
+          label: {
+            fontSize: theme.fontSizes.md,
+          },
+        }}
+        onChange={(e) => {
+          setChecked(e.target.checked);
+        }}
+      />
+    </li>
+  );
+};
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const theme = useMantineTheme();
@@ -72,26 +153,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </Anchor>
       );
     },
-    h1: ({ children }) => <Title id={slugify(children)}>{children}</Title>,
+    h1: ({ children }) => (
+      <TitleWithLink titleProps={{ order: 1 }}>{children}</TitleWithLink>
+    ),
     h2: ({ children }) => (
-      <Title id={slugify(children)} order={2}>
-        {children}
-      </Title>
+      <TitleWithLink titleProps={{ order: 2 }}>{children}</TitleWithLink>
     ),
     h3: ({ children }) => (
-      <Title id={slugify(children)} order={3}>
-        {children}
-      </Title>
+      <TitleWithLink titleProps={{ order: 3 }}>{children}</TitleWithLink>
     ),
     h4: ({ children }) => (
-      <Title id={slugify(children)} order={4}>
-        {children}
-      </Title>
+      <TitleWithLink titleProps={{ order: 4 }}>{children}</TitleWithLink>
     ),
     h5: ({ children }) => (
-      <Title id={slugify(children)} order={5}>
-        {children}
-      </Title>
+      <TitleWithLink titleProps={{ order: 5 }}>{children}</TitleWithLink>
     ),
     ul: ({ children }) => (
       <List
@@ -102,27 +177,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </List>
     ),
     ol: ({ children }) => <List type="ordered">{children}</List>,
-    li: ({ children }) => {
-      const stringValue = getTextFromChildren(children);
-      if (checkboxRegex.test(stringValue)) {
-        return (
-          <li style={{ listStyle: 'none' }}>
-            <Checkbox
-              label={<>{stringValue.replace(checkboxRegex, '')}</>}
-              checked={stringValue.toLocaleLowerCase().indexOf('[x]') === 0}
-              styles={{
-                label: {
-                  fontSize: theme.fontSizes.md,
-                },
-              }}
-              onChange={() => {}}
-            />
-          </li>
-        );
-      }
-
-      return <List.Item>{children}</List.Item>;
-    },
+    li: ({ children }) => <ListItem>{children}</ListItem>,
     p: ({ children }) => <Text my={4}>{children}</Text>,
     code: ({ children, className }) => {
       const language = className?.split('language-')[1] ?? null;
