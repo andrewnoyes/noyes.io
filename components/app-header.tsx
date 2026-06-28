@@ -111,6 +111,7 @@ export const AppHeader = ({
             <ColorSchemeToggle {...colorSchemeProps} />
             <Burger
               title="Toggle navigation"
+              aria-label="Toggle navigation"
               opened={drawerOpened}
               onClick={toggleDrawer}
             />

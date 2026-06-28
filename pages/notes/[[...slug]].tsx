@@ -67,6 +67,7 @@ export default function Notes(props: NotesProps) {
       onClick={toggleNotePanel}
       className={classes.hiddenDesktop}
       title="Show notes list"
+      aria-label="Show notes list"
       variant="filled"
       size="lg"
       sx={{
