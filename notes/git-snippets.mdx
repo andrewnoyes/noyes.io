@@ -1,7 +1,7 @@
 ---
 title: Git snippets
 created: 06/09/25
-updated: 04/29/26
+updated: 07/02/26
 tags: git,cli
 ---
 
@@ -12,6 +12,18 @@ git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git b
 - Display the "short sha" and "short description" on single line:
 ```bash
 git log --oneline
+```
+- [Stash with a message](https://stackoverflow.com/a/15197232/3757297):
+```bash
+git stash -m "my_stash_name"
+```
+- List stashes:
+```bash
+git stash list
+```
+- Apply a stash by name:
+```bash
+git stash apply stash^{/my_stash_name}
 ```
 - [20 most changed files in last year](https://piechowski.io/post/git-commands-before-reading-code#what-changes-the-most): 
 ```bash
