@@ -9,28 +9,28 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
 
 ---
 
-07/04/26:
+##### 07/04/26
 - Realized the `useMDXComponents` implementation allows for custom components, so now I can use things like `Stack` or `Image` directly in my mdx note files! I'm sure there's still better ways to do this, but it works for now and let's me add things like the [memes page](./memes) much easier while still matching the style of the site.
 
-06/26/26:
+##### 06/26/26
 - This was a fun read, [bank python](https://calpaterson.com/bank-python.html) - so named because it's not uncommon for big investment banks to fork the _entire_ python ecosystem with their proprietary changes.
 - [The Architecture of Open Source Applications](https://aosabook.org/en/index.html) - added this to the [architecture/engineering section](./architecture-engineering-design) too!
 
-06/23/26:
+##### 06/23/26
 - Links to stuff I wanna check out!
   - [PixiJS](https://pixijs.com/) 2D webgl renderer
   - [GSAP](https://gsap.com/) js animations
 
-06/20/26:
+##### 06/20/26
 - Added a [recipes](./recipes) page! Nice to have a non-tech related thing on my personal site now. It's got one recipe so far for an [enchilada casserole](./recipes#enchilada-casserole) that I'm gonna make for dinner tonight 😋.
 
-06/13/26:
+##### 06/13/26
 - Found this [ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt) repo that maintains a list of AI agents and robots to block (cus these companies have proven to be super respectful of robots.txt in the past lool). We've already got this list added for [CopDB](https://app.copdb.org/robots.txt), but now I added it to this site as well!
 
-06/10/26:
+##### 06/10/26
 - Haven't worked with React context API in a bit, and I had a use case for it at work as part of UI component library / design system. Read through kent dodd's [how to use react context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively), and it was super helpful!
 
-05/20/26:
+##### 05/20/26
 
 - Great read from the A11Y collective, [aria-label vs title](https://www.a11y-collective.com/blog/aria-label-vs-title/). I need to rethink my usage of the title attribute, especially for icon buttons! 
 - `title` is a native HTML attribute that gives a tooltip when you hover over an element. I had been under the impression that title would be sufficient for providing screen readers with additional context when interacting with elements that were purely visual (e.g. icon buttons). I.e. my thinking was, if you interact with the element, then the screen reader would announce the content of the `title` attribute, giving you an idea of what will happen if clicked. Buuuut this is incorrect, because:
@@ -38,32 +38,32 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
   - **it’s dependent on mouse hover or keyboard focus.** It won’t be accessible on mobile devices or touchscreens, where there’s no concept of hovering.
 - **TLDR:** the `title` attribute is for displaying tooltips to **sighted users**. `aria-label` should be used if you want certainty that the content will be announced by a screen reader. BUT! see [when to use aria-label](https://www.a11y-collective.com/blog/aria-label-vs-title/#h-when-to-use-aria-label), because aria-label sits at the bottom of the priority list, we should be prioritizing native text, elements (labels), and `aria-labelledby`!
 
-05/19/26:
+##### 05/19/26
 - [The Quiet Renovation at Bitwarden](https://blog.ppb1701.com/the-quiet-renovation-at-bitwarden) - well written piece, but also kind of a bummer. Sounds like Bitwarden is headed the private equity route, which will almost certainly degrade the quality of the product, but we'll seeeee!
 
-05/11/26:
+##### 05/11/26
 - Came across the [Gram Code Editor](https://codeberg.org/GramEditor/gram) today, which started as a fork of Zed with all the AI garbage removed. Still playing with what existing Zed extensions are compatible. I was able to get [catppuccin icons](https://zed.dev/extensions/catppuccin-icons) installed, but I'm running into issues with the non-trivial extensions like LSPs, complaining about missing manifest file so I'll have to explore that a bit more!
 
-05/08/26:
+##### 05/08/26
 - Last week I got a [Jelly Star](https://www.unihertz.com/products/jelly-star), and it's so cute! It's now my daily driver and I'm loooving it 😛.
 
 <Image src="/notes/jelly-star.webp" alt="Jelly Star 3 inch Android phone" sx={{ marginTop: 4 }} />
 
-04/27/26:
+##### 04/27/26
 - Explored the various modules of [La Suite numérique](https://github.com/suitenumerique/), the French government's "digital workspace for online collaboration and teamwork." While looking through the [meet module](https://github.com/suitenumerique/meet), they reference a project called [LiveKit](https://livekit.com/) that powers the video conferencing features. And LiveKit looks cool! (Aside from all the agentic AI shit they've been adding 🙃). I'm like halfway through [their blog post about the v1 release](https://livekit.com/blog/livekit-one-dot-zero) (which was like 4 years ago), but they're talking about how they do adaptive streaming with WebRTC -- since adaptive streaming is a _subscriber-side_ feature, the LiveKit client SDK handles tracking which video elements are visible and their sizes (e.g. 20 person call will have a bunch of small video elements to display everyone), and if any of those values change, then it notifies the server. The server will then respond with an appropriate "simulcast" layer for the video's new dimensions, or if that video element is offscreen/not visible then it'll pause that track until it's visible again!
 - TODO! Another read from LiveKit that looks good: [An introduction to WebRTC Simulcast](https://livekit.com/blog/an-introduction-to-webrtc-simulcast)
 
-04/26/26:
+##### 04/26/26
 - Got the [Media list page](https://app.copdb.org/media) out for CopDB! This surfaces all the media CopDB currently contains on its own dedicated page. The filters are still pretty basic - you can search by the media name or filter by the content type. But I'm excited for this to be released, because this is the final chunk of data that's now fully accessible in CopDB - prior, you could only navigate to media via its relationships (e.g. by cop or incident). 
 
-04/22/26:
+##### 04/22/26
 - Found a nifty library today called [nuqs](https://github.com/47ng/nuqs) for type-safe parsing of search params via a react-style `useQueryState` hook. [CopDB](https://app.copdb.org) stores table filter options in the URL string, and we've been using our own handrolled utilities for parsing search params into their expected types -- which work _well enough_ right now, but they've just kinda been hacked together as needed. So I'm stoked to see if this library would be a good replacement! One thing that I like about our utilities that I'm hoping to replicate with nuqs (which I think `useQueryStates` may be able to), is that all available search params are defined by an interface which corresponds to the request params the API expects. So instead of working with individual values parsed from the URL string, we get a full "filter" object that's populated with the defined search params which we just pass as the request to the API.
 
-04/10/26:
+##### 04/10/26
 - Made it through the week! Had some fun at work today - our bulk-customer import job is humming along nicely, and we've got a more realistic dataset (~7 million rows) to play with locally. So now we were able to get a rough idea for the performance of our phone number lookup query. 
 - As expected, our first pass with `ilike`ing the phone number results in a full table scan, which is too slow! But the legend that is my partner added a [GIN index](https://www.postgresql.org/docs/current/gin.html) to that column, and without changing any application code, local queries went from >8s to 5-10ms! We've still got a bunch of cleaning up to do and need to actually get the thing deployed and running, but that was a neat lil reminder about the efficacy of indexes!
 
-04/07/26:
+##### 04/07/26
 - Took the day off from work cus I was not feeling it! Instead, I made some updates to my personal site and just chiiiilled.
 - Added new CopDB screenshots to the [project sections](/#projects). The previous ones were probably a couple years old at this point, so it was neat to see the improvements we've made! 
 - Also updated the MDX components to recognize local vs external links, so I can use Next's client-side routing if I'm linking to pages on this site (like the project sections!).

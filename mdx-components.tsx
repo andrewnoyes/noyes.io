@@ -65,8 +65,11 @@ const nonWordOrWhitespaceRegex = /(\W|\s)+/g;
 const slugify = (value: ReactNode) =>
   getTextFromChildren(value)
     .toLowerCase()
+    // replacing with a space and .trim prior to the delimiter so that any
+    // leading/trailing special characters are stripped off
+    .replace(nonWordOrWhitespaceRegex, ' ')
     .trim()
-    .replace(nonWordOrWhitespaceRegex, '-');
+    .replaceAll(' ', '-');
 
 const TitleWithLink = ({
   children,
