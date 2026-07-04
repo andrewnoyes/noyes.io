@@ -6,7 +6,9 @@ import {
   Code,
   CopyButton,
   Group,
+  Image,
   List,
+  Stack,
   Text,
   Title,
   TitleProps,
@@ -207,6 +209,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </Blockquote>
     ),
+    Image: ({ alt, height, width, ...rest }) => (
+      <Image alt={alt} fit="contain" height={height ?? 300} {...rest} />
+    ),
+    Stack: (props) => <Stack {...props} />,
     ...components,
   };
 }
