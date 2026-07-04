@@ -73,7 +73,7 @@ export const Hero = () => {
       <div className={classes.inner}>
         <Container p={0} size={600} className={classes.titleContainer}>
           <Text className={classes.greeting}>Hey! My name is</Text>
-          <Title className={classes.title}>Andrew Noyes.</Title>
+          <Title className={classes.title}>Andrew Noyes!</Title>
           <Text color="dimmed" className={classes.description}>
             {`I'm a software engineer specializing in full-stack application
             development.`}
