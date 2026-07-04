@@ -46,7 +46,10 @@ export const WorkExperience = () => {
                       variant="dot"
                       radius="xs"
                       size={isMobile ? 'sm' : undefined}
-                      sx={{ fontFamily: 'monospace' }}
+                      sx={{
+                        fontFamily: 'monospace',
+                        textTransform: 'lowercase',
+                      }}
                     >
                       active
                     </Badge>
