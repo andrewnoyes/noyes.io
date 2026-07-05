@@ -66,7 +66,7 @@ export const AppHeader = ({
 }) => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
-  const { classes, theme, cx } = useStyles();
+  const { classes, cx } = useStyles();
   const router = useRouter();
 
   const links = siteConfig.mainLinks.map((link) => (
