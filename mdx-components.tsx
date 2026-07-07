@@ -85,7 +85,7 @@ const TitleWithLink = ({
   const title = 'Copy header link to clipboard';
 
   return (
-    <Group id={id} spacing={4} my="xs">
+    <Group id={id} spacing={4} my="xs" noWrap>
       <CopyButton value={href}>
         {({ copied, copy }) => (
           <ActionIcon onClick={copy} aria-label={title} title={title}>

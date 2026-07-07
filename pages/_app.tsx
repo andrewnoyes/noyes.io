@@ -44,7 +44,6 @@ export default function App({ Component, pageProps }: AppProps) {
           })}
         />
         <AppShell
-          padding="sm"
           styles={(theme) => ({
             main: {
               backgroundColor:
