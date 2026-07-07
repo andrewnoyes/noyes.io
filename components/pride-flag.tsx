@@ -1,7 +1,20 @@
 import { createStyles, keyframes } from '@mantine/core';
 
+enum FlagVariant {
+  Trans = 'trans',
+  Rainbow = 'rainbow',
+  RainbowOriginal = 'rainbow-original',
+  Pan = 'pan',
+}
+
+const randomVariant = (): FlagVariant => {
+  const variants = Object.values(FlagVariant);
+
+  return variants[Math.floor(Math.random() * variants.length)];
+};
+
 // TODO: more flags!!!
-const COLORS = {
+const COLORS: Record<FlagVariant, string[]> = {
   rainbow: [
     'hsl(0deg 0% 18%)',
     'hsl(30deg 60% 30%)',
@@ -35,6 +48,20 @@ const oscillate = keyframes({
   to: { transform: ' translateY(-8px)' },
 });
 
+const generateGradientString = (colors: string[]) => {
+  const numOfColors = colors.length;
+  const segmentHeight = 100 / numOfColors;
+
+  const gradientStops = colors.map((color, index) => {
+    const from = index * segmentHeight;
+    const to = (index + 1) * segmentHeight;
+
+    return `${color} ${from}% ${to}%`;
+  });
+
+  return `linear-gradient(to bottom, ${gradientStops.join(', ')})`;
+};
+
 const useStyles = createStyles(() => ({
   flag: {
     display: 'flex',
@@ -55,33 +82,6 @@ const useStyles = createStyles(() => ({
     },
   },
 }));
-
-const generateGradientString = (colors: string[]) => {
-  const numOfColors = colors.length;
-  const segmentHeight = 100 / numOfColors;
-
-  const gradientStops = colors.map((color, index) => {
-    const from = index * segmentHeight;
-    const to = (index + 1) * segmentHeight;
-
-    return `${color} ${from}% ${to}%`;
-  });
-
-  return `linear-gradient(to bottom, ${gradientStops.join(', ')})`;
-};
-
-enum FlagVariant {
-  Trans = 'trans',
-  Rainbow = 'rainbow',
-  RainbowOriginal = 'rainbow-original',
-  Pan = 'pan',
-}
-
-const randomVariant = (): FlagVariant => {
-  const variants = Object.values(FlagVariant);
-
-  return variants[Math.floor(Math.random() * variants.length)];
-};
 
 export interface PrideFlagProps {
   columns?: number;
