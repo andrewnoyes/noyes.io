@@ -30,11 +30,11 @@ const COLORS = {
 };
 
 const oscillate = keyframes({
-  from: { transform: 'translateY(var(--billow))' },
-  to: { transform: ' translateY(calc(var(--billow) * -1))' },
+  from: { transform: 'translateY(8px)' },
+  to: { transform: ' translateY(-8px)' },
 });
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   flag: {
     display: 'flex',
     aspectRatio: '3 / 2',
@@ -82,7 +82,6 @@ export interface PrideFlagProps {
   delay?: number;
   variant?: FlagVariant;
   width?: number;
-  billow?: number;
 }
 
 // pulled from: https://www.joshwcomeau.com/animation/pride-flags/
@@ -93,7 +92,6 @@ export const PrideFlag = (props: PrideFlagProps) => {
   const delay = props.delay ?? 100;
   const variant = props.variant ?? randomVariant();
   const width = props.width ?? 200;
-  const billow = props.billow ?? 2;
 
   const colors = COLORS[variant];
   const friendlyWidth = Math.round(width / columns) * columns;
@@ -106,7 +104,6 @@ export const PrideFlag = (props: PrideFlagProps) => {
           key={index}
           className={classes.column}
           style={{
-            '--billow': index * billow + 'px',
             background: generateGradientString(colors),
             animationDelay: firstColumnDelay + index * delay + 'ms',
           }}

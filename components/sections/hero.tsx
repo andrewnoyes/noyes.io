@@ -57,7 +57,7 @@ export const Hero = () => {
   return (
     <Container className={classes.wrapper} size={1400}>
       <Group mb="md" position="center">
-        <PrideFlag width={150} billow={1} />
+        <PrideFlag width={150} />
       </Group>
       <Container p={0} size={600} className={classes.titleContainer}>
         <Text className={classes.greeting}>Hey! My name is</Text>
