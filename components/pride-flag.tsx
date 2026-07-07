@@ -7,12 +7,6 @@ enum FlagVariant {
   Pan = 'pan',
 }
 
-const randomVariant = (): FlagVariant => {
-  const variants = Object.values(FlagVariant);
-
-  return variants[Math.floor(Math.random() * variants.length)];
-};
-
 // TODO: more flags!!!
 const COLORS: Record<FlagVariant, string[]> = {
   rainbow: [
@@ -72,7 +66,7 @@ const useStyles = createStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     animation: `${oscillate} 500ms alternate infinite ease-in-out both`,
-    ['&:first-child']: {
+    ['&:first-of-type']: {
       borderTopLeftRadius: 8,
       borderBottomLeftRadius: 8,
     },
@@ -96,7 +90,7 @@ export const PrideFlag = (props: PrideFlagProps) => {
 
   const columns = props.columns ?? 10;
   const delay = props.delay ?? 100;
-  const variant = props.variant ?? randomVariant();
+  const variant = props.variant ?? FlagVariant.Rainbow;
   const width = props.width ?? 200;
 
   const colors = COLORS[variant];
