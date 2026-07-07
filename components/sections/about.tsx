@@ -1,5 +1,4 @@
 import {
-  Card,
   Container,
   Grid,
   Group,
@@ -25,15 +24,14 @@ export const About = () => {
         <SectionHeader title="About me" />
         <Grid gutter="lg">
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Card p={0} radius="sm" sx={{ height: 250, width: 250 }}>
-              <Image
-                src="/matapacos.webp"
-                alt="Andrew Noyes"
-                height={250}
-                width={250}
-                imageProps={{ loading: 'lazy' }}
-              />
-            </Card>
+            <Image
+              src="/matapacos.webp"
+              alt="Andrew Noyes"
+              height={200}
+              width={200}
+              imageProps={{ loading: 'lazy' }}
+              radius="sm"
+            />
           </Grid.Col>
           <Grid.Col sm={8}>
             <Text>
