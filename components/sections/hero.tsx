@@ -9,27 +9,17 @@ import {
 } from '@mantine/core';
 import { IconHeart } from '@tabler/icons';
 import Link from 'next/link';
-import { Dots } from '../dots';
+import { PrideFlag } from '../pride-flag';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
-    paddingTop: '20%',
+    paddingTop: '10%',
     height: '100vh',
   },
   inner: {
     position: 'relative',
     zIndex: 1,
-  },
-  dots: {
-    position: 'absolute',
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.violet[4]
-        : theme.colors.violet[9],
-    '@media (max-width: 750px)': {
-      display: 'none',
-    },
   },
   titleContainer: {
     display: 'flex',
@@ -66,39 +56,36 @@ export const Hero = () => {
 
   return (
     <Container className={classes.wrapper} size={1400}>
-      <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
-      <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
-      <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
-      <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
-      <div className={classes.inner}>
-        <Container p={0} size={600} className={classes.titleContainer}>
-          <Text className={classes.greeting}>Hey! My name is</Text>
-          <Title className={classes.title}>Andrew Noyes.</Title>
-          <Text color="dimmed" className={classes.description}>
-            {`I'm a software engineer specializing in full-stack application
+      <Group mb="md" position="center">
+        <PrideFlag width={150} billow={1} />
+      </Group>
+      <Container p={0} size={600} className={classes.titleContainer}>
+        <Text className={classes.greeting}>Hey! My name is</Text>
+        <Title className={classes.title}>Andrew Noyes.</Title>
+        <Text color="dimmed" className={classes.description}>
+          {`I'm a software engineer specializing in full-stack application
             development.`}
-          </Text>
-          <Space h="xl" mt="m" />
-          <Group>
-            <Link href="mailto:andrew@noyes.io">
-              <Button
-                variant="gradient"
-                gradient={{ from: 'grape', to: 'violet' }}
-                size="lg"
-              >
-                Email me!
-              </Button>
-            </Link>
-            <Group spacing="xs">
-              <IconHeart size={32} aria-hidden />
-              <Text size="xs">
-                made by a human <br />
-                <strong>not by ai</strong>
-              </Text>
-            </Group>
+        </Text>
+        <Space h="xl" mt="m" />
+        <Group>
+          <Link href="mailto:andrew@noyes.io">
+            <Button
+              variant="gradient"
+              gradient={{ from: 'grape', to: 'violet' }}
+              size="lg"
+            >
+              Email me!
+            </Button>
+          </Link>
+          <Group spacing="xs">
+            <IconHeart size={32} aria-hidden />
+            <Text size="xs">
+              made by a human <br />
+              <strong>not by ai</strong>
+            </Text>
           </Group>
-        </Container>
-      </div>
+        </Group>
+      </Container>
     </Container>
   );
 };
