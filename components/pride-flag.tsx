@@ -1,5 +1,6 @@
 import { createStyles, keyframes } from '@mantine/core';
 
+// TODO: more flags!!!
 const COLORS = {
   rainbow: [
     'hsl(0deg 0% 18%)',
@@ -69,12 +70,17 @@ const generateGradientString = (colors: string[]) => {
   return `linear-gradient(to bottom, ${gradientStops.join(', ')})`;
 };
 
-type FlagVariant = 'rainbow' | 'trans' | 'pan' | 'rainbow-original';
+enum FlagVariant {
+  Trans = 'trans',
+  Rainbow = 'rainbow',
+  RainbowOriginal = 'rainbow-original',
+  Pan = 'pan',
+}
 
 const randomVariant = (): FlagVariant => {
-  return ['rainbow', 'trans', 'pan', 'rainbow-original'][
-    Math.floor(Math.random() * 4)
-  ] as FlagVariant;
+  const variants = Object.values(FlagVariant);
+
+  return variants[Math.floor(Math.random() * variants.length)];
 };
 
 export interface PrideFlagProps {
