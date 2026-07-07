@@ -83,10 +83,10 @@ export const About = () => {
         </Grid>
         <Image
           src="/desk-setup.webp"
-          alt="Desk setup"
+          alt="shitty photo of my desk setup."
           imageProps={{ loading: 'lazy' }}
           mt={100}
-          caption="My desk setup in our home office. I use a ThinkPad X1 Extreme running PopOS!"
+          caption="My home desk setup. Currently using a Framework 13 with PopOS! (Domino is the kitty)"
         />
       </Container>
     </section>
