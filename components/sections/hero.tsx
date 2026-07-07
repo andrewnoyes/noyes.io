@@ -13,14 +13,8 @@ import { PrideFlag } from '../pride-flag';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    position: 'relative',
     paddingTop: '10%',
-    paddingBottom: '10%',
-    height: '100vh',
-  },
-  inner: {
-    position: 'relative',
-    zIndex: 1,
+    paddingBottom: '25%',
   },
   titleContainer: {
     display: 'flex',
@@ -56,8 +50,8 @@ export const Hero = () => {
   const { classes } = useStyles();
 
   return (
-    <Container className={classes.wrapper} size={1400}>
-      <Group mb="md" position="center">
+    <Container className={classes.wrapper}>
+      <Group mb="xl" position="center">
         <PrideFlag width={150} />
       </Group>
       <Container p={0} size={600} className={classes.titleContainer}>

@@ -1,15 +1,15 @@
 import { createStyles, keyframes } from '@mantine/core';
 
 enum FlagVariant {
-  Trans = 'trans',
-  Rainbow = 'rainbow',
-  RainbowOriginal = 'rainbow-original',
-  Pan = 'pan',
+  Trans = 'Trans',
+  Rainbow = 'Rainbow',
+  RainbowOriginal = 'RainbowOriginal',
+  Pan = 'Pan',
 }
 
 // TODO: more flags!!!
 const COLORS: Record<FlagVariant, string[]> = {
-  rainbow: [
+  [FlagVariant.Rainbow]: [
     'hsl(0deg 0% 18%)',
     'hsl(30deg 60% 30%)',
     'hsl(0deg 90% 55%)',
@@ -19,7 +19,7 @@ const COLORS: Record<FlagVariant, string[]> = {
     'hsl(220deg 80% 55%)',
     'hsl(265deg 80% 50%)',
   ],
-  'rainbow-original': [
+  [FlagVariant.RainbowOriginal]: [
     'hsl(0deg 90% 55%)',
     'hsl(30deg 95% 65%)',
     'hsl(55deg 90% 65%)',
@@ -27,14 +27,18 @@ const COLORS: Record<FlagVariant, string[]> = {
     'hsl(220deg 80% 55%)',
     'hsl(265deg 80% 50%)',
   ],
-  trans: [
+  [FlagVariant.Trans]: [
     'hsl(200deg 85% 70%)',
     'hsl(350deg 85% 85%)',
     'hsl(0deg 0% 100%)',
     'hsl(350deg 85% 85%)',
     'hsl(200deg 85% 70%)',
   ],
-  pan: ['hsl(331deg 100% 55%)', 'hsl(50deg 100% 50%)', 'hsl(200deg 100% 55%)'],
+  [FlagVariant.Pan]: [
+    'hsl(331deg 100% 55%)',
+    'hsl(50deg 100% 50%)',
+    'hsl(200deg 100% 55%)',
+  ],
 };
 
 const oscillate = keyframes({

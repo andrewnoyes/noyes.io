@@ -17,7 +17,7 @@ export const WorkExperience = () => {
 
   return (
     <section id="experience">
-      <Container size="md" sx={{ paddingTop: '5%', paddingBottom: '5%' }}>
+      <Container size="md" sx={{ paddingTop: '10%', paddingBottom: '10%' }}>
         <SectionHeader title="Work experience" />
         <Tabs
           defaultValue={jobDescriptions[0].company}
