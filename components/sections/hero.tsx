@@ -15,6 +15,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
     paddingTop: '10%',
+    paddingBottom: '10%',
     height: '100vh',
   },
   inner: {
