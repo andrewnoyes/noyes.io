@@ -31,11 +31,8 @@ import {
   useState,
 } from 'react';
 
-const getTextFromChildren = (children: ReactNode | ReactNode[]): string => {
-  return Children.toArray(children)
-    .map((child) => getTextFromChild(child))
-    .join('');
-};
+const getTextFromChildren = (children: ReactNode | ReactNode[]): string =>
+  Children.toArray(children).map(getTextFromChild).join('');
 
 const getTextFromChild = (child: ReactNode): string => {
   if (hasChildren(child)) {
