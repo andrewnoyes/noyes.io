@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ProjectDescription } from '../../utils';
 
 const useStyles = createStyles((theme) => ({
-  card: {
+  carouselCard: {
     backgroundColor:
       theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     display: 'flex',
@@ -35,14 +35,7 @@ export const ProjectItem = ({
 
   return (
     <Grid gutter="xl">
-      <Grid.Col
-        sm={5}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-        }}
-      >
+      <Grid.Col sm={5}>
         <Card radius="sm" sx={{ width: '100%' }} shadow="xl">
           <Title order={3}>
             {projectUrl ? (
@@ -74,7 +67,7 @@ export const ProjectItem = ({
         </Card>
       </Grid.Col>
       <Grid.Col sm={7}>
-        <Card withBorder radius="sm" p={0} className={classes.card}>
+        <Card withBorder radius="sm" p={0} className={classes.carouselCard}>
           <Carousel
             loop
             withIndicators
