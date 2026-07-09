@@ -4,6 +4,7 @@ import {
   createStyles,
   Group,
   Space,
+  Stack,
   Text,
   Title,
 } from '@mantine/core';
@@ -51,9 +52,9 @@ export const Hero = () => {
 
   return (
     <Container className={classes.wrapper}>
-      <Group mb="xl" position="center">
+      <Stack mb="xl" align="center">
         <PrideFlag width={150} />
-      </Group>
+      </Stack>
       <Container p={0} size={600} className={classes.titleContainer}>
         <Text className={classes.greeting}>Hey! My name is</Text>
         <Title className={classes.title}>Andrew Noyes.</Title>

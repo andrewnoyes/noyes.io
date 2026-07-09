@@ -1,14 +1,31 @@
-import { createStyles, keyframes } from '@mantine/core';
+import { Box, createStyles, keyframes } from '@mantine/core';
+import { generateGradientString } from '../utils';
 
-enum FlagVariant {
+export enum FlagVariant {
   Trans = 'Trans',
+  Lesbian = 'Lesbian',
   Rainbow = 'Rainbow',
-  RainbowOriginal = 'RainbowOriginal',
   Pan = 'Pan',
+  Ace = 'Ace',
 }
 
-// TODO: more flags!!!
 const COLORS: Record<FlagVariant, string[]> = {
+  [FlagVariant.Trans]: [
+    'hsl(200deg 85% 70%)',
+    'hsl(350deg 85% 85%)',
+    'hsl(0deg 0% 100%)',
+    'hsl(350deg 85% 85%)',
+    'hsl(200deg 85% 70%)',
+  ],
+  [FlagVariant.Lesbian]: [
+    '#D52D00',
+    '#EF7627',
+    '#FF9A56',
+    '#FFFFFF',
+    '#D162A4',
+    '#B55690',
+    '#A30262',
+  ],
   [FlagVariant.Rainbow]: [
     'hsl(0deg 0% 18%)',
     'hsl(30deg 60% 30%)',
@@ -19,46 +36,18 @@ const COLORS: Record<FlagVariant, string[]> = {
     'hsl(220deg 80% 55%)',
     'hsl(265deg 80% 50%)',
   ],
-  [FlagVariant.RainbowOriginal]: [
-    'hsl(0deg 90% 55%)',
-    'hsl(30deg 95% 65%)',
-    'hsl(55deg 90% 65%)',
-    'hsl(100deg 65% 45%)',
-    'hsl(220deg 80% 55%)',
-    'hsl(265deg 80% 50%)',
-  ],
-  [FlagVariant.Trans]: [
-    'hsl(200deg 85% 70%)',
-    'hsl(350deg 85% 85%)',
-    'hsl(0deg 0% 100%)',
-    'hsl(350deg 85% 85%)',
-    'hsl(200deg 85% 70%)',
-  ],
   [FlagVariant.Pan]: [
     'hsl(331deg 100% 55%)',
     'hsl(50deg 100% 50%)',
     'hsl(200deg 100% 55%)',
   ],
+  [FlagVariant.Ace]: ['#000000', '#A3A3A3', '#FFFFFF', '#800080'],
 };
 
 const oscillate = keyframes({
   from: { transform: 'translateY(8px)' },
   to: { transform: ' translateY(-8px)' },
 });
-
-const generateGradientString = (colors: string[]) => {
-  const numOfColors = colors.length;
-  const segmentHeight = 100 / numOfColors;
-
-  const gradientStops = colors.map((color, index) => {
-    const from = index * segmentHeight;
-    const to = (index + 1) * segmentHeight;
-
-    return `${color} ${from}% ${to}%`;
-  });
-
-  return `linear-gradient(to bottom, ${gradientStops.join(', ')})`;
-};
 
 const useStyles = createStyles(() => ({
   flag: {
@@ -102,17 +91,17 @@ export const PrideFlag = (props: PrideFlagProps) => {
   const firstColumnDelay = columns * delay * -1;
 
   return (
-    <div className={classes.flag} style={{ width: friendlyWidth }}>
+    <Box className={classes.flag} sx={{ width: friendlyWidth }}>
       {Array.from({ length: columns }).map((_, index) => (
-        <div
+        <Box
           key={index}
           className={classes.column}
-          style={{
+          sx={{
             background: generateGradientString(colors),
-            animationDelay: firstColumnDelay + index * delay + 'ms',
+            animationDelay: `${firstColumnDelay + index * delay}ms`,
           }}
         />
       ))}
-    </div>
+    </Box>
   );
 };

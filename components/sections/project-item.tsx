@@ -35,6 +35,24 @@ export const ProjectItem = ({
 
   return (
     <Grid gutter="xl">
+      <Grid.Col sm={7}>
+        <Card withBorder radius="sm" p={0} className={classes.carouselCard}>
+          <Carousel
+            loop
+            withIndicators
+            mx="auto"
+            slideGap="xl"
+            nextControlLabel="Next image"
+            previousControlLabel="Previous image"
+          >
+            {images.map((image) => (
+              <Carousel.Slide key={image.url}>
+                <Image src={image.url} alt={image.caption} />
+              </Carousel.Slide>
+            ))}
+          </Carousel>
+        </Card>
+      </Grid.Col>
       <Grid.Col sm={5}>
         <Card radius="sm" sx={{ width: '100%' }} shadow="xl">
           <Title order={3}>
@@ -64,24 +82,6 @@ export const ProjectItem = ({
             {techStack.frontend.join(', ')} <br />
             {techStack.backend.join(', ')}
           </Text>
-        </Card>
-      </Grid.Col>
-      <Grid.Col sm={7}>
-        <Card withBorder radius="sm" p={0} className={classes.carouselCard}>
-          <Carousel
-            loop
-            withIndicators
-            mx="auto"
-            slideGap="xl"
-            nextControlLabel="Next image"
-            previousControlLabel="Previous image"
-          >
-            {images.map((image) => (
-              <Carousel.Slide key={image.url}>
-                <Image src={image.url} alt={image.caption} />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
         </Card>
       </Grid.Col>
     </Grid>
