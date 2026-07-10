@@ -78,21 +78,38 @@ const TitleWithLink = ({
   const id = slugify(children);
   const origin = windowOrNull()?.location.origin ?? '';
   const pathname = windowOrNull()?.location.pathname ?? '';
-  const href = `${origin}${pathname}#${id}`;
+  const pathnameWithId = `${pathname}#${id}`;
+  const href = `${origin}${pathnameWithId}`;
   const title = 'Copy header link to clipboard';
 
   return (
-    <Group id={id} spacing={4} my="xs" noWrap>
-      <CopyButton value={href}>
-        {({ copied, copy }) => (
-          <ActionIcon onClick={copy} aria-label={title} title={title}>
-            {copied ? <IconCheck size={16} /> : <IconLink size={16} />}
-          </ActionIcon>
-        )}
-      </CopyButton>
+    <Link
+      href={pathnameWithId}
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
+      <Group id={id} spacing={4} my="xs" noWrap>
+        <CopyButton value={href}>
+          {({ copied, copy }) => (
+            <ActionIcon
+              onClick={(e) => {
+                e.preventDefault();
+                copy();
+              }}
+              aria-label={title}
+              title={title}
+            >
+              {copied ? (
+                <IconCheck size={16} aria-hidden />
+              ) : (
+                <IconLink size={16} aria-hidden />
+              )}
+            </ActionIcon>
+          )}
+        </CopyButton>
 
-      <Title {...titleProps}>{children}</Title>
-    </Group>
+        <Title {...titleProps}>{children}</Title>
+      </Group>
+    </Link>
   );
 };
 

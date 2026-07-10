@@ -1,11 +1,12 @@
 ---
 title: Architecture/engineering/design
 created: 02/11/26
-updated: 07/02/26
+updated: 07/10/26
 tags: software-engineering,design
 ---
 
-General software engineering/design:
+##### General software engineering/design
+
 - [The Architecture of Open Source Applications](https://aosabook.org/en/index.html) 
 - [The Pragmatic Programmer](/notes/the-pragmatic-programmer.pdf)
 - [The Hard Parts, Engineering Reference](https://thehardparts.dev/)
@@ -14,7 +15,8 @@ General software engineering/design:
 - [Five signals that separate people problems from code problems](https://piechowski.io/post/codebase-drag-audit/)
 - [Stop Naming Your Variables "Flag": The Art of Boolean Prefixes](https://thatamazingprogrammer.com/posts/stop-naming-your-variables-flag-the-art-of-boolean-prefixes/)
 
-Backend/web services:
+##### Backend/web services
+
 - [Modular Monolith: dependencies and communication between Modules](https://binaryigor.com/modular-monolith-dependencies-and-communication.html)
   - Clients/APIs: simple, in-memory method calls of dedicated interfaces
   - Application Events: in-memory events published between modules, which can introduce coupling at the database level
@@ -22,7 +24,8 @@ Backend/web services:
   - Background Data Synchronization: does not allow modules to communicate with each other during external requests processing, which forces them to be more self-contained, independent and resilient
 - [Temporal](https://temporal.io/): bills itself as a "durable execution" platform, abstracting away the complexities of distributed systems (e.g. event sourcing, state checkpoints, retries, timeouts, etc.).
 
-Frontend/application:
+##### Frontend/application
+
 - [Signals, the push-pull based algorithm](https://willybrauner.com/journal/signal-the-push-pull-based-algorithm)
   - Some more [reactivity reading!](https://milomg.dev/2023-09-01/links)
 - [Modularizing React Applications with Established UI Patterns](https://martinfowler.com/articles/modularizing-react-apps.html)

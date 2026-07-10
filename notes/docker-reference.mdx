@@ -1,16 +1,17 @@
 ---
 title: Docker reference
 created: 04/27/20
-updated: 05/17/26
+updated: 07/10/26
 tags: docker,cli
 ---
 
-**Tools**:
+##### Tools
 
 - [ctop](https://github.com/bcicen/ctop): top-like interface for containers
 - [dive](https://github.com/wagoodman/dive): cli tool for exploring docker image layers
 
-**Cheatsheet:** [https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+##### Some commands 
+
 - If you've updated your code, you can do the build and reload in a single step with:
 ```bash
 docker compose up --detach --build {service-name}
@@ -31,7 +32,9 @@ docker run -it --entrypoint sh image_name
 ```bash
 docker image history --no-trunc image_name > image_history
 ```
-- Basic `docker-compose.yml` file for postgres and adminer for viewing data:
+
+##### Basic `docker-compose.yml` file for postgres and adminer
+
 ```yml
 services:
   postgres:
