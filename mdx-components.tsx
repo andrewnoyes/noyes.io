@@ -26,6 +26,7 @@ import Link from 'next/link';
 import {
   Children,
   isValidElement,
+  MouseEvent,
   ReactElement,
   ReactNode,
   useState,
@@ -91,7 +92,7 @@ const TitleWithLink = ({
         <CopyButton value={href}>
           {({ copied, copy }) => (
             <ActionIcon
-              onClick={(e) => {
+              onClick={(e: MouseEvent<HTMLButtonElement>) => {
                 e.preventDefault();
                 copy();
               }}
