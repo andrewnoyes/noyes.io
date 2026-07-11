@@ -54,13 +54,17 @@ export const AppFooter = () => {
             href="https://git.unfrl.com/androo"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Link to my public git repos."
           >
-            <ActionIcon size="lg" aria-label="Git repos">
+            <ActionIcon size="lg" aria-label="git icon">
               <IconBrandGit size={18} stroke={1.5} />
             </ActionIcon>
           </Link>
-          <Link href="mailto:andrew@noyes.io">
-            <ActionIcon size="lg" aria-label="Email">
+          <Link
+            href="mailto:andrew@noyes.io"
+            aria-label="Link to my email address."
+          >
+            <ActionIcon size="lg" aria-label="mail icon">
               <IconMail size={18} stroke={1.5} />
             </ActionIcon>
           </Link>
