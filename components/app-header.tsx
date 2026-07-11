@@ -97,7 +97,7 @@ export const AppHeader = ({
           </Group>
           <Group
             sx={{ height: '100%' }}
-            spacing={0}
+            spacing={4}
             className={classes.hiddenMobile}
           >
             <ColorSchemeToggle {...colorSchemeProps} />
