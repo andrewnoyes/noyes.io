@@ -9,6 +9,11 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
 
 ---
 
+##### 07/11/26
+- just learned about react's [Activity](https://react.dev/reference/react/Activity) component, which is used for hiding parts of the application
+- usually the pattern is just to conditionally render that component based on some boolean, eg `{isThingVisible && <TheComponentThing />}` - this approach unmounts the component when the boolean is false, which wipes out that component's internal state. normally this is fine, but sometimes it's useful to have that hidden component maintain or save its internal state, so that it can be restored again from that previous state - which is what the Activity component does!
+- the Activity also includes a prop for `mode="hidden"`, which can be used to pre-render content -- during initial render, the Activity's children won't be displayed (cus of "hidden"), but they'll still be rendered! so later on, when this activity's mode is set to "visible", its children can appear faster cus of this pre-rendering/loading
+
 ##### 07/07/26
 - Looove this [pride flag animation](https://www.joshwcomeau.com/animation/pride-flags/) from josh comeau! Now it lives on the homepage, applying a random variant (trans, rainbow, and pan so far) on load. Gonna clean this up and add a bunch more flags! Maybe a picker or selector thing too!
 
