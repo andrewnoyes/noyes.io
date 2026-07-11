@@ -5,7 +5,6 @@ import { JobDescription } from '../../utils';
 
 const useStyles = createStyles((theme) => ({
   companyUrl: {
-    textDecoration: 'none',
     color: 'inherit',
     ...theme.fn.hover({
       textDecoration: 'underline',
