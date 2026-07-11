@@ -5,7 +5,7 @@ export const siteConfig = {
   image: '/matapacos.jpeg',
   mainLinks: [
     { name: '#about', href: '/#about' },
-    { name: '#experience', href: '/#experience' },
+    { name: '#xp', href: '/#experience' },
     { name: '#projects', href: '/#projects' },
     { name: '/notes', href: '/notes', scrollToTop: true },
   ],
