@@ -7,7 +7,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { useIsMobile } from '../../hooks';
-import { jobDescriptions } from '../../utils';
+import { jobDescriptions, slugify } from '../../utils';
 import { SectionHeader } from './section-header';
 import { WorkExperienceItem } from './work-experience-item';
 
@@ -15,12 +15,14 @@ export const WorkExperience = () => {
   const theme = useMantineTheme();
   const isMobile = useIsMobile();
 
+  const defaultWorkTab = slugify(jobDescriptions[0].company);
+
   return (
     <section id="experience">
       <Container size="md" sx={{ paddingTop: '10%', paddingBottom: '10%' }}>
         <SectionHeader title="Work experience" />
         <Tabs
-          defaultValue={jobDescriptions[0].company}
+          defaultValue={defaultWorkTab}
           orientation={isMobile ? 'horizontal' : 'vertical'}
           styles={{
             tab: {
@@ -30,7 +32,7 @@ export const WorkExperience = () => {
         >
           <Tabs.List>
             {jobDescriptions.map((job) => (
-              <Tabs.Tab key={job.company} value={job.company}>
+              <Tabs.Tab key={job.company} value={slugify(job.company)}>
                 <Group spacing={isMobile ? 'sm' : 'xl'}>
                   <Text
                     sx={{
@@ -61,7 +63,7 @@ export const WorkExperience = () => {
           {jobDescriptions.map((job) => (
             <Tabs.Panel
               key={job.company}
-              value={job.company}
+              value={slugify(job.company)}
               pl={isMobile ? 0 : 'xl'}
               pt={isMobile ? 'xl' : 0}
             >

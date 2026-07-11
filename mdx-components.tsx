@@ -31,6 +31,7 @@ import {
   ReactNode,
   useState,
 } from 'react';
+import { slugify } from './utils';
 
 const getTextFromChildren = (children: ReactNode | ReactNode[]): string =>
   Children.toArray(children).map(getTextFromChild).join('');
@@ -57,18 +58,6 @@ const hasChildren = (
   isValidElement<{ children?: ReactNode[] }>(element) &&
   Boolean(element.props.children);
 
-// matches on one or more, so the `.replace` only inserts a single '-'
-const nonWordOrWhitespaceRegex = /(\W|\s)+/g;
-
-const slugify = (value: ReactNode) =>
-  getTextFromChildren(value)
-    .toLowerCase()
-    // replacing with a space and .trim prior to the delimiter so that any
-    // leading/trailing special characters are stripped off
-    .replace(nonWordOrWhitespaceRegex, ' ')
-    .trim()
-    .replaceAll(' ', '-');
-
 const TitleWithLink = ({
   children,
   titleProps,
@@ -76,7 +65,7 @@ const TitleWithLink = ({
   children: ReactNode;
   titleProps?: TitleProps;
 }) => {
-  const id = slugify(children);
+  const id = slugify(getTextFromChildren(children));
   const origin = windowOrNull()?.location.origin ?? '';
   const pathname = windowOrNull()?.location.pathname ?? '';
   const pathnameWithId = `${pathname}#${id}`;
