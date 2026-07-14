@@ -10,7 +10,7 @@ import {
   Title,
   Tooltip,
 } from '@mantine/core';
-import { IconArrowRight, IconHeart } from '@tabler/icons';
+import { IconCaretRight, IconHeart } from '@tabler/icons';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FlagVariant, PrideFlag } from '../pride-flag';
@@ -79,7 +79,7 @@ export const Hero = () => {
           onClick={handleNextFlag}
           size="sm"
         >
-          <IconArrowRight />
+          <IconCaretRight />
         </ActionIcon>
       </Group>
       <Container p={0} size={600} className={classes.titleContainer}>
