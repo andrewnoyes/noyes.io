@@ -1,16 +1,19 @@
 import {
+  ActionIcon,
+  Box,
   Button,
   Container,
   createStyles,
   Group,
   Space,
-  Stack,
   Text,
   Title,
+  Tooltip,
 } from '@mantine/core';
-import { IconHeart } from '@tabler/icons';
+import { IconArrowRight, IconHeart } from '@tabler/icons';
 import Link from 'next/link';
-import { PrideFlag } from '../pride-flag';
+import { useState } from 'react';
+import { FlagVariant, PrideFlag } from '../pride-flag';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -47,14 +50,38 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const ALL_VARIANTS = Object.values(FlagVariant);
+
 export const Hero = () => {
   const { classes } = useStyles();
+  const [variant, setVariant] = useState<FlagVariant>(FlagVariant.Rainbow);
+
+  const handleNextFlag = () => {
+    const currentIndex = ALL_VARIANTS.indexOf(variant);
+    if (currentIndex + 1 >= ALL_VARIANTS.length) {
+      setVariant(ALL_VARIANTS[0]);
+    } else {
+      setVariant(ALL_VARIANTS[currentIndex + 1]);
+    }
+  };
 
   return (
     <Container className={classes.wrapper}>
-      <Stack mb="xl" align="center">
-        <PrideFlag width={150} />
-      </Stack>
+      <Group mb="xl" align="center" position="center" noWrap>
+        <Tooltip label={`${variant} flag`}>
+          <Box>
+            <PrideFlag width={150} variant={variant} />
+          </Box>
+        </Tooltip>
+        <ActionIcon
+          aria-label="Next flag"
+          title="Next flag"
+          onClick={handleNextFlag}
+          size="sm"
+        >
+          <IconArrowRight />
+        </ActionIcon>
+      </Group>
       <Container p={0} size={600} className={classes.titleContainer}>
         <Text className={classes.greeting}>Hey! My name is</Text>
         <Title className={classes.title}>Andrew Noyes.</Title>
