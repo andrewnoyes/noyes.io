@@ -7,6 +7,7 @@ export enum FlagVariant {
   Rainbow = 'Rainbow',
   Pan = 'Pan',
   Ace = 'Ace',
+  Nonbinary = 'Nonbinary',
 }
 
 const COLORS: Record<FlagVariant, string[]> = {
@@ -42,6 +43,7 @@ const COLORS: Record<FlagVariant, string[]> = {
     'hsl(200deg 100% 55%)',
   ],
   [FlagVariant.Ace]: ['#000000', '#A3A3A3', '#FFFFFF', '#800080'],
+  [FlagVariant.Nonbinary]: ['#FCF434', '#FFFFFF', '#9C59D1', '#2C2C2C'],
 };
 
 const oscillate = keyframes({
