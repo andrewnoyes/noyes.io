@@ -2,9 +2,9 @@ import { Box, createStyles, keyframes } from '@mantine/core';
 import { generateGradientString } from '../utils';
 
 export enum FlagVariant {
+  Rainbow = 'Rainbow',
   Trans = 'Trans',
   Lesbian = 'Lesbian',
-  Rainbow = 'Rainbow',
   Pan = 'Pan',
   Ace = 'Ace',
   Nonbinary = 'Nonbinary',
