@@ -2,6 +2,7 @@ import { Box, createStyles, List, Space, Text, Title } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons';
 import Link from 'next/link';
 import { JobDescription } from '../../utils';
+import { BadgeList } from '../badge-list';
 
 const useStyles = createStyles((theme) => ({
   companyUrl: {
@@ -64,9 +65,7 @@ export const WorkExperienceItem = ({
         ))}
       </List>
       <Space h="md" />
-      <Text color="dimmed" size="sm" sx={{ fontFamily: 'monospace' }}>
-        Tech stack: {description.techStack.join(', ')}
-      </Text>
+      <BadgeList items={description.techStack} badgeProps={{ size: 'xs' }} />
     </Box>
   );
 };

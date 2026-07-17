@@ -1,8 +1,17 @@
 import { Carousel } from '@mantine/carousel';
-import { Card, createStyles, Grid, Image, Text, Title } from '@mantine/core';
+import {
+  Card,
+  createStyles,
+  Grid,
+  Image,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons';
 import Link from 'next/link';
 import { ProjectDescription } from '../../utils';
+import { BadgeList } from '../badge-list';
 
 const useStyles = createStyles((theme) => ({
   carouselCard: {
@@ -73,15 +82,10 @@ export const ProjectItem = ({
           <Text align="left" mt="xs">
             {description}
           </Text>
-          <Text
-            mt="xs"
-            color="dimmed"
-            size="xs"
-            sx={{ fontFamily: 'monospace' }}
-          >
-            {techStack.frontend.join(', ')} <br />
-            {techStack.backend.join(', ')}
-          </Text>
+          <Stack spacing="xs" mt="xs">
+            <BadgeList items={techStack.frontend} badgeProps={{ size: 'xs' }} />
+            <BadgeList items={techStack.backend} badgeProps={{ size: 'xs' }} />
+          </Stack>
         </Card>
       </Grid.Col>
     </Grid>

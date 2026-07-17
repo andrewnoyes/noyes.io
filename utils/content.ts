@@ -16,7 +16,7 @@ export const jobDescriptions: JobDescription[] = [
       'Java',
       'Spring Boot',
       'ASP.NET Core',
-      'PostgreSQL',
+      'Postgres',
     ],
     active: true,
   },
@@ -48,7 +48,7 @@ export const jobDescriptions: JobDescription[] = [
       'Next.js',
       '.NET Core',
       'React',
-      'PostgreSQL',
+      'Postgres',
       'Redis',
     ],
   },
@@ -62,7 +62,7 @@ export const jobDescriptions: JobDescription[] = [
       'Implemented the review context service for associating guest visit data with their online reviews.',
       'Worked closely with design to rebuild and ship the front-end for viewing, filtering, and responding to reviews.',
     ],
-    techStack: ['Node.js', 'TypeScript', 'Vue', 'PostgreSQL', 'Redis'],
+    techStack: ['Node.js', 'TypeScript', 'Vue', 'Postgres', 'Redis'],
   },
   {
     title: 'Senior Software Engineer',
@@ -128,7 +128,7 @@ export const projectDescriptions: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'MobX', 'Emotion'],
-      backend: ['.NET Core', 'SignalR', 'PostgreSQL', 'Redis'],
+      backend: ['.NET Core', 'SignalR', 'Postgres', 'Redis'],
     },
   },
   {
@@ -145,7 +145,7 @@ export const projectDescriptions: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'Fluent UI', 'Styled Components'],
-      backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
+      backend: ['Node.js', 'NestJS', 'Socket.io', 'Postgre'],
     },
   },
   {
@@ -161,7 +161,7 @@ export const projectDescriptions: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'MobX', 'MUI'],
-      backend: ['Node.js', 'NestJS', 'PostgresSQL', 'Redis'],
+      backend: ['Node.js', 'NestJS', 'Postgres', 'Redis'],
     },
   },
   {
@@ -182,7 +182,7 @@ export const projectDescriptions: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'MobX', 'MUI'],
-      backend: ['Node.js', 'NestJS', 'Socket.io', 'PostgreSQL'],
+      backend: ['Node.js', 'NestJS', 'Socket.io', 'Postgres'],
     },
   },
 ];
