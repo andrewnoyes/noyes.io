@@ -73,7 +73,7 @@ export const Hero = () => {
   return (
     <Container className={classes.wrapper}>
       {/** adding the negative mr so flag remains more centered  */}
-      <Group mb="xl" align="center" position="center" spacing="xl" mr={-30}>
+      <Group mb="xl" align="center" position="center" spacing="xl" mr={-32}>
         <Tooltip label={`${variant} pride flag`}>
           <Box>
             <PrideFlag width={150} variant={variant} />
