@@ -33,6 +33,12 @@ import {
 } from 'react';
 import { slugify } from './utils';
 
+const hasChildren = (
+  element: ReactNode,
+): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
+  isValidElement<{ children?: ReactNode[] }>(element) &&
+  Boolean(element.props.children);
+
 const getTextFromChildren = (children: ReactNode | ReactNode[]): string =>
   Children.toArray(children).map(getTextFromChild).join('');
 
@@ -51,12 +57,6 @@ const getTextFromChild = (child: ReactNode): string => {
 const childToString = (child?: ReactNode): string => child?.toString() ?? '';
 
 const windowOrNull = () => (typeof window !== 'undefined' ? window : null);
-
-const hasChildren = (
-  element: ReactNode,
-): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
-  isValidElement<{ children?: ReactNode[] }>(element) &&
-  Boolean(element.props.children);
 
 const TitleWithLink = ({
   children,
@@ -219,7 +219,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Image: ({ alt, height, width, ...rest }) => (
       <Image alt={alt} fit="contain" height={height ?? 300} {...rest} />
     ),
-    Stack: (props) => <Stack {...props} />,
+    Stack,
     ...components,
   };
 }
