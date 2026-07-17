@@ -65,7 +65,7 @@ export const WorkExperienceItem = ({
         ))}
       </List>
       <Space h="md" />
-      <BadgeList items={description.techStack} badgeProps={{ size: 'xs' }} />
+      <BadgeList items={description.techStack} />
     </Box>
   );
 };

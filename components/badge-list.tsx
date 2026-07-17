@@ -9,7 +9,7 @@ export const BadgeList = ({ items, badgeProps }: BadgeListProps) => {
   return (
     <Group spacing="xs">
       {items.map((item) => (
-        <Badge key={item} radius="xs" {...badgeProps}>
+        <Badge key={item} radius="xs" size="xs" {...badgeProps}>
           {item}
         </Badge>
       ))}
