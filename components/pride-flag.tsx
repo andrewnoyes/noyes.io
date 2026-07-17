@@ -3,31 +3,15 @@ import { generateGradientString } from '../utils';
 
 export enum FlagVariant {
   Rainbow = 'Rainbow',
-  Trans = 'Trans',
-  Lesbian = 'Lesbian',
-  Pan = 'Pan',
-  Ace = 'Ace',
+  Transgender = 'Transgender',
   Nonbinary = 'Nonbinary',
-  Bi = 'Bi',
+  Lesbian = 'Lesbian',
+  Pansexual = 'Pansexual',
+  Asexual = 'Asexual',
+  Bisexual = 'Bisexual',
 }
 
 const COLORS: Record<FlagVariant, string[]> = {
-  [FlagVariant.Trans]: [
-    'hsl(200deg 85% 70%)',
-    'hsl(350deg 85% 85%)',
-    'hsl(0deg 0% 100%)',
-    'hsl(350deg 85% 85%)',
-    'hsl(200deg 85% 70%)',
-  ],
-  [FlagVariant.Lesbian]: [
-    '#D52D00',
-    '#EF7627',
-    '#FF9A56',
-    '#FFFFFF',
-    '#D162A4',
-    '#B55690',
-    '#A30262',
-  ],
   [FlagVariant.Rainbow]: [
     'hsl(0deg 0% 18%)',
     'hsl(30deg 60% 30%)',
@@ -38,14 +22,31 @@ const COLORS: Record<FlagVariant, string[]> = {
     'hsl(220deg 80% 55%)',
     'hsl(265deg 80% 50%)',
   ],
-  [FlagVariant.Pan]: [
+  [FlagVariant.Transgender]: [
+    'hsl(200deg 85% 70%)',
+    'hsl(350deg 85% 85%)',
+    'hsl(0deg 0% 100%)',
+    'hsl(350deg 85% 85%)',
+    'hsl(200deg 85% 70%)',
+  ],
+  [FlagVariant.Nonbinary]: ['#FCF434', '#FFFFFF', '#9C59D1', '#2C2C2C'],
+  [FlagVariant.Lesbian]: [
+    '#D52D00',
+    '#EF7627',
+    '#FF9A56',
+    '#FFFFFF',
+    '#D162A4',
+    '#B55690',
+    '#A30262',
+  ],
+
+  [FlagVariant.Pansexual]: [
     'hsl(331deg 100% 55%)',
     'hsl(50deg 100% 50%)',
     'hsl(200deg 100% 55%)',
   ],
-  [FlagVariant.Ace]: ['#000000', '#A3A3A3', '#FFFFFF', '#800080'],
-  [FlagVariant.Nonbinary]: ['#FCF434', '#FFFFFF', '#9C59D1', '#2C2C2C'],
-  [FlagVariant.Bi]: ['#D60270', '#9B4F96', '#0038A8'],
+  [FlagVariant.Asexual]: ['#000000', '#A3A3A3', '#FFFFFF', '#800080'],
+  [FlagVariant.Bisexual]: ['#D60270', '#9B4F96', '#0038A8'],
 };
 
 const oscillate = keyframes({

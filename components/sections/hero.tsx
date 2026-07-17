@@ -68,7 +68,7 @@ export const Hero = () => {
   return (
     <Container className={classes.wrapper}>
       <Group mb="xl" align="center" position="center" noWrap>
-        <Tooltip label={`${variant} flag`}>
+        <Tooltip label={`${variant} pride flag`}>
           <Box>
             <PrideFlag width={150} variant={variant} />
           </Box>
