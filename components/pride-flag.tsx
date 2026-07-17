@@ -39,7 +39,6 @@ const COLORS: Record<FlagVariant, string[]> = {
     '#B55690',
     '#A30262',
   ],
-
   [FlagVariant.Pansexual]: [
     'hsl(331deg 100% 55%)',
     'hsl(50deg 100% 50%)',
