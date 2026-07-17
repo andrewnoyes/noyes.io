@@ -23,40 +23,8 @@ import {
 } from '@tabler/icons';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
-import {
-  Children,
-  isValidElement,
-  MouseEvent,
-  ReactElement,
-  ReactNode,
-  useState,
-} from 'react';
-import { slugify } from './utils';
-
-const hasChildren = (
-  element: ReactNode,
-): element is ReactElement<{ children: ReactNode | ReactNode[] }> =>
-  isValidElement<{ children?: ReactNode[] }>(element) &&
-  Boolean(element.props.children);
-
-const getTextFromChildren = (children: ReactNode | ReactNode[]): string =>
-  Children.toArray(children).map(getTextFromChild).join('');
-
-const getTextFromChild = (child: ReactNode): string => {
-  if (hasChildren(child)) {
-    return getTextFromChildren(child.props.children);
-  }
-
-  if (isValidElement(child)) {
-    return '';
-  }
-
-  return childToString(child);
-};
-
-const childToString = (child?: ReactNode): string => child?.toString() ?? '';
-
-const windowOrNull = () => (typeof window !== 'undefined' ? window : null);
+import { MouseEvent, ReactNode, useState } from 'react';
+import { getTextFromChildren, slugify, windowOrNull } from './utils';
 
 const TitleWithLink = ({
   children,
