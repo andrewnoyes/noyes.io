@@ -82,7 +82,7 @@ export const ProjectItem = ({
           <Text align="left" mt="xs">
             {description}
           </Text>
-          <Stack spacing="xs" mt="xs">
+          <Stack spacing="xs" mt="md">
             <BadgeList items={techStack.frontend} />
             <BadgeList items={techStack.backend} />
           </Stack>
