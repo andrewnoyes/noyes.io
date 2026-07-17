@@ -8,6 +8,7 @@ import {
   Header,
   Image,
   ScrollArea,
+  Text,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
@@ -20,6 +21,14 @@ import {
 import { ResumeLink } from './resume-link';
 
 const useStyles = createStyles((theme) => ({
+  matapacosHome: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing.sm,
+    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    textDecoration: 'none',
+    fontWeight: 700,
+  },
   link: {
     display: 'flex',
     alignItems: 'center',
@@ -87,13 +96,18 @@ export const AppHeader = ({
     <Box>
       <Header height={APP_HEADER_HEIGHT} px="md">
         <Group position="apart" sx={{ height: '100%' }}>
-          <Image
-            src="/matapacos.webp"
-            alt="androo"
-            width={34}
-            height={34}
-            radius="sm"
-          />
+          <Link href="/" className={classes.matapacosHome}>
+            <Image
+              src="/matapacos.webp"
+              alt="androo"
+              width={34}
+              height={34}
+              radius="sm"
+            />
+            <Text size="lg" sx={{ fontFamily: 'monospace' }}>
+              androo
+            </Text>
+          </Link>
           <Group
             sx={{ height: '100%' }}
             spacing={0}
