@@ -1,5 +1,5 @@
 import { Box, createStyles, List, Space, Text, Title } from '@mantine/core';
-import { IconChevronRight } from '@tabler/icons';
+import { IconChevronRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import { JobDescription } from '../../utils';
 import { BadgeList } from '../badge-list';

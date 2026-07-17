@@ -8,7 +8,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { IconArrowUpRight } from '@tabler/icons';
+import { IconArrowUpRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import { ProjectDescription } from '../../utils';
 import { BadgeList } from '../badge-list';

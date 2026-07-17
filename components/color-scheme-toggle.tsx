@@ -1,5 +1,5 @@
 import { ActionIcon, ColorScheme } from '@mantine/core';
-import { IconMoon, IconSun } from '@tabler/icons';
+import { IconMoon, IconSun } from '@tabler/icons-react';
 
 export interface ColorSchemeToggleProps {
   colorScheme: ColorScheme;

@@ -10,7 +10,7 @@ import {
   Title,
   Tooltip,
 } from '@mantine/core';
-import { IconChevronRight, IconHeart } from '@tabler/icons';
+import { IconCaretRight, IconHeart } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FlagVariant, PrideFlag } from '../pride-flag';
@@ -56,18 +56,24 @@ export const Hero = () => {
   const { classes } = useStyles();
   const [variant, setVariant] = useState<FlagVariant>(FlagVariant.Rainbow);
 
-  const handleNextFlag = () => {
+  const nextVariant = () => {
     const currentIndex = ALL_VARIANTS.indexOf(variant);
+
     if (currentIndex + 1 >= ALL_VARIANTS.length) {
-      setVariant(ALL_VARIANTS[0]);
-    } else {
-      setVariant(ALL_VARIANTS[currentIndex + 1]);
+      return ALL_VARIANTS[0];
     }
+
+    return ALL_VARIANTS[currentIndex + 1];
+  };
+
+  const handleNextFlag = () => {
+    setVariant(nextVariant());
   };
 
   return (
     <Container className={classes.wrapper}>
-      <Group mb="xl" align="center" position="center" noWrap>
+      {/** adding the negative mr so flag remains more centered  */}
+      <Group mb="xl" align="center" position="center" spacing="xl" mr={-30}>
         <Tooltip label={`${variant} pride flag`}>
           <Box>
             <PrideFlag width={150} variant={variant} />
@@ -79,7 +85,7 @@ export const Hero = () => {
           onClick={handleNextFlag}
           size="sm"
         >
-          <IconChevronRight />
+          <IconCaretRight />
         </ActionIcon>
       </Group>
       <Container p={0} size={600} className={classes.titleContainer}>

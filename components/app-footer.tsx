@@ -5,7 +5,7 @@ import {
   createStyles,
   Group,
 } from '@mantine/core';
-import { IconBrandGit, IconMail } from '@tabler/icons';
+import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
@@ -43,7 +43,7 @@ export const AppFooter = () => {
           href="https://git.unfrl.com/androo/noyes.io"
           target="_blank"
           rel="noopener noreferrer"
-          size="md"
+          size="sm"
           color="dimmed"
           sx={{ fontFamily: 'monospace' }}
         >

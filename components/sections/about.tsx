@@ -8,7 +8,7 @@ import {
   Text,
   useMantineTheme,
 } from '@mantine/core';
-import { IconChevronRight } from '@tabler/icons';
+import { IconChevronRight } from '@tabler/icons-react';
 import { SectionHeader } from './section-header';
 
 export const About = () => {

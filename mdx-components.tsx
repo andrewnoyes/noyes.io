@@ -20,7 +20,7 @@ import {
   IconChevronRight,
   IconLink,
   IconQuote,
-} from '@tabler/icons';
+} from '@tabler/icons-react';
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { MouseEvent, ReactNode, useState } from 'react';

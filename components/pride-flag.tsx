@@ -11,7 +11,7 @@ export enum FlagVariant {
   Bisexual = 'Bisexual',
 }
 
-const COLORS: Record<FlagVariant, string[]> = {
+export const FlagColors: Record<FlagVariant, string[]> = {
   [FlagVariant.Rainbow]: [
     'hsl(0deg 0% 18%)',
     'hsl(30deg 60% 30%)',
@@ -90,7 +90,7 @@ export const PrideFlag = (props: PrideFlagProps) => {
   const variant = props.variant ?? FlagVariant.Rainbow;
   const width = props.width ?? 200;
 
-  const colors = COLORS[variant];
+  const colors = FlagColors[variant];
   const friendlyWidth = Math.round(width / columns) * columns;
   const firstColumnDelay = columns * delay * -1;
 

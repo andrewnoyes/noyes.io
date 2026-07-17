@@ -747,10 +747,17 @@
   dependencies:
     tslib "^2.4.0"
 
-"@tabler/icons@^1.108.0":
-  version "1.117.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.117.0.tgz#2ffafca94f868940cf84a839e284c243e095c45a"
-  integrity sha512-4UGF8fMcROiy++CCNlzTz6p22rxFQD/fAMfaw/8Uanopl41X2SCZTmpnotS3C6Qdrk99m8eMZySa5w1y99gFqQ==
+"@tabler/icons-react@^3.45.0":
+  version "3.45.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-3.45.0.tgz#503963fc3f5b6c6cf3ef36ffe6640445e3ac780f"
+  integrity sha512-t/AuKs7ALMDDTY+B9IvfZnlO0mbLlP/lJxP/HnGC49QkM8mCsTN38kYyxjXxgrb1+TeK53ioVBJqIV7n/eysXQ==
+  dependencies:
+    "@tabler/icons" "3.45.0"
+
+"@tabler/icons@3.45.0":
+  version "3.45.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-3.45.0.tgz#0eae44189827b8426796a74afa8219c2e597b847"
+  integrity sha512-jiATwV8+zGYLTZ7gMLGivCic+KtsMZXcDmufIG8umlLxoHhI6902hGYIEt0Oa9Y9SXblNzUlrisHm5jOFMxOQA==
 
 "@types/acorn@^4.0.0":
   version "4.0.6"

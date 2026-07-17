@@ -13,7 +13,7 @@ import {
   Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconList } from '@tabler/icons';
+import { IconList } from '@tabler/icons-react';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';

@@ -19,7 +19,7 @@
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.1.0",
-    "@tabler/icons": "^1.108.0",
+    "@tabler/icons-react": "^3.45.0",
     "@types/mdx": "^2.0.13",
     "embla-carousel-react": "^7.0.5",
     "gray-matter": "^4.0.3",
