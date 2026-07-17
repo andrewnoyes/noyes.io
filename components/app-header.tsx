@@ -6,6 +6,7 @@ import {
   Drawer,
   Group,
   Header,
+  Image,
   ScrollArea,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
@@ -16,7 +17,6 @@ import {
   ColorSchemeToggle,
   ColorSchemeToggleProps,
 } from './color-scheme-toggle';
-import { Logo } from './logo';
 import { ResumeLink } from './resume-link';
 
 const useStyles = createStyles((theme) => ({
@@ -87,7 +87,13 @@ export const AppHeader = ({
     <Box>
       <Header height={APP_HEADER_HEIGHT} px="md">
         <Group position="apart" sx={{ height: '100%' }}>
-          <Logo />
+          <Image
+            src="/matapacos.webp"
+            alt="androo"
+            width={34}
+            height={34}
+            radius="sm"
+          />
           <Group
             sx={{ height: '100%' }}
             spacing={0}
