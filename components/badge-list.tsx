@@ -13,7 +13,7 @@ export const BadgeList = ({ items, badgeProps }: BadgeListProps) => {
           key={item}
           radius="xs"
           size="xs"
-          sx={{ fontFamily: 'monospace' }}
+          sx={{ fontFamily: 'monospace', textTransform: 'lowercase' }}
           {...badgeProps}
         >
           {item}
