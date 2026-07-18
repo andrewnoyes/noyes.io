@@ -84,7 +84,10 @@ export const ProjectItem = ({
           </Text>
           <Stack spacing="xs" mt="md">
             <BadgeList items={techStack.frontend} />
-            <BadgeList items={techStack.backend} />
+            <BadgeList
+              items={techStack.backend}
+              badgeProps={{ color: 'yellow' }}
+            />
           </Stack>
         </Card>
       </Grid.Col>

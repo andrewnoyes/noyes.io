@@ -146,7 +146,7 @@ export const projectDescriptions: ProjectDescription[] = [
     ],
     techStack: {
       frontend: ['React', 'Fluent UI', 'Styled Components'],
-      backend: ['Node.js', 'NestJS', 'Socket.io', 'Postgre'],
+      backend: ['Node.js', 'NestJS', 'Socket.io', 'Postgres'],
     },
   },
   {
