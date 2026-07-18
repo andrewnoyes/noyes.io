@@ -24,11 +24,12 @@ const useStyles = createStyles((theme) => ({
     paddingTop: '10%',
     paddingBottom: '25%',
   },
-  titleContainer: {
+  greetingContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
+    marginTop: 40,
   },
   greeting: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -86,7 +87,7 @@ export const Hero = () => {
 
   return (
     <Container className={classes.wrapper}>
-      <Group mb="xl" align="center" position="center" spacing="xl" noWrap>
+      <Group align="center" position="center" spacing="xl" noWrap>
         <ActionIcon
           aria-label={previousLabel}
           title={previousLabel}
@@ -109,7 +110,7 @@ export const Hero = () => {
           <IconChevronRight />
         </ActionIcon>
       </Group>
-      <Container p={0} size={600} className={classes.titleContainer}>
+      <Container p={0} size={600} className={classes.greetingContainer}>
         <Text className={classes.greeting}>Hey! My name is</Text>
         <Title className={classes.title}>Andrew Noyes.</Title>
         <Text color="dimmed" className={classes.description}>
