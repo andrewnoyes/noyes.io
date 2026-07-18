@@ -68,7 +68,11 @@ export default function Notes(props: NotesProps) {
       className={classes.hiddenDesktop}
       title="Show notes list"
       aria-label="Show notes list"
-      variant="filled"
+      variant="gradient"
+      gradient={{
+        from: 'violet',
+        to: 'grape',
+      }}
       size="lg"
       sx={{
         left: 0,
