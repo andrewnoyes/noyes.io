@@ -46,7 +46,7 @@ export const WorkExperienceItem = ({
           )}
         </Text>
       </Title>
-      <Text color="dimmed" size="xs" sx={{ fontFamily: 'monospace' }}>
+      <Text color="dimmed" size="xs">
         {description.dateRange}
       </Text>
       <Space h="lg" />

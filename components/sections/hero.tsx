@@ -44,7 +44,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark'
         ? theme.colors.violet[4]
         : theme.colors.violet[9],
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: 'monospace',
   },
   description: {
     fontSize: 20,

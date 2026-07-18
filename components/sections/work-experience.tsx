@@ -7,21 +7,13 @@ import { WorkExperienceItem } from './work-experience-item';
 const JobCompany = ({ job }: { job: JobDescription }) => {
   return (
     <Group noWrap>
-      <Text
-        sx={{
-          fontFamily: 'monospace',
-          fontSize: 'inherit',
-        }}
-      >
-        {job.company}
-      </Text>
+      <Text>{job.company}</Text>
       {job.active && (
         <Badge
           color="green"
           variant="dot"
           radius="xs"
           sx={{
-            fontFamily: 'monospace',
             textTransform: 'lowercase',
           }}
         >
