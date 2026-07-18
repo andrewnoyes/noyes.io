@@ -188,6 +188,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Image alt={alt} fit="contain" height={height ?? 300} {...rest} />
     ),
     Stack,
+    Group,
     ...components,
   };
 }

@@ -17,6 +17,21 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
   - [Lessons of the Spanish Revolution](https://theanarchistlibrary.org/library/vernon-richards-lessons-of-the-spanish-revolution)
   - Of course, [Homage to Catalonia](https://en.wikipedia.org/wiki/Homage_to_Catalonia)
   - [Blood of Spain, an Oral History of the Spanish Civil War](https://en.wikipedia.org/wiki/Blood_of_Spain)
+- From our trip to Barcelona and the incredible [Spanish Civil War tour](https://thespanishcivilwar.com/):
+<Group spacing="sm" p="xs">
+  <div>
+    <Image
+      src="/notes/cnt-booklet.webp"
+      alt="CNT union membership identity card from the 1930s."
+    />
+  </div>
+  <div>
+    <Image
+      src="/notes/19-julio-1936.webp"
+      alt="young man raising a rifle with the date July 19, 1936."
+    />
+  </div>
+</Group>
 
 ##### 07/11/26
 - Just learned about react's [Activity](https://react.dev/reference/react/Activity) component, which is used for hiding parts of the application. Usually the pattern I've used is just to conditionally render that component based on some boolean, eg `{isThingVisible && <TheComponentThing />}` - this approach unmounts the component when the boolean is false, which wipes out that component's internal state. Normally this is fine, but sometimes it's useful to have that hidden component maintain or save its internal state, so that it can be restored again from that previous state - which is what the Activity component does!
