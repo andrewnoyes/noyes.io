@@ -110,7 +110,7 @@ export const Hero = () => {
           <IconChevronRight />
         </ActionIcon>
       </Group>
-      <Container p={0} size={600} className={classes.greetingContainer}>
+      <Container p={0} size={650} className={classes.greetingContainer}>
         <Text className={classes.greeting}>Hey! My name is</Text>
         <Title className={classes.title}>Andrew Noyes.</Title>
         <Text color="dimmed" className={classes.description}>
