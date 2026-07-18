@@ -10,7 +10,11 @@ import {
   Title,
   Tooltip,
 } from '@mantine/core';
-import { IconCaretRight, IconHeart } from '@tabler/icons-react';
+import {
+  IconChevronLeft,
+  IconChevronRight,
+  IconHeart,
+} from '@tabler/icons-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FlagVariant, PrideFlag } from '../pride-flag';
@@ -56,36 +60,53 @@ export const Hero = () => {
   const { classes } = useStyles();
   const [variant, setVariant] = useState<FlagVariant>(FlagVariant.Rainbow);
 
-  const nextVariant = () => {
-    const currentIndex = ALL_VARIANTS.indexOf(variant);
+  const currentIndex = ALL_VARIANTS.indexOf(variant);
+  const lastIndex = ALL_VARIANTS.length - 1;
 
-    if (currentIndex + 1 >= ALL_VARIANTS.length) {
-      return ALL_VARIANTS[0];
-    }
+  const nextVariant =
+    currentIndex === lastIndex
+      ? ALL_VARIANTS[0]
+      : ALL_VARIANTS[currentIndex + 1];
 
-    return ALL_VARIANTS[currentIndex + 1];
-  };
+  const previousVariant =
+    currentIndex === 0
+      ? ALL_VARIANTS[lastIndex]
+      : ALL_VARIANTS[currentIndex - 1];
+
+  const previousLabel = `${previousVariant} pride flag`;
+  const nextLabel = `${nextVariant} pride flag`;
 
   const handleNextFlag = () => {
-    setVariant(nextVariant());
+    setVariant(nextVariant);
+  };
+
+  const handlePreviousFlag = () => {
+    setVariant(previousVariant);
   };
 
   return (
     <Container className={classes.wrapper}>
-      {/** adding the negative mr so flag remains more centered  */}
-      <Group mb="xl" align="center" position="center" spacing="xl" mr={-32}>
+      <Group mb="xl" align="center" position="center" spacing="xl" noWrap>
+        <ActionIcon
+          aria-label={previousLabel}
+          title={previousLabel}
+          onClick={handlePreviousFlag}
+          size="sm"
+        >
+          <IconChevronLeft />
+        </ActionIcon>
         <Tooltip label={`${variant} pride flag`}>
           <Box>
             <PrideFlag width={150} variant={variant} />
           </Box>
         </Tooltip>
         <ActionIcon
-          aria-label="Next flag"
-          title="Next flag"
+          aria-label={nextLabel}
+          title={nextLabel}
           onClick={handleNextFlag}
           size="sm"
         >
-          <IconCaretRight />
+          <IconChevronRight />
         </ActionIcon>
       </Group>
       <Container p={0} size={600} className={classes.titleContainer}>
