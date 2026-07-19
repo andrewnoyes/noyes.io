@@ -51,12 +51,13 @@ export default function Now() {
         >
           <List.Item>
             <Text>
-              I am currently a Senior Software Engineer at{' '}
+              {`I'm currently a Senior Software Engineer at `}
               <ExternalLink href="https://bcfranchise.com/">
                 BaseCamp Franchising
               </ExternalLink>
-              . There I work on all kinds of fun stuff - architecting new API
-              services, building cross-platform apps, and so much more! (
+              {`. There I work on all kinds of fun stuff - architecting new API
+              services, building cross-platform apps, and so much more! `}
+              (
               <ExternalLink href="https://www.linkedin.com/jobs/view/4385030560">{`We're hiring!`}</ExternalLink>
               )
             </Text>
@@ -80,12 +81,12 @@ export default function Now() {
           <List.Item>
             <Text>
               <ExternalLink href="https://app.copdb.org">CopDB </ExternalLink>
-              has been my (and others) personal project for the last four or so
+              {`has been my (and others) personal project for the last four or so
               years. Its goal is to document the most domestically violent part
               of the state. A big push this year is to aggregate data from other
               similar projects (ICE list, OpenOversight, Chicago Police Data
               Project, etc), so that we can build a more holistic dataset of the
-              cops in the US.
+              cops in the US.`}
             </Text>
             <Image
               src="/copdb/home.webp"
@@ -97,11 +98,11 @@ export default function Now() {
           </List.Item>
           <List.Item>
             <Text>
-              Also related to CopDB, another exciting idea we have is to
+              {`Also related to CopDB, another exciting idea we have is to
               introduce a mobile app. The mobile app would be exclusively for
               handling and uploading media while out on the streets. This is a
               pretty lofty goal and probably will not get to it this year, but
-              still exciting!
+              still exciting!`}
             </Text>
           </List.Item>
         </List>
@@ -135,7 +136,7 @@ export default function Now() {
               <ExternalLink href="https://www.revolpress.com/people-not-one">
                 The People Are Not One, Socialist Strategy After Left Populism
               </ExternalLink>
-              , which is co-authored by a local guy, C. Derick Varn.
+              {`, which is co-authored by a local guy, C. Derick Varn.`}
             </Text>
           </List.Item>
         </List>
