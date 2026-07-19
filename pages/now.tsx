@@ -135,7 +135,7 @@ export default function Now() {
               <ExternalLink href="https://www.revolpress.com/people-not-one">
                 The People Are Not One, Socialist Strategy After Left Populism
               </ExternalLink>
-              , which is co-authored by a local guy (C. Derick Varn).
+              , which is co-authored by a local guy, C. Derick Varn.
             </Text>
           </List.Item>
         </List>
