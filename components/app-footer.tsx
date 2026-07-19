@@ -23,6 +23,7 @@ const useStyles = createStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: theme.spacing.xs,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
   },
