@@ -1,13 +1,23 @@
 ---
 title: Daily
 created: 04/07/26
-updated: 07/18/26
+updated: 07/19/26
 tags: journal
 ---
 
 My probably not so "daily" log! This is a habit I've gotten into at work, primarily for keeping track of what I'm working on, but it's also a nice way to reflect on what's completed, stuff I'm thinking about, or whatever. 
 
 ---
+
+##### 07/19/26
+- Just started the second session for the Spanish Civil War anniversary. Today they have Martha Ackelsberg, author of [Free Women of Spain](https://www.akpress.org/freewomenofspain.html) (and others!). The [Mujeres Libres (Free Women)](https://en.wikipedia.org/wiki/Mujeres_Libres) groups were created to pursue _both_ women's liberation and the anarchist social revolution, because despite the broader anarchist ideals, sexism was still present in the predominantly-male spaces.
+<Box mt="xs">
+  <Image
+    src="/notes/anarcha-feminism.webp"
+    alt="Anarcha-feminism flag."
+  />
+</Box>
+
 
 ##### 07/18/26
 - Attended the first part of the Spanish Civil War anniversary discussion hosted by the [Black Rose Anarchist Federation (BRRN)](https://www.blackrosefed.org/). They had author/teacher Danny Evans on to talk, whose written about [Anarchism in the Spanish Civil War](https://www.leftcom.org/en/articles/2023-05-11/revolution-and-the-state-anarchism-in-the-spanish-civil-war).
@@ -18,26 +28,26 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
   - Of course, [Homage to Catalonia](https://en.wikipedia.org/wiki/Homage_to_Catalonia)
   - [Blood of Spain, an Oral History of the Spanish Civil War](https://en.wikipedia.org/wiki/Blood_of_Spain)
 - From our trip to Barcelona and the incredible [Spanish Civil War tour](https://thespanishcivilwar.com/):
-<Group spacing="sm" p="xs">
-  <div>
+<Group spacing="sm" p="xs" position='center'>
+  <Box>
     <Image
       src="/notes/cnt-booklet.webp"
       alt="CNT union membership identity card from the 1930s."
     />
-  </div>
-  <div>
+  </Box>
+  <Box>
     <Image
       src="/notes/19-julio-1936.webp"
       alt="young man raising a rifle with the date July 19, 1936."
     />
-  </div>
+  </Box>
 </Group>
 
 ##### 07/11/26
 - Just learned about react's [Activity](https://react.dev/reference/react/Activity) component, which is used for hiding parts of the application. Usually the pattern I've used is just to conditionally render that component based on some boolean, eg `{isThingVisible && <TheComponentThing />}` - this approach unmounts the component when the boolean is false, which wipes out that component's internal state. Normally this is fine, but sometimes it's useful to have that hidden component maintain or save its internal state, so that it can be restored again from that previous state - which is what the Activity component does!
 - The Activity also includes a prop for `mode="hidden"`, which can be used to pre-render content -- during initial render, the Activity's children won't be displayed (cus of "hidden"), but they'll still be rendered! So later on, when this activity's mode is set to "visible", its children can appear faster cus of this pre-rendering/loading.
 - I was able to put some [CopDB](https://app.copdb.org) time in today! Every cop, incident, and media record in CopDB has the option to "Suggest Edit", and moderators have tools to review those submissions and accept or decline them. The tools for viewing what was changed were not very good, because we didn't have a proper text diff view. Hoping to get this first pass out that incorporates [@pierre/diffs](https://diffs.com/docs) in our `TextDiff` component:
-<Image src="/notes/cop-edit-diff.webp" alt="Screenshot of a CopDB profile demoing the text diff feature." height={500} sx={{ marginTop: 4 }} />
+<Image src="/notes/cop-edit-diff.webp" alt="Screenshot of a CopDB profile demoing the text diff feature." height={500} mt="xs" />
 
 ##### 07/07/26
 - Looove this [pride flag animation](https://www.joshwcomeau.com/animation/pride-flags/) from josh comeau! Now it lives on the homepage, applying a random variant (trans, rainbow, and pan so far) on load. Gonna clean this up and add a bunch more flags! Maybe a picker or selector thing too!

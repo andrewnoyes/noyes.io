@@ -2,6 +2,7 @@ import {
   ActionIcon,
   Anchor,
   Blockquote,
+  Box,
   Checkbox,
   Code,
   CopyButton,
@@ -189,6 +190,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     Stack,
     Group,
+    Box,
     ...components,
   };
 }
