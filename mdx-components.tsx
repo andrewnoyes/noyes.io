@@ -186,7 +186,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </Blockquote>
     ),
     Image: ({ alt, height, width, ...rest }) => (
-      <Image alt={alt} fit="contain" height={height ?? 300} {...rest} />
+      <Image
+        alt={alt}
+        fit="contain"
+        height={height ?? 300}
+        imageProps={{ loading: 'lazy' }}
+        {...rest}
+      />
     ),
     Stack,
     Group,
