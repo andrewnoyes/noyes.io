@@ -8,6 +8,7 @@ export const siteConfig = {
     { name: '#xp', href: '/#experience' },
     { name: '#projects', href: '/#projects' },
     { name: '/notes', href: '/notes', scrollToTop: true },
+    { name: '/now', href: '/now', scrollToTop: true },
   ],
 };
 

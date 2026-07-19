@@ -25,6 +25,7 @@ import {
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { MouseEvent, ReactNode, useState } from 'react';
+import { ExternalLink } from './components';
 import { getTextFromChildren, slugify, windowOrNull } from './utils';
 
 const TitleWithLink = ({
@@ -126,11 +127,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         );
       }
 
-      return (
-        <Anchor href={href} target="_blank" rel="noopener noreferrer">
-          {children}
-        </Anchor>
-      );
+      return <ExternalLink href={href!}>{children}</ExternalLink>;
     },
     h1: ({ children }) => (
       <TitleWithLink titleProps={{ order: 1 }}>{children}</TitleWithLink>
