@@ -5,16 +5,13 @@ import {
   Container,
   createStyles,
   Group,
+  Image,
   Space,
   Text,
   Title,
   Tooltip,
 } from '@mantine/core';
-import {
-  IconChevronLeft,
-  IconChevronRight,
-  IconHeart,
-} from '@tabler/icons-react';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FlagVariant, PrideFlag } from '../pride-flag';
@@ -52,6 +49,14 @@ const useStyles = createStyles((theme) => ({
     '@media (max-width: 520px)': {
       fontSize: 18,
     },
+  },
+  badge: {
+    border: '1px solid',
+    borderColor: theme.colors.yellow,
+    paddingLeft: theme.spacing.xs,
+    paddingRight: theme.spacing.xs,
+    borderRadius: theme.radius.sm,
+    height: 50,
   },
 }));
 
@@ -128,9 +133,14 @@ export const Hero = () => {
               Email me!
             </Button>
           </Link>
-          <Group spacing="xs">
-            <IconHeart size={32} aria-hidden />
-            <Text size="xs">
+          <Group spacing="xs" noWrap className={classes.badge}>
+            <Image
+              src="/thinksies.png"
+              height={32}
+              width={32}
+              alt="thinksies"
+            />
+            <Text size="xs" sx={{ lineHeight: 1.3 }}>
               made by a human <br />
               <strong>not by ai</strong>
             </Text>
