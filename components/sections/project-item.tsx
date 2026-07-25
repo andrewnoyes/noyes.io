@@ -47,7 +47,6 @@ export const ProjectItem = ({
       <Grid.Col sm={7}>
         <Card withBorder radius="sm" p={0} className={classes.carouselCard}>
           <Carousel
-            loop
             withIndicators
             mx="auto"
             slideGap="xl"
