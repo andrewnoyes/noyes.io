@@ -145,7 +145,7 @@ export default function Now() {
 
       <section>
         <Divider />
-        <Group pt="lg">
+        <Group pt="xl">
           <EmailMeBadgeTag />
           <CopDbBadgeTag />
           <NoAiBadgeTag />
