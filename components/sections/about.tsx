@@ -29,7 +29,6 @@ export const About = () => {
               alt="Andrew Noyes"
               height={200}
               width={200}
-              imageProps={{ loading: 'lazy' }}
               radius="sm"
             />
           </Grid.Col>
