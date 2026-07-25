@@ -12,7 +12,7 @@ export const BadgeList = ({ items, badgeProps }: BadgeListProps) => {
         <Badge
           key={item}
           radius="xs"
-          size="xs"
+          size="sm"
           sx={{ fontFamily: 'monospace', textTransform: 'lowercase' }}
           {...badgeProps}
         >
