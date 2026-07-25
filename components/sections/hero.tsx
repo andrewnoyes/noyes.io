@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   createStyles,
   Group,
@@ -7,8 +6,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import Link from 'next/link';
-import { CopDbBadgeTag, NoAiBadgeTag } from '../badge-tags';
+import { CopDbBadgeTag, EmailMeBadgeTag, NoAiBadgeTag } from '../badge-tags';
 import { PrideFlagPicker } from '../pride-flag-picker';
 
 const useStyles = createStyles((theme) => ({
@@ -62,16 +60,7 @@ export const Hero = () => {
         </Text>
         <Space h="xl" mt="m" />
         <Group>
-          <Link href="mailto:andrew@noyes.io">
-            <Button
-              variant="gradient"
-              sx={{ width: 150 }}
-              gradient={{ from: 'grape', to: 'violet' }}
-              size="lg"
-            >
-              Email me!
-            </Button>
-          </Link>
+          <EmailMeBadgeTag />
           <CopDbBadgeTag />
           <NoAiBadgeTag />
         </Group>

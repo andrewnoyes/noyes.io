@@ -9,9 +9,14 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
-import { ExternalLink } from '../components';
+import {
+  CopDbBadgeTag,
+  EmailMeBadgeTag,
+  ExternalLink,
+  NoAiBadgeTag,
+} from '../components';
 
-const LAST_UPDATED = new Date('07/19/2026');
+const LAST_UPDATED = new Date('07/25/2026');
 
 export default function Now() {
   const theme = useMantineTheme();
@@ -22,19 +27,15 @@ export default function Now() {
       sx={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.xl }}
     >
       <section>
-        <Title>Now</Title>
-        <Group spacing="xs">
-          <Text>
-            Welcome to my{' '}
-            <ExternalLink href="https://nownownow.com/">now</ExternalLink> page!
-          </Text>
-          <Text color="dimmed" size="sm">
-            Updated {LAST_UPDATED.toLocaleDateString()} from Salt Lake City
-          </Text>
-        </Group>
+        <Title>
+          Welcome to my{' '}
+          <ExternalLink href="https://nownownow.com/">now</ExternalLink> page!
+        </Title>
+        <Text color="dimmed" size="sm">
+          Updated {LAST_UPDATED.toLocaleDateString()} from Salt Lake City
+        </Text>
+        <Divider mt="lg" />
       </section>
-
-      <Divider />
 
       <section>
         <Title order={2}>Work</Title>
@@ -140,6 +141,15 @@ export default function Now() {
             </Text>
           </List.Item>
         </List>
+      </section>
+
+      <section>
+        <Divider />
+        <Group pt="lg">
+          <EmailMeBadgeTag />
+          <CopDbBadgeTag />
+          <NoAiBadgeTag />
+        </Group>
       </section>
     </Container>
   );
