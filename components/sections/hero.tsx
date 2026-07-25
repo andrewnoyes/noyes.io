@@ -91,7 +91,6 @@ export const Hero = () => {
               Email me!
             </Button>
           </Link>
-
           <ExternalLink href="https://app.copdb.org" sx={{ color: 'inherit' }}>
             <Group spacing="xs" noWrap className={classes.badge}>
               <Image
