@@ -15,6 +15,8 @@ export const ColorSchemeToggle = (props: ColorSchemeToggleProps) => {
       title={colorScheme === 'dark' ? 'Light theme' : 'Dark theme'}
       aria-label="Toggle theme"
       size="lg"
+      color={colorScheme === 'dark' ? undefined : 'dark'}
+      variant="transparent"
     >
       {colorScheme === 'dark' ? <IconSun /> : <IconMoon />}
     </ActionIcon>

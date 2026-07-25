@@ -1,6 +1,6 @@
 import {
+  ActionIcon,
   Box,
-  Burger,
   Button,
   createStyles,
   Drawer,
@@ -11,6 +11,7 @@ import {
   Text,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import { IconBurger, IconX } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { APP_HEADER_HEIGHT, siteConfig } from '../utils';
@@ -129,12 +130,22 @@ export const AppHeader = ({
           </Group>
           <Group className={classes.hiddenDesktop}>
             <ColorSchemeToggle {...colorSchemeProps} />
-            <Burger
+            <ActionIcon
               title="Toggle navigation"
               aria-label="Toggle navigation"
-              opened={drawerOpened}
               onClick={toggleDrawer}
-            />
+              variant="transparent"
+              size="lg"
+              color={
+                colorSchemeProps.colorScheme === 'dark' ? undefined : 'dark'
+              }
+            >
+              {drawerOpened ? (
+                <IconX stroke={1.5} size={34} />
+              ) : (
+                <IconBurger stroke={1.5} size={34} />
+              )}
+            </ActionIcon>
           </Group>
         </Group>
       </Header>
