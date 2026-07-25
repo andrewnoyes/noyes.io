@@ -10,6 +10,10 @@ const useStyles = createStyles((theme) => ({
     borderRadius: theme.radius.sm,
     height: 50,
     width: 150,
+    transition: 'all ease 300ms',
+    '&:hover': {
+      borderColor: theme.colors.yellow,
+    },
   },
 }));
 
