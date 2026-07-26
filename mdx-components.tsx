@@ -90,7 +90,7 @@ const ListItem = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <li style={{ listStyle: 'none' }}>
+    <li style={{ listStyle: 'none', marginTop: 6, marginBottom: 6 }}>
       <Checkbox
         label={<>{stringValue.replace(checkboxRegex, '')}</>}
         checked={checked}
