@@ -27,12 +27,11 @@ export default function Now() {
       sx={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.xl }}
     >
       <section>
-        <Title>
+        <Title>Now</Title>
+        <Text color="dimmed">
           Welcome to my{' '}
           <ExternalLink href="https://nownownow.com/">now</ExternalLink> page!
-        </Title>
-        <Text color="dimmed" size="sm">
-          Updated {LAST_UPDATED.toLocaleDateString()} from Salt Lake City
+          Last updated {LAST_UPDATED.toLocaleDateString()} from SLC.
         </Text>
         <Divider mt="lg" />
       </section>
