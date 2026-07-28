@@ -1,11 +1,30 @@
 ---
 title: TypeScript snippets
 created: 03/26/25
-updated: 04/29/26
+updated: 07/28/26
 tags: typescript,web
 ---
 
-- Wraps the provided type, making any null or undefined properties required ([pulled from SO](https://stackoverflow.com/a/53050575/3757297)): 
+##### Wraps the provided type, making any null or undefined properties required: 
+Pulled from [SO answer](https://stackoverflow.com/a/53050575/3757297)
 ```typescript
 type NoUndefinedField<T> = { [P in keyof T]-?: NoUndefinedField<NonNullable<T[P]>> };
+```
+
+##### Apply a user-defined type guard to a class method:
+See [user-defined type guard](https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards) and [SO answer](https://stackoverflow.com/a/75313393/3757297)
+```typescript
+class AuthStore {
+  public config: Config | null = null;
+  public store: Store | null = null;
+
+  public isAuthenticated = (): this is this & { config: Config, store: Store } => {
+    return Boolean(this.config && this.store);
+  };
+}
+... 
+const authStore = new AuthStore();
+if (authStore.isAuthenticated()) {
+  const { config, store } = authStore; // config and store are not null here!
+}
 ```
