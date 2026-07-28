@@ -18,7 +18,7 @@ class AuthStore {
   public config: Config | null = null;
   public store: Store | null = null;
 
-  public isAuthenticated = (): this is this & { config: Config, store: Store } => {
+  public isAuthenticated = (): this is this & { config: Config; store: Store; } => {
     return Boolean(this.config && this.store);
   };
 }
