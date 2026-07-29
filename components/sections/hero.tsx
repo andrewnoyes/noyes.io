@@ -60,9 +60,9 @@ export const Hero = () => {
         </Text>
         <Space h="xl" mt="m" />
         <Group>
-          <EmailMeBadgeTag />
           <CopDbBadgeTag />
           <NoAiBadgeTag />
+          <EmailMeBadgeTag />
         </Group>
       </Container>
     </Container>
