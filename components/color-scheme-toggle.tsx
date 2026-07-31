@@ -1,5 +1,5 @@
 import { ActionIcon, ColorScheme } from '@mantine/core';
-import { IconMoon, IconSun } from '@tabler/icons-react';
+import { IconLamp, IconLampOff } from '@tabler/icons-react';
 
 export interface ColorSchemeToggleProps {
   colorScheme: ColorScheme;
@@ -9,16 +9,18 @@ export interface ColorSchemeToggleProps {
 export const ColorSchemeToggle = (props: ColorSchemeToggleProps) => {
   const { colorScheme, onToggle } = props;
 
+  const title = colorScheme === 'dark' ? 'Lamp on' : 'Lamp off';
+
   return (
     <ActionIcon
       onClick={onToggle}
-      title={colorScheme === 'dark' ? 'Light theme' : 'Dark theme'}
-      aria-label="Toggle theme"
+      title={title}
+      aria-label={title}
       size="lg"
       color={colorScheme === 'dark' ? undefined : 'dark'}
       variant="transparent"
     >
-      {colorScheme === 'dark' ? <IconSun /> : <IconMoon />}
+      {colorScheme === 'dark' ? <IconLamp /> : <IconLampOff />}
     </ActionIcon>
   );
 };
