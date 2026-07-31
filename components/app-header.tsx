@@ -11,7 +11,7 @@ import {
   Text,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconBurger } from '@tabler/icons-react';
+import { IconBurger, IconX } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { APP_HEADER_HEIGHT, siteConfig } from '../utils';
@@ -140,11 +140,15 @@ export const AppHeader = ({
                 colorSchemeProps.colorScheme === 'dark' ? undefined : 'dark'
               }
               sx={{
-                transform: drawerOpened ? 'rotate(55deg)' : '',
+                transform: drawerOpened ? 'rotate(90deg)' : '',
                 transition: 'transform ease 200ms',
               }}
             >
-              <IconBurger stroke={1.5} size={34} />
+              {drawerOpened ? (
+                <IconX stroke={1.5} size={34} />
+              ) : (
+                <IconBurger stroke={1.5} size={34} />
+              )}
             </ActionIcon>
           </Group>
         </Group>
