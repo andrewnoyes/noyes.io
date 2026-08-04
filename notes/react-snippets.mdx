@@ -1,7 +1,7 @@
 ---
 title: React snippets
 created: 04/27/26
-updated: 07/10/26
+updated: 08/04/26
 tags: react,react-native,libraries
 ---
 
@@ -23,6 +23,13 @@ tags: react,react-native,libraries
 - [How to use react context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
 
 ##### Code snippets
+- `useEffectOnce` for an effect you only want executed once, e.g. on component mount
+```tsx
+export const useEffectOnce = (effect: EffectCallback) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(effect, []);
+};
+```
 
 - `usePrevious` hook for tracking the previous value of state change:
 
