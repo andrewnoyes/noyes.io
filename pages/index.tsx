@@ -18,7 +18,7 @@ export default function Home() {
     <div>
       <Head>
         <title>{pageTitle}</title>
-        <meta property="og:title" content={pageTitle} />
+        <meta property="og:title" content={pageTitle} key="title" />
       </Head>
       <Hero />
       <About />

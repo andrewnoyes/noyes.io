@@ -10,6 +10,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
+import Head from 'next/head';
 import Link from 'next/link';
 import {
   CopDbBadgeTag,
@@ -17,8 +18,11 @@ import {
   ExternalLink,
   NoAiBadgeTag,
 } from '../components';
+import { getPageTitle } from '../utils';
 
 const LAST_UPDATED = new Date('07/25/2026');
+
+const pageTitle = getPageTitle(['now']);
 
 export default function Now() {
   const theme = useMantineTheme();
@@ -28,6 +32,10 @@ export default function Now() {
       size="sm"
       sx={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.xl }}
     >
+      <Head>
+        <title>{pageTitle}</title>
+        <meta property="og:title" content={pageTitle} key="title" />
+      </Head>
       <section>
         <Title>Now</Title>
         <Text color="dimmed">

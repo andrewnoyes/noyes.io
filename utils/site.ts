@@ -16,5 +16,5 @@ export const getPageTitle = (pages: string[]) => {
   return [...pages, siteConfig.name]
     .filter(Boolean)
     .map((title) => title.toLowerCase())
-    .join(' | ');
+    .join(' • ');
 };

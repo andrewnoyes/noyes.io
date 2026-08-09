@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.webp" />
         <meta name="description" content={siteConfig.description} />
         <meta name="image" content={siteConfig.image} />
-        <meta property="og:title" content={siteConfig.name} />
+        <meta property="og:title" content={siteConfig.name} key="title" />
         <meta property="og:description" content={siteConfig.description} />
         <meta property="og:image" content={siteConfig.image} />
         <meta property="og:type" content="website" />

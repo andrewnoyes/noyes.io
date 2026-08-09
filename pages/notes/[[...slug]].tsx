@@ -99,7 +99,7 @@ export default function Notes(props: NotesProps) {
     <Container size="xl" pl="xl" pr="sm">
       <Head>
         <title>{pageTitle}</title>
-        <meta property="og:title" content={pageTitle} />
+        <meta property="og:title" content={pageTitle} key="title" />
       </Head>
       <Drawer
         className={classes.hiddenDesktop}

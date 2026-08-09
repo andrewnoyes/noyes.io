@@ -96,7 +96,7 @@ const MeetingCost = () => {
     <Container p="md" size="sm">
       <Head>
         <title>{pageTitle}</title>
-        <meta property="og:title" content={pageTitle} />
+        <meta property="og:title" content={pageTitle} key="title" />
       </Head>
       <Stack align="center">
         <Title>
