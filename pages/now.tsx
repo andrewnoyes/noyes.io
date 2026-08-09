@@ -150,9 +150,9 @@ export default function Now() {
       <section>
         <Divider />
         <Group pt="xl">
-          <EmailMeBadgeTag />
           <CopDbBadgeTag />
           <NoAiBadgeTag />
+          <EmailMeBadgeTag />
         </Group>
       </section>
     </Container>
