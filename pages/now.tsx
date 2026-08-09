@@ -1,4 +1,5 @@
 import {
+  Anchor,
   Container,
   Divider,
   Group,
@@ -9,6 +10,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
+import Link from 'next/link';
 import {
   CopDbBadgeTag,
   EmailMeBadgeTag,
@@ -124,10 +126,13 @@ export default function Now() {
           <List.Item>
             <Text>
               Right now, I am reading{' '}
-              <ExternalLink href="https://theanarchistlibrary.org/library/daniel-guerin-for-a-libertarian-communism">
+              <Anchor
+                component={Link}
+                href="/notes/for-a-libertarian-communism"
+              >
                 For a Libertarian Communism
-              </ExternalLink>{' '}
-              {`by Daniel Guérin with some friends. It's a collection of essays that explores a "synthesis" of Marxism and Anarchism.`}
+              </Anchor>{' '}
+              {`by Daniel Guérin with some friends. It's a collection of essays that explores a "synthesis" of Marxism and anarchism.`}
             </Text>
           </List.Item>
           <List.Item>
