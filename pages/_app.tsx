@@ -2,7 +2,7 @@ import { AppShell, ColorScheme, Global, MantineProvider } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { AppFooter, AppHeader } from '../components';
 import { siteConfig } from '../utils';
 
@@ -11,6 +11,20 @@ export default function App({ Component, pageProps }: AppProps) {
     key: 'color-scheme',
     defaultValue: 'dark',
   });
+
+  useEffect(() => {
+    console.log(`                                                            
+ @@@@@@   @@@  @@@  @@@@@@@   @@@@@@@    @@@@@@    @@@@@@   
+@@@@@@@@  @@@@ @@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  
+@@!  @@@  @@!@!@@@  @@!  @@@  @@!  @@@  @@!  @@@  @@!  @@@  
+!@!  @!@  !@!!@!@!  !@!  @!@  !@!  @!@  !@!  @!@  !@!  @!@  
+@!@!@!@!  @!@ !!@!  @!@  !@!  @!@!!@!   @!@  !@!  @!@  !@!  
+!!!@!!!!  !@!  !!!  !@!  !!!  !!@!@!    !@!  !!!  !@!  !!!  
+!!:  !!!  !!:  !!!  !!:  !!!  !!: :!!   !!:  !!!  !!:  !!!  
+:!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  
+::   :::   ::   ::   :::: ::  ::   :::  ::::: ::  ::::: ::  
+ :   : :  ::    :   :: :  :    :   : :   : :  :    : :  :`);
+  }, []);
 
   return (
     <Fragment>
