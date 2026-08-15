@@ -102,14 +102,13 @@ export default function Notes({ notes, note }: NotesProps) {
     {
       id: 'index',
       title: 'Notes index',
+      description: '🏠',
       onTrigger: () => router.push('./'),
     },
     ...notes.map((note) => ({
       id: note.slug,
       title: note.title,
-      description: note.updated
-        ? `updated: ${note.updated}`
-        : `created: ${note.created ?? 'N/A'}`,
+      description: note.tags?.join(', ') ?? '',
       onTrigger: () => router.push(`./${note.slug}`),
     })),
   ];
