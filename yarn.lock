@@ -478,6 +478,13 @@
     "@mantine/utils" "5.10.5"
     prism-react-renderer "^1.2.1"
 
+"@mantine/spotlight@^5.10.5":
+  version "5.10.5"
+  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.10.5.tgz#b7747593a6b5762faa87bc9cf05c093fb2570be4"
+  integrity sha512-OQkuHxswrapRPcKDVSjE3li9oYYMq1Nwg2zlZzHlpzP7oW1qUhbDIVRc1dOzuT+IO7ifY/zeSuYknli7T29pDA==
+  dependencies:
+    "@mantine/utils" "5.10.5"
+
 "@mantine/ssr@5.10.5":
   version "5.10.5"
   resolved "https://registry.npmjs.org/@mantine/ssr/-/ssr-5.10.5.tgz"
