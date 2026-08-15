@@ -26,7 +26,11 @@ import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { MouseEvent, ReactNode, useState } from 'react';
 import { ExternalLink } from './components';
-import { CopDbBadgeTag, NoAiBadgeTag } from './components/badge-tags';
+import {
+  CopDbBadgeTag,
+  EmailMeBadgeTag,
+  NoAiBadgeTag,
+} from './components/badge-tags';
 import { getTextFromChildren, slugify, windowOrNull } from './utils';
 
 const TitleWithLink = ({
@@ -197,6 +201,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Box,
     CopDbBadgeTag,
     NoAiBadgeTag,
+    EmailMeBadgeTag,
+    Title,
     ...components,
   };
 }
