@@ -117,6 +117,7 @@ export default function Notes({ notes, note }: NotesProps) {
     <SpotlightProvider
       actions={spotlightActions}
       nothingFoundMessage={`Nothing found 😭`}
+      highlightQuery
     >
       <Container size="xl" pl="xl" pr="sm">
         <Head>
