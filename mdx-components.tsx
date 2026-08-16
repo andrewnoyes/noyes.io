@@ -9,6 +9,7 @@ import {
   Group,
   Image,
   List,
+  Paper,
   Stack,
   Text,
   Title,
@@ -204,6 +205,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     EmailMeBadgeTag,
     Title,
     MeetingCostTimer,
+    Paper,
     ...components,
   };
 }
