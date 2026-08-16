@@ -277,13 +277,12 @@ export const getStaticProps: GetStaticProps<NotesProps> = async ({
     const filePath = path.join(NOTES_DIR, filename);
     const fileContent = readFileSync(filePath, 'utf8');
 
-    const { data, content } = matter(fileContent);
+    const { data } = matter(fileContent);
     const { tags, ...rest } = data;
 
     return {
       slug: filename.replace(/\.mdx$/, ''),
       tags: tags ? tags.split(',') : [],
-      content,
       ...rest,
     } as Note;
   });
