@@ -62,7 +62,7 @@ export default function Webgarden() {
           c="dimmed"
         >
           <ExternalLink
-            href="https://en.wikipedia.org/wiki/ACAB"
+            href="https://criticalresistance.org/mission-vision/not-so-common-language/"
             sx={{ color: 'inherit' }}
           >
             v13.12.0
