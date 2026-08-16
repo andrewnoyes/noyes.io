@@ -7,3 +7,4 @@ export * from './notes-list';
 export * from './pride-flag';
 export * from './pride-flag-picker';
 export * from './sections';
+export * from './tools';

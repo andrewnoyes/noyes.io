@@ -25,7 +25,7 @@ import {
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { MouseEvent, ReactNode, useState } from 'react';
-import { ExternalLink } from './components';
+import { ExternalLink, MeetingCostTimer } from './components';
 import {
   CopDbBadgeTag,
   EmailMeBadgeTag,
@@ -203,6 +203,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     NoAiBadgeTag,
     EmailMeBadgeTag,
     Title,
+    MeetingCostTimer,
     ...components,
   };
 }
