@@ -11,6 +11,7 @@ import {
   ScrollArea,
   Text,
   Title,
+  useMantineTheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { SpotlightAction, SpotlightProvider } from '@mantine/spotlight';
@@ -59,6 +60,7 @@ const SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + mar
 export default function Notes({ notes, note }: NotesProps) {
   const router = useRouter();
   const { classes } = useStyles();
+  const theme = useMantineTheme();
   const mdxComponents = useMDXComponents({});
   const [notePanelOpen, { toggle: toggleNotePanel, close: closeNotePanel }] =
     useDisclosure(false);
@@ -117,7 +119,9 @@ export default function Notes({ notes, note }: NotesProps) {
     <SpotlightProvider
       actions={spotlightActions}
       nothingFoundMessage={`Nothing found 😭`}
+      searchPlaceholder="Search for a note"
       highlightQuery
+      overlayColor={theme.colors.violet[7]}
     >
       <Container size="xl" pl="xl" pr="sm">
         <Head>
