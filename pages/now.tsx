@@ -90,8 +90,8 @@ export default function Now() {
         >
           <List.Item>
             <Text>
-              <ExternalLink href="https://app.copdb.org">CopDB </ExternalLink>
-              {`has been my (and others) personal project for the last four or so
+              <ExternalLink href="https://app.copdb.org">CopDB</ExternalLink>
+              {` has been my (and others) personal project for the last four or so
               years. Its goal is to document the most domestically violent part
               of the state. A big push this year is to aggregate data from other
               similar projects (ICE list, OpenOversight, Chicago Police Data
