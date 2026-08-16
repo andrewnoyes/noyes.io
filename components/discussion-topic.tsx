@@ -55,7 +55,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
     <Paper withBorder p="sm" my="xs">
       <Stack justify="space-between" spacing="xs">
         <Box>
-          <Title order={4}>{topic}</Title>
+          <Title order={5}>{topic}</Title>
           <Text size="xs" c="dimmed">
             topic created {created.toLocaleDateString()}
           </Text>
