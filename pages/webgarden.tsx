@@ -61,7 +61,13 @@ export default function Webgarden() {
           size={11}
           c="dimmed"
         >
-          v13.12.0 • {LAST_UPDATED.toLocaleDateString()}
+          <ExternalLink
+            href="https://en.wikipedia.org/wiki/ACAB"
+            sx={{ color: 'inherit' }}
+          >
+            v13.12.0
+          </ExternalLink>{' '}
+          • {LAST_UPDATED.toLocaleDateString()}
         </Text>
         <PrideFlagPicker width={100} />
         <Stack spacing="xs" mt="lg">
