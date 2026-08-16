@@ -2,6 +2,7 @@ export * from './app-footer';
 export * from './app-header';
 export * from './badge-list';
 export * from './badge-tags';
+export * from './discussion-topic';
 export * from './external-link';
 export * from './notes-list';
 export * from './pride-flag';
