@@ -13,9 +13,9 @@ My probably not so "daily" log! This is a habit I've gotten into at work, primar
 - Continuing our reading of _For a Libertarian Communism_. Today we'll talk about last week's reading (cus we missed it), and we're also gonna discuss the next essay, [Two Indictments of Communism](./for-a-libertarian-communism#two-indictments-of-communism). After that we're gonna watch one of my favorite scary movies, [Hereditary](https://en.wikipedia.org/wiki/Hereditary_(film))!
 - In good [yak shaving](https://en.wiktionary.org/wiki/yak_shaving) fashion, while preparing to read for today's discussion, I realized I _needed_ a way to add "discussion topics" to my reading notes. This way I could publish my reading notes ahead of time with topics highlighted I wanna discuss more - then I could attach discussion notes, saved to localStorage, so that I could incorporate them into my published notes later. So now I got that with the `DiscussionTopic` component!
 ```jsx
-<DiscussionTopic id="topic-example" topic="Topic that i wanna talk about goes here!" created={new Date('08/16/2026')} />
+<DiscussionTopic id="topic-example" topic="Thing that i wanna talk about!" created={new Date('08/16/2026')} />
 ```
-<DiscussionTopic id="topic-example" topic="Topic that i wanna talk about goes here!" created={new Date('08/16/2026')} />
+<DiscussionTopic id="topic-example" topic="Thing that i wanna talk about!" created={new Date('08/16/2026')} />
 
 ##### 08/15/26
 - Added a "spotlight" search to the notes section -- typing `ctrl + K` or `⌘ + K` will display the popup search for the notes pages, and selecting one will nav you to that page. Still playing with a more robust "fuzzy" search using a tool like [fuse.js](https://www.fusejs.io/fuzzy-search.html), so the contents of each note can also be searched. It'd also be sick to apply this to the whole site, not just the notes section!
