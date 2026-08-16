@@ -5,7 +5,7 @@ import { FlagVariant, PrideFlag } from './pride-flag';
 
 const ALL_VARIANTS = Object.values(FlagVariant);
 
-export const PrideFlagPicker = () => {
+export const PrideFlagPicker = ({ width }: { width?: number }) => {
   const [variant, setVariant] = useState<FlagVariant>(FlagVariant.Rainbow);
 
   const currentIndex = ALL_VARIANTS.indexOf(variant);
@@ -44,7 +44,7 @@ export const PrideFlagPicker = () => {
       </ActionIcon>
       <Tooltip label={`${variant} pride flag`}>
         <Box>
-          <PrideFlag width={150} variant={variant} />
+          <PrideFlag width={width ?? 150} variant={variant} />
         </Box>
       </Tooltip>
       <ActionIcon

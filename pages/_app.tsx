@@ -2,15 +2,23 @@ import { AppShell, ColorScheme, Global, MantineProvider } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { Fragment, useEffect } from 'react';
 import { AppFooter, AppHeader } from '../components';
 import { siteConfig } from '../utils';
 
+const ROUTES_TO_EXCLUDE_APPSHELL = ['/webgarden'];
+
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'color-scheme',
     defaultValue: 'dark',
   });
+
+  const path = router.asPath;
+
+  const showAppShell = !ROUTES_TO_EXCLUDE_APPSHELL.includes(path);
 
   useEffect(() => {
     console.log(`                                                            
@@ -58,6 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
           })}
         />
         <AppShell
+          padding={showAppShell ? undefined : 0}
           styles={(theme) => ({
             main: {
               backgroundColor:
@@ -67,15 +76,21 @@ export default function App({ Component, pageProps }: AppProps) {
             },
           })}
         >
-          <AppHeader
-            colorSchemeProps={{
-              colorScheme,
-              onToggle: () =>
-                setColorScheme(colorScheme === 'dark' ? 'light' : 'dark'),
-            }}
-          />
-          <Component {...pageProps} />
-          <AppFooter />
+          {showAppShell ? (
+            <>
+              <AppHeader
+                colorSchemeProps={{
+                  colorScheme,
+                  onToggle: () =>
+                    setColorScheme(colorScheme === 'dark' ? 'light' : 'dark'),
+                }}
+              />
+              <Component {...pageProps} />
+              <AppFooter />
+            </>
+          ) : (
+            <Component {...pageProps} />
+          )}
         </AppShell>
       </MantineProvider>
     </Fragment>
