@@ -63,7 +63,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
         {notes.map((note, index) => (
           <Input
             key={`${id}-${index}`}
-            size="xs"
+            size="sm"
             value={note}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const updatedValue = e.target.value;
@@ -107,7 +107,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
           <Flex gap="sm" align="flex-end">
             <Input
               placeholder="Add a note"
-              size="xs"
+              size="sm"
               value={newNote}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setNewNote(e.target.value);
