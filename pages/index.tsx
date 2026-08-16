@@ -26,7 +26,7 @@ export default function Home() {
 
       <Hero />
 
-      <Group position="center">
+      <Group position="center" my="xl">
         <Image
           src="/gifs/black-dog-idle.gif"
           alt="black dog standing and wagging its tail"
@@ -37,7 +37,7 @@ export default function Home() {
 
       <About />
 
-      <Group position="center">
+      <Group position="center" my="xl">
         <Image
           src="/gifs/black-dog-lie.gif"
           alt="black dog on the ground and wagging its tail"
@@ -48,7 +48,7 @@ export default function Home() {
 
       <WorkExperience />
 
-      <Group position="center">
+      <Group position="center" my="xl">
         <Image
           src="/gifs/black-dog-walk.gif"
           alt="black dog walking"

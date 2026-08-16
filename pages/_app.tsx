@@ -7,7 +7,7 @@ import { Fragment, useEffect } from 'react';
 import { AppFooter, AppHeader } from '../components';
 import { siteConfig } from '../utils';
 
-const ROUTES_TO_EXCLUDE_APPSHELL = ['/webgarden'];
+const ROUTES_TO_EXCLUDE_APPSHELL = ['/webgarden', '/webgarden.html'];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
