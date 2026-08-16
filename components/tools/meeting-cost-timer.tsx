@@ -72,15 +72,16 @@ export const MeetingCostTimer = () => {
           Cost per second:{' '}
           <Code>
             {formattedCostPerSec} = {formattedSalaryTotal} total /{' '}
-            {WORK_SECS_IN_YEAR} work secs per year
+            {new Intl.NumberFormat().format(WORK_SECS_IN_YEAR)} work secs per
+            year
           </Code>
         </List.Item>
         <List.Item>
-          A 15 minute meeting would cost:{' '}
+          15 min meeting:{' '}
           <Code>{moneyFormatter.format(costPerSec * 15 * 60)}</Code>
         </List.Item>
         <List.Item>
-          A 30 minute meeting would cost:{' '}
+          30 min meeting:{' '}
           <Code>{moneyFormatter.format(costPerSec * 30 * 60)}</Code>
         </List.Item>
       </List>
@@ -141,7 +142,7 @@ export const MeetingCostTimer = () => {
       </Group>
       <Container size="xs">
         <Text mt="sm" align="center" size="sm">
-          Assumes 2000 hours worked a year:{' '}
+          Assumes 2,000 hrs worked a year:{' '}
           <Code>40 hrs * (52 weeks - 2 weeks for PTO)</Code>
         </Text>
         {renderDetails()}
