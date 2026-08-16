@@ -5,13 +5,14 @@ updated: 04/29/26
 tags: c#,ef-core
 ---
 
-- View the change tracker [debug view](https://learn.microsoft.com/en-us/ef/core/change-tracking/debug-views#change-tracker-debug-view) from the console:
-
+##### View the change tracker debug view from the console:
+See [change-tracking debug views](https://learn.microsoft.com/en-us/ef/core/change-tracking/debug-views#change-tracker-debug-view)
 ```c
 Console.WriteLine(context.ChangeTracker.DebugView.ShortView);
 ```
 
-- [Parallelizing ef core queries](https://www.milanjovanovic.tech/blog/dbcontext-is-not-thread-safe-parallelizing-ef-core-queries-the-right-way) with DBContext that's **thread-safe**! The gist is to use `DbContextFactory` and create a context for each specific operation, then those operations can be executed in parallel:
+##### Parallelizing ef core queries with DBContext that's thread-safe
+See [milan's blog](https://www.milanjovanovic.tech/blog/dbcontext-is-not-thread-safe-parallelizing-ef-core-queries-the-right-way) for more details. The gist is to use `DbContextFactory` and create a context for each specific operation, then those operations can be executed in parallel:
 
 ```c
 // registers IDbContextFactory<AppDbContext> as a singleton
