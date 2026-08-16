@@ -12,7 +12,7 @@ import { PrideFlagPicker } from '../pride-flag-picker';
 const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingTop: '10%',
-    paddingBottom: '25%',
+    paddingBottom: '10%',
   },
   greetingContainer: {
     display: 'flex',
