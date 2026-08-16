@@ -20,7 +20,7 @@ import {
 } from '../components';
 import { getPageTitle } from '../utils';
 
-const LAST_UPDATED = new Date('07/25/2026');
+const LAST_UPDATED = new Date('08/16/2026');
 
 const pageTitle = getPageTitle(['now']);
 
@@ -156,13 +156,72 @@ export default function Now() {
       </section>
 
       <section>
+        <Title order={2}>Podcasts</Title>
+        <List
+          spacing="md"
+          mt="sm"
+          icon={
+            <IconChevronRight
+              size={18}
+              style={{ marginTop: 2 }}
+              color={theme.colors.violet[7]}
+            />
+          }
+        >
+          <List.Item>
+            <Text>
+              <ExternalLink href="https://bungacast.com/about/">
+                Bungacast
+              </ExternalLink>{' '}
+              the global politics podcast at the End of the End of History.
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text>
+              <ExternalLink href="https://workingclasshistory.com/podcasts/">
+                Working Class History
+              </ExternalLink>
+              {` history isn't made by kings and politicians, it's made by all of us.`}
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text>
+              <ExternalLink href="https://podcastaddict.com/podcast/auxiliary-statements/3163610">
+                Auxiliary Statements
+              </ExternalLink>{' '}
+              post-peasant commies read over bits of theory each week in an
+              effort to understand the worldwide state of socialism.
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text>
+              <ExternalLink href="https://podcastaddict.com/podcast/this-machine-kills/3065755">
+                This Machine Kills
+              </ExternalLink>{' '}
+              about technology and political economy,{' '}
+              <em>agitprop against innovation and capital</em>.
+            </Text>
+          </List.Item>
+        </List>
+      </section>
+
+      <section>
         <Divider />
-        <Group pt="xl">
+        <Group pt="xl" position="center">
           <CopDbBadgeTag />
           <NoAiBadgeTag />
           <EmailMeBadgeTag />
         </Group>
       </section>
+
+      <Group position="center" mt="xl">
+        <Image
+          src="/gifs/black-dog-ball.gif"
+          alt="black dog with ball"
+          height={85}
+          width={105}
+        />
+      </Group>
     </Container>
   );
 }
