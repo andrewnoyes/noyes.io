@@ -49,7 +49,7 @@ const ShowNotesSearchButton = (props?: ActionIconProps) => {
       onClick={handleShowNotes}
       {...props}
     >
-      <span aria-hidden>🧐</span>
+      <span role="img">🧐</span>
     </ActionIcon>
   );
 };
