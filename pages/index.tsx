@@ -28,10 +28,10 @@ export default function Home() {
 
       <Group position="center" my="xl">
         <Image
-          src="/gifs/black-dog-idle.gif"
-          alt="black dog standing and wagging its tail"
-          height={90}
-          width={115}
+          src="/gifs/black-dog-lie.gif"
+          alt="dog on the ground and wagging its tail"
+          height={75}
+          width={140}
         />
       </Group>
 
@@ -39,10 +39,10 @@ export default function Home() {
 
       <Group position="center" my="xl">
         <Image
-          src="/gifs/black-dog-lie.gif"
-          alt="black dog on the ground and wagging its tail"
-          height={75}
-          width={140}
+          src="/gifs/black-dog-idle.gif"
+          alt="dog standing and wagging its tail"
+          height={90}
+          width={115}
         />
       </Group>
 
@@ -51,7 +51,7 @@ export default function Home() {
       <Group position="center" my="xl">
         <Image
           src="/gifs/black-dog-walk.gif"
-          alt="black dog walking"
+          alt="dog walking"
           height={85}
           width={105}
         />

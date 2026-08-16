@@ -216,8 +216,8 @@ export default function Now() {
 
       <Group position="center" mt="xl">
         <Image
-          src="/gifs/black-dog-ball.gif"
-          alt="black dog with ball"
+          src="/gifs/red-dog-idle.gif"
+          alt="dog standing and wagging its tail, also its on fire"
           height={85}
           width={105}
         />
