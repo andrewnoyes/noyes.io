@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  ActionIconProps,
   Badge,
   Box,
   Container,
@@ -14,7 +15,11 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { SpotlightAction, SpotlightProvider } from '@mantine/spotlight';
+import {
+  SpotlightAction,
+  SpotlightProvider,
+  useSpotlight,
+} from '@mantine/spotlight';
 import { IconList } from '@tabler/icons-react';
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
@@ -29,6 +34,25 @@ import { NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
 import { useMDXComponents } from '../../mdx-components';
 import { APP_HEADER_HEIGHT, getPageTitle, Note } from '../../utils';
+
+const ShowNotesSearchButton = (props?: ActionIconProps) => {
+  const spotlight = useSpotlight();
+
+  const handleShowNotes = () => {
+    spotlight.openSpotlight();
+  };
+
+  return (
+    <ActionIcon
+      aria-label="Show notes search"
+      title="Show notes search"
+      onClick={handleShowNotes}
+      {...props}
+    >
+      <span aria-hidden>🧐</span>
+    </ActionIcon>
+  );
+};
 
 const useStyles = createStyles((theme) => ({
   hiddenDesktop: {
@@ -57,6 +81,10 @@ interface NotesProps {
 
 const SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + margin-bottom
 
+const SHOW_NOTES_OFFSET = APP_HEADER_HEIGHT + 14;
+
+const SHOW_SEARCH_OFFSET = SHOW_NOTES_OFFSET + 44;
+
 export default function Notes({ notes, note }: NotesProps) {
   const router = useRouter();
   const { classes } = useStyles();
@@ -67,18 +95,18 @@ export default function Notes({ notes, note }: NotesProps) {
 
   const pageTitle = getPageTitle([note?.title ?? '', 'Notes']);
 
-  const showNotesListButton = (
+  const showNotesListMobile = (
     <ActionIcon
       onClick={toggleNotePanel}
       className={classes.hiddenDesktop}
       title="Show notes list"
       aria-label="Show notes list"
-      variant="filled"
+      variant="light"
       color="violet"
       size="lg"
       sx={{
         left: 0,
-        top: APP_HEADER_HEIGHT + 14,
+        top: SHOW_NOTES_OFFSET,
         position: 'fixed',
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
@@ -86,6 +114,22 @@ export default function Notes({ notes, note }: NotesProps) {
     >
       <IconList />
     </ActionIcon>
+  );
+
+  const showNotesSearchMobile = (
+    <ShowNotesSearchButton
+      className={classes.hiddenDesktop}
+      variant="light"
+      size="lg"
+      color="violet"
+      sx={{
+        left: 0,
+        top: SHOW_SEARCH_OFFSET,
+        position: 'fixed',
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
+      }}
+    />
   );
 
   const notesListTitle = (
@@ -98,6 +142,13 @@ export default function Notes({ notes, note }: NotesProps) {
         Notes
       </Title>
     </Link>
+  );
+
+  const notesListTitleWithSearch = (
+    <Group position="apart">
+      {notesListTitle}
+      <ShowNotesSearchButton />
+    </Group>
   );
 
   const spotlightActions: SpotlightAction[] = [
@@ -149,14 +200,15 @@ export default function Notes({ notes, note }: NotesProps) {
         </Drawer>
         <Grid>
           <Grid.Col sm={3} className={classes.hiddenMobile}>
-            {notesListTitle}
+            {notesListTitleWithSearch}
             <NotesList notes={notes ?? []} activeSlug={note?.slug} />
           </Grid.Col>
           <Grid.Col sm={9} pl="md">
             {note ? (
               <div>
                 <Box>
-                  {showNotesListButton}
+                  {showNotesListMobile}
+                  {showNotesSearchMobile}
                   <Title>{note.title}</Title>
                   {note.tags?.length ? (
                     <Group spacing={4} mb={4}>
@@ -185,7 +237,8 @@ export default function Notes({ notes, note }: NotesProps) {
               </div>
             ) : (
               <Box>
-                {showNotesListButton}
+                {showNotesListMobile}
+                {showNotesSearchMobile}
                 <NotesHome />
               </Box>
             )}
