@@ -66,8 +66,8 @@ export default function Webgarden() {
             sx={{ color: 'inherit' }}
           >
             v13.12.0
-          </ExternalLink>{' '}
-          • {LAST_UPDATED.toLocaleDateString()}
+          </ExternalLink>
+          {` • ${LAST_UPDATED.toLocaleDateString()}`}
         </Text>
         <PrideFlagPicker width={100} />
         <Stack spacing="xs" mt="lg">
