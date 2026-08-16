@@ -57,7 +57,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
         <Box>
           <Title order={5}>{topic}</Title>
           <Text size="xs" c="dimmed">
-            topic created {created.toLocaleDateString()}
+            topic created on {created.toLocaleDateString()}
           </Text>
         </Box>
         {notes.map((note, index) => (
