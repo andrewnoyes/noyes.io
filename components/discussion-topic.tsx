@@ -36,10 +36,6 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
   });
 
   const handleNoteUpdated = (index: number, updated: string) => {
-    if (!notes[index]) {
-      return;
-    }
-
     const copy = [...notes];
 
     copy[index] = updated;
