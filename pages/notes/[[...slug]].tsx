@@ -1,7 +1,6 @@
 import {
   ActionIcon,
   ActionIconProps,
-  Badge,
   Box,
   Container,
   createStyles,
@@ -30,7 +29,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import path from 'path';
-import { NotesList } from '../../components';
+import { BadgeList, NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
 import { useMDXComponents } from '../../mdx-components';
 import { APP_HEADER_HEIGHT, getPageTitle, Note } from '../../utils';
@@ -210,15 +209,11 @@ export default function Notes({ notes, note }: NotesProps) {
                   {showNotesListMobile}
                   {showNotesSearchMobile}
                   <Title>{note.title}</Title>
-                  {note.tags?.length ? (
-                    <Group spacing={4} mb={4}>
-                      {note.tags.map((tag) => (
-                        <Badge key={tag} size="xs" radius="sm">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </Group>
-                  ) : null}
+                  <BadgeList
+                    items={note.tags ?? []}
+                    spacing={4}
+                    badgeProps={{ size: 'xs' }}
+                  />
                   <Group spacing="xs">
                     {note.updated && (
                       <Text c="dimmed" fz="sm">

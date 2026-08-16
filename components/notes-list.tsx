@@ -1,6 +1,7 @@
-import { Badge, Box, Group, NavLink } from '@mantine/core';
+import { Box, NavLink } from '@mantine/core';
 import Link from 'next/link';
 import { Note } from '../utils';
+import { BadgeList } from './badge-list';
 
 export const NotesList = ({
   notes,
@@ -28,15 +29,11 @@ export const NotesList = ({
             key={note.slug}
             label={note.title}
             description={
-              note.tags?.length ? (
-                <Group spacing={4}>
-                  {note.tags.map((tag) => (
-                    <Badge key={tag} size="xs" radius="sm">
-                      {tag}
-                    </Badge>
-                  ))}
-                </Group>
-              ) : null
+              <BadgeList
+                items={note.tags ?? []}
+                spacing={4}
+                badgeProps={{ size: 'xs' }}
+              />
             }
             active={activeSlug === note.slug}
           />

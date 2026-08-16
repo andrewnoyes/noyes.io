@@ -1,13 +1,14 @@
-import { Badge, BadgeProps, Group } from '@mantine/core';
+import { Badge, BadgeProps, Group, MantineNumberSize } from '@mantine/core';
 
 export interface BadgeListProps {
   items: string[];
   badgeProps?: BadgeProps;
+  spacing?: MantineNumberSize;
 }
 
-export const BadgeList = ({ items, badgeProps }: BadgeListProps) => {
+export const BadgeList = ({ items, spacing, badgeProps }: BadgeListProps) => {
   return (
-    <Group spacing="xs">
+    <Group spacing={spacing ?? 'xs'}>
       {items.map((item) => (
         <Badge
           key={item}
