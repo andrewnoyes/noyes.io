@@ -6,6 +6,7 @@ import {
   Group,
   List,
   NumberInput,
+  SimpleGrid,
   Stack,
   Text,
   Title,
@@ -87,12 +88,12 @@ export const MeetingCostTimer = () => {
   };
 
   return (
-    <Box>
+    <Box px="xs">
       <Stack mt="lg" align="center">
-        <Title>
+        <Title align="center">
           {formattedCost} - {formattedTime}
         </Title>
-        <Group>
+        <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'xs', cols: 1 }]}>
           <Button
             disabled={!canStart}
             size="lg"
@@ -104,7 +105,7 @@ export const MeetingCostTimer = () => {
           <Button size="lg" color="red" onClick={resetAll}>
             Reset
           </Button>
-        </Group>
+        </SimpleGrid>
       </Stack>
       <Group mt="lg" position="center">
         <NumberInput
