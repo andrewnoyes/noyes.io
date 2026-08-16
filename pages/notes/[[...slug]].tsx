@@ -45,7 +45,7 @@ const ShowNotesSearchButton = (props?: ActionIconProps) => {
   return (
     <ActionIcon
       aria-label="Show notes search"
-      title="Show notes search"
+      title="Show notes search (ctrl+k)"
       onClick={handleShowNotes}
       {...props}
     >
