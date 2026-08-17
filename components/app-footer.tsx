@@ -6,8 +6,10 @@ import {
   Group,
   Image,
 } from '@mantine/core';
+import { useTimeout } from '@mantine/hooks';
 import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -16,6 +18,9 @@ const useStyles = createStyles((theme) => ({
     marginRight: -16,
     marginBottom: -16,
     borderTop: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
+    borderBottom: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
     position: 'relative',
@@ -31,20 +36,47 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const skeleIdle = '/gifs/purple-skele-idle.gif';
+const skeleRun = '/gifs/purple-skele-run.gif';
+
 export const AppFooter = () => {
   const { classes } = useStyles();
+  const [skele, setSkele] = useState(skeleIdle);
+
+  const isIdle = skele === skeleIdle;
+  const delay = isIdle ? 10_000 : 2_500;
+
+  const { start } = useTimeout(() => handleToggleSkele(), delay, {
+    autoInvoke: true,
+  });
+
+  const handleToggleSkele = () => {
+    setSkele(isIdle ? skeleRun : skeleIdle);
+  };
 
   return (
     <footer className={classes.footer}>
       <Image
-        src="/gifs/purple-skele-idle.gif"
-        alt="purple skeleton idling"
+        src={skele}
+        alt="purple skeleton"
         height={64}
         width={68}
         sx={{
-          top: 16,
+          bottom: 0,
           left: 8,
           position: 'absolute',
+        }}
+      />
+      <Image
+        src={skele}
+        alt="upside-down purple skeleton"
+        height={64}
+        width={68}
+        sx={{
+          top: 0,
+          right: 8,
+          position: 'absolute',
+          transform: 'rotate(180deg)',
         }}
       />
       <Container className={classes.inner}>
