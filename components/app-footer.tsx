@@ -46,7 +46,7 @@ export const AppFooter = () => {
   const isIdle = skele === skeleIdle;
   const delay = isIdle ? 10_000 : 2_500;
 
-  const { start } = useTimeout(() => handleToggleSkele(), delay, {
+  useTimeout(() => handleToggleSkele(), delay, {
     autoInvoke: true,
   });
 
@@ -88,7 +88,7 @@ export const AppFooter = () => {
           color="dimmed"
           sx={{ fontFamily: 'monospace' }}
         >
-          built by androo, not ai <span role="img">😘</span>
+          by androo, not ai <span role="img">😘</span>
         </Anchor>
         <Group spacing={0} noWrap>
           <Link
