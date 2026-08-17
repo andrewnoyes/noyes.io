@@ -61,7 +61,6 @@ export const AppFooter = () => {
           setSkele(skeleIdle);
         }}
       />
-
       <Container className={classes.inner}>
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
