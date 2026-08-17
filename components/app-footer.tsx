@@ -6,7 +6,6 @@ import {
   Group,
   Image,
 } from '@mantine/core';
-import { useTimeout } from '@mantine/hooks';
 import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -43,17 +42,6 @@ export const AppFooter = () => {
   const { classes } = useStyles();
   const [skele, setSkele] = useState(skeleIdle);
 
-  const isIdle = skele === skeleIdle;
-  const delay = isIdle ? 10_000 : 2_500;
-
-  useTimeout(() => handleToggleSkele(), delay, {
-    autoInvoke: true,
-  });
-
-  const handleToggleSkele = () => {
-    setSkele(isIdle ? skeleRun : skeleIdle);
-  };
-
   return (
     <footer className={classes.footer}>
       <Image
@@ -66,7 +54,14 @@ export const AppFooter = () => {
           left: 8,
           position: 'absolute',
         }}
+        onMouseOver={() => {
+          setSkele(skeleRun);
+        }}
+        onMouseOut={() => {
+          setSkele(skeleIdle);
+        }}
       />
+
       <Container className={classes.inner}>
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
