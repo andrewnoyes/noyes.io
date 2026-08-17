@@ -67,18 +67,7 @@ export const AppFooter = () => {
           position: 'absolute',
         }}
       />
-      <Image
-        src={skele}
-        alt="upside-down purple skeleton"
-        height={64}
-        width={68}
-        sx={{
-          top: 0,
-          right: 8,
-          position: 'absolute',
-          transform: 'rotate(180deg)',
-        }}
-      />
+
       <Container className={classes.inner}>
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
