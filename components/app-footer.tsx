@@ -67,7 +67,6 @@ export const AppFooter = () => {
           position: 'absolute',
         }}
       />
-
       <Container className={classes.inner}>
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
