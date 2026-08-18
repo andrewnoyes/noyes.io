@@ -74,6 +74,14 @@ export const AppFooter = () => {
         </Anchor>
         <Group spacing={4} noWrap>
           <ExternalLink
+            href="https://app.copdb.org"
+            aria-label="Link to CopDB."
+          >
+            <ActionIcon size="lg" aria-label="copdb pig">
+              <Image src="/pig-glasses.png" alt="pig" height={18} width={18} />
+            </ActionIcon>
+          </ExternalLink>
+          <ExternalLink
             href="https://git.unfrl.com/androo"
             aria-label="Link to my public git repos."
           >
@@ -87,14 +95,6 @@ export const AppFooter = () => {
           >
             <ActionIcon size="lg" aria-label="mail icon">
               <IconMail size={18} stroke={1.5} />
-            </ActionIcon>
-          </ExternalLink>
-          <ExternalLink
-            href="https://app.copdb.org"
-            aria-label="Link to CopDB."
-          >
-            <ActionIcon size="lg" aria-label="copdb pig">
-              <Image src="/pig-glasses.png" alt="pig" height={18} width={18} />
             </ActionIcon>
           </ExternalLink>
         </Group>
