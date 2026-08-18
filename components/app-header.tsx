@@ -93,6 +93,8 @@ export const AppHeader = ({
     </Link>
   ));
 
+  const rotation = Math.floor(Math.random() * 365);
+
   return (
     <Box>
       <Header height={APP_HEADER_HEIGHT} px="md">
@@ -140,7 +142,7 @@ export const AppHeader = ({
                 colorSchemeProps.colorScheme === 'dark' ? undefined : 'dark'
               }
               sx={{
-                transform: drawerOpened ? 'rotate(90deg)' : '',
+                transform: drawerOpened ? `rotate(${rotation}deg)` : '',
                 transition: 'transform ease 200ms',
               }}
             >
