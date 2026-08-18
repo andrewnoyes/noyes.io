@@ -7,7 +7,7 @@ import { WorkExperienceItem } from './work-experience-item';
 const JobCompany = ({ job }: { job: JobDescription }) => {
   return (
     <Group noWrap>
-      <Text>{job.company}</Text>
+      <Text sx={{ fontFamily: 'monospace' }}>{job.company}</Text>
       {job.active && (
         <Badge
           color="green"
