@@ -1,4 +1,4 @@
-import { ActionIcon, Group, Image } from '@mantine/core';
+import { Group, Image, UnstyledButton } from '@mantine/core';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -46,31 +46,25 @@ export default function Home() {
         align="flex-end"
         mt="xl"
         mb={100}
-        spacing={0}
         sx={{ minHeight: 150 }}
       >
-        <Image {...dog} alt="dog on the ground and wagging its tail" />
-        <ActionIcon
+        <UnstyledButton
           aria-label="toggle dog"
           onClick={() => {
             setDog(isBlackDog ? fireDog : blackDog);
           }}
-          sx={{ marginBottom: -8 }}
+          sx={{ display: 'flex', alignItems: 'flex-end' }}
         >
-          <span role="img">{isBlackDog ? '🔥' : '🏴'}</span>
-        </ActionIcon>
+          <Image
+            {...dog}
+            alt={
+              isBlackDog ? 'dog laying down, wagging its tail' : 'flame dog!'
+            }
+          />
+        </UnstyledButton>
       </Group>
 
       <About />
-
-      <Group position="center" my="xl">
-        <Image
-          src="/gifs/black-dog-idle.gif"
-          alt="dog standing and wagging its tail"
-          height={90}
-          width={115}
-        />
-      </Group>
 
       <WorkExperience />
 

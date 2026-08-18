@@ -53,7 +53,7 @@ export const Hero = () => {
       <PrideFlagPicker />
       <Container p={0} size={650} className={classes.greetingContainer}>
         <Text className={classes.greeting}>Hey! My name is</Text>
-        <Title className={classes.title}>Andrew Noyes.</Title>
+        <Title className={classes.title}>Andrew Noyes!</Title>
         <Text color="dimmed" className={classes.description}>
           {`I'm a software engineer specializing in full-stack application
             development.`}
