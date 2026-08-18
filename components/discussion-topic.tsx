@@ -2,7 +2,6 @@ import {
   ActionIcon,
   Box,
   Divider,
-  Flex,
   Input,
   Paper,
   Stack,
@@ -47,6 +46,16 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
     setNotes(notes.filter((_, index) => index !== indexToDelete));
   };
 
+  const handleAddNote = () => {
+    const trimmed = newNote.trim();
+    if (!trimmed) {
+      return;
+    }
+
+    setNotes([...(notes ?? []), newNote]);
+    setNewNote('');
+  };
+
   return (
     <Paper withBorder p="sm" my="xs">
       <Stack justify="space-between" spacing="xs">
@@ -63,14 +72,12 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
             value={note}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const updatedValue = e.target.value;
-
               if (!updatedValue) {
                 handleNoteDeleted(index);
               } else {
                 handleNoteUpdated(index, updatedValue);
               }
             }}
-            sx={{ flex: 1 }}
             rightSection={
               <ActionIcon
                 title="delete note"
@@ -90,38 +97,28 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-
-            const trimmed = newNote.trim();
-            if (!trimmed) {
-              return;
-            }
-
-            setNotes([...(notes ?? []), newNote]);
-            setNewNote('');
+            handleAddNote();
           }}
         >
-          <Flex gap="sm" align="flex-end">
-            <Input
-              placeholder="Add a note"
-              size="sm"
-              value={newNote}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setNewNote(e.target.value);
-              }}
-              sx={{ flex: 1 }}
-              rightSection={
-                <ActionIcon
-                  title="add note"
-                  aria-label="add note"
-                  type="submit"
-                  color="violet"
-                  size="sm"
-                >
-                  <IconCirclePlus />
-                </ActionIcon>
-              }
-            />
-          </Flex>
+          <Input
+            placeholder="Add a note"
+            size="sm"
+            value={newNote}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setNewNote(e.target.value);
+            }}
+            rightSection={
+              <ActionIcon
+                title="add note"
+                aria-label="add note"
+                type="submit"
+                color="violet"
+                size="sm"
+              >
+                <IconCirclePlus />
+              </ActionIcon>
+            }
+          />
         </form>
       </Stack>
     </Paper>
