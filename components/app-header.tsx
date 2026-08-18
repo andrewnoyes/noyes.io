@@ -11,7 +11,7 @@ import {
   Text,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconBurger, IconCircleDashedX } from '@tabler/icons-react';
+import { IconBurger } from '@tabler/icons-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { APP_HEADER_HEIGHT, siteConfig } from '../utils';
@@ -93,8 +93,6 @@ export const AppHeader = ({
     </Link>
   ));
 
-  const rotation = Math.floor(Math.random() * 365);
-
   return (
     <Box>
       <Header height={APP_HEADER_HEIGHT} px="md">
@@ -142,15 +140,11 @@ export const AppHeader = ({
                 colorSchemeProps.colorScheme === 'dark' ? undefined : 'dark'
               }
               sx={{
-                transform: drawerOpened ? `rotate(${rotation}deg)` : '',
+                transform: drawerOpened ? `rotate(45deg)` : '',
                 transition: 'transform ease 200ms',
               }}
             >
-              {drawerOpened ? (
-                <IconCircleDashedX stroke={1.5} size={34} />
-              ) : (
-                <IconBurger stroke={1.5} size={34} />
-              )}
+              <IconBurger stroke={1.5} size={34} />
             </ActionIcon>
           </Group>
         </Group>
