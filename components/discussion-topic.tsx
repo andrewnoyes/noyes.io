@@ -52,7 +52,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
       return;
     }
 
-    setNotes([...(notes ?? []), newNote]);
+    setNotes([...notes, newNote]);
     setNewNote('');
   };
 
