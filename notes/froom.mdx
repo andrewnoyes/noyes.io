@@ -64,9 +64,10 @@ some links for ideas/reference:
   - notion's is ofc super powerful and contained within a RTE, idk if our blocks need to have "primitives" for like text or heading (but maybe actually, cus that'd be a cool way to add random text panels to your froom)
   - i like how they differentiate between `properties` of a block (which is what i've been calling `value`), and then `content` of a block which is where ordered block IDs are placed 
   - interesting, they've also got a `Parent` but this "is only used for permissions", so i don't think they're using FKs for block parent-child relationships (just the ordered set in `content`)
+  - [blocks.ts from notion client sdk](https://github.com/makenotion/notion-sdk-js/blob/main/src/api-endpoints/blocks.ts) which details some of their block-specific properties
 - [are.na](https://www.are.na)
   - i think they use a similiar "block" structure, but they're not necessarily comprised of primitives like "text" or "heading" (haven't 100% confirmed tho, just browsing their site)
-- ['block protocol' for block-based apps (looks mostly defunct now)](https://blockprotocol.org/spec/0.4)
+- ['block protocol' for block-based apps (looks mostly paused/defunct now)](https://blockprotocol.org/spec/0.4)
 
 
 ### block types
@@ -87,7 +88,8 @@ some links for ideas/reference:
   - `post`: children might be `[paragraph, image, video]`, order dictates layout or something
   - `post_list` - eg thinking this would be like a "feed"
   - `tab_panel`
-
+- `BlockType` schemas:
+  - each block type will define a schema for the shape of its `properties`, including which values are required and optional
 - `todo_list` block:
 ```json
 {
