@@ -53,6 +53,14 @@ const ShowNotesSearchButton = (props?: ActionIconProps) => {
   );
 };
 
+const getNoteDescription = (note: Note) => {
+  const tags = note.tags?.join(', ') ?? '';
+  const updated = note.updated ? `updated: ${note.updated}` : '';
+  const created = note.created ? `created: ${note.created}` : '';
+
+  return [tags, updated || created].filter(Boolean).join(' - ');
+};
+
 const useStyles = createStyles((theme) => ({
   hiddenDesktop: {
     [theme.fn.largerThan('sm')]: {
@@ -160,7 +168,7 @@ export default function Notes({ notes, note }: NotesProps) {
     ...notes.map((note) => ({
       id: note.slug,
       title: note.title,
-      description: note.tags?.join(', ') ?? '',
+      description: getNoteDescription(note),
       onTrigger: () => router.push(`./${note.slug}`),
     })),
   ];
