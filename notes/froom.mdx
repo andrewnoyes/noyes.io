@@ -86,8 +86,9 @@ some links for ideas/reference:
   - `event`: eg a calendar event
   - `post`: children might be `[paragraph, image, video]`, order dictates layout or something
   - `post_list` - eg thinking this would be like a "feed"
+  - `tab_panel`
 
-- `todo_list`:
+- `todo_list` block:
 ```json
 {
   "id": "todo-list-1",
@@ -95,16 +96,16 @@ some links for ideas/reference:
   "properties": {
     "title": "Movie watchlist",
   },
-  "orderedChildBlockIds": [ "todo-1" ]
+  "orderedChildBlockIds": ["todo-1"]
 }
 ```
 
-- `todo`:
+- `todo` block:
 ```json
 {
   "id": "todo-1",
   "type": "todo",
-  "value": {
+  "properties": {
     "title": "Predator 12, Badder Lands",
     "completed_at": "2026-08-22T19:35:12+00:00" // when it was completed rather than boolean
   },
