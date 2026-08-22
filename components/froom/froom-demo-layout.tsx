@@ -27,7 +27,7 @@ export const FroomDemoLayout = () => {
     <Paper m="sm" withBorder>
       <Group position="center" py="xs">
         <Avatar src="/dog-bandana.webp" alt="matapacos" size="md" />
-        <Title order={2}>my froom</Title>
+        <Title order={2}>the bois</Title>
       </Group>
       <Divider />
       <Grid grow p="md">
