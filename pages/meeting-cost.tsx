@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { MeetingCostTimer } from '../components';
 import { getPageTitle } from '../utils';
 
-const MeetingCost = () => {
+export default function MeetingCost() {
   const pageTitle = getPageTitle(['🤑 meeting cost']);
 
   return (
@@ -24,5 +24,4 @@ const MeetingCost = () => {
       <MeetingCostTimer />
     </Container>
   );
-};
-export default MeetingCost;
+}
