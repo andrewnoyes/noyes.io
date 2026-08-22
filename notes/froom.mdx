@@ -1,6 +1,7 @@
 ---
 title: froom
 created: 08/21/26
+updated: 08/22/26
 tags: ideas,projects
 ---
 
@@ -16,7 +17,7 @@ d88P"
 ```
 ---
 
-##### the general idea
+### the general idea
 
 A **froom** is a _room_ for your _friends_ (name WIP). You create a froom with a fun name, and in it you customize the layout (via drag-n-drop grid) and fill it with **blocks** (omg soo original). Blocks are things like _bets_, _todos_, _events_, _lists_, _boards_, etc.
 
@@ -26,8 +27,107 @@ Example: for my froom, _the bois_, I'd have panels in my grid for:
 - list of movies we'd like to watch together
 - feed for dank memes or random links/media
 
-Each of these panel's children can be expressed as a collection of blocks - and each panel is itself a block, with a `block_type` that represents a "block collection" (e.g. list, board, feed, bets - still TBD, but it'd be cool if this could all be represented via our recursive block structure).
+Each of these panel's children can be expressed as a collection of blocks - and each panel is itself a block, with a `BlockType` that represents a "block collection" (e.g. list, board, feed, bets - still TBD, but it'd be cool if this could all be represented via our recursive block structure).
 
 <FroomDemoLayout />
 
-- e.g. `tab_panel` as a block_type? takes its children and arranges em in tabs!
+- 💡 `tab_panel` as a BlockType? takes its children and arranges em in tabs!
+
+
+### block structure
+
+```json
+{
+  id: Guid;
+  name: string; // maybe name could be contained within `value`?
+  type: BlockType; 
+  value: object/jsonb/string;  // TBD: if jsonb, need to enforce schema and handle migrations?
+  orderedChildBlockIds: Guid[]; // maybe this isn't necessary if our `value` schema includes child blocks?
+  roomId: Guid; // all blocks are associated to a room
+}
+```
+
+Thinking I prefer notion's usage of `properties` instead, allows for other entries that may not necessarily apply to the "value" of a block:
+
+```json
+{
+  id: Guid,
+  type: BlockType;
+  properties: jsonb; // schema defined per block type - fields like 'name' will be present if relevant for block type
+  orderedChildBlockIds: Guid[]; // 0 or more child block ID references
+  roomId: Guid;
+}
+
+```
+some links for ideas/reference:
+- [data model behind notion](https://www.notion.com/blog/data-model-behind-notion)
+  - notion's is ofc super powerful and contained within a RTE, idk if our blocks need to have "primitives" for like text or heading (but maybe actually, cus that'd be a cool way to add random text panels to your froom)
+  - i like how they differentiate between `properties` of a block (which is what i've been calling `value`), and then `content` of a block which is where ordered block IDs are placed 
+  - interesting, they've also got a `Parent` but this "is only used for permissions", so i don't think they're using FKs for block parent-child relationships (just the ordered set in `content`)
+- [are.na](https://www.are.na)
+  - i think they use a similiar "block" structure, but they're not necessarily comprised of primitives like "text" or "heading" (haven't 100% confirmed tho, just browsing their site)
+- ['block protocol' for block-based apps (looks mostly defunct now)](https://blockprotocol.org/spec/0.4)
+
+
+### block types
+
+- Currently thinking that each `BlockType` will correspond with a schema (how/where that's defined still TBD!) that defines what that block's `value` property looks like. 
+- Block type ideas:
+  - `paragraph`
+  - `header`
+  - `todo`
+  - `todo_list`
+  - `bullet_list`
+  - `bullet`
+  - `image`
+  - `video`
+  - `embed`: URL or page embed
+  - `bet`: `{selection: "some thing will happen", stake: [5, 'beers'], odds: +50}`
+  - `event`: eg a calendar event
+  - `post`: children might be `[paragraph, image, video]`, order dictates layout or something
+  - `post_list` - eg thinking this would be like a "feed"
+
+- `todo_list`:
+```json
+{
+  "id": "todo-list-1",
+  "type": "todo_list",
+  "properties": {
+    "title": "Movie watchlist",
+  },
+  "orderedChildBlockIds": [ "todo-1" ]
+}
+```
+
+- `todo`:
+```json
+{
+  "id": "todo-1",
+  "type": "todo",
+  "value": {
+    "title": "Predator 12, Badder Lands",
+    "completed_at": "2026-08-22T19:35:12+00:00" // when it was completed rather than boolean
+  },
+  "orderedChildBlockIds": [] // could support nested todos - does that obviate the need for a todo_list type?
+}
+```
+
+### room structure
+
+The other core data type is `room`. Users create rooms and invite others to be members, where they can interact with that room's blocks. Each room defines its grid layout, with each entry pointing to a block reference - this is what defines the "starting point" for each block. 
+
+```json
+{
+  id: "room-1",
+  slug: "the-bois",
+  name: "the bois",
+  imageUrl: "https://noyes.io/dog-bandana.webp",
+  gridLayout: [
+    {i: "feed-block", x: 0, y: 0, w: 4, h: 4},
+    {i: "calendar-block", x: 4, y: 0, w: 8, h: 4},
+    {i: "wagers-block", x: 0, y: 4, w: 6, h: 4},
+    {i: "tabs-block" , x: 4, y: 4, w: 6, h: 4}
+  ],
+  gridConfig: {cols: 12, rowHeight: 50}
+}
+```

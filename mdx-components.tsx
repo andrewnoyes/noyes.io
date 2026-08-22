@@ -208,7 +208,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     MeetingCostTimer,
     Paper,
     DiscussionTopic,
-    FroomDemoLayout: FroomDemoLayout,
+    FroomDemoLayout,
     ...components,
   };
 }
