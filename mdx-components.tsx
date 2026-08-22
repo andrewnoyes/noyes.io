@@ -125,12 +125,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       if (isLocalPath && !isLocalPdf) {
         return (
-          <Link
-            href={href}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <Anchor component="span">{children}</Anchor>
-          </Link>
+          <Anchor component={Link} href={href}>
+            {children}
+          </Anchor>
         );
       }
 
