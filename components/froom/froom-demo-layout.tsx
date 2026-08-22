@@ -32,10 +32,10 @@ export const FroomDemoLayout = () => {
       <Divider />
       <Grid grow p="md">
         <Grid.Col span={4}>
-          <Panel h={105}>feed/memes</Panel>
+          <Panel h={105}>feed</Panel>
         </Grid.Col>
         <Grid.Col span={8}>
-          <Panel h={105}>calendar events</Panel>
+          <Panel h={105}>calendar</Panel>
         </Grid.Col>
         <Grid.Col span={6}>
           <Panel h={82}>wagers</Panel>
@@ -46,16 +46,12 @@ export const FroomDemoLayout = () => {
               <Tabs.List>
                 <Tabs.Tab value="movies">Movies</Tabs.Tab>
                 <Tabs.Tab value="books">Books</Tabs.Tab>
-                <Tabs.Tab value="hangouts">Hangouts</Tabs.Tab>
               </Tabs.List>
               <Tabs.Panel value="movies" p="xs">
                 Movies tab
               </Tabs.Panel>
               <Tabs.Panel value="books" p="xs">
                 Books tab
-              </Tabs.Panel>
-              <Tabs.Panel value="hangouts" p="xs">
-                Hangouts tab
               </Tabs.Panel>
             </Tabs>
           </Panel>
