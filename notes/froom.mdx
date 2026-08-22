@@ -71,7 +71,7 @@ some links for ideas/reference:
 
 ### block types
 
-- Currently thinking that each `BlockType` will correspond with a schema (how/where that's defined still TBD!) that defines what that block's `value` property looks like. 
+- Currently thinking that each `BlockType` will correspond with a schema (how/where that's defined still TBD!) that defines what that block's `properties` look like. 
 - Block type ideas:
   - `paragraph`
   - `header`
@@ -86,8 +86,6 @@ some links for ideas/reference:
   - `post`: children might be `[paragraph, image, video]`, order dictates layout or something
   - `post_list` - eg thinking this would be like a "feed"
   - `tab_panel`
-- `BlockType` schemas:
-  - each block type will define a schema for the shape of its `properties`, including which values are required and optional
 - `todo_list` block:
 ```json
 {
@@ -99,7 +97,6 @@ some links for ideas/reference:
   "orderedChildBlockIds": ["todo-1"]
 }
 ```
-
 - `todo` block:
 ```json
 {
