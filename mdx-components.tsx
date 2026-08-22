@@ -32,6 +32,7 @@ import {
   EmailMeBadgeTag,
   NoAiBadgeTag,
 } from './components/badge-tags';
+import { FroomDemoLayout } from './components/froom';
 import { getTextFromChildren, slugify, windowOrNull } from './utils';
 
 const TitleWithLink = ({
@@ -207,6 +208,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     MeetingCostTimer,
     Paper,
     DiscussionTopic,
+    FroomDemoLayout: FroomDemoLayout,
     ...components,
   };
 }
