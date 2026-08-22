@@ -69,6 +69,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
           <Input
             key={`${id}-${index}`}
             size="sm"
+            title={note}
             value={note}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const updatedValue = e.target.value;
@@ -101,6 +102,7 @@ export const DiscussionTopic = (props: DiscussionTopicProps) => {
           }}
         >
           <Input
+            title="Add a note"
             placeholder="Add a note"
             size="sm"
             value={newNote}
