@@ -16,6 +16,7 @@ d88P"
 888    888     "Y88P"   "Y88P"  888  888  888
 ```
 ### the general idea
+---
 
 A **froom** is a _room_ for your _friends_ (name WIP). You create a froom with a fun name, and in it you customize the layout (via drag-n-drop grid) and fill it with **blocks** (omg soo original). Blocks are things like _bets_, _todos_, _events_, _lists_, _boards_, etc.
 
@@ -33,6 +34,7 @@ Each of these panel's children can be expressed as a collection of blocks - and 
 
 
 ### block structure
+---
 
 ```json
 {
@@ -68,6 +70,7 @@ some links for ideas/reference:
 - ['block protocol' for block-based apps (looks mostly paused/defunct now)](https://blockprotocol.org/spec/0.4)
 
 ### block types
+---
 
 - Currently thinking that each `BlockType` will correspond with a schema (how/where that's defined still TBD!) that defines what that block's `properties` look like. 
 - Block type ideas:
@@ -109,6 +112,7 @@ some links for ideas/reference:
 ```
 
 ### room structure
+---
 
 The other core data type is `room`. Users create rooms and invite others to be members, where they can interact with that room's blocks. Each room defines its grid layout, with each entry pointing to a block reference - this is what defines the "starting point" for each block. 
 
@@ -129,5 +133,6 @@ The other core data type is `room`. Users create rooms and invite others to be m
 ```
 
 ### misc stuff to look at 
+---
 
 - [tanstack db](https://tanstack.com/db/latest): when loading a room, it'd be cool to load all relevant blocks into indexeddb, and perform operations against blocks there, syncing the changes to the backend. subsequent room loads could fetch from indexeddb first while fetching latest (or diff/patch set) in background.
