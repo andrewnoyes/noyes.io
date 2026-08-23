@@ -208,8 +208,6 @@ export default function Notes({ notes, note }: NotesProps) {
               <div>
                 <Box>
                   {mobileButtons}
-                  {/* {showNotesListMobile}
-                  {showNotesSearchMobile} */}
                   <Title>{note.title}</Title>
                   <BadgeList
                     items={note.tags ?? []}
@@ -235,7 +233,6 @@ export default function Notes({ notes, note }: NotesProps) {
             ) : (
               <Box>
                 {mobileButtons}
-
                 <NotesHome />
               </Box>
             )}
