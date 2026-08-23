@@ -1,7 +1,7 @@
 ---
 title: froom
 created: 08/21/26
-updated: 08/22/26
+updated: 08/23/26
 tags: ideas,projects
 ---
 
@@ -65,6 +65,8 @@ some links for ideas/reference:
   - i like how they differentiate between `properties` of a block (which is what i've been calling `value`), and then `content` of a block which is where ordered block IDs are placed 
   - interesting, they've also got a `Parent` but this "is only used for permissions", so i don't think they're using FKs for block parent-child relationships (just the ordered set in `content`)
   - [blocks.ts from notion client sdk](https://github.com/makenotion/notion-sdk-js/blob/main/src/api-endpoints/blocks.ts) which details some of their block-specific properties
+- [another blog from notion](https://www.notion.com/blog/how-notion-catches-breaking-schema-changes) on how they handle schema changes
+  - didn't think about e.g. scheduled tasks -- if they're scheduled for like a year in the future, there's potentially a number of schema changes that could occur
 - [are.na](https://www.are.na)
   - i think they use a similiar "block" structure, but they're not necessarily comprised of primitives like "text" or "heading" (haven't 100% confirmed tho, just browsing their site)
 - ['block protocol' for block-based apps (looks mostly paused/defunct now)](https://blockprotocol.org/spec/0.4)
