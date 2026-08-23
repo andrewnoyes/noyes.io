@@ -206,6 +206,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Paper,
     DiscussionTopic,
     FroomDemoLayout,
+    ExternalLink,
     ...components,
   };
 }
