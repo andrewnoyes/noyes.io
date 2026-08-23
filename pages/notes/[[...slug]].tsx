@@ -9,6 +9,7 @@ import {
   Grid,
   Group,
   ScrollArea,
+  Stack,
   Text,
   Title,
   useMantineTheme,
@@ -90,8 +91,6 @@ const SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + mar
 
 const SHOW_NOTES_OFFSET = APP_HEADER_HEIGHT + 14;
 
-const SHOW_SEARCH_OFFSET = SHOW_NOTES_OFFSET + 44;
-
 export default function Notes({ notes, note }: NotesProps) {
   const router = useRouter();
   const { classes } = useStyles();
@@ -102,41 +101,36 @@ export default function Notes({ notes, note }: NotesProps) {
 
   const pageTitle = getPageTitle([note?.title ?? '', 'Notes']);
 
-  const showNotesListMobile = (
-    <ActionIcon
-      onClick={toggleNotePanel}
+  const mobileButtons = (
+    <Stack
+      sx={{ left: 0, top: SHOW_NOTES_OFFSET, position: 'fixed' }}
+      spacing="sm"
       className={classes.hiddenDesktop}
-      title="Show notes list"
-      aria-label="Show notes list"
-      variant="light"
-      color="violet"
-      size="lg"
-      sx={{
-        left: 0,
-        top: SHOW_NOTES_OFFSET,
-        position: 'fixed',
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-      }}
     >
-      <IconList />
-    </ActionIcon>
-  );
-
-  const showNotesSearchMobile = (
-    <ShowNotesSearchButton
-      className={classes.hiddenDesktop}
-      variant="light"
-      size="lg"
-      color="violet"
-      sx={{
-        left: 0,
-        top: SHOW_SEARCH_OFFSET,
-        position: 'fixed',
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-      }}
-    />
+      <ActionIcon
+        onClick={toggleNotePanel}
+        title="Show notes list"
+        aria-label="Show notes list"
+        variant="light"
+        color="violet"
+        size="lg"
+        sx={{
+          borderTopLeftRadius: 0,
+          borderBottomLeftRadius: 0,
+        }}
+      >
+        <IconList />
+      </ActionIcon>
+      <ShowNotesSearchButton
+        variant="light"
+        size="lg"
+        color="violet"
+        sx={{
+          borderTopLeftRadius: 0,
+          borderBottomLeftRadius: 0,
+        }}
+      />
+    </Stack>
   );
 
   const notesListTitle = (
@@ -214,8 +208,9 @@ export default function Notes({ notes, note }: NotesProps) {
             {note ? (
               <div>
                 <Box>
-                  {showNotesListMobile}
-                  {showNotesSearchMobile}
+                  {mobileButtons}
+                  {/* {showNotesListMobile}
+                  {showNotesSearchMobile} */}
                   <Title>{note.title}</Title>
                   <BadgeList
                     items={note.tags ?? []}
@@ -240,8 +235,8 @@ export default function Notes({ notes, note }: NotesProps) {
               </div>
             ) : (
               <Box>
-                {showNotesListMobile}
-                {showNotesSearchMobile}
+                {mobileButtons}
+
                 <NotesHome />
               </Box>
             )}
