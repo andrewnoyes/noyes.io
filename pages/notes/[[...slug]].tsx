@@ -156,7 +156,6 @@ export default function Notes({ notes, note }: NotesProps) {
     {
       id: 'index',
       title: 'Notes index',
-      description: '🏠',
       onTrigger: () => router.push('./'),
     },
     ...notes.map((note) => ({
