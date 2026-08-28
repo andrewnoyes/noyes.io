@@ -1,13 +1,16 @@
 ---
 title: Daily
 created: 04/07/26
-updated: 08/23/26
+updated: 08/27/26
 tags: journal
 ---
 
 My probably not so "daily" log! This is a habit I've gotten into at work, primarily for keeping track of what I'm working on, but it's also a nice way to reflect on what's completed, stuff I'm thinking about, or whatever. 
 
 ---
+##### 08/27/26
+- Misc thought after refreshing twitch.tv like 100 times. It's a SPA, so the initial payload is just some placeholder html with a bunch of script tags that load the js that renders the actual app. What I thought was interesting was that I didn't see the initial flash of light -> dark theme you sometimes see in SPAs. In addition to having the logo pre-placed and a couple skeleton loaders to give the app the perception of loading a lil quicker, that initial html payload includes a `(prefers-color-scheme: dark)` media query and sets the background prior to the js app rendering, preventing that light to dark flicker. Neat, gonna keep that in mind!
+
 ##### 08/23/26
 - Made a bunch of lil tinkers and notes over the week! The home and now pages have some cute gifs, courtesy of [vscode-pets](https://github.com/tonybaloney/vscode-pets/tree/main/media/dog), like this fella:
 
