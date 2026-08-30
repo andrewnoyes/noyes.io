@@ -27,8 +27,8 @@ export const SlcTempBadgeTag = () => {
   const temp = Math.round(
     celsius ? currentTemp.currentCelsius : currentTemp.currentFahrenheit,
   );
-
   const tempFormatted = `${temp}${celsius ? '℃' : '℉'}`;
+  const rainChance = `${currentTemp.precipitationChance}%`;
 
   return (
     <Tooltip
@@ -36,7 +36,7 @@ export const SlcTempBadgeTag = () => {
         <Stack spacing={0}>
           <Text fw={700}>Salt Lake City, Utah</Text>
           <Text>Temperature: {tempFormatted}</Text>
-          <Text>Rain chance: {currentTemp.precipitationChance}%</Text>
+          <Text>Rain chance: {rainChance}</Text>
           <Text size="xs" c="dimmed">
             (click to toggle units)
           </Text>
@@ -60,7 +60,7 @@ export const SlcTempBadgeTag = () => {
               <Box component="span" role="img" mr={4}>
                 💧
               </Box>
-              {currentTemp.precipitationChance}%
+              {rainChance}
             </Text>
           </Group>
           <Text size="xs" c="dimmed" align="center">
