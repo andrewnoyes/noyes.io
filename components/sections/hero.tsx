@@ -6,7 +6,12 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { CopDbBadgeTag, EmailMeBadgeTag, NoAiBadgeTag } from '../badge-tags';
+import {
+  CopDbBadgeTag,
+  EmailMeBadgeTag,
+  NoAiBadgeTag,
+  SlcTempBadgeTag,
+} from '../badge-tags';
 import { PrideFlagPicker } from '../pride-flag-picker';
 
 const useStyles = createStyles((theme) => ({
@@ -62,6 +67,7 @@ export const Hero = () => {
         <Group>
           <CopDbBadgeTag />
           <NoAiBadgeTag />
+          <SlcTempBadgeTag />
           <EmailMeBadgeTag />
         </Group>
       </Container>

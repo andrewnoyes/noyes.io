@@ -1,3 +1,4 @@
+export * from './celsiusToFahrenheit';
 export * from './constants';
 export * from './content';
 export * from './generateGradientString';

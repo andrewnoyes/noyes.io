@@ -1,7 +1,7 @@
 import { createStyles, Group, Image, ImageProps, Text } from '@mantine/core';
 import { ReactNode } from 'react';
 
-const useStyles = createStyles((theme) => ({
+export const useBadgeTagStyles = createStyles((theme) => ({
   badge: {
     border: '1px solid',
     borderColor: theme.colors.violet,
@@ -26,7 +26,7 @@ export interface BadgeTagProps {
 
 export const BadgeTag = (props: BadgeTagProps) => {
   const { src, alt, content, imageProps } = props;
-  const { classes } = useStyles();
+  const { classes } = useBadgeTagStyles();
 
   return (
     <Group spacing="xs" noWrap className={classes.badge}>

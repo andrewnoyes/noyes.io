@@ -17,6 +17,7 @@ import {
   EmailMeBadgeTag,
   ExternalLink,
   NoAiBadgeTag,
+  SlcTempBadgeTag,
 } from '../components';
 import { getPageTitle } from '../utils';
 
@@ -209,6 +210,7 @@ export default function Now() {
         <Group pt="xl" position="center">
           <CopDbBadgeTag />
           <NoAiBadgeTag />
+          <SlcTempBadgeTag />
           <EmailMeBadgeTag />
         </Group>
       </section>
