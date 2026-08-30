@@ -111,7 +111,7 @@ export default function Now() {
               <Anchor component={Link} href="/notes/froom">
                 Froom
               </Anchor>
-              {` (name WIP 😛) is another silly idea I've been playing with. Gist is you create a room for your friends, where you can add panels of interactivity - things like shared events calendar, bets/wagers, movie watchlist, etc.`}
+              {` (name WIP 😛) is a silly project idea I've been playing with. Gist is you create a room for your friends, where you can add panels of interactivity - things like shared events calendar, bets/wagers, movie watchlist, etc.`}
             </Text>
           </List.Item>
         </List>
