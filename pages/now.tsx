@@ -20,7 +20,7 @@ import {
 } from '../components';
 import { getPageTitle } from '../utils';
 
-const LAST_UPDATED = new Date('08/16/2026');
+const LAST_UPDATED = new Date('08/30/2026');
 
 const pageTitle = getPageTitle(['now']);
 
@@ -108,11 +108,10 @@ export default function Now() {
           </List.Item>
           <List.Item>
             <Text>
-              {`Also related to CopDB, another exciting idea we have is to
-              introduce a mobile app. The mobile app would be exclusively for
-              handling and uploading media while out on the streets. This is a
-              pretty lofty goal and probably will not get to it this year, but
-              still exciting!`}
+              <Anchor component={Link} href="/notes/froom">
+                Froom
+              </Anchor>
+              {` (name WIP 😛) is another silly idea I've been playing with. Gist is you create a room for your friends, where you can add panels of interactivity - things like shared events calendar, bets/wagers, movie watchlist, etc.`}
             </Text>
           </List.Item>
         </List>
