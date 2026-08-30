@@ -9,11 +9,14 @@ export const jobDescriptions: JobDescription[] = [
     details: [
       'Architected the Nexus API and frontend for store connectivity monitoring, software release management, and invoicing utilities. Structured as a “modular monolith”, each bounded by their domain with intermodule communication using a local message bus.',
       'Established the new Hive API service that runs in stores and talks to Nexus. Hive powers the new task management and communication log, rackhealth and backstock, and the overhauled payments processing features.',
+      `Currently building the new store kiosk check-in app! All customers interact with this app during their checkout, allowing them to edit their details, opt-in to marketing, sign the vendor contract, and view their points. On check-in, an event is then sent to the appropriate register in real-time, ensuring a clean hand-off.`,
+      `Alongside this new app, I also built our UI component library that is compatible with React and React Native. This powers all the UI in the new check-in experience, and is "concept aware", adjusting its theme to match the appropriate brand (Uptown Cheapskate vs Kid to Kid).`,
     ],
     techStack: [
       'ASP.NET Core',
       'TypeScript',
       'React',
+      'React Native',
       'Java',
       'Postgres',
       'Redis',
