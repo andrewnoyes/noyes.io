@@ -140,7 +140,7 @@ export const AppHeader = ({
               }
               sx={{
                 transform: drawerOpened ? `rotate(45deg)` : '',
-                transition: 'transform ease 300ms',
+                transition: 'transform ease 200ms',
               }}
             >
               <Image src="/bobs-burger.webp" alt="" height={36} width={36} />
