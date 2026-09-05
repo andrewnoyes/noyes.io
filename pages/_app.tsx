@@ -45,6 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:description" content={siteConfig.description} />
         <meta property="og:image" content={siteConfig.image} />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="noyes.io" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
