@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { About, Hero, ProjectList, WorkExperience } from '../components';
 import { getPageTitle } from '../utils';
 
-// dog gifs pulled from: https://github.com/tonybaloney/vscode-pets/tree/main/media/dog
-
 const blackDog = {
   src: '/gifs/black-dog-lie.gif',
   height: 75,
