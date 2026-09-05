@@ -43,7 +43,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="image" content={siteConfig.image} />
         <meta property="og:title" content={siteConfig.name} key="title" />
         <meta property="og:description" content={siteConfig.description} />
-        <meta property="og:image" content={siteConfig.image} />
+        <meta
+          property="og:image"
+          content={`https://noyes.io/${siteConfig.image}`}
+        />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="noyes.io" />
         <meta
