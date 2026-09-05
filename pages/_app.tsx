@@ -47,6 +47,10 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:image"
           content={`https://noyes.io/${siteConfig.image}`}
         />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="Negro matapacos" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="noyes.io" />
         <meta
