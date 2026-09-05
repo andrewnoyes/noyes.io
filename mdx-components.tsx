@@ -6,6 +6,7 @@ import {
   Checkbox,
   Code,
   CopyButton,
+  Divider,
   Group,
   Image,
   List,
@@ -207,6 +208,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     DiscussionTopic,
     FroomDemoLayout,
     ExternalLink,
+    Divider,
     ...components,
   };
 }
