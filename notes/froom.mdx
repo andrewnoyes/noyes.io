@@ -1,7 +1,7 @@
 ---
 title: froom
 created: 08/21/26
-updated: 08/30/26
+updated: 09/07/26
 tags: ideas,projects
 ---
 
@@ -36,6 +36,31 @@ Each of these panel's children can be expressed as a collection of blocks - and 
 
 - 💡 `tab_panel` as a BlockType? takes its children and arranges em in tabs!
 
+### Reference/ideas and some links
+
+- [data model behind notion](https://www.notion.com/blog/data-model-behind-notion)
+  - notion's is ofc super powerful and contained within a RTE, idk if our blocks need to have "primitives" for like text or heading (but maybe actually, cus that'd be a cool way to add random text panels to your froom)
+  - i like how they differentiate between `properties` of a block (which is what i've been calling `value`), and then `content` of a block which is where ordered block IDs are placed 
+  - interesting, they've also got a `Parent` but this "is only used for permissions", so i don't think they're using FKs for block parent-child relationships (just the ordered set in `content`)
+  - [blocks.ts from notion client sdk](https://github.com/makenotion/notion-sdk-js/blob/main/src/api-endpoints/blocks.ts) which details some of their block-specific properties
+- [another blog from notion](https://www.notion.com/blog/how-notion-catches-breaking-schema-changes) on how they handle schema changes
+  - didn't think about e.g. scheduled tasks -- if they're scheduled for like a year in the future, there's potentially a number of schema changes that could occur
+- [kinopio](https://kinopio.club/) - super cute ui, uses a base concept of "cards" to organize canvases
+  - [list of card attributes](https://github.com/kinopio-club/kinopio-client/blob/main/src/data/apiDocs.md#card-attributes)
+- [are.na](https://www.are.na)
+  - i think they use a similiar "block" structure, but they're not necessarily comprised of primitives like "text" or "heading" (haven't 100% confirmed tho, just browsing their site)
+- ['block protocol' for block-based apps (looks mostly paused/defunct now)](https://blockprotocol.org/spec/0.4)
+- [bonfire networks](https://bonfirenetworks.org/) - in a similar space, configurable communities mostly around social-media style feed
+- maybe think about "product principles", just a few bullets about the core principles that i want to adhere to. a better word than "product" too, cus that's not the goal!
+- [textlog](https://textlog.cc): simple social text log
+- [tanstack db](https://tanstack.com/db/latest): when loading a room, it'd be cool to load all relevant blocks into indexeddb, and perform operations against blocks there, syncing the changes to the backend. subsequent room loads could fetch from indexeddb first while fetching latest (or diff/patch set) in background.
+- "app vision" - inspired by spolsky's whole ["product vision" article](https://www.joelonsoftware.com/2002/05/09/product-vision/), but i don't want to start with that as the initial framing. i don't care if it's a product, but i want it to be fun and useful.
+  - for (target user): friends / regular internet users.
+  - who (state of the need or opportunity): who want to collaborate on events, hangouts, ideas, or just be creative and silly in an online space of their own.
+  - the (app name) is a (app category): froom is a social web app??
+  - that (key benefit, compelling reason to use): allows you to create a customizable room for your friends, with interactive panels (**of blocks**) to plan events, track movie watchlists, share memes, place friendly wagers, or whatever you and your friends choose to do with them!
+  - unlike (some alternative): FB/IG/whatever, a (f)room is a space you control, where you choose who can join. it's small and personal, encouraging engagement from all room members, instead of primarily consumptive (ie no doomscrolling).
+  - our app (statement of primary differentiation): is a private, customizable, and personalizable space for you and your friends
 
 ### block structure
 ---
@@ -63,22 +88,6 @@ Thinking I prefer notion's usage of `properties` instead, allows for other entri
 }
 
 ```
-some links for ideas/reference:
-- [data model behind notion](https://www.notion.com/blog/data-model-behind-notion)
-  - notion's is ofc super powerful and contained within a RTE, idk if our blocks need to have "primitives" for like text or heading (but maybe actually, cus that'd be a cool way to add random text panels to your froom)
-  - i like how they differentiate between `properties` of a block (which is what i've been calling `value`), and then `content` of a block which is where ordered block IDs are placed 
-  - interesting, they've also got a `Parent` but this "is only used for permissions", so i don't think they're using FKs for block parent-child relationships (just the ordered set in `content`)
-  - [blocks.ts from notion client sdk](https://github.com/makenotion/notion-sdk-js/blob/main/src/api-endpoints/blocks.ts) which details some of their block-specific properties
-- [another blog from notion](https://www.notion.com/blog/how-notion-catches-breaking-schema-changes) on how they handle schema changes
-  - didn't think about e.g. scheduled tasks -- if they're scheduled for like a year in the future, there's potentially a number of schema changes that could occur
-- [kinopio](https://kinopio.club/) - super cute ui, uses a base concept of "cards" to organize canvases
-  - [list of card attributes](https://github.com/kinopio-club/kinopio-client/blob/main/src/data/apiDocs.md#card-attributes)
-- [are.na](https://www.are.na)
-  - i think they use a similiar "block" structure, but they're not necessarily comprised of primitives like "text" or "heading" (haven't 100% confirmed tho, just browsing their site)
-- ['block protocol' for block-based apps (looks mostly paused/defunct now)](https://blockprotocol.org/spec/0.4)
-- [bonfire networks](https://bonfirenetworks.org/) - in a similar space, configurable communities mostly around social-media style feed
-- maybe think about "product principles", just a few bullets about the core principles that i want to adhere to. a better word than "product" too, cus that's not the goal!
-- [textlog](https://textlog.cc): simple social text log
 
 ### block types
 ---
@@ -145,8 +154,6 @@ The other core data type is `room`. Users create rooms and invite others to be m
 
 ### misc stuff to look at 
 ---
-
-- [tanstack db](https://tanstack.com/db/latest): when loading a room, it'd be cool to load all relevant blocks into indexeddb, and perform operations against blocks there, syncing the changes to the backend. subsequent room loads could fetch from indexeddb first while fetching latest (or diff/patch set) in background.
 
 ### screenshots/demos
 ---
