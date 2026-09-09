@@ -1,8 +1,8 @@
 ---
 title: TypeScript snippets
 created: 03/26/25
-updated: 07/28/26
-tags: typescript,web
+updated: 09/10/26
+tags: typescript,javascript,web
 ---
 
 ##### Wraps the provided type, making any null or undefined properties required: 
@@ -27,4 +27,10 @@ const authStore = new AuthStore();
 if (authStore.isAuthenticated()) {
   const { config, store } = authStore; // config and store are not null here!
 }
+```
+
+##### base64 encode SVG XML string
+```typescript
+const base64 = btoa(svgString);
+const dataUri = `data:image/svg+xml;base64,${base64}`;
 ```
