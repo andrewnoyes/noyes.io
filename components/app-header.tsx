@@ -169,6 +169,7 @@ export const AppHeader = ({
         <ScrollArea
           sx={{ height: `calc(100vh - ${APP_HEADER_HEIGHT}px)` }}
           mx="-md"
+          scrollbarSize={6}
         >
           {links}
           <Group position="center" grow mt="sm" pb="xl" px="md">

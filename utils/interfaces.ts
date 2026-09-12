@@ -22,5 +22,5 @@ export interface Note {
   content: string;
   created?: string;
   updated?: string;
-  tags?: string[];
+  tags: string[];
 }

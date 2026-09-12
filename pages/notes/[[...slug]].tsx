@@ -30,6 +30,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import path from 'path';
+import { useState } from 'react';
 import { BadgeList, NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
 import { useMDXComponents } from '../../mdx-components';
@@ -85,21 +86,33 @@ type NoteWithMdxContent = Note & {
 interface NotesProps {
   notes: Note[];
   note?: NoteWithMdxContent;
+  uniqueTags: string[];
 }
 
 const SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + margin-bottom
 
 const SHOW_NOTES_OFFSET = APP_HEADER_HEIGHT + 14;
 
-export default function Notes({ notes, note }: NotesProps) {
+export default function Notes({ notes, note, uniqueTags }: NotesProps) {
   const router = useRouter();
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const mdxComponents = useMDXComponents({});
   const [notePanelOpen, { toggle: toggleNotePanel, close: closeNotePanel }] =
     useDisclosure(false);
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const pageTitle = getPageTitle([note?.title ?? '', 'Notes']);
+
+  const getFilteredNotes = () => {
+    if (!selectedTag) {
+      return notes;
+    }
+
+    return notes.filter((note) =>
+      note.tags.some((noteTag) => noteTag === selectedTag),
+    );
+  };
 
   const mobileButtons = (
     <Stack
@@ -190,9 +203,13 @@ export default function Notes({ notes, note }: NotesProps) {
           <ScrollArea
             mx="-sm"
             sx={{ height: `calc(100vh - ${SCROLL_AREA_OFFSET}px)` }}
+            scrollbarSize={6}
           >
             <NotesList
-              notes={notes ?? []}
+              notes={getFilteredNotes()}
+              uniqueTags={uniqueTags}
+              selectedTag={selectedTag}
+              onSelectedTag={setSelectedTag}
               activeSlug={note?.slug}
               onSelect={closeNotePanel}
             />
@@ -201,7 +218,13 @@ export default function Notes({ notes, note }: NotesProps) {
         <Grid>
           <Grid.Col sm={3} className={classes.hiddenMobile}>
             {notesListTitleWithSearch}
-            <NotesList notes={notes ?? []} activeSlug={note?.slug} />
+            <NotesList
+              notes={getFilteredNotes()}
+              uniqueTags={uniqueTags}
+              selectedTag={selectedTag}
+              onSelectedTag={setSelectedTag}
+              activeSlug={note?.slug}
+            />
           </Grid.Col>
           <Grid.Col sm={9} pl="md">
             {note ? (
@@ -209,11 +232,7 @@ export default function Notes({ notes, note }: NotesProps) {
                 <Box>
                   {mobileButtons}
                   <Title>{note.title}</Title>
-                  <BadgeList
-                    items={note.tags ?? []}
-                    spacing={4}
-                    badgeProps={{ size: 'xs' }}
-                  />
+                  <BadgeList items={note.tags ?? []} spacing={4} />
                   <Group spacing="xs">
                     {note.updated && (
                       <Text c="dimmed" fz="sm">
@@ -265,6 +284,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<NotesProps> = async ({
   params,
 }) => {
+  const tagSet = new Set<string>();
   const filenames = readdirSync(NOTES_DIR);
 
   const notes = filenames.map((filename) => {
@@ -274,15 +294,23 @@ export const getStaticProps: GetStaticProps<NotesProps> = async ({
     const { data } = matter(fileContent);
     const { tags, ...rest } = data;
 
+    const tagArr: string[] = tags ? tags.split(',') : [];
+
+    for (const tag of tagArr) {
+      tagSet.add(tag);
+    }
+
     return {
       slug: filename.replace(/\.mdx$/, ''),
-      tags: tags ? tags.split(',') : [],
+      tags: tagArr,
       ...rest,
     } as Note;
   });
 
+  const uniqueTags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
+
   if (!params?.slug) {
-    return { props: { notes } };
+    return { props: { notes, uniqueTags } };
   }
 
   const { slug } = params;
@@ -305,6 +333,7 @@ export const getStaticProps: GetStaticProps<NotesProps> = async ({
     props: {
       notes,
       note,
+      uniqueTags,
     },
   };
 };
