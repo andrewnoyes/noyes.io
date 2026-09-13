@@ -59,7 +59,6 @@ export const NotesList = (props: NotesListProps) => {
             fontFamily: 'monospace',
             fontSize: theme.fontSizes.xs,
           },
-
           label: {
             backgroundColor: theme.colors.violet,
             fontFamily: 'monospace',
