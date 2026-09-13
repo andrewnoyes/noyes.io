@@ -21,7 +21,7 @@ import {
 } from '../components';
 import { getPageTitle } from '../utils';
 
-const LAST_UPDATED = new Date('08/30/2026');
+const LAST_UPDATED = new Date('09/13/2026');
 
 const pageTitle = getPageTitle(['now']);
 
@@ -150,6 +150,15 @@ export default function Now() {
                 The People Are Not One, Socialist Strategy After Left Populism
               </ExternalLink>
               {`, which is co-authored by a local guy, C. Derick Varn.`}
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text>
+              {`For technical, I just started `}
+              <ExternalLink href="https://evolutionaryarchitecture.com/">
+                Building Evolutionary Architecture
+              </ExternalLink>
+              {`, and it's really good so far! As the name kinda implies, it's about architecting software systems that are easy to change and evolve over time.`}
             </Text>
           </List.Item>
         </List>
