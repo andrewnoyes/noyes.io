@@ -55,7 +55,7 @@ const TitleWithLink = ({
       href={pathnameWithId}
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
-      <Group id={id} spacing={4} my="xs" noWrap>
+      <Group id={id} spacing={8} my="xs" noWrap>
         <CopyButton value={href}>
           {({ copied, copy }) => (
             <ActionIcon
@@ -65,6 +65,7 @@ const TitleWithLink = ({
               }}
               aria-label={title}
               title={title}
+              size="xs"
             >
               {copied ? (
                 <IconCheck size={16} aria-hidden />
