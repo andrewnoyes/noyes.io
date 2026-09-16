@@ -1,32 +1,27 @@
-import { createStyles } from '@mantine/core';
+import { Anchor, Image, Text } from '@mantine/core';
 import Link from 'next/link';
-import { BadgeTag } from './badge-tag';
-
-const useStyles = createStyles(() => ({
-  internalLink: {
-    color: 'inherit',
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-}));
+import { useBadgeTagStyles } from './badge-tag';
 
 export const NoAiBadgeTag = () => {
-  const { classes } = useStyles();
+  const { classes } = useBadgeTagStyles();
 
   return (
-    <Link href="/notes/_tech-critique" className={classes.internalLink}>
-      <BadgeTag
-        src="/thinksies.png"
-        alt="thinksies"
-        content={
-          <>
-            made by human <br />
-            <strong>not by ai</strong>
-          </>
-        }
-      />
-    </Link>
+    <Anchor
+      component={Link}
+      href="/notes/_tech-critique"
+      sx={(theme) => ({
+        color: 'inherit',
+        display: 'flex',
+        alignItems: 'center',
+        gap: theme.spacing.xs,
+      })}
+      className={classes.badge}
+    >
+      <Image src="/thinksies.png" alt="thinksies" height={32} width={32} />
+      <Text size="xs" sx={{ lineHeight: 1.3 }}>
+        made by human <br />
+        <strong>not by ai</strong>
+      </Text>
+    </Anchor>
   );
 };
