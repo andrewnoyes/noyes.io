@@ -1,13 +1,36 @@
 ---
 title: Local first
 created: 12/27/24
-updated: 04/15/26
-tags: web,local-first,crdt,p2p
+updated: 09/20/26
+tags: web,local-first,crdt,p2p,distributed-systems
 ---
 
 This was originally called "links" and was just a dumping ground for various things I have read or been wanting to check out. Turns out this mostly coalesced into stuff about local-first software, so now this is the dedicated spot! It's still just a pile of links for now, but I'd like to dive more in depth into some of these technologies (CRDTs!!) and continue hacking away at my [noted](https://git.unfrl.com/androo/noted) project which aims to implement some of this cool stuff.
 
 ---
+### Articles
+- [Atomic Attributes in Local-First Sync (museapp 2022)](https://adamwulf.me/2022/04/atomic-attributes-in-local-first-sync/) - each row in DB is called an `Atom`, the smallest atomic change that can be made in the sync engine. Loosely defined as:
+```json
+ScopeId: UUID
+ObjectId: UUID
+Attribute: String name
+Value: int, double, string, or binary
+Clock: HLC (hybrid logical clock)
+DeviceId: UUID
+```
+- [Lamport & Vector Clocks](https://miafish.wordpress.com/2015/03/11/lamport-vector-clocks): two algorithms used to determine the order of events in a distributed computer system.
+  - Lamport timestamps:
+    - A process increments its counter before each event in that process;
+    - When a process sends a message, it includes its counter value with the message;
+    - On receiving a message, the receiver process sets its counter to be greater than the maximum of its own value and the received value before it considers the message received.
+    - if  A -> B, then L(A) < L(B). so we know who happened first.
+  - Vector clock: 
+    - Initially all clocks are zero.
+    - Each time a process experiences an internal event, it increments its own logical clock in the vector by one.
+    - Each time a process prepares to send a message, it sends its entire vector along with the message being sent.
+    - Each time a process receives a message, it increments its own logical clock in the vector by one and updates each element in its vector by taking the maximum of the value in its own vector clock and the value in the vector in the received message (for every element). 
+
+### Dumping ground 
 
 Local/offline first:
 
