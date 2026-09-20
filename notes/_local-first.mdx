@@ -29,7 +29,7 @@ DeviceId: UUID
     - Each time a process experiences an internal event, it increments its own logical clock in the vector by one.
     - Each time a process prepares to send a message, it sends its entire vector along with the message being sent.
     - Each time a process receives a message, it increments its own logical clock in the vector by one and updates each element in its vector by taking the maximum of the value in its own vector clock and the value in the vector in the received message (for every element). 
-- [Hybrid Local Clocks (HLC)](https://jaredforsyth.com/posts/hybrid-logical-clocks/): this is another algorithm for _determining the order in which events happen_ - article is nice because it includes some sample code as well as a link to a demo app, and this is the implementation the muse folks referenced going with. It makes the following guarantees:
+- [Hybrid Logical Clocks (HLC)](https://jaredforsyth.com/posts/hybrid-logical-clocks/): this is another algorithm for _determining the order in which events happen_ - article is nice because it includes some sample code as well as a link to a demo app, and this is the implementation the muse folks referenced going with. It makes the following guarantees:
   - All events created on a single machine will be correctly ordered with respect to each other (even if the wall clock jumps back a second or is otherwise squirrely).
   - Once machine A sends events to machine B, all events subsequently created on machine B will be ordered as after those events from machine A. So if A sets their clock one day ahead, makes some changes, and sends them to B, B will still be able to make changes even though its own wall clock is ‘behind’.
 
