@@ -33,10 +33,6 @@ DeviceId: UUID
   - All events created on a single machine will be correctly ordered with respect to each other (even if the wall clock jumps back a second or is otherwise squirrely).
   - Once machine A sends events to machine B, all events subsequently created on machine B will be ordered as after those events from machine A. So if A sets their clock one day ahead, makes some changes, and sends them to B, B will still be able to make changes even though its own wall clock is ‘behind’.
 
-### Apps
-List of apps that are local-first, ideally open-sauce as well.
-- [Actual Budget](https://github.com/actualbudget/actual): privacy-focused personal finance management.
-
 ### Dumping ground 
 
 Local/offline first:
