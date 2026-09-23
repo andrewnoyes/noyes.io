@@ -84,7 +84,7 @@ export const AppFooter = () => {
             <IconArrowLeft />
           </Anchor>
           <Anchor href="https://xn--sr8hvo.ws">
-            <Text>webring</Text>
+            <Text>an IndieWeb webring</Text>
           </Anchor>
           <Anchor
             href="https://xn--sr8hvo.ws/next"
