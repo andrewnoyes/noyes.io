@@ -56,9 +56,13 @@ export const Hero = () => {
   return (
     <Container className={classes.wrapper}>
       <PrideFlagPicker />
-      <Container p={0} size={650} className={classes.greetingContainer}>
+      <Container
+        p={0}
+        size={650}
+        className={`${classes.greetingContainer} h-card`}
+      >
         <Text className={classes.greeting}>Hey! My name is</Text>
-        <Title className={classes.title}>Andrew Noyes!</Title>
+        <Title className={`${classes.title} p-name`}>Andrew Noyes!</Title>
         <Text color="dimmed" className={classes.description}>
           {`I'm a software engineer specializing in full-stack application
             development.`}

@@ -68,6 +68,8 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+// testing h-card class attributes, ref: https://microformats.org/wiki/h-card
+
 export const AppHeader = ({
   colorSchemeProps,
 }: {
@@ -95,16 +97,21 @@ export const AppHeader = ({
   return (
     <Box>
       <Header height={APP_HEADER_HEIGHT} px="md">
-        <Group position="apart" sx={{ height: '100%' }}>
-          <Link href="/" className={classes.matapacosHome}>
+        <Group position="apart" sx={{ height: '100%' }} className="h-card">
+          <Link href="/" className={`${classes.matapacosHome} u-url u-uid`}>
             <Image
               src="/matapacos.webp"
               alt="androo"
               width={34}
               height={34}
               radius="sm"
+              className="u-photo"
             />
-            <Text size="lg" sx={{ fontFamily: 'monospace' }}>
+            <Text
+              size="lg"
+              sx={{ fontFamily: 'monospace' }}
+              className="p-nickname"
+            >
               androo
             </Text>
           </Link>
