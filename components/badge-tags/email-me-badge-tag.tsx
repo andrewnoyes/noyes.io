@@ -1,12 +1,11 @@
-import { Button } from '@mantine/core';
-import { ExternalLink } from '../external-link';
+import { Anchor, Button } from '@mantine/core';
 
 export const EmailMeBadgeTag = () => {
   return (
-    <ExternalLink href="mailto:andrew@noyes.io">
+    <Anchor href="mailto:andrew@noyes.io" rel="me">
       <Button variant="light" sx={{ width: 150 }} size="lg">
         Email me!
       </Button>
-    </ExternalLink>
+    </Anchor>
   );
 };
