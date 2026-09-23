@@ -5,8 +5,14 @@ import {
   createStyles,
   Group,
   Image,
+  Text,
 } from '@mantine/core';
-import { IconBrandGit, IconMail } from '@tabler/icons-react';
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconBrandGit,
+  IconMail,
+} from '@tabler/icons-react';
 import { useState } from 'react';
 import { ExternalLink } from './external-link';
 
@@ -35,6 +41,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+/**
+ * <a href="https://xn--sr8hvo.ws/previous">←</a>
+An <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a> 
+<a href="https://xn--sr8hvo.ws/next">→</a>
+ */
+
 const skeleIdle = '/gifs/purple-skele-idle.gif';
 const skeleRun = '/gifs/purple-skele-run.gif';
 
@@ -62,6 +74,27 @@ export const AppFooter = () => {
         }}
       />
       <Container className={classes.inner}>
+        <Group noWrap spacing="xl" mb="xs">
+          <Anchor
+            href="https://xn--sr8hvo.ws/previous"
+            title="Previous in webring"
+            aria-label="Previous in webring"
+            sx={{ display: 'flex' }}
+          >
+            <IconArrowLeft />
+          </Anchor>
+          <Anchor href="https://xn--sr8hvo.ws">
+            <Text>webring</Text>
+          </Anchor>
+          <Anchor
+            href="https://xn--sr8hvo.ws/next"
+            title="Next in webring"
+            aria-label="Next in webring"
+            sx={{ display: 'flex' }}
+          >
+            <IconArrowRight />
+          </Anchor>
+        </Group>
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
           target="_blank"
