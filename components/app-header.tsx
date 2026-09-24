@@ -29,6 +29,11 @@ const useStyles = createStyles((theme) => ({
     textDecoration: 'none',
     fontWeight: 700,
   },
+  dog: {
+    height: 34,
+    width: 34,
+    borderRadius: theme.radius.xs,
+  },
   link: {
     display: 'flex',
     alignItems: 'center',
@@ -97,24 +102,23 @@ export const AppHeader = ({
   return (
     <Box>
       <Header height={APP_HEADER_HEIGHT} px="md">
-        <Group position="apart" sx={{ height: '100%' }} className="h-card">
-          <Link href="/" className={`${classes.matapacosHome} u-url u-uid`}>
-            <Image
-              src="/matapacos.webp"
-              alt="androo"
-              width={34}
-              height={34}
-              radius="sm"
-              className="u-photo"
-            />
-            <Text
-              size="lg"
-              sx={{ fontFamily: 'monospace' }}
-              className="p-nickname"
-            >
-              androo
-            </Text>
-          </Link>
+        <Group position="apart" sx={{ height: '100%' }}>
+          <span className="h-card">
+            <Link href="/" className={`${classes.matapacosHome} u-url u-uid`}>
+              <img
+                src="/matapacos.webp"
+                className={`${classes.dog} u-photo`}
+                alt=""
+              />
+              <Text
+                size="lg"
+                sx={{ fontFamily: 'monospace' }}
+                className="p-nickname"
+              >
+                androo
+              </Text>
+            </Link>
+          </span>
           <Group
             sx={{ height: '100%' }}
             spacing={0}
