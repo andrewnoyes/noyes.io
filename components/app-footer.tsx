@@ -5,16 +5,11 @@ import {
   createStyles,
   Group,
   Image,
-  Text,
 } from '@mantine/core';
-import {
-  IconArrowLeft,
-  IconArrowRight,
-  IconBrandGit,
-  IconMail,
-} from '@tabler/icons-react';
+import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import { useState } from 'react';
 import { ExternalLink } from './external-link';
+import { WebringLinks } from './webring-links';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -74,27 +69,7 @@ export const AppFooter = () => {
         }}
       />
       <Container className={classes.inner}>
-        <Group noWrap spacing="xl" mb="xs">
-          <Anchor
-            href="https://xn--sr8hvo.ws/previous"
-            title="Previous in webring"
-            aria-label="Previous in webring"
-            sx={{ display: 'flex' }}
-          >
-            <IconArrowLeft />
-          </Anchor>
-          <Anchor href="https://xn--sr8hvo.ws">
-            <Text>an IndieWeb webring</Text>
-          </Anchor>
-          <Anchor
-            href="https://xn--sr8hvo.ws/next"
-            title="Next in webring"
-            aria-label="Next in webring"
-            sx={{ display: 'flex' }}
-          >
-            <IconArrowRight />
-          </Anchor>
-        </Group>
+        <WebringLinks />
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
           target="_blank"
