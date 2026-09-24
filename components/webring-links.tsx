@@ -3,7 +3,7 @@ import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 
 export const WebringLinks = () => {
   return (
-    <Group noWrap spacing="xl" mb="xs">
+    <Group noWrap mb="xs">
       <Anchor
         href="https://xn--sr8hvo.ws/previous"
         title="Previous in webring"
@@ -13,7 +13,7 @@ export const WebringLinks = () => {
         <IconArrowLeft />
       </Anchor>
       <Anchor href="https://xn--sr8hvo.ws">
-        <Text>an IndieWeb webring</Text>
+        <Text>IndieWeb</Text>
       </Anchor>
       <Anchor
         href="https://xn--sr8hvo.ws/next"
