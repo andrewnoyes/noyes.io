@@ -84,12 +84,15 @@ export const AppFooter = () => {
                 aria-label="Link to CopDB."
               >
                 <ActionIcon size="lg" aria-label="copdb pig">
-                  <Image
-                    src="/pig-glasses.png"
-                    alt="pig"
-                    height={18}
-                    width={18}
-                  />
+                  <Image src="/pig-glasses.png" alt="" height={18} width={18} />
+                </ActionIcon>
+              </ExternalLink>
+              <ExternalLink
+                href="https://ln.ht/~matapacos"
+                aria-label="Link to my linkhut profile"
+              >
+                <ActionIcon size="lg" aria-label="linkhut logo">
+                  <Image src="/lnht.svg" alt="" height={18} width={18} />
                 </ActionIcon>
               </ExternalLink>
               <ExternalLink
