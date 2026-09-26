@@ -5,6 +5,7 @@ import {
   createStyles,
   Group,
   Image,
+  Stack,
 } from '@mantine/core';
 import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import { useState } from 'react';
@@ -64,43 +65,54 @@ export const AppFooter = () => {
         }}
       />
       <Container className={classes.inner}>
-        <NoAiWebring />
-        <IndieWebWebring />
-        <Anchor<'a'>
-          href="https://git.unfrl.com/androo/noyes.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          size="sm"
-          color="dimmed"
-          sx={{ fontFamily: 'monospace' }}
-        >
-          by androo, not ai <span role="img">😘</span>
-        </Anchor>
-        <Group spacing={4} noWrap>
-          <ExternalLink
-            href="https://app.copdb.org"
-            aria-label="Link to CopDB."
-          >
-            <ActionIcon size="lg" aria-label="copdb pig">
-              <Image src="/pig-glasses.png" alt="pig" height={18} width={18} />
-            </ActionIcon>
-          </ExternalLink>
-          <ExternalLink
-            href="https://git.unfrl.com/androo"
-            aria-label="Link to my public git repos."
-          >
-            <ActionIcon size="lg" aria-label="git icon">
-              <IconBrandGit size={18} stroke={1.5} />
-            </ActionIcon>
-          </ExternalLink>
-          <ExternalLink
-            href="mailto:andrew@noyes.io"
-            aria-label="Link to my email address."
-          >
-            <ActionIcon size="lg" aria-label="mail icon">
-              <IconMail size={18} stroke={1.5} />
-            </ActionIcon>
-          </ExternalLink>
+        <Group position="center" spacing="xl">
+          <Stack spacing={0} align="center">
+            <Anchor<'a'>
+              href="https://git.unfrl.com/androo/noyes.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="sm"
+              color="dimmed"
+              sx={{ fontFamily: 'monospace' }}
+            >
+              by androo, not ai <span role="img">😘</span>
+            </Anchor>
+            <Group spacing={4} noWrap>
+              <ExternalLink
+                href="https://app.copdb.org"
+                aria-label="Link to CopDB."
+              >
+                <ActionIcon size="lg" aria-label="copdb pig">
+                  <Image
+                    src="/pig-glasses.png"
+                    alt="pig"
+                    height={18}
+                    width={18}
+                  />
+                </ActionIcon>
+              </ExternalLink>
+              <ExternalLink
+                href="https://git.unfrl.com/androo"
+                aria-label="Link to my public git repos."
+              >
+                <ActionIcon size="lg" aria-label="git icon">
+                  <IconBrandGit size={18} stroke={1.5} />
+                </ActionIcon>
+              </ExternalLink>
+              <ExternalLink
+                href="mailto:andrew@noyes.io"
+                aria-label="Link to my email address."
+              >
+                <ActionIcon size="lg" aria-label="mail icon">
+                  <IconMail size={18} stroke={1.5} />
+                </ActionIcon>
+              </ExternalLink>
+            </Group>
+          </Stack>
+          <Stack spacing={0} align="center">
+            <NoAiWebring />
+            <IndieWebWebring />
+          </Stack>
         </Group>
       </Container>
     </footer>

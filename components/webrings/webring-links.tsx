@@ -12,7 +12,7 @@ export const WebringLinks = (props: WebringLinksProps) => {
   const { title, sourceUrl, previousUrl, nextUrl } = props;
 
   return (
-    <Group noWrap mb="xs">
+    <Group noWrap mb="xs" spacing="xs">
       <Anchor
         href={previousUrl}
         title="Previous in webring"
@@ -21,8 +21,8 @@ export const WebringLinks = (props: WebringLinksProps) => {
       >
         <IconArrowLeft size={16} />
       </Anchor>
-      <Anchor href={sourceUrl} size="sm">
-        <Text>{title}</Text>
+      <Anchor href={sourceUrl} size="sm" sx={{ width: 50 }}>
+        <Text align="center">{title}</Text>
       </Anchor>
       <Anchor
         href={nextUrl}
