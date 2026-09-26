@@ -9,4 +9,4 @@ export * from './pride-flag';
 export * from './pride-flag-picker';
 export * from './sections';
 export * from './tools';
-export * from './webring-links';
+export * from './webrings';

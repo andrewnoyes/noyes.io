@@ -27,18 +27,14 @@ import {
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { MouseEvent, ReactNode, useState } from 'react';
-import {
-  DiscussionTopic,
-  ExternalLink,
-  MeetingCostTimer,
-  WebringLinks,
-} from './components';
+import { DiscussionTopic, ExternalLink, MeetingCostTimer } from './components';
 import {
   CopDbBadgeTag,
   EmailMeBadgeTag,
   NoAiBadgeTag,
 } from './components/badge-tags';
 import { FroomDemoLayout } from './components/froom';
+import { IndieWebWebring } from './components/webrings';
 import { getTextFromChildren, slugify, windowOrNull } from './utils';
 
 const TitleWithLink = ({
@@ -214,7 +210,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     DiscussionTopic,
     FroomDemoLayout,
     ExternalLink,
-    WebringLinks,
+    IndieWebWebring,
     Divider,
     ...components,
   };

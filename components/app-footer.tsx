@@ -9,7 +9,7 @@ import {
 import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import { useState } from 'react';
 import { ExternalLink } from './external-link';
-import { WebringLinks } from './webring-links';
+import { IndieWebWebring } from './webrings/indie-web-webring';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -35,12 +35,6 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: theme.spacing.xl,
   },
 }));
-
-/**
- * <a href="https://xn--sr8hvo.ws/previous">←</a>
-An <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a> 
-<a href="https://xn--sr8hvo.ws/next">→</a>
- */
 
 const skeleIdle = '/gifs/purple-skele-idle.gif';
 const skeleRun = '/gifs/purple-skele-run.gif';
@@ -69,7 +63,7 @@ export const AppFooter = () => {
         }}
       />
       <Container className={classes.inner}>
-        <WebringLinks />
+        <IndieWebWebring />
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
           target="_blank"

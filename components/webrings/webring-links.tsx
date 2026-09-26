@@ -1,22 +1,31 @@
 import { Anchor, Group, Text } from '@mantine/core';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 
-export const WebringLinks = () => {
+export interface WebringLinksProps {
+  title: string;
+  sourceUrl: string;
+  previousUrl: string;
+  nextUrl: string;
+}
+
+export const WebringLinks = (props: WebringLinksProps) => {
+  const { title, sourceUrl, previousUrl, nextUrl } = props;
+
   return (
     <Group noWrap mb="xs">
       <Anchor
-        href="https://xn--sr8hvo.ws/previous"
+        href={previousUrl}
         title="Previous in webring"
         aria-label="Previous in webring"
         sx={{ display: 'flex' }}
       >
         <IconArrowLeft />
       </Anchor>
-      <Anchor href="https://xn--sr8hvo.ws">
-        <Text>IndieWeb</Text>
+      <Anchor href={sourceUrl}>
+        <Text>{title}</Text>
       </Anchor>
       <Anchor
-        href="https://xn--sr8hvo.ws/next"
+        href={nextUrl}
         title="Next in webring"
         aria-label="Next in webring"
         sx={{ display: 'flex' }}
