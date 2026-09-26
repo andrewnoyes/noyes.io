@@ -4,6 +4,7 @@ import {
   Box,
   Container,
   createStyles,
+  Divider,
   Group,
   Image,
   Stack,
@@ -110,9 +111,10 @@ export const AppFooter = () => {
               </ExternalLink>
             </Group>
           </Stack>
+          <Divider orientation="vertical" />
           <Box>
-            <NoAiWebring />
             <IndieWebWebring />
+            <NoAiWebring />
           </Box>
         </Group>
       </Container>
