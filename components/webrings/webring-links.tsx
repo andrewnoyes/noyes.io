@@ -19,9 +19,9 @@ export const WebringLinks = (props: WebringLinksProps) => {
         aria-label="Previous in webring"
         sx={{ display: 'flex' }}
       >
-        <IconArrowLeft />
+        <IconArrowLeft size={16} />
       </Anchor>
-      <Anchor href={sourceUrl}>
+      <Anchor href={sourceUrl} size="sm">
         <Text>{title}</Text>
       </Anchor>
       <Anchor
@@ -30,7 +30,7 @@ export const WebringLinks = (props: WebringLinksProps) => {
         aria-label="Next in webring"
         sx={{ display: 'flex' }}
       >
-        <IconArrowRight />
+        <IconArrowRight size={16} />
       </Anchor>
     </Group>
   );

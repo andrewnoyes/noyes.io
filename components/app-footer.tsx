@@ -9,6 +9,7 @@ import {
 import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import { useState } from 'react';
 import { ExternalLink } from './external-link';
+import { NoAiWebring } from './webrings';
 import { IndieWebWebring } from './webrings/indie-web-webring';
 
 const useStyles = createStyles((theme) => ({
@@ -63,6 +64,7 @@ export const AppFooter = () => {
         }}
       />
       <Container className={classes.inner}>
+        <NoAiWebring />
         <IndieWebWebring />
         <Anchor<'a'>
           href="https://git.unfrl.com/androo/noyes.io"
