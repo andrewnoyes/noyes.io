@@ -3,6 +3,7 @@ import {
   createStyles,
   Group,
   Space,
+  Stack,
   Text,
   Title,
 } from '@mantine/core';
@@ -13,6 +14,7 @@ import {
   SlcTempBadgeTag,
 } from '../badge-tags';
 import { PrideFlagPicker } from '../pride-flag-picker';
+import { IndieWebWebring, NoAiWebring } from '../webrings';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -42,12 +44,6 @@ const useStyles = createStyles((theme) => ({
         : theme.colors.violet[9],
     fontFamily: 'monospace',
   },
-  description: {
-    fontSize: 20,
-    '@media (max-width: 520px)': {
-      fontSize: 18,
-    },
-  },
 }));
 
 export const Hero = () => {
@@ -63,7 +59,7 @@ export const Hero = () => {
       >
         <Text className={classes.greeting}>Hey! My name is</Text>
         <Title className={`${classes.title} p-name`}>Andrew Noyes!</Title>
-        <Text color="dimmed" className={classes.description}>
+        <Text color="dimmed" size="lg">
           {`I'm a software engineer specializing in full-stack application
             development.`}
         </Text>
@@ -74,6 +70,10 @@ export const Hero = () => {
           <SlcTempBadgeTag />
           <EmailMeBadgeTag />
         </Group>
+        <Stack sx={{ alignSelf: 'center' }} mt={40} spacing={0}>
+          <IndieWebWebring />
+          <NoAiWebring />
+        </Stack>
       </Container>
     </Container>
   );
