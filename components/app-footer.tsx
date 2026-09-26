@@ -1,6 +1,7 @@
 import {
   ActionIcon,
   Anchor,
+  Box,
   Container,
   createStyles,
   Group,
@@ -109,10 +110,10 @@ export const AppFooter = () => {
               </ExternalLink>
             </Group>
           </Stack>
-          <Stack spacing={0} align="center">
+          <Box>
             <NoAiWebring />
             <IndieWebWebring />
-          </Stack>
+          </Box>
         </Group>
       </Container>
     </footer>
