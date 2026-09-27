@@ -67,7 +67,7 @@ export const AppFooter = () => {
       />
       <Container className={classes.inner}>
         <Group position="center" spacing="xl">
-          <Stack spacing={0} align="center">
+          <Stack spacing={4} align="center">
             <Anchor<'a'>
               href="https://git.unfrl.com/androo/noyes.io"
               target="_blank"
