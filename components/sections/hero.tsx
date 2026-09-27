@@ -14,7 +14,7 @@ import {
   SlcTempBadgeTag,
 } from '../badge-tags';
 import { PrideFlagPicker } from '../pride-flag-picker';
-import { IndieWebWebring, NoAiWebring } from '../webrings';
+import { HackerWebring, IndieWebWebring, NoAiWebring } from '../webrings';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -73,6 +73,7 @@ export const Hero = () => {
         <Stack sx={{ alignSelf: 'center' }} mt={40} spacing={0}>
           <IndieWebWebring />
           <NoAiWebring />
+          <HackerWebring />
         </Stack>
       </Container>
     </Container>

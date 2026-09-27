@@ -11,7 +11,7 @@ import {
 import { IconBrandGit, IconMail } from '@tabler/icons-react';
 import { useState } from 'react';
 import { ExternalLink } from './external-link';
-import { NoAiWebring } from './webrings';
+import { HackerWebring, NoAiWebring } from './webrings';
 import { IndieWebWebring } from './webrings/indie-web-webring';
 
 const useStyles = createStyles((theme) => ({
@@ -116,6 +116,7 @@ export const AppFooter = () => {
           <Box>
             <IndieWebWebring />
             <NoAiWebring />
+            <HackerWebring />
           </Box>
         </Group>
       </Container>

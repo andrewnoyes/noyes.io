@@ -21,7 +21,7 @@ export const WebringLinks = (props: WebringLinksProps) => {
       >
         <IconArrowLeft size={14} />
       </Anchor>
-      <Anchor href={sourceUrl} size="sm" sx={{ width: 100 }}>
+      <Anchor href={sourceUrl} size="sm" sx={{ width: 130 }}>
         <Text align="center" sx={{ fontFamily: 'monospace' }}>
           {title}
         </Text>
