@@ -21,7 +21,7 @@ import {
 } from '../components';
 import { getPageTitle } from '../utils';
 
-const LAST_UPDATED = new Date('09/13/2026');
+const LAST_UPDATED = new Date('09/27/2026');
 
 const pageTitle = getPageTitle(['now']);
 
@@ -69,7 +69,7 @@ export default function Now() {
               {`. There I work on all kinds of fun stuff - architecting new API
               services, building cross-platform apps, and so much more! `}
               (
-              <ExternalLink href="https://www.linkedin.com/jobs/view/4385030560">{`We're hiring!`}</ExternalLink>
+              <ExternalLink href="https://www.linkedin.com/jobs/view/4465562317">{`We're hiring!`}</ExternalLink>
               )
             </Text>
           </List.Item>
