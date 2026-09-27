@@ -64,7 +64,7 @@ export const Hero = () => {
             development.`}
         </Text>
         <Space h="xl" mt="m" />
-        <Group>
+        <Group spacing="xs">
           <CopDbBadgeTag />
           <NoAiBadgeTag />
           <SlcTempBadgeTag />
