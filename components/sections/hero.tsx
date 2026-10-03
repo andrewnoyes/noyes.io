@@ -58,7 +58,7 @@ export const Hero = () => {
         size={650}
         className={`${classes.greetingContainer} h-card`}
       >
-        <Text className={classes.greeting}>Helloooo! My name is</Text>
+        <Text className={classes.greeting}>Hello! My name is</Text>
         <Title className={`${classes.title} p-name`}>Andrew Noyes!</Title>
         <Text color="dimmed" size="lg">
           <ExternalLink href="https://sightlessscribbles.com/posts/the-colonization-of-confidence/">
