@@ -65,7 +65,7 @@ export const About = () => {
               >
                 <List.Item>TypeScript</List.Item>
                 <List.Item>React/React Native</List.Item>
-                <List.Item>Vue</List.Item>
+                <List.Item>Vue.js</List.Item>
               </List>
               <List
                 size="sm"
