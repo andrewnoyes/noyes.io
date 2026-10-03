@@ -1,4 +1,4 @@
-// matches on one or more, so the `.replace` only inserts a single '-'
+// matches on one or more, so the `.replace` only inserts a single replaceValue
 const nonWordOrWhitespaceRegex = /(\W|\s)+/g;
 
 export const slugify = (value: string) =>
