@@ -64,7 +64,7 @@ export const About = () => {
                 icon={<IconChevronRight size={14} color={iconColor} />}
               >
                 <List.Item>TypeScript</List.Item>
-                <List.Item>React</List.Item>
+                <List.Item>React/React Native</List.Item>
                 <List.Item>Vue</List.Item>
               </List>
               <List
