@@ -26,7 +26,7 @@ export const About = () => {
           <Grid.Col sm={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Image
               src="/matapacos.webp"
-              alt="Andrew Noyes"
+              alt="negro matapacos."
               height={200}
               width={200}
               radius="sm"

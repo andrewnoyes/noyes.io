@@ -109,6 +109,7 @@ export const AppHeader = ({
                 src="/matapacos.webp"
                 className={`${classes.dog} u-photo`}
                 alt=""
+                aria-hidden
               />
               <Text
                 size="lg"
