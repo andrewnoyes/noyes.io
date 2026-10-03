@@ -55,9 +55,7 @@ export default function Home() {
         >
           <Image
             {...dog}
-            alt={
-              isBlackDog ? 'dog laying down, wagging its tail' : 'flame dog!'
-            }
+            alt={isBlackDog ? 'black dog wagging its tail' : 'flame dog!'}
           />
         </UnstyledButton>
       </Group>
@@ -69,7 +67,7 @@ export default function Home() {
       <Group position="center" my="xl">
         <Image
           src="/gifs/black-dog-walk.gif"
-          alt="dog walking"
+          alt="black dog walking"
           height={85}
           width={105}
         />
