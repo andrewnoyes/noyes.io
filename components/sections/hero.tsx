@@ -13,6 +13,7 @@ import {
   NoAiBadgeTag,
   SlcTempBadgeTag,
 } from '../badge-tags';
+import { ExternalLink } from '../external-link';
 import { PrideFlagPicker } from '../pride-flag-picker';
 import { HackerWebring, IndieWebWebring, NoAiWebring } from '../webrings';
 
@@ -60,8 +61,11 @@ export const Hero = () => {
         <Text className={classes.greeting}>Helloooo! My name is</Text>
         <Title className={`${classes.title} p-name`}>Andrew Noyes!</Title>
         <Text color="dimmed" size="lg">
-          {`I'm a software engineer specializing in full-stack application
-            development.`}
+          <ExternalLink href="https://sightlessscribbles.com/posts/the-colonization-of-confidence/">
+            I love the chaos of a human mind trying to explain itself to another
+            human mind
+          </ExternalLink>
+          {` (and I'm also a software engineer 😛).`}
         </Text>
         <Space h="xl" mt="m" />
         <Group spacing="xs">
