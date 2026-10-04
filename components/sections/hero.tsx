@@ -13,15 +13,12 @@ import {
   NoAiBadgeTag,
   SlcTempBadgeTag,
 } from '../badge-tags';
+import { ButtonWallGroup } from '../button-wall-group';
 import { ExternalLink } from '../external-link';
 import { PrideFlagPicker } from '../pride-flag-picker';
 import { HackerWebring, IndieWebWebring, NoAiWebring } from '../webrings';
 
 const useStyles = createStyles((theme) => ({
-  wrapper: {
-    paddingTop: '10%',
-    paddingBottom: '10%',
-  },
   greetingContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -51,7 +48,7 @@ export const Hero = () => {
   const { classes } = useStyles();
 
   return (
-    <Container className={classes.wrapper}>
+    <Container py="xl">
       <PrideFlagPicker />
       <Container
         p={0}
@@ -74,11 +71,15 @@ export const Hero = () => {
           <SlcTempBadgeTag />
           <EmailMeBadgeTag />
         </Group>
-        <Stack sx={{ alignSelf: 'center' }} mt={40} spacing={0}>
+        <Stack sx={{ alignSelf: 'center' }} my={40} spacing={0}>
           <IndieWebWebring />
           <NoAiWebring />
           <HackerWebring />
         </Stack>
+        <ButtonWallGroup
+          sx={{ alignSelf: 'center' }}
+          title="buttons buttons buttons!"
+        />
       </Container>
     </Container>
   );

@@ -27,7 +27,12 @@ import {
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
 import { MouseEvent, ReactNode, useState } from 'react';
-import { DiscussionTopic, ExternalLink, MeetingCostTimer } from './components';
+import {
+  ButtonWallGroup,
+  DiscussionTopic,
+  ExternalLink,
+  MeetingCostTimer,
+} from './components';
 import {
   CopDbBadgeTag,
   EmailMeBadgeTag,
@@ -201,17 +206,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Stack,
     Group,
     Box,
+    Divider,
+    Title,
+    Paper,
     CopDbBadgeTag,
     NoAiBadgeTag,
     EmailMeBadgeTag,
-    Title,
     MeetingCostTimer,
-    Paper,
     DiscussionTopic,
     FroomDemoLayout,
     ExternalLink,
     IndieWebWebring,
-    Divider,
+    ButtonWallGroup,
     ...components,
   };
 }
