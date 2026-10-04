@@ -63,7 +63,7 @@ export const Hero = () => {
           </ExternalLink>
           {` (and I'm also a software engineer 😛).`}
         </Text>
-        <Group spacing="xs" mt="lg">
+        <Group spacing="xs" mt="lg" position="center">
           <CopDbBadgeTag />
           <NoAiBadgeTag />
           <SlcTempBadgeTag />
@@ -76,6 +76,7 @@ export const Hero = () => {
         </Stack>
         <ButtonWallGroup
           sx={{ alignSelf: 'center' }}
+          position="center"
           title="buttons buttons buttons!"
         />
       </Container>
