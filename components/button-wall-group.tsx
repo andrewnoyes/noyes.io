@@ -53,6 +53,13 @@ export const ButtonWallGroup = (props: GroupProps) => {
           title="adryd"
         />
       </ExternalLink>
+      <ExternalLink href="https://app.copdb.org">
+        <img
+          src="/buttons/copdb-button.png"
+          alt="CopDB - community powered police database"
+          title="CopDB - community powered police database"
+        />
+      </ExternalLink>
     </Group>
   );
 };
