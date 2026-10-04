@@ -2,7 +2,6 @@ import {
   Container,
   createStyles,
   Group,
-  Space,
   Stack,
   Text,
   Title,
@@ -64,8 +63,7 @@ export const Hero = () => {
           </ExternalLink>
           {` (and I'm also a software engineer 😛).`}
         </Text>
-        <Space h="xl" mt="m" />
-        <Group spacing="xs">
+        <Group spacing="xs" mt="lg">
           <CopDbBadgeTag />
           <NoAiBadgeTag />
           <SlcTempBadgeTag />
