@@ -60,6 +60,9 @@ export const ButtonWallGroup = (props: GroupProps) => {
           title="CopDB - community powered police database"
         />
       </ExternalLink>
+      <ExternalLink href="https://linux.org">
+        <img src="/buttons/linux-button.png" alt="i linux uwu" />
+      </ExternalLink>
     </Group>
   );
 };
