@@ -3,7 +3,7 @@ import { ExternalLink } from './external-link';
 
 export const ButtonWallGroup = (props: GroupProps) => {
   return (
-    <Group {...props}>
+    <Group spacing="xs" {...props}>
       <ExternalLink href="https://noyes.io">
         <img
           src="/buttons/androo-button.png"
