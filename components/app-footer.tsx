@@ -67,6 +67,11 @@ export const AppFooter = () => {
       />
       <Container className={classes.inner}>
         <Group position="center" spacing="xl">
+          <Box>
+            <IndieWebWebring />
+            <NoAiWebring />
+            <HackerWebring />
+          </Box>
           <Stack spacing={4} align="center">
             <Anchor<'a'>
               href="https://git.unfrl.com/androo/noyes.io"
@@ -113,11 +118,6 @@ export const AppFooter = () => {
               </ExternalLink>
             </Group>
           </Stack>
-          <Box>
-            <IndieWebWebring />
-            <NoAiWebring />
-            <HackerWebring />
-          </Box>
         </Group>
       </Container>
     </footer>
