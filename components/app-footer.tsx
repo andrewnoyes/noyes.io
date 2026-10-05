@@ -84,14 +84,20 @@ export const AppFooter = () => {
               by androo, not ai <span role="img">😘</span>
             </Anchor>
             <Group spacing={4} noWrap>
-              <ExternalLink
-                href="https://app.copdb.org"
-                aria-label="Link to CopDB."
+              <a
+                href="https://kolektiva.social/@matapacos_uwu"
+                aria-label="Link to my mastodon profile"
+                rel="me"
               >
-                <ActionIcon size="lg" aria-label="copdb pig">
-                  <Image src="/pig-glasses.png" alt="" height={18} width={18} />
+                <ActionIcon size="lg" aria-label="mastodon logo">
+                  <Image
+                    src="/mastodon-logo.svg"
+                    alt=""
+                    height={18}
+                    width={18}
+                  />
                 </ActionIcon>
-              </ExternalLink>
+              </a>
               <ExternalLink
                 href="https://ln.ht/~matapacos"
                 aria-label="Link to my linkhut profile"
