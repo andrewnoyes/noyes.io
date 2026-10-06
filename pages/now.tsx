@@ -67,11 +67,7 @@ export default function Now() {
               <ExternalLink href="https://bcfranchise.com/">
                 BaseCamp Franchising
               </ExternalLink>
-              {`. There I work on all kinds of fun stuff - architecting new API
-              services, building cross-platform apps, and so much more! `}
-              (
-              <ExternalLink href="https://www.linkedin.com/jobs/view/4465562317">{`We're hiring!`}</ExternalLink>
-              )
+              {`. There I work on all kinds of stuff: architecting web services, building cross-platform apps, wrangling real-time systems, and a buncha other fun things!`}
             </Text>
           </List.Item>
         </List>
