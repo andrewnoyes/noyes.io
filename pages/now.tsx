@@ -13,6 +13,7 @@ import { IconChevronRight } from '@tabler/icons-react';
 import Head from 'next/head';
 import Link from 'next/link';
 import {
+  ButtonWallGroup,
   CopDbBadgeTag,
   EmailMeBadgeTag,
   ExternalLink,
@@ -21,7 +22,7 @@ import {
 } from '../components';
 import { getPageTitle } from '../utils';
 
-const LAST_UPDATED = new Date('09/27/2026');
+const LAST_UPDATED = new Date('10/6/2026');
 
 const pageTitle = getPageTitle(['now']);
 
@@ -133,7 +134,7 @@ export default function Now() {
         >
           <List.Item>
             <Text>
-              Right now, I am reading{' '}
+              Just finished reading{' '}
               <Anchor
                 component={Link}
                 href="/notes/for-a-libertarian-communism"
@@ -154,7 +155,7 @@ export default function Now() {
           </List.Item>
           <List.Item>
             <Text>
-              {`For technical, I just started `}
+              {`For technical, I started `}
               <ExternalLink href="https://evolutionaryarchitecture.com/">
                 Building Evolutionary Architecture
               </ExternalLink>
@@ -216,7 +217,7 @@ export default function Now() {
 
       <section>
         <Divider />
-        <Group pt="xl" position="center">
+        <Group mt="xl" position="center">
           <CopDbBadgeTag />
           <NoAiBadgeTag />
           <SlcTempBadgeTag />
@@ -224,7 +225,7 @@ export default function Now() {
         </Group>
       </section>
 
-      <Group position="center" mt="xl">
+      <Group position="center" mt="xl" mb="lg">
         <Image
           src="/gifs/red-dog-idle.gif"
           alt="dog standing and wagging its tail, also its on fire"
@@ -232,6 +233,8 @@ export default function Now() {
           width={105}
         />
       </Group>
+
+      <ButtonWallGroup mt="xl" position="center" />
     </Container>
   );
 }
