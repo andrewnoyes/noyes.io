@@ -74,11 +74,7 @@ export const Hero = () => {
           <NoAiWebring />
           <HackerWebring />
         </Stack>
-        <ButtonWallGroup
-          sx={{ alignSelf: 'center' }}
-          position="center"
-          title="buttons buttons buttons!"
-        />
+        <ButtonWallGroup sx={{ alignSelf: 'center' }} position="center" />
       </Container>
     </Container>
   );

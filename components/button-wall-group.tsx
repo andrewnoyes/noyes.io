@@ -61,7 +61,11 @@ export const ButtonWallGroup = (props: GroupProps) => {
         />
       </ExternalLink>
       <ExternalLink href="https://linux.org">
-        <img src="/buttons/linux-button.png" alt="i linux uwu" />
+        <img
+          src="/buttons/linux-button.png"
+          alt="i linux uwu"
+          title="i linux uwu"
+        />
       </ExternalLink>
     </Group>
   );
