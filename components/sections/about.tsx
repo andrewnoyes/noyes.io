@@ -82,7 +82,7 @@ export const About = () => {
         </Grid>
         <Image
           src="/desk-setup.webp"
-          alt="shitty photo of my desk setup."
+          alt="My home desk setup. Currently using a Framework 13 with PopOS! One of our cats, Domino, is sleeping on my desk."
           imageProps={{ loading: 'lazy' }}
           mt={100}
           caption="My home desk setup. Currently using a Framework 13 with PopOS! (Domino is the kitty)"
