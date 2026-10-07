@@ -1,7 +1,6 @@
 export const siteConfig = {
   name: 'androo',
-  description:
-    'Andrew is a software engineer specializing in full-stack application development.',
+  description: `I love the chaos of a human mind trying to explain itself to another human mind, and I'm also a software engineer 😛.`,
   image: '/matapacos.webp',
   mainLinks: [
     { name: '#about', href: '/#about' },
