@@ -72,6 +72,11 @@ export const ButtonWallGroup = (props: GroupProps) => {
         alt="tested on firefox"
         title="tested on firefox"
       />
+      <img
+        src="/buttons/be-crime-do-gay.png"
+        alt="be crime do gay"
+        title="be crime do gay"
+      />
     </Group>
   );
 };
