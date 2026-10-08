@@ -66,9 +66,9 @@ export const ButtonWallGroup = (props: GroupProps) => {
         title="i linux uwu"
       />
       <img
-        src="/buttons/firefox.gif"
-        alt="tested on firefox"
-        title="tested on firefox"
+        src="/buttons/firefoxnow.gif"
+        alt="firefox now!"
+        title="firefox now!"
       />
       <img
         src="/buttons/be-crime-do-gay.png"
