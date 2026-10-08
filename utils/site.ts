@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'androo',
-  description: `software engineer, anti-ai, luddites were right uwu 😘`,
+  description: `software engineer, anti-ai, luddites were right, uwu 😘`,
   image: '/matapacos.webp',
   mainLinks: [
     { name: '#about', href: '/#about' },
