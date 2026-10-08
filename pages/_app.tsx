@@ -3,7 +3,7 @@ import { useLocalStorage } from '@mantine/hooks';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { AppFooter, AppHeader } from '../components';
 import { siteConfig } from '../utils';
 
@@ -19,20 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
   const path = router.asPath;
 
   const showAppShell = !ROUTES_TO_EXCLUDE_APPSHELL.includes(path);
-
-  useEffect(() => {
-    console.log(`                                                            
- @@@@@@   @@@  @@@  @@@@@@@   @@@@@@@    @@@@@@    @@@@@@   
-@@@@@@@@  @@@@ @@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  
-@@!  @@@  @@!@!@@@  @@!  @@@  @@!  @@@  @@!  @@@  @@!  @@@  
-!@!  @!@  !@!!@!@!  !@!  @!@  !@!  @!@  !@!  @!@  !@!  @!@  
-@!@!@!@!  @!@ !!@!  @!@  !@!  @!@!!@!   @!@  !@!  @!@  !@!  
-!!!@!!!!  !@!  !!!  !@!  !!!  !!@!@!    !@!  !!!  !@!  !!!  
-!!:  !!!  !!:  !!!  !!:  !!!  !!: :!!   !!:  !!!  !!:  !!!  
-:!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  :!:  !:!  
-::   :::  ::   ::   :::: ::   ::   :::  ::::: ::  ::::: ::  
- :   : :  ::    :   :: :  :    :   : :   : :  :    : :  :`);
-  }, []);
 
   return (
     <Fragment>
