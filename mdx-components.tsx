@@ -40,7 +40,12 @@ import {
 } from './components/badge-tags';
 import { FroomDemoLayout } from './components/froom';
 import { IndieWebWebring } from './components/webrings';
-import { getTextFromChildren, slugify, windowOrNull } from './utils';
+import {
+  APP_HEADER_HEIGHT,
+  getTextFromChildren,
+  slugify,
+  windowOrNull,
+} from './utils';
 
 const TitleWithLink = ({
   children,
@@ -59,9 +64,20 @@ const TitleWithLink = ({
   return (
     <Link
       href={pathnameWithId}
-      style={{ textDecoration: 'none', color: 'inherit' }}
+      style={{
+        textDecoration: 'none',
+        color: 'inherit',
+      }}
     >
-      <Group id={id} spacing={8} my="xs" noWrap>
+      <span
+        id={id}
+        style={{
+          display: 'block',
+          marginTop: `-${APP_HEADER_HEIGHT}px`,
+          paddingBottom: APP_HEADER_HEIGHT,
+        }}
+      />
+      <Group spacing={8} my="xs" noWrap>
         <CopyButton value={href}>
           {({ copied, copy }) => (
             <ActionIcon
