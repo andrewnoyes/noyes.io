@@ -11,7 +11,12 @@ const JobCompany = ({ job }: { job: JobDescription }) => {
       {job.active && (
         <Badge
           color="green"
-          variant="dot"
+          // variant="dot"
+          variant="gradient"
+          gradient={{
+            from: 'violet',
+            to: 'grape',
+          }}
           radius="xs"
           sx={{
             textTransform: 'lowercase',
