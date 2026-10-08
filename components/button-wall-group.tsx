@@ -60,13 +60,11 @@ export const ButtonWallGroup = (props: GroupProps) => {
           title="CopDB - community powered police database"
         />
       </ExternalLink>
-      <ExternalLink href="https://linux.org">
-        <img
-          src="/buttons/linux-button.png"
-          alt="i linux uwu"
-          title="i linux uwu"
-        />
-      </ExternalLink>
+      <img
+        src="/buttons/linux-button.png"
+        alt="i linux uwu"
+        title="i linux uwu"
+      />
       <img
         src="/buttons/firefox.gif"
         alt="tested on firefox"
