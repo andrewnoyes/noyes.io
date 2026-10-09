@@ -66,17 +66,24 @@ export const ButtonWallGroup = (props: GroupProps) => {
         title="i linux uwu"
       />
       <img
-        src="/buttons/firefoxnow.gif"
-        alt="firefox now!"
-        title="firefox now!"
-      />
-      <img
         src="/buttons/be-crime-do-gay.png"
         alt="be crime do gay"
         title="be crime do gay"
       />
+      <img
+        src="/buttons/firefoxnow.gif"
+        alt="firefox now!"
+        title="firefox now!"
+      />
       <ExternalLink href="https://oat.zone">
         <img src="/buttons/oatzone.gif" alt="oat.zone" title="oat.zone" />
+      </ExternalLink>
+      <ExternalLink href="https://maia.crimew.gay/">
+        <img
+          src="/buttons/maia.crimew.gay.png"
+          alt="maia crimew"
+          title="maia crimew"
+        />
       </ExternalLink>
     </Group>
   );
