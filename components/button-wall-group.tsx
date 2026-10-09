@@ -75,6 +75,9 @@ export const ButtonWallGroup = (props: GroupProps) => {
         alt="be crime do gay"
         title="be crime do gay"
       />
+      <ExternalLink href="https://oat.zone">
+        <img src="/buttons/oatzone.gif" alt="oat.zone" title="oat.zone" />
+      </ExternalLink>
     </Group>
   );
 };
