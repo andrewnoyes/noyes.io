@@ -9,6 +9,10 @@ const nextConfig = {
     unoptimized: true,
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  experimental: {
+    largePageDataBytes: 256 * 1000, // 256KB (double default)
+    scrollRestoration: true,
+  },
 };
 
 const withMDX = createMDX({});
