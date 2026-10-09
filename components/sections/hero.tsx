@@ -28,8 +28,7 @@ const useStyles = createStyles((theme) => ({
   greeting: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     fontFamily: 'monospace',
-    marginLeft: 8,
-    marginBottom: 6,
+    marginLeft: 6,
   },
   title: {
     fontWeight: 800,
@@ -54,7 +53,7 @@ export const Hero = () => {
         size={650}
         className={`${classes.greetingContainer} h-card`}
       >
-        <Text className={classes.greeting}>Hello! My name is</Text>
+        <Text className={classes.greeting}>Hello! My name is ↴</Text>
         <Title className={`${classes.title} p-name`}>Andrew Noyes!</Title>
         <Text color="dimmed" size="lg">
           <ExternalLink href="https://sightlessscribbles.com/posts/the-colonization-of-confidence/">
