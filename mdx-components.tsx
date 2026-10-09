@@ -87,7 +87,7 @@ const TitleWithLink = ({
               }}
               aria-label={title}
               title={title}
-              size="xs"
+              size="sm"
             >
               {copied ? (
                 <IconCheck size={16} aria-hidden />
