@@ -246,13 +246,23 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
                   <BadgeList items={note.tags ?? []} spacing={4} />
                   <Group spacing="xs" mt={2}>
                     {note.updated && (
-                      <Text c="dimmed" ff="monospace" size="xs">
-                        updated: {note.updated}
+                      <Text
+                        c="dimmed"
+                        ff="monospace"
+                        size="xs"
+                        title={`updated on: ${note.updated}`}
+                      >
+                        u: {note.updated}
                       </Text>
                     )}
                     {note.created && (
-                      <Text c="dimmed" ff="monospace" size="xs">
-                        created: {note.created}
+                      <Text
+                        c="dimmed"
+                        ff="monospace"
+                        size="xs"
+                        title={`created on: ${note.created}`}
+                      >
+                        c: {note.created}
                       </Text>
                     )}
                   </Group>
