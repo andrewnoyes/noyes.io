@@ -77,7 +77,8 @@ const TitleWithLink = ({
           paddingBottom: APP_HEADER_HEIGHT,
         }}
       />
-      <Group spacing={8} my="xs" noWrap>
+      {/** inline-flex so the container does grow its width, just fit to content */}
+      <Group spacing={8} my="xs" noWrap sx={{ display: 'inline-flex' }}>
         <CopyButton value={href}>
           {({ copied, copy }) => (
             <ActionIcon
