@@ -115,7 +115,7 @@ export const jobDescriptions: JobDescription[] = [
 
 export const projectDescriptions: ProjectDescription[] = [
   {
-    title: 'Cop DB',
+    title: 'CopDB',
     projectUrl: 'https://app.copdb.org',
     description: `Community-moderated police and incident database. It tracks police officers, their departments, and incidents or misconduct they're involved in.`,
     images: [
