@@ -16,7 +16,7 @@ import { IndieWebWebring } from './webrings/indie-web-webring';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: 32,
     marginLeft: -16,
     marginRight: -16,
     marginBottom: -16,

@@ -3,6 +3,7 @@ import {
   createStyles,
   NavLink,
   Select,
+  Space,
   useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
@@ -87,6 +88,7 @@ export const NotesList = (props: NotesListProps) => {
           />
         </Link>
       ))}
+      <Space h="xs" />
     </Box>
   );
 };

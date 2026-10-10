@@ -89,9 +89,9 @@ interface NotesProps {
   uniqueTags: string[];
 }
 
-const SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + margin-bottom
-
-const SHOW_NOTES_OFFSET = APP_HEADER_HEIGHT + 14;
+const MOBILE_SCROLL_AREA_OFFSET = 16 + 31 + 16; // padding-top + height of header + margin-bottom
+const MOBILE_SHOW_NOTES_OFFSET = APP_HEADER_HEIGHT + 14;
+const DESKTOP_NOTES_PANEL_OFFSET = APP_HEADER_HEIGHT + 8; // py
 
 export default function Notes({ notes, note, uniqueTags }: NotesProps) {
   const router = useRouter();
@@ -116,7 +116,7 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
 
   const mobileButtons = (
     <Stack
-      sx={{ left: 0, top: SHOW_NOTES_OFFSET, position: 'fixed' }}
+      sx={{ left: 0, top: MOBILE_SHOW_NOTES_OFFSET, position: 'fixed' }}
       spacing="sm"
       className={classes.hiddenDesktop}
     >
@@ -202,7 +202,7 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
         >
           <ScrollArea
             mx="-sm"
-            sx={{ height: `calc(100vh - ${SCROLL_AREA_OFFSET}px)` }}
+            sx={{ height: `calc(100vh - ${MOBILE_SCROLL_AREA_OFFSET}px)` }}
             scrollbarSize={6}
           >
             <NotesList
@@ -216,7 +216,18 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
           </ScrollArea>
         </Drawer>
         <Grid>
-          <Grid.Col sm={3} className={classes.hiddenMobile}>
+          <Grid.Col
+            sm={3}
+            className={classes.hiddenMobile}
+            py={0}
+            sx={{
+              top: DESKTOP_NOTES_PANEL_OFFSET,
+              position: 'sticky',
+              height: `calc(100vh - ${DESKTOP_NOTES_PANEL_OFFSET}px)`,
+              overflowY: 'auto',
+              marginBottom: -20, // pull col closer to footer so theres less gap
+            }}
+          >
             {notesListTitleWithSearch}
             <NotesList
               notes={getFilteredNotes()}
@@ -226,7 +237,7 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
               activeSlug={note?.slug}
             />
           </Grid.Col>
-          <Grid.Col sm={9} pl="md">
+          <Grid.Col sm={9} pl="md" py={0}>
             {note ? (
               <div>
                 <Box>
