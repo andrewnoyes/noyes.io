@@ -4,6 +4,7 @@ import {
   NavLink,
   Select,
   Space,
+  Text,
   useMantineTheme,
 } from '@mantine/core';
 import Link from 'next/link';
@@ -82,7 +83,11 @@ export const NotesList = (props: NotesListProps) => {
         >
           <NavLink
             key={note.slug}
-            label={note.title}
+            label={
+              <Text ff="monospace" fw={500} sx={{ fontSize: 13 }}>
+                {note.title}
+              </Text>
+            }
             description={<BadgeList items={note.tags ?? []} spacing={4} />}
             active={activeSlug === note.slug}
           />

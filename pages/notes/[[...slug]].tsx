@@ -45,12 +45,12 @@ const ShowNotesSearchButton = (props?: ActionIconProps) => {
 
   return (
     <ActionIcon
-      aria-label="Show notes search"
+      aria-label="Show notes search (ctrl+k)"
       title="Show notes search (ctrl+k)"
       onClick={handleShowNotes}
       {...props}
     >
-      <span role="img">🧐</span>
+      🧐
     </ActionIcon>
   );
 };
@@ -152,7 +152,7 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
       style={{ textDecoration: 'none', color: 'inherit' }}
       onClick={closeNotePanel}
     >
-      <Title order={2} size="h3">
+      <Title order={2} size="h3" ff="monospace">
         Notes
       </Title>
     </Link>
@@ -242,16 +242,16 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
               <div>
                 <Box>
                   {mobileButtons}
-                  <Title>{note.title}</Title>
+                  <Title ff="monospace">{note.title}</Title>
                   <BadgeList items={note.tags ?? []} spacing={4} />
                   <Group spacing="xs">
                     {note.updated && (
-                      <Text c="dimmed" fz="sm">
+                      <Text c="dimmed" fz="sm" ff="monospace">
                         updated: {note.updated}
                       </Text>
                     )}
                     {note.created && (
-                      <Text c="dimmed" fz="sm">
+                      <Text c="dimmed" fz="sm" ff="monospace">
                         created: {note.created}
                       </Text>
                     )}

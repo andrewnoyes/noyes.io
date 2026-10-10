@@ -99,7 +99,9 @@ const TitleWithLink = ({
           )}
         </CopyButton>
 
-        <Title {...titleProps}>{children}</Title>
+        <Title ff="monospace" {...titleProps}>
+          {children}
+        </Title>
       </Group>
     </Link>
   );
