@@ -73,7 +73,7 @@ export const WorkExperience = () => {
   return (
     <section id="experience">
       <Container size="md" sx={{ paddingTop: '10%', paddingBottom: '10%' }}>
-        <SectionHeader title="Work experience" />
+        <SectionHeader title="Experience" />
         {renderContent()}
       </Container>
     </section>
