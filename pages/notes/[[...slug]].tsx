@@ -244,14 +244,14 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
                   {mobileButtons}
                   <Title ff="monospace">{note.title}</Title>
                   <BadgeList items={note.tags ?? []} spacing={4} />
-                  <Group spacing="xs">
+                  <Group spacing="xs" mt={2}>
                     {note.updated && (
-                      <Text c="dimmed" fz="sm" ff="monospace">
+                      <Text c="dimmed" ff="monospace" size="xs">
                         updated: {note.updated}
                       </Text>
                     )}
                     {note.created && (
-                      <Text c="dimmed" fz="sm" ff="monospace">
+                      <Text c="dimmed" ff="monospace" size="xs">
                         created: {note.created}
                       </Text>
                     )}
