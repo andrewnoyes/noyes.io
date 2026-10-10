@@ -63,7 +63,7 @@ export const ProjectItem = ({
       </Grid.Col>
       <Grid.Col sm={5}>
         <Card radius="sm" sx={{ width: '100%' }} shadow="xl">
-          <Title order={3}>
+          <Title order={3} ff="monospace">
             {projectUrl ? (
               <Link
                 href={projectUrl}

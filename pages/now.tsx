@@ -26,6 +26,12 @@ const LAST_UPDATED = new Date('10/6/2026');
 
 const pageTitle = getPageTitle(['now']);
 
+const NowSectionTitle = ({ children }: { children: string }) => (
+  <Title ff="monospace" order={2}>
+    {children}
+  </Title>
+);
+
 export default function Now() {
   const theme = useMantineTheme();
 
@@ -39,17 +45,17 @@ export default function Now() {
         <meta property="og:title" content={pageTitle} key="title" />
       </Head>
       <section>
-        <Title>Now</Title>
+        <Title ff="monospace">Now</Title>
         <Text color="dimmed">
           Welcome to my{' '}
           <ExternalLink href="https://nownownow.com/">now</ExternalLink> page!
           Last updated {LAST_UPDATED.toLocaleDateString()} from SLC.
         </Text>
-        <Divider mt="lg" />
+        <Divider mt="xs" />
       </section>
 
       <section>
-        <Title order={2}>Work</Title>
+        <NowSectionTitle>Work</NowSectionTitle>
         <List
           spacing="md"
           mt="sm"
@@ -74,7 +80,7 @@ export default function Now() {
       </section>
 
       <section>
-        <Title order={2}>Projects</Title>
+        <NowSectionTitle>Projects</NowSectionTitle>
         <List
           spacing="md"
           mt="sm"
@@ -116,7 +122,7 @@ export default function Now() {
       </section>
 
       <section>
-        <Title order={2}>Books</Title>
+        <NowSectionTitle>Books</NowSectionTitle>
         <List
           spacing="md"
           mt="sm"
@@ -162,7 +168,7 @@ export default function Now() {
       </section>
 
       <section>
-        <Title order={2}>Podcasts</Title>
+        <NowSectionTitle>Podcasts</NowSectionTitle>
         <List
           spacing="md"
           mt="sm"
