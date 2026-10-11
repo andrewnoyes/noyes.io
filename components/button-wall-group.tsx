@@ -52,6 +52,12 @@ export const ButtonWallGroup = (props: GroupProps) => {
       <ExternalLink href="https://casuallyblue.dev/">
         <img src="/buttons/casually-blue.gif" alt="casually blue" />
       </ExternalLink>
+      <ExternalLink href="https://sporeball.dev/">
+        <img src="/buttons/sporeball.png" alt="sporeball" />
+      </ExternalLink>
+      <ExternalLink href="https://quiltro.org/">
+        <img src="/buttons/quiltro.png" alt="quiltro" />
+      </ExternalLink>
     </Group>
   );
 };
