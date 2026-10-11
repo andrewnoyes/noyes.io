@@ -58,6 +58,9 @@ export const ButtonWallGroup = (props: GroupProps) => {
       <ExternalLink href="https://quiltro.org/">
         <img src="/buttons/quiltro.png" alt="quiltro" />
       </ExternalLink>
+      <ExternalLink href="https://breq.dev/">
+        <img src="/buttons/breq.png" alt="breq" />
+      </ExternalLink>
     </Group>
   );
 };
