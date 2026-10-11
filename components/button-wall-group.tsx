@@ -49,6 +49,9 @@ export const ButtonWallGroup = (props: GroupProps) => {
       <ExternalLink href="https://maia.crimew.gay/">
         <img src="/buttons/maia.crimew.gay.png" alt="maia crimew" />
       </ExternalLink>
+      <ExternalLink href="https://casuallyblue.dev/">
+        <img src="/buttons/casually-blue.gif" alt="casually blue" />
+      </ExternalLink>
     </Group>
   );
 };
