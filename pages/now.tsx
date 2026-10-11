@@ -22,7 +22,7 @@ import {
 } from '../components';
 import { getPageTitle } from '../utils';
 
-const LAST_UPDATED = new Date('10/6/2026');
+const LAST_UPDATED = new Date('10/10/2026');
 
 const pageTitle = getPageTitle(['now']);
 
@@ -95,19 +95,16 @@ export default function Now() {
           <List.Item>
             <Text>
               <ExternalLink href="https://app.copdb.org">CopDB</ExternalLink>
-              {` has been my (and others) personal project for the last four or so
-              years. Its goal is to document the most domestically violent part
-              of the state. A big push this year is to aggregate data from other
-              similar projects (ICE list, OpenOversight, Chicago Police Data
-              Project, etc), so that we can build a more holistic dataset of the
-              cops in the US.`}
+              {` is a community-powered police database. Its goal is to document the most domestically violent part
+              of the state. A big push this year is to aggregate data from other similar projects (ICE list, OpenOversight, Chicago Police Data Project, etc), so that we can build a more holistic dataset of the cops in the US.`}
             </Text>
             <Image
               src="/copdb/home.webp"
               alt="CopDB home page."
+              caption="CopDB home page."
               height={300}
               fit="contain"
-              mt="xs"
+              mt="sm"
             />
           </List.Item>
           <List.Item>
@@ -117,6 +114,14 @@ export default function Now() {
               </Anchor>
               {` (name WIP 😛) is a silly project idea I've been playing with. Gist is you create a room for your friends, where you can add panels of interactivity - things like shared events calendar, bets/wagers, movie watchlist, etc.`}
             </Text>
+            <Image
+              src="/notes/froom/the-bois-demo-layout.webp"
+              alt="Demo froom with draggable and resizable panels."
+              caption="Demo froom with draggable and resizable panels."
+              height={300}
+              fit="contain"
+              mt="sm"
+            />
           </List.Item>
         </List>
       </section>
