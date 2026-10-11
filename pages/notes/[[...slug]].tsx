@@ -10,7 +10,6 @@ import {
   Group,
   ScrollArea,
   Stack,
-  Text,
   Title,
   useMantineTheme,
 } from '@mantine/core';
@@ -31,7 +30,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import path from 'path';
 import { useState } from 'react';
-import { BadgeList, NotesList } from '../../components';
+import { BadgeList, NoteMetadata, NotesList } from '../../components';
 import NotesHome from '../../components/notes-home.mdx';
 import { useMDXComponents } from '../../mdx-components';
 import { APP_HEADER_HEIGHT, getPageTitle, Note } from '../../utils';
@@ -244,18 +243,7 @@ export default function Notes({ notes, note, uniqueTags }: NotesProps) {
                   {mobileButtons}
                   <Title ff="monospace">{note.title}</Title>
                   <BadgeList items={note.tags ?? []} spacing={4} />
-                  <Group spacing="xs" mt={2}>
-                    {note.updated && (
-                      <Text c="dimmed" ff="monospace" size="xs">
-                        updated: {note.updated}
-                      </Text>
-                    )}
-                    {note.created && (
-                      <Text c="dimmed" ff="monospace" size="xs">
-                        created: {note.created}
-                      </Text>
-                    )}
-                  </Group>
+                  <NoteMetadata note={note} />
                 </Box>
                 <Divider mb="sm" />
                 <MDXRemote {...note.mdxContent} components={mdxComponents} />

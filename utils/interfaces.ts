@@ -20,7 +20,7 @@ export interface Note {
   title: string;
   slug: string;
   content: string;
-  created?: string;
+  created: string;
   updated?: string;
   tags: string[];
 }

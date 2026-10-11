@@ -46,7 +46,7 @@ export default function Now() {
       </Head>
       <section>
         <Title ff="monospace">Now</Title>
-        <Text color="dimmed">
+        <Text color="dimmed" ff="monospace" size="sm">
           Welcome to my{' '}
           <ExternalLink href="https://nownownow.com/">now</ExternalLink> page!
           Last updated {LAST_UPDATED.toLocaleDateString()} from SLC.

@@ -5,6 +5,7 @@ export * from './badge-tags';
 export * from './button-wall-group';
 export * from './discussion-topic';
 export * from './external-link';
+export * from './note-metadata';
 export * from './notes-list';
 export * from './pride-flag';
 export * from './pride-flag-picker';
