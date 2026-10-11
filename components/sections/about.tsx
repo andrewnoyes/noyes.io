@@ -40,11 +40,11 @@ export const About = () => {
             <Space h="md" />
             <Text>
               {`For my professional experience, I'm adept at (and enjoy!) building out features from database schema all the way to user interaction.
-              My main areas of focus are real-time applications (WebSockets <3), responsive and accessible front-ends, and performant back-end APIs
+              My main areas of focus are real-time applications (WebSockets 😍), responsive and accessible front-ends, and performant back-end APIs
               and services.`}
             </Text>
             <Space h="md" />
-            <Text>{`Some technologies I've been working with recently (in no particular order):`}</Text>
+            <Text>{`Some technologies I've been working with recently:`}</Text>
             <Space h="md" />
             <Group spacing="xl">
               <List
@@ -53,9 +53,9 @@ export const About = () => {
                 sx={{ fontFamily: 'monospace' }}
                 icon={<IconChevronRight size={14} color={iconColor} />}
               >
-                <List.Item>Node.js</List.Item>
-                <List.Item>ASP.NET Core</List.Item>
                 <List.Item>C#</List.Item>
+                <List.Item>ASP.NET Core</List.Item>
+                <List.Item>Node.js</List.Item>
               </List>
               <List
                 size="sm"
