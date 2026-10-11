@@ -6,5 +6,6 @@ export const NoAiWebring = () => (
     sourceUrl="https://baccyflap.com/noai"
     previousUrl="https://baccyflap.com/noai/?prv&s=brr"
     nextUrl="https://baccyflap.com/noai/?nxt&s=brr"
+    randomUrl="https://baccyflap.com/noai/?rnd"
   />
 );

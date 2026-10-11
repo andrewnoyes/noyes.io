@@ -15,7 +15,12 @@ import {
 import { ButtonWallGroup } from '../button-wall-group';
 import { ExternalLink } from '../external-link';
 import { PrideFlagPicker } from '../pride-flag-picker';
-import { HackerWebring, IndieWebWebring, NoAiWebring } from '../webrings';
+import {
+  BucketWebring,
+  HackerWebring,
+  IndieWebWebring,
+  NoAiWebring,
+} from '../webrings';
 
 const useStyles = createStyles((theme) => ({
   greetingContainer: {
@@ -74,6 +79,7 @@ export const Hero = () => {
           <IndieWebWebring />
           <NoAiWebring />
           <HackerWebring />
+          <BucketWebring />
         </Stack>
         <ButtonWallGroup sx={{ alignSelf: 'center' }} position="center" />
       </Container>

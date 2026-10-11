@@ -7,6 +7,7 @@ export const HackerWebring = () => {
       sourceUrl="https://ring.acab.dev/"
       previousUrl="https://ring.acab.dev/prev/0c1db1ea01"
       nextUrl="https://ring.acab.dev/next/0c1db1ea01"
+      randomUrl="https://ring.acab.dev/rand/0c1db1ea01"
     />
   );
 };
