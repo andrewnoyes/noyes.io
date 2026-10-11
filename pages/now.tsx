@@ -96,7 +96,7 @@ export default function Now() {
             <Text>
               <ExternalLink href="https://app.copdb.org">CopDB</ExternalLink>
               {` is a community-powered police database. Its goal is to document the most domestically violent part
-              of the state. A big push this year is to aggregate data from other similar projects (ICE list, OpenOversight, Chicago Police Data Project, etc), so that we can build a more holistic dataset of the cops in the US.`}
+              of the state. A big push this year is to aggregate data from other similar projects (ICE list, OpenOversight, Chicago Police Data Project, etc) so that we can build a more holistic dataset of the cops in the US.`}
             </Text>
             <Image
               src="/copdb/home.webp"
