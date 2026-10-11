@@ -10,6 +10,7 @@ import {
 import Link from 'next/link';
 import { Note } from '../utils';
 import { BadgeList } from './badge-list';
+import { NoteMetadata } from './note-metadata';
 
 const useStyles = createStyles((theme) => ({
   tagSelect: {
@@ -84,11 +85,16 @@ export const NotesList = (props: NotesListProps) => {
           <NavLink
             key={note.slug}
             label={
-              <Text ff="monospace" fw={500} sx={{ fontSize: 13 }}>
+              <Text ff="monospace" fw={500}>
                 {note.title}
               </Text>
             }
-            description={<BadgeList items={note.tags ?? []} spacing={4} />}
+            description={
+              <Box>
+                <BadgeList items={note.tags ?? []} spacing={4} />
+                <NoteMetadata note={note} />
+              </Box>
+            }
             active={activeSlug === note.slug}
           />
         </Link>
